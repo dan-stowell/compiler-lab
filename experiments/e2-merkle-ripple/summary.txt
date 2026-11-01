@@ -1,0 +1,63 @@
+== ripple.csv: 315 commit transitions
+functions at last commit: 297; largest SCC at last commit: 55 (max over history 55)
+body-hash change frac:   median 0.0154  p90 0.0699  mean 0.0414
+closure-key change frac: median 0.2162  p90 0.4091  mean 0.2030
+closure change, excl. added (over functions in both commits): median 0.2093  p90 0.3958  mean 0.1951
+bimodality: largest-SCC body touched in 127 transitions (closure median 0.3158); not touched in 188 (closure median 0.0432)
+removed functions: total 8, commits with removals 5
+amplification (sum closure changed / sum body changed): 8.21
+  commits with >=100 functions (261): body median 0.0127, closure median 0.1622, p90 0.3775
+closure ripple histogram:
+           0   13 #############
+      (0,5%]   89 #########################################################################################
+     (5,10%]   32 ################################
+    (10,20%]   20 ####################
+    (20,30%]   65 #################################################################
+    (30,40%]   64 ################################################################
+    (40,50%]   23 #######################
+    (50,75%]   12 ############
+   (75,100%]    2 ##
+DECISION: median closure ripple > 10% -> closure keys over-invalidate
+
+== ripple-with-tests.csv: 315 commit transitions
+functions at last commit: 395; largest SCC at last commit: 55 (max over history 55)
+body-hash change frac:   median 0.0178  p90 0.0773  mean 0.0428
+closure-key change frac: median 0.1791  p90 0.3607  mean 0.1762
+closure change, excl. added (over functions in both commits): median 0.1768  p90 0.3419  mean 0.1674
+bimodality: largest-SCC body touched in 127 transitions (closure median 0.2596); not touched in 188 (closure median 0.0373)
+removed functions: total 16, commits with removals 11
+amplification (sum closure changed / sum body changed): 6.72
+  commits with >=100 functions (272): body median 0.0152, closure median 0.1542, p90 0.3127
+closure ripple histogram:
+           0    7 #######
+      (0,5%]  102 ######################################################################################################
+     (5,10%]   26 ##########################
+    (10,20%]   44 ############################################
+    (20,30%]   75 ###########################################################################
+    (30,40%]   42 ##########################################
+    (40,50%]   10 ##########
+    (50,75%]    9 #########
+   (75,100%]    2 ##
+DECISION: median closure ripple > 10% -> closure keys over-invalidate
+
+== ripple-any-ident.csv: 315 commit transitions
+functions at last commit: 297; largest SCC at last commit: 76 (max over history 76)
+body-hash change frac:   median 0.0154  p90 0.0699  mean 0.0414
+closure-key change frac: median 0.2577  p90 0.4922  mean 0.2394
+closure change, excl. added (over functions in both commits): median 0.2540  p90 0.4857  mean 0.2317
+bimodality: largest-SCC body touched in 139 transitions (closure median 0.3704); not touched in 176 (closure median 0.0400)
+removed functions: total 8, commits with removals 5
+amplification (sum closure changed / sum body changed): 9.94
+  commits with >=100 functions (261): body median 0.0127, closure median 0.2252, p90 0.4800
+closure ripple histogram:
+           0   13 #############
+      (0,5%]   89 #########################################################################################
+     (5,10%]   32 ################################
+    (10,20%]   12 ############
+    (20,30%]   22 ######################
+    (30,40%]   67 ###################################################################
+    (40,50%]   56 ########################################################
+    (50,75%]   25 #########################
+   (75,100%]    2 ##
+DECISION: median closure ripple > 10% -> closure keys over-invalidate
+
