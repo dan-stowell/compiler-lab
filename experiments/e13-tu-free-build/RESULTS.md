@@ -80,3 +80,11 @@ Other size changes:
 - `propagatemark`, `getobjname` and `addk` now have multiple copies.
 
 *Interpretation:* the loss is real at the code level, but the benchmarks spend little time in the arithmetic slow paths it affects.
+
+## Independent verification (2026-11-01)
+
+Confirmed.
+- **TU-free:** the 331 split objects export exactly 333 global text symbols (331 targets plus the two `__tuf_*` hidden globals), and no object holds another target's body. The linked binary has 349 FILE symbols, so it was built from the split objects.
+- **Tests:** rerun on the TU-free binary, `final OK !!!`; benchmark outputs are identical.
+- **Instruction ratios:** reproduced (fib 1.024; nbody 0.971, within the per-round spread).
+- **Caveats:** run-to-run instruction variance is about 0.5%, so the measurement-only CI is optimistic. Extern const data `lua_ident` (81 copies) and `luaT_typenames_` (14) are duplicated as local copies. Nothing observable was found, but only C code comparing returned string pointers would notice. A stricter build would emit extern data once.
