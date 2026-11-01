@@ -2,6 +2,24 @@
 
 Newest first. "Measured" means a run whose script is in the repo; "estimated" means arithmetic or analysis.
 
+## 2026-11-01: E10 (verified) and E14 (settled from existing data)
+
+**E10, hidden dependencies of learned slices: unsound for bit-identity, at a low rate.** `experiments/e10-hidden-deps/`
+- Over the newest 1500 lua/lua commits, slices learned at commit N (depth frozen) and reused at N+1 give n=63,504 counted hits, i.e. TUs whose token stream changed; the hit rate is 60.6%.
+- **22 (0.035%)** of these have full-TU -O2 asm that changed while the slice didn't. They fall in 12 commits; the commit-clustered 95% interval is 0.011–0.070%.
+- Cause, in every case: a same-TU callee outside the slice became inlined. Usually its body changed; at least once the effect was two levels deep (`luaH_newkey` → `luaH_finishset` → `luaH_set`).
+- The verifier reproduced four cases by hand and the 200-commit pilot.
+- Read with E13: these are differences from the whole-TU compile, not wrong code. A cache keyed on exactly what the worker compiles is sound by construction. A cache that promises whole-TU output is not.
+
+**E14, key lifetime: stop (keys churn too fast for spare-cycle investment).** Computed by the plan reviewer from E10's data in about a minute (measured); being packaged as `experiments/e14-key-lifetime/`.
+- Per-transition change rate (mean lifetime ratio vs per-TU):
+  - per-TU hash: 0.183 (1.0×)
+  - E14 TU-free key, all header declarations included: 0.142 (**1.29×**)
+  - E8-minimal slice: 0.051 (3.6×)
+  - body hash, the ceiling: 0.0049 (37×)
+- In 81% of changed-TU transitions, every E14 key in the TU changes at once. The over-inclusive header context is what churns.
+- Finding: a TU-free key that is sound by construction lives barely longer than a TU hash. Only the minimal slice key gets a few times longer, and it is under the 5× bar. Lifetime is also necessary but not sufficient: no optimization-benefit estimate exists yet. Caching expensive per-function optimization doesn't pay on this workload's churn.
+
 ## 2026-11-01: Cycle 5: dropping bit-identity
 
 The ideator pointed out the assumption shared by every experiment so far: "correct" meant bit-identical to the whole-TU compile, which forces mechanisms to copy compiler quirks. Its spot-checks (single runs): per-TU flag search beats -Oz by only 1.0%; zstd dictionaries trained on other programs shrink Lua's .text by ≤1.1%; across Lua 5.4.6→5.4.7, 572/644 functions are unchanged after normalization.
