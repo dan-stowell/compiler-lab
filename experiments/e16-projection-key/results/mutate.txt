@@ -1,3 +1,5 @@
+  PASS synthetic: packed enum, sizeof(E): key changed
+  PASS synthetic: typedef aligned(32), local whose address escapes: key changed
   PASS synthetic: used field offset (swap a,x): key changed
   PASS synthetic: typedef width (T int->long): key changed
   PASS synthetic: typedef signedness (T int->unsigned): key changed
@@ -14,4 +16,5 @@
   PASS real lua_gc control: swap unused global_State.allgc/sweepgc: key same
   PASS real lua_gc: lu_byte unsigned char->unsigned short: key changed
   PASS real lua_gc: +noreturn on callee luaE_setdebt: key changed
+  PASS real luaL_gsub: aligned(64) on the luaL_Buffer typedef (record layout unchanged): key changed
 mutation tests: all pass

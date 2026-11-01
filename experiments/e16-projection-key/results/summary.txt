@@ -1,9 +1,9 @@
 slice-changed transitions: 37692; excluded: compile fail 80, extraction fail 0; counted 37612
-  output changed (E15) 7017; projection changed 14433; projection changed, output same 7416
-  ratio projection/output change rate: 2.057  (slice/output: 5.360)
-  per all 477399 function-transitions: slice 0.07895, output 0.01470, projection 0.03023
-  informative hits (slice changed, projection equal): 23179 in 206 distinct commits
+  output changed (E15) 7017; projection changed 14841; projection changed, output same 7824
+  ratio projection/output change rate: 2.115  (slice/output: 5.360)
+  per all 477399 function-transitions: slice 0.07895, output 0.01470, projection 0.03109
+  informative hits (slice changed, projection equal): 22771 in 203 distinct commits
   false hits (informative hit, whole-unit output changed): 0 in 0 commits
-  95% upper bound on false-hit rate: per-hit (rule of three) 0.01294%; commit-clustered (hits in a commit fully correlated, n_eff = commits) 1.4563%
-  slices keyed: 37806; with >=1 fallback: 1937 (5.12%); events: {'unknown:OffsetOfExpr': 6350}
-  extraction CPU per slice: mean 82 ms, median 49 ms, p90 93 ms, total 3094 s
+  95% upper bound on false-hit rate: per-hit (rule of three) 0.01317%; commit-clustered (hits in a commit fully correlated, n_eff = commits) 1.4778%
+  slices keyed: 37806; with >=1 fallback: 1937 (5.12%); events: {'probe_unspellable_anon': 25735, 'probe_rejected': 33210, 'unknown:OffsetOfExpr': 6350}
+  extraction CPU per slice: mean 108 ms, median 71 ms, p90 135 ms, total 4087 s

@@ -22,6 +22,9 @@ hash over what its function bodies actually use, computed from clang's
         attributes; for const or defined-here globals the whole declaration text,
         and its initializer is walked like a body (deviation: the plan says const
         only; a global defined in the unit is emitted into the unit's .o)
+  TY    sizeof, _Alignof, __alignof__ of every type mentioned, evaluated by clang
+        in a syntax-only probe (typedef attributes, packed enums; this also gives
+        every sizeof/alignof operand's evaluated value)
   CC    compiler and flags (pinned)
 Fallback: any node kind outside KNOWN, an OffsetOfExpr, or an unresolvable
 field/record/enum adds the whole declaration text (and layout) of the records
@@ -115,7 +118,9 @@ class Proj:
         self.anon_name = {}        # "L:C" -> canonical anon name
         self._name_anons()
         self._canon_memo = {}
+        self.used_types = set()
         self._layouts()
+        self.used_types = set()  # layout lines are not types; probe only what the walk uses
 
     # ------------------------------------------------------------ indexing
     def _index(self, n, parent):
@@ -217,6 +222,7 @@ class Proj:
         if t is None:
             return None
         s = t.get("qualType") if isinstance(t, dict) else t
+        self.used_types.add(s)
         if s in self._canon_memo:
             return self._canon_memo[s]
         self._canon_memo[s] = s  # cycle guard
@@ -338,8 +344,51 @@ class Proj:
                 attrs = [self.clean(c) for c in d.get("inner", []) if c.get("kind", "").endswith("Attr")]
                 self.items.append(("F", f, self.canon(d.get("type")), d.get("storageClass"),
                                    d.get("inline"), d.get("variadic"), json.dumps(attrs)))
+        self.probe()
         self.items.append(("CC", PIN))
         return H(json.dumps(self.items))
+
+    def probe(self):
+        """sizeof, _Alignof and __alignof__ of every type the key mentions, as
+        clang evaluates them (so typedef attributes such as aligned(64) and
+        packed enums count): a syntax-only run of the unit plus one
+        `typedef char __e16p_i[sizeof(T)][_Alignof(T)][__alignof__(T)];` per type.
+        Probes clang rejects (unspellable or incomplete types) are dropped and
+        counted; anonymous records are covered by their parent's layout."""
+        types = sorted(t for t in self.used_types
+                       if t and not re.search(r"unnamed|anonymous|\{anon", t))
+        self.fallbacks["probe_unspellable_anon"] += len(self.used_types) - len(types)
+        def spell(t):  # clang prints a typedef'd anonymous tag as 'enum OpCode': spell it 'OpCode'
+            m = re.fullmatch(r"((?:const |volatile )*)(?:struct|union|enum) (\w+)", t)
+            if m and m.group(2) in self.typedef_owned and not any(
+                    n.get("name") == m.group(2) and n.get("kind") in ("RecordDecl", "EnumDecl")
+                    for n in self.node.values()):
+                return m.group(1) + m.group(2)
+            return t
+        live = {i: spell(t) for i, t in enumerate(types)}
+        base = self.src.count("\n") + (0 if self.src.endswith("\n") else 1)
+        for _ in range(4):
+            order = sorted(live)
+            text = self.src + ("" if self.src.endswith("\n") else "\n") + "".join(
+                f"typedef char __e16p_{i}[sizeof({live[i]})][_Alignof({live[i]})][__alignof__({live[i]})];\n"
+                for i in order)
+            r = subprocess.run([CCV] + FLAGS + ["-fsyntax-only", "-ferror-limit=0", "-x", "c", "-",
+                                                "-Xclang", "-ast-dump", "-Xclang", "-ast-dump-filter=__e16p_"],
+                               input=text, capture_output=True, text=True)
+            bad = {int(m) - base - 1 for m in re.findall(r"<stdin>:(\d+):\d+: error", r.stderr)}
+            bad = {order[j] for j in bad if 0 <= j < len(order)}
+            if r.returncode == 0 or not bad:
+                break
+            self.fallbacks["probe_rejected"] += len(bad)
+            for i in bad:
+                live.pop(i)
+        got = {int(i): (a, b, c) for i, a, b, c in
+               re.findall(r"__e16p_(\d+) 'char\[(\d+)\]\[(\d+)\]\[(\d+)\]'", r.stdout)}
+        for i in sorted(live, key=lambda i: live[i]):
+            if i not in got:
+                self.fallbacks["probe_missing"] += 1
+                continue
+            self.items.append(("TY", self.canon(live[i]), got[i]))
 
     def clean(self, n):
         return {k: (self.clean(v) if isinstance(v, dict) else
@@ -503,8 +552,21 @@ MUTS = [  # (name, from, to, expect key change)
 ]
 
 
+# adversarial edits found by the verifier: typedef attributes and packed enums
+SYN2 = [  # (name, source, from, to); each must change the key
+    ("packed enum, sizeof(E)", "typedef enum E { A, B } E;\nunsigned long f(void) { return sizeof(E); }",
+     "typedef enum E {", "typedef enum __attribute__((packed)) E {"),
+    ("typedef aligned(32), local whose address escapes", "typedef int T;\nvoid g(T*);\nvoid f(void) { T x; g(&x); }",
+     "typedef int T;", "typedef int T __attribute__((aligned(32)));"),
+]
+
+
 def mutate(e15out):
     ok = True
+    for name, src, a, b in SYN2:
+        k0, k1 = project(src)[0], project(src.replace(a, b, 1))[0]
+        ok &= k0 != k1
+        print(f"  {'PASS' if k0 != k1 else 'FAIL'} synthetic: {name}: key {'changed' if k0 != k1 else 'same'}")
     base = project(SYN)[0]
     for name, a, b, want in MUTS:
         assert a in SYN, a
@@ -558,6 +620,18 @@ def mutate(e15out):
         res = (k != base) == want
         ok &= res
         print(f"  {'PASS' if res else 'FAIL'} {name}: key {'changed' if k != base else 'same'}")
+    # real Lua slice: luaL_gsub (local luaL_Buffer b); aligned(64) on the typedef only
+    h = sorted(h for h, v in U.items() if v and "luaL_gsub" in v)[-1]
+    src = gzip.open(e15.slice_path(U[h]["luaL_gsub"][0]), "rt").read()
+    x, y = "} luaL_Buffer;", "} luaL_Buffer __attribute__((aligned(64)));"
+    if x not in src:
+        print("  SKIP real luaL_gsub: pattern not found")
+        ok = False
+    else:
+        k0, k1 = project(src)[0], project(src.replace(x, y, 1))[0]
+        ok &= k0 != k1
+        print(f"  {'PASS' if k0 != k1 else 'FAIL'} real luaL_gsub: aligned(64) on the luaL_Buffer typedef "
+              f"(record layout unchanged): key {'changed' if k0 != k1 else 'same'}")
     print("mutation tests:", "all pass" if ok else "FAILURES")
     return ok
 
@@ -647,7 +721,7 @@ def analyze(work, e15out, out, n):
     for s in used:
         if s in P and P[s][0]:
             cpus.append(P[s][2])
-            if P[s][1]:
+            if any(not k.startswith("probe_") for k in P[s][1]):  # probe rejects are not fallbacks
                 nfb += 1
             for k, v in P[s][1].items():
                 fb[k] += v
