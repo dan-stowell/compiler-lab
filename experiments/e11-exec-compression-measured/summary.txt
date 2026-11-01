@@ -1,0 +1,28 @@
+instructions=79400 blocks=7856 skeletons=137 symbols(index space)=1647 functions=324 jumps=4235 calls=2478
+Re-Pair: stop at 887 rules (of 1546 run), top-level symbols=10995, symbol width=10 b
+jump offset width W: iterations (W, stream bits, needed W) = [(1, 249203, 18), (18, 321198, 19), (19, 325433, 19)] -> W=19
+payload file: work/payload.bin  47034 B  sha256 8fa82444b07041ab...
+  component                                      bytes
+  metadata (header fields)                        32.0
+  skeleton table                                1116.9
+  Re-Pair rule bodies                           2217.5
+  Huffman tables (values + code lengths)        2217.4
+  function entry table                           769.5
+  top-level symbols                            13743.8
+  operands (Huffman, non-jump)                 16877.2
+  jump target offsets                          10058.1
+  alignment                                        1.6
+  TOTAL = file length                            47034
+denominator 1: xz -9e(stage2 .o .text + .rela.text) = 41212 B (input 327546 B, sha256 9aa5a610f39cd053...)
+denominator 2: xz -9e(linked stage2 .text) = 40400 B (input 263634 B, sha256 e7e0c2b0ff2de72b...)
+ratio vs denominator 1: 1.141
+ratio vs denominator 2: 1.164
+check full round trip (79400 instructions, sequential from bit 0): OK
+  (2523 distinct branch-target addresses for 3395 jump-target labels, from 4235 jumps)
+check decode from every branch targets: 2523 OK, 0 FAIL
+check decode from every post-call resume points: 2478 OK, 0 FAIL
+check decode from every function entries: 324 OK, 0 FAIL
+block starts reached by targets/resume points/entries: 5325 of 7856 (the rest are fall-through-only blocks); stray addresses: 0
+sensitivity (ESTIMATE, not in the payload): + symbol address table for the 1323 non-.text symbols at 32 b each = 5292 B -> 52326 B, ratio 1.270 / 1.295
+CHECKS: all OK
+DECISION: <= 1.25x both denominators: build and time an interpreter next
