@@ -1,0 +1,21 @@
+validate rule=110 T=12 steps=4096 P=0 seed=background cells_compared=8192 mismatches=0 cells_differing_from_background=0 memo=88 nodes=95
+validate rule=110 T=12 steps=4096 P=256 seed=1 cells_compared=8192 mismatches=0 cells_differing_from_background=2180 memo=9348 nodes=9373
+validate rule=110 T=12 steps=4096 P=256 seed=2 cells_compared=8192 mismatches=0 cells_differing_from_background=1328 memo=6853 nodes=6870
+validate rule=110 T=12 steps=4096 P=256 seed=3 cells_compared=8192 mismatches=0 cells_differing_from_background=2297 memo=4952 nodes=4969
+validate rule=110 T=12 steps=4096 P=256 seed=4 cells_compared=8192 mismatches=0 cells_differing_from_background=2845 memo=4178 nodes=4194
+validate rule=110 T=12 steps=4096 P=256 seed=5 cells_compared=8192 mismatches=0 cells_differing_from_background=1153 memo=7339 nodes=7358
+validate rule=110 T=12: PASS
+validate rule=30 T=12 steps=4096 P=0 seed=background cells_compared=8192 mismatches=0 cells_differing_from_background=0 memo=13 nodes=16
+validate rule=30 T=12 steps=4096 P=256 seed=1 cells_compared=8192 mismatches=0 cells_differing_from_background=4089 memo=184604 nodes=184940
+validate rule=30 T=12 steps=4096 P=256 seed=2 cells_compared=8192 mismatches=0 cells_differing_from_background=4108 memo=183937 nodes=184270
+validate rule=30 T=12 steps=4096 P=256 seed=3 cells_compared=8192 mismatches=0 cells_differing_from_background=4094 memo=183802 nodes=184136
+validate rule=30 T=12 steps=4096 P=256 seed=4 cells_compared=8192 mismatches=0 cells_differing_from_background=4077 memo=184304 nodes=184638
+validate rule=30 T=12 steps=4096 P=256 seed=5 cells_compared=8192 mismatches=0 cells_differing_from_background=4159 memo=183307 nodes=183640
+validate rule=30 T=12: PASS
+validate rule=110 T=16 steps=65536 P=0 seed=background cells_compared=131072 mismatches=0 cells_differing_from_background=0 memo=116 nodes=123
+validate rule=110 T=16 steps=65536 P=1024 seed=11 cells_compared=131072 mismatches=0 cells_differing_from_background=39394 memo=22372 nodes=22390
+validate rule=110 T=16 steps=65536 P=1024 seed=12 cells_compared=131072 mismatches=0 cells_differing_from_background=36955 memo=13410 nodes=13424
+validate rule=110 T=16: PASS
+validate rule=30 T=16 steps=65536 P=0 seed=background cells_compared=131072 mismatches=0 cells_differing_from_background=0 memo=17 nodes=20
+validate rule=30 T=16 steps=65536 P=256 seed=11 cells_compared=131072 mismatches=0 cells_differing_from_background=65538 memo=28179002 nodes=28184136
+validate rule=30 T=16: PASS

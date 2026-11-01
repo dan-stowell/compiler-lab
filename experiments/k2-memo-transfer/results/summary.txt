@@ -1,0 +1,30 @@
+# rule=110 T=16 steps=2^16 P=256 NB=20 seedA=1000 memo_cap=16777216
+frozen A: memo_entries=6039 nodes=6054 memo_bytes=72468 node_bytes=72648 (12 B each: key,val,chain / l,r,chain)
+summary rule=110 T=16 n=20 mean_hit_rate=0.6011 min_hit_rate=0.5457 hit_rate_levels>=6=0.3542 mean_new/scratch=0.7749 max_new/scratch=0.8285
+rule(hit>=0.90 and new<=0.10 of scratch, means over B): INPUT-SPECIFIC
+# rule=110 T=20 steps=2^20 P=256 NB=20 seedA=1000 memo_cap=16777216
+frozen A: memo_entries=6495 nodes=6505 memo_bytes=77940 node_bytes=78060 (12 B each: key,val,chain / l,r,chain)
+summary rule=110 T=20 n=20 mean_hit_rate=0.5517 min_hit_rate=0.4695 hit_rate_levels>=6=0.3286 mean_new/scratch=0.8149 max_new/scratch=0.8542
+rule(hit>=0.90 and new<=0.10 of scratch, means over B): INPUT-SPECIFIC
+# rule=110 T=24 steps=2^24 P=1024 NB=20 seedA=1000 memo_cap=16777216
+frozen A: memo_entries=20857 nodes=20870 memo_bytes=250284 node_bytes=250440 (12 B each: key,val,chain / l,r,chain)
+summary rule=110 T=24 n=20 mean_hit_rate=0.6157 min_hit_rate=0.5736 hit_rate_levels>=6=0.3430 mean_new/scratch=0.7623 max_new/scratch=0.7984
+rule(hit>=0.90 and new<=0.10 of scratch, means over B): INPUT-SPECIFIC
+# rule=110 T=24 steps=2^24 P=256 NB=20 seedA=1000 memo_cap=16777216
+frozen A: memo_entries=6678 nodes=6690 memo_bytes=80136 node_bytes=80280 (12 B each: key,val,chain / l,r,chain)
+summary rule=110 T=24 n=20 mean_hit_rate=0.5575 min_hit_rate=0.4887 hit_rate_levels>=6=0.3739 mean_new/scratch=0.8181 max_new/scratch=0.8876
+rule(hit>=0.90 and new<=0.10 of scratch, means over B): INPUT-SPECIFIC
+# rule=110 T=24 steps=2^24 P=4096 NB=20 seedA=1000 memo_cap=16777216
+frozen A: memo_entries=55890 nodes=55902 memo_bytes=670680 node_bytes=670824 (12 B each: key,val,chain / l,r,chain)
+summary rule=110 T=24 n=20 mean_hit_rate=0.6414 min_hit_rate=0.6141 hit_rate_levels>=6=0.3726 mean_new/scratch=0.7447 max_new/scratch=0.7867
+rule(hit>=0.90 and new<=0.10 of scratch, means over B): INPUT-SPECIFIC
+# rule=110 T=24 steps=2^24 P=64 NB=20 seedA=1000 memo_cap=16777216
+frozen A: memo_entries=4516 nodes=4528 memo_bytes=54192 node_bytes=54336 (12 B each: key,val,chain / l,r,chain)
+summary rule=110 T=24 n=20 mean_hit_rate=0.5217 min_hit_rate=0.4411 hit_rate_levels>=6=0.4132 mean_new/scratch=0.7907 max_new/scratch=0.8695
+rule(hit>=0.90 and new<=0.10 of scratch, means over B): INPUT-SPECIFIC
+# rule=30 T=15 steps=2^15 P=256 NB=20 seedA=1000 memo_cap=16777216
+frozen A: memo_entries=7139447 nodes=7142026 memo_bytes=85673364 node_bytes=85704312 (12 B each: key,val,chain / l,r,chain)
+summary rule=30 T=15 n=20 mean_hit_rate=0.7495 min_hit_rate=0.7494 hit_rate_levels>=6=0.0018 mean_new/scratch=0.9895 max_new/scratch=0.9899
+rule(hit>=0.90 and new<=0.10 of scratch, means over B): INPUT-SPECIFIC
+# rule=30 T=24 steps=2^24 P=256 NB=20 seedA=1000 memo_cap=16777216
+A: memo cap 2^24 exceeded; transfer not run
