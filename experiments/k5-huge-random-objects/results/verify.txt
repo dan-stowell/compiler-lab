@@ -1,0 +1,56 @@
+verify N=1048576 W=18446744073709551616 shiftB=0
+  A in-order: count=1048576 (want 1048576) out_of_order_pairs=0 in_range=1
+  A reverse-traversal+sort identical: 1
+  A chi2(1024 buckets)=1047.6 (df 1023, z=0.54)
+  range count+sum, 20 random ranges, match materialized: 1 (max count visits 31)
+  join: sort-merge=0 tree=0 match=1 visits=96224 (splits 48111 leaves 48113 keys 2097152) tree 0.06s merge 0.01s
+  VERIFY PASS
+verify N=1048576 W=4194304 shiftB=0
+  A in-order: count=1048576 (want 1048576) out_of_order_pairs=0 in_range=1
+  A reverse-traversal+sort identical: 1
+  A chi2(1024 buckets)=1009.9 (df 1023, z=-0.29)
+  range count+sum, 20 random ranges, match materialized: 1 (max count visits 31)
+  join: sort-merge=262491 tree=262491 match=1 visits=96140 (splits 48069 leaves 48071 keys 2097152) tree 0.06s merge 0.01s
+  VERIFY PASS
+verify N=1048576 W=4194304 shiftB=1572864
+  A in-order: count=1048576 (want 1048576) out_of_order_pairs=0 in_range=1
+  A reverse-traversal+sort identical: 1
+  A chi2(1024 buckets)=1009.9 (df 1023, z=-0.29)
+  range count+sum, 20 random ranges, match materialized: 1 (max count visits 31)
+  join: sort-merge=164194 tree=164194 match=1 visits=60244 (splits 30127 leaves 30117 keys 1311850) tree 0.03s merge 0.00s
+  VERIFY PASS
+verify N=1048579 W=4194303 shiftB=12345
+  A in-order: count=1048579 (want 1048579) out_of_order_pairs=0 in_range=1
+  A reverse-traversal+sort identical: 1
+  A chi2(1024 buckets)=1070.9 (df 1023, z=1.06)
+  range count+sum, 20 random ranges, match materialized: 1 (max count visits 31)
+  join: sort-merge=262363 tree=262363 match=1 visits=195547 (splits 115729 leaves 79818 keys 3514816) tree 0.09s merge 0.01s
+  VERIFY PASS
+verify N=67108864 W=18446744073709551616 shiftB=0
+  A in-order: count=67108864 (want 67108864) out_of_order_pairs=0 in_range=1
+  A reverse-traversal+sort identical: 1
+  A chi2(1024 buckets)=994.6 (df 1023, z=-0.63)
+  range count+sum, 20 random ranges, match materialized: 1 (max count visits 43)
+  join: sort-merge=0 tree=0 match=1 visits=6152952 (splits 3076475 leaves 3076477 keys 134217728) tree 3.52s merge 0.54s
+  VERIFY PASS
+verify N=67108864 W=268435456 shiftB=0
+  A in-order: count=67108864 (want 67108864) out_of_order_pairs=0 in_range=1
+  A reverse-traversal+sort identical: 1
+  A chi2(1024 buckets)=1031.0 (df 1023, z=0.18)
+  range count+sum, 20 random ranges, match materialized: 1 (max count visits 43)
+  join: sort-merge=16782326 tree=16782326 match=1 visits=6150928 (splits 3075463 leaves 3075465 keys 134217728) tree 3.30s merge 0.56s
+  VERIFY PASS
+verify N=67108864 W=268435456 shiftB=100663296
+  A in-order: count=67108864 (want 67108864) out_of_order_pairs=0 in_range=1
+  A reverse-traversal+sort identical: 1
+  A chi2(1024 buckets)=1031.0 (df 1023, z=0.18)
+  range count+sum, 20 random ranges, match materialized: 1 (max count visits 43)
+  join: sort-merge=10489960 tree=10489960 match=1 visits=3844632 (splits 1922321 leaves 1922311 keys 83890037) tree 2.34s merge 0.40s
+  VERIFY PASS
+verify N=67108867 W=268435455 shiftB=12345
+  A in-order: count=67108867 (want 67108867) out_of_order_pairs=0 in_range=1
+  A reverse-traversal+sort identical: 1
+  A chi2(1024 buckets)=938.8 (df 1023, z=-1.86)
+  range count+sum, 20 random ranges, match materialized: 1 (max count visits 43)
+  join: sort-merge=16778414 tree=16778414 match=1 visits=12548442 (splits 7427355 leaves 5121087 keys 225637188) tree 4.97s merge 0.57s
+  VERIFY PASS
