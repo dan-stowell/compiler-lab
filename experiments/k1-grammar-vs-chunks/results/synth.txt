@@ -1,0 +1,19 @@
+synthetic: N=67108864 V=10000 seed=1 edits=54619 edit-bytes=1772980 |Q|=46 gen 0.17s
+grammar L=16           | v0: comps 4194303 steps 0 leafsum 4194304 bytes 872415086 | per-version(v>=1): comps 116.6 steps 0.0 leafsum 16.19 sumB(new) 6109 ops 13849 bytes 18029 bytes_lo 18029 | total: comps 5360414 steps 0 sumB 446965210 ops 2529238848 bytes 1052706146 | store: units 9716635 bytes 225165696 | wall store 0.30s query 1.81s
+grammar L=64           | v0: comps 1048575 steps 0 leafsum 1048576 bytes 268435310 | per-version(v>=1): comps 97.7 steps 0.0 leafsum 8.13 sumB(new) 4866 ops 9566 bytes 15152 bytes_lo 15152 | total: comps 2025086 steps 0 sumB 145129264 ops 798210308 bytes 419951336 | store: units 3154984 bytes 122793216 | wall store 0.17s query 0.78s
+CHECK grammar L=64           vs reference: 0/10001 versions differ; 4982 accept
+grammar L=256          | v0: comps 262143 steps 0 leafsum 262144 bytes 117440366 | per-version(v>=1): comps 84.7 steps 0.0 leafsum 6.12 sumB(new) 4179 ops 10093 bytes 14220 bytes_lo 14220 | total: comps 1109511 steps 0 sumB 65911882 ops 378273778 bytes 259642118 | store: units 1432867 bytes 105705008 | wall store 0.10s query 0.47s
+CHECK grammar L=256          vs reference: 0/10001 versions differ; 4982 accept
+CHECK direct scans of versions 0:1 1:1 2:0 3333:1 5000:0 9999:1 10000:0 -> grammar match
+chunks c=256           | v0: comps 0 steps 262144 leafsum 262144 bytes 92274688 | per-version(v>=1): comps 0.0 steps 262144.0 leafsum 6.11 sumB(new) 281 ops 268330 bytes 13109046 bytes_lo 1312566 | total: comps 0 steps 2621702144 sumB 14870420 ops 2948851384 bytes 131182734740 | store: units 323270 bytes 84050544 | wall store 0.17s query 10.81s
+CHECK chunks c=256           vs reference: 0/10001 versions differ; 4982 accept
+chunks c=1024          | v0: comps 0 steps 65536 leafsum 65536 bytes 73400320 | per-version(v>=1): comps 0.0 steps 65536.0 leafsum 5.62 sumB(new) 258 ops 79873 bytes 3282811 bytes_lo 333691 | total: comps 0 steps 655425536 sumB 5598890 ops 966042216 bytes 32901511850 | store: units 121715 bytes 125123276 | wall store 0.12s query 4.84s
+CHECK chunks c=1024          vs reference: 0/10001 versions differ; 4982 accept
+chunks c=4096          | v0: comps 0 steps 16384 leafsum 16384 bytes 68681728 | per-version(v>=1): comps 0.0 steps 16384.0 leafsum 5.50 sumB(new) 253 ops 64191 bytes 841961 bytes_lo 104681 | total: comps 0 steps 163856384 sumB 3281410 ops 784470884 bytes 8488288770 | store: units 71335 bytes 292473752 | wall store 0.23s query 2.72s
+CHECK chunks c=4096          vs reference: 0/10001 versions differ; 4982 accept
+chunks c=16384         | v0: comps 0 steps 4096 leafsum 4096 bytes 67502080 | per-version(v>=1): comps 0.0 steps 4096.0 leafsum 5.46 sumB(new) 251 ops 185848 bytes 294529 bytes_lo 110209 | total: comps 0 steps 40964096 sumB 2700614 ops 1994799616 bytes 3012793670 | store: units 58709 bytes 962123344 | wall store 0.61s query 3.90s
+CHECK chunks c=16384         vs reference: 0/10001 versions differ; 4982 accept
+chunks c=65536         | v0: comps 0 steps 1024 leafsum 1024 bytes 67207168 | per-version(v>=1): comps 0.0 steps 1024.0 leafsum 5.44 sumB(new) 250 ops 717139 bytes 408104 bytes_lo 362024 | total: comps 0 steps 10241024 sumB 2550470 ops 7306137684 bytes 4148245190 | store: units 55445 bytes 3633865552 | wall store 2.05s query 13.68s
+CHECK chunks c=65536         vs reference: 0/10001 versions differ; 4982 accept
+ALL CHECKS PASSED
+max RSS 3718936 KiB, 44.21 s
