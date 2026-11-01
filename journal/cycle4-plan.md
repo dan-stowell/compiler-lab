@@ -15,3 +15,10 @@
 - Checks: full round trip. Decode from **every** branch target and every post-call resume point, reached through the encoded jump offsets (not a side table), from serialized state alone, with offset widths iterated to a fixed point.
 - Reuse e9.py by exec-ing it, as verify/extra.py does. Add only a bit writer, canonical Huffman and a decoder.
 - Rule: ≤1.25× against both means building and timing an interpreter comes next. Otherwise, this encoding loses to entropy coding; that rejects this encoding, not executable compression in general.
+
+## E12 (follows E11's pass): Run the compressed code (assumption: code must be expanded to native form to run at useful speed)
+- Question: how much slower is stage2 chibicc when executed directly from `payload.bin` by an interpreter that never materializes expanded instructions, compared with native stage2, when compiling one fixed input (chibicc's `tokenize.c`)?
+- Interpreter: C, a virtual register file plus the real process memory for data, stack and heap. One handler per skeleton (137). Rules run as call-threaded subroutines. Calls to external libc symbols go through a native trampoline (SysV ABI, including `%al` for varargs). Data sections are loaded natively, as the linker would.
+- Correctness: the interpreted compiler's `.s` output equals native stage2's byte for byte.
+- Number: interpreted / native wall time (median of 5). Also report resident code bytes (payload plus interpreter `.text`) against native `.text`, and instructions retired (perf stat).
+- Rule: ≤10× means keeping cold code compressed and executable is practical (only hot code would need native form), so the next step is a hot/cold split. Above 10×, executable compression is a storage format, not an execution format, at this design.
