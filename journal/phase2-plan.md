@@ -52,3 +52,13 @@ Before any language is built, each model gets a cheap kill test against its **st
 - Baseline: materialization, which is impossible at 2^40 (stated), and at N = 2^26 for correctness checks against an exact sort-merge join.
 - Number: node visits as a function of N for (b).
 - Rule: if join visits grow sub-linearly (for example O(√N) or polylog for a sampled-key-space join), operations compose, and generated objects support relational algebra without materialization. If they grow Θ(N), the model supports only single-object queries; record that.
+
+## K6 (follows K4): Run-once code for op streams executed once
+- Principle (ideator): the generator sees the data D it reads, never the run-time state S. Run-once code removes work only when decisions depending on D alone are expensive for a data-generic loop (mispredicted branches, or predication paying for all paths) and cheap for the generator (template copy indexed by opcode, no branch). Immediates never save bytes for once-used data.
+- Sanity check (`p0-prototypes/round3/ro.c`, single runs, 16M ops, 6 kinds): run-once 6.0–6.3 cycles/op (5.2 generation alone) vs predicated interpreter 7.7–8.2 vs computed-goto 19.5. With predictable (single-kind) streams, computed-goto wins at 3.1.
+- Question: on an op stream that is executed exactly once, with 16–32 opcode kinds of uneven cost, is generating and running throwaway native code ≥2× faster (cycles/op, generation included) than the strongest interpreter for that stream (the better of predicated/branch-free and computed-goto)?
+- Inputs:
+  1. synthetic random streams (16 and 32 kinds);
+  2. a **real** op stream: the dynamic bytecode trace of Lua 5.4.6 running a fixed benchmark (opcodes plus operands, replayed against a register file). Opcode predictability there is whatever it is.
+- Measure cycles/op, instructions, branch-misses and `ic_cache_fill_*` with perf, pinned. Tune the generator (pre-assembled templates, memcpy plus immediate patching).
+- Rule: ≥2× on the real stream means "compile each op stream once, run once, discard" beats interpretation for once-executed code, so study where the crossover sits (predictability, ops per chunk). Under 2× on the real stream, kill it: the gain is too small to change how such streams are executed.
