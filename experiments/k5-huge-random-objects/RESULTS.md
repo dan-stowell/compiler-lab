@@ -69,3 +69,7 @@ Each line says whether it is measured (full computation) or estimated (sampled, 
   It trades data movement for full regeneration, which fits the brief's "bytes, not speed" criterion. The asymptotic work is not reduced.
 - **Estimated / interpretation:** sub-linear joins would need correlated columns, so that structure is shared between the generators (for example, B derived from A's tree).
   Independent seeds leave nothing to prune.
+
+## Independent verification (2026-11-01)
+
+Confirmed. Reruns at 2^20 and 2^22 give visits/N = 0.0917. An independent walk, sort and count (`verify/mine.c`) matches the join counts exactly. **Θ(N) is fundamental for exact joins of independent seeded columns.** Leaf keys are iid hash outputs, so no leaf's min/max is knowable without generating it, and any overlapping leaf could hold a match: Ω(N/64). Going sub-linear needs an estimate (E = N²/W analytically) or correlated generators.
