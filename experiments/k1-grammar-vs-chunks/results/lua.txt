@@ -1,0 +1,17 @@
+files: 795 versions, 26759871 raw bytes, last version 61877 bytes, |Q|=46, direct scan: 495 accept
+grammar prolly cdc=32  | v0: comps 423 steps 0 leafsum 396 bytes 108917 | per-version(v>=1): comps 95.3 steps 0.0 leafsum 32.12 sumB(new) 5863 ops 23057 bytes 19112 bytes_lo 19112 | total: comps 76122 steps 0 sumB 4693104 ops 18553272 bytes 15283627 | store: units 48245 bytes 1799859 | wall store 0.05s query 0.01s
+CHECK grammar prolly cdc=32  vs reference: 0/795 versions differ; 495 accept
+grammar prolly cdc=64  | v0: comps 196 steps 0 leafsum 197 bytes 60469 | per-version(v>=1): comps 61.7 steps 0.0 leafsum 16.53 sumB(new) 3600 ops 14014 bytes 12740 bytes_lo 12740 | total: comps 49210 steps 0 sumB 2876564 ops 11266798 bytes 10176165 | store: units 27633 bytes 1627561 | wall store 0.04s query 0.01s
+CHECK grammar prolly cdc=64  vs reference: 0/795 versions differ; 495 accept
+grammar prolly cdc=256 | v0: comps 56 steps 0 leafsum 57 bytes 28965 | per-version(v>=1): comps 31.1 steps 0.0 leafsum 7.04 sumB(new) 1753 ops 10164 bytes 8327 bytes_lo 8327 | total: comps 24728 steps 0 sumB 1397204 ops 8133786 bytes 6640660 | store: units 13783 bytes 2317520 | wall store 0.03s query 0.01s
+CHECK grammar prolly cdc=256 vs reference: 0/795 versions differ; 495 accept
+chunks cdc=64          | v0: comps 0 steps 197 leafsum 197 bytes 35287 | per-version(v>=1): comps 0.0 steps 424.2 leafsum 16.53 sumB(new) 761 ops 11599 bytes 23462 bytes_lo 4374 | total: comps 0 steps 336996 sumB 612904 ops 9340134 bytes 18664481 | store: units 13324 bytes 2549761 | wall store 0.03s query 0.01s
+CHECK chunks cdc=64          vs reference: 0/795 versions differ; 495 accept
+chunks cdc=256         | v0: comps 0 steps 57 leafsum 57 bytes 21847 | per-version(v>=1): comps 0.0 steps 111.2 leafsum 7.04 sumB(new) 324 ops 8846 bytes 8495 bytes_lo 3490 | total: comps 0 steps 88373 sumB 259716 ops 7084671 bytes 6766782 | store: units 5646 bytes 2441908 | wall store 0.03s query 0.01s
+CHECK chunks cdc=256         vs reference: 0/795 versions differ; 495 accept
+chunks cdc=1024        | v0: comps 0 steps 14 leafsum 14 bytes 17719 | per-version(v>=1): comps 0.0 steps 30.7 leafsum 4.01 sumB(new) 184 ops 13865 bytes 7627 bytes_lo 6246 | total: comps 0 steps 24382 sumB 147016 ops 11048520 bytes 6073770 | store: units 3196 bytes 4805182 | wall store 0.02s query 0.02s
+CHECK chunks cdc=1024        vs reference: 0/795 versions differ; 495 accept
+chunks cdc=4096        | v0: comps 0 steps 4 leafsum 4 bytes 16759 | per-version(v>=1): comps 0.0 steps 7.3 leafsum 2.44 sumB(new) 112 ops 29561 bytes 14636 bytes_lo 14307 | total: comps 0 steps 5807 sumB 89286 ops 23506081 bytes 11637382 | store: units 1941 bytes 11280974 | wall store 0.03s query 0.04s
+CHECK chunks cdc=4096        vs reference: 0/795 versions differ; 495 accept
+(files mode: every version is checked against a direct scan)
+ALL CHECKS PASSED
