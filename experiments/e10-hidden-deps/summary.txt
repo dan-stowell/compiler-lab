@@ -1,0 +1,69 @@
+selftest luaL_argerror: mutated string byte rejected
+selftest luaL_argerror: mutated instruction rejected
+selftest luaL_argerror: mutated string space->two spaces rejected
+selftest luaL_argerror: mutated string space->tab rejected
+commits=1500 changed-TU pairs=7403 upper bound on counted hits (extern defs at N in changed TUs)=135306
+  newest 50 transitions: upper bound 4067
+  newest 100 transitions: upper bound 7875
+  newest 200 transitions: upper bound 17035
+  newest 300 transitions: upper bound 32362
+  newest 400 transitions: upper bound 43992
+  newest 500 transitions: upper bound 53664
+  newest 750 transitions: upper bound 78482
+  newest 1000 transitions: upper bound 106720
+preprocess failures (commit,file): 144
+window: 1500 commits (15e8405731..15b2a78106), 1499 transitions
+events: {'start': 78, 'learn': 42101, 'tu': 7363, 'det': 5613, 'hit': 63504, 'miss': 41211, 'new': 141, 'ppfail': 144, 'ccfail': 695}
+changed-TU transitions evaluated: 7285
+counted hits n = 63504; misses = 41211 (key 32690, never 8445, gone 76)
+hit rate = 63504/104715 = 0.6064
+mismatches among counted hits = 22 (0.0346%); 95% CP interval [0.0217%, 0.0524%] (i.i.d.)
+commits with >=1 counted hit: 1150; with >=1 mismatch: 12 (1.04%; 95% CP [0.54%, 1.82%])
+per-commit mismatch counts (count: commits): {0: 1138, 1: 9, 2: 2, 9: 1}
+commits with mismatches (idx commit: mismatches/hits):
+  430 1a44e82200: 1/168
+  623 9d28b40152: 1/9
+  627 49dfaf7447: 1/200
+  702 75efc6722b: 1/146
+  752 34aa0c5bd7: 1/30
+  777 4d5de1c1fb: 9/27
+  787 8c8a91f2ef: 1/61
+  816 7696c6474f: 1/39
+  930 72a094bda7: 2/111
+  1200 9e99f3071d: 1/29
+  1227 d862da6d04: 1/89
+  1356 c931d86e98: 2/250
+commit-clustered bootstrap 95% interval for the mismatch rate (4000 reps): [0.0110%, 0.0695%]
+ppfail: 144 (commit,file) in 6 commits; by file {'lapi': 6, 'ldo': 6, 'llex': 6, 'lparser': 6, 'lstate': 6, 'lvm': 6, 'lauxlib': 4, 'lbaselib': 4, 'lbitlib': 4, 'lcode': 4, 'lcorolib': 4, 'lctype': 4, 'ldblib': 4, 'ldebug': 4, 'ldump': 4, 'lfunc': 4, 'lgc': 4, 'linit': 4, 'liolib': 4, 'lmathlib': 4, 'lmem': 4, 'loadlib': 4, 'lobject': 4, 'lopcodes': 4, 'loslib': 4, 'lstring': 4, 'lstrlib': 4, 'ltable': 4, 'ltablib': 4, 'ltm': 4, 'lundump': 4, 'lutf8lib': 4, 'lzio': 4}
+ccfail: 695 (commit,file) in 239 commits; by file {'ldo': 151, 'lmathlib': 151, 'liolib': 150, 'loslib': 150, 'lbitlib': 66, 'lgc': 9, 'lcode': 7, 'ltable': 7, 'lvm': 2, 'ldump': 1, 'lundump': 1}
+splitfail: 0 (commit,file) in 0 commits; by file {}
+commits with any compile failure: 245/1500 (16.33%)
+learn events: 42101 (with >=1 slice compile failure during search: 0); learned never: 8513
+determinism spot-checks on unchanged TUs: 5613/5613 identical
+hits by frozen d: {0: 35855, 1: 20256, 2: 5851, 3: 944, 4: 221, 5: 322, 7: 55}
+mismatches by frozen d: {0: 14, 1: 7, 2: 1}
+mismatches by file: {'lcode': 10, 'ldo': 3, 'ltm': 3, 'ltable': 2, 'lapi': 1, 'lauxlib': 1, 'lgc': 1, 'lstring': 1}
+automatic mismatch classes: {'call-set change; a callee outside the slice changed its body': 21, "call-set change; a callee's caller count changed (body same)": 1}
+mismatch list (idx file target d diag):
+  430 lapi lua_getglobal d=0 {"auxgetstr": {"change": "call_removed", "in_slice": false, "static": true, "callers_N": 2, "callers_N1": 2, "body_changed": true}, "luaH_getstr": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "luaS_new": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "luaV_finishget": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}}
+  816 lauxlib luaL_pushresultsize d=0 {"luaL_pushresult": {"change": "call_removed", "in_slice": false, "static": false, "callers_N": 2, "callers_N1": 2, "body_changed": true}, "lua_copy": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "lua_pushlstring": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "lua_settop": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}}
+  627 lcode luaK_fixline d=0 {"luaM_growaux_": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "savelineinfo": {"change": "call_removed", "in_slice": false, "static": true, "callers_N": 2, "callers_N1": 2, "body_changed": true}}
+  777 lcode luaK_codeABx d=0 {"luaK_code": {"change": "call_removed", "in_slice": false, "static": true, "callers_N": 5, "callers_N1": 5, "body_changed": true}, "luaM_growaux_": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "savelineinfo": {"change": "call_added", "in_slice": false, "static": true, "callers_N": 2, "callers_N1": 2, "body_changed": true}}
+  777 lcode luaK_codeAsBx d=0 {"luaK_code": {"change": "call_removed", "in_slice": false, "static": true, "callers_N": 5, "callers_N1": 5, "body_changed": true}, "luaM_growaux_": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "savelineinfo": {"change": "call_added", "in_slice": false, "static": true, "callers_N": 2, "callers_N1": 2, "body_changed": true}}
+  777 lcode luaK_ret d=1 {"luaK_code": {"change": "call_removed", "in_slice": false, "static": true, "callers_N": 5, "callers_N1": 5, "body_changed": true}, "luaM_growaux_": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "savelineinfo": {"change": "call_added", "in_slice": false, "static": true, "callers_N": 2, "callers_N1": 2, "body_changed": true}}
+  777 lcode luaK_setlist d=1 {"luaK_code": {"change": "call_removed", "in_slice": false, "static": true, "callers_N": 5, "callers_N1": 5, "body_changed": true}, "luaM_growaux_": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "savelineinfo": {"change": "call_added", "in_slice": false, "static": true, "callers_N": 2, "callers_N1": 2, "body_changed": true}}
+  777 lcode luaK_codeABCk d=0 {"luaK_code": {"change": "call_removed", "in_slice": false, "static": true, "callers_N": 5, "callers_N1": 5, "body_changed": true}, "luaM_growaux_": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "savelineinfo": {"change": "call_added", "in_slice": false, "static": true, "callers_N": 2, "callers_N1": 2, "body_changed": true}}
+  777 lcode luaK_jump d=1 {"luaK_code": {"change": "call_removed", "in_slice": false, "static": true, "callers_N": 5, "callers_N1": 5, "body_changed": true}, "luaM_growaux_": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "savelineinfo": {"change": "call_added", "in_slice": false, "static": true, "callers_N": 2, "callers_N1": 2, "body_changed": true}}
+  777 lcode luaK_dischargevars d=1 {"luaK_code": {"change": "call_removed", "in_slice": false, "static": true, "callers_N": 5, "callers_N1": 5, "body_changed": true}, "luaM_growaux_": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "savelineinfo": {"change": "call_added", "in_slice": false, "static": true, "callers_N": 2, "callers_N1": 2, "body_changed": true}}
+  777 lcode luaK_nil d=1 {"luaK_code": {"change": "call_removed", "in_slice": false, "static": true, "callers_N": 5, "callers_N1": 5, "body_changed": true}, "luaM_growaux_": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "savelineinfo": {"change": "call_added", "in_slice": false, "static": true, "callers_N": 2, "callers_N1": 2, "body_changed": true}}
+  777 lcode luaK_self d=2 {"luaK_code": {"change": "call_removed", "in_slice": false, "static": true, "callers_N": 5, "callers_N1": 5, "body_changed": true}, "luaM_growaux_": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "savelineinfo": {"change": "call_added", "in_slice": false, "static": true, "callers_N": 2, "callers_N1": 2, "body_changed": true}}
+  752 ldo luaD_protectedparser d=0 {"luaD_pcall": {"change": "call_removed", "in_slice": false, "static": false, "callers_N": 1, "callers_N1": 1, "body_changed": true}, "luaD_rawrunprotected": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 2, "callers_N1": 2, "body_changed": false}, "luaD_shrinkstack": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 2, "callers_N1": 2, "body_changed": false}, "luaF_close": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "seterrorobj": {"change": "call_added", "in_slice": false, "static": true, "callers_N": 4, "callers_N1": 4, "body_changed": false}}
+  1356 ldo luaD_pcall d=0 {"luaD_seterrorobj": {"change": "call_removed", "in_slice": false, "static": false, "callers_N": 3, "callers_N1": 3, "body_changed": true}}
+  1356 ldo luaD_protectedparser d=1 {"luaD_seterrorobj": {"change": "call_removed", "in_slice": false, "static": false, "callers_N": 3, "callers_N1": 3, "body_changed": true}}
+  702 lgc luaC_barrier_ d=0 {"getgclist": {"change": "call_added", "in_slice": false, "static": true, "callers_N": 4, "callers_N1": 4, "body_changed": true}, "reallymarkobject": {"change": "call_removed", "in_slice": false, "static": true, "callers_N": 17, "callers_N1": 17, "body_changed": true}}
+  623 lstring luaS_init d=0 {"luaM_realloc_": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "luaS_resize": {"change": "call_removed", "in_slice": false, "static": false, "callers_N": 2, "callers_N1": 2, "body_changed": true}, "memset": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}}
+  1200 ltable luaH_setint d=0 {"luaH_getint": {"change": "call_removed", "in_slice": false, "static": false, "callers_N": 4, "callers_N1": 4, "body_changed": true}}
+  1227 ltable luaH_set d=0 {"luaH_finishset": {"change": "call_removed", "in_slice": false, "static": false, "callers_N": 2, "callers_N1": 1, "body_changed": false}, "luaH_newkey": {"change": "call_added", "in_slice": false, "static": true, "callers_N": 1, "callers_N1": 2, "body_changed": false}}
+  787 ltm luaT_callorderiTM d=0 {"callbinTM": {"change": "call_added", "in_slice": false, "static": true, "callers_N": 2, "callers_N1": 2, "body_changed": false}, "luaG_ordererror": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "luaT_callorderTM": {"change": "call_removed", "in_slice": false, "static": false, "callers_N": 1, "callers_N1": 1, "body_changed": true}}
+  930 ltm luaT_trybinassocTM d=0 {"callbinTM": {"change": "call_added", "in_slice": false, "static": true, "callers_N": 3, "callers_N1": 3, "body_changed": false}, "luaG_opinterror": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "luaG_tointerror": {"change": "call_added", "in_slice": false, "static": false, "callers_N": 0, "callers_N1": 0, "body_changed": false}, "luaT_trybinTM": {"change": "call_removed", "in_slice": false, "static": false, "callers_N": 1, "callers_N1": 1, "body_changed": true}}
+  930 ltm luaT_trybiniTM d=1 {"luaT_trybinTM": {"change": "call_removed", "in_slice": false, "static": false, "callers_N": 1, "callers_N1": 1, "body_changed": true}, "luaT_trybinassocTM": {"change": "call_added", "in_slice": true, "static": false, "callers_N": 1, "callers_N1": 1, "body_changed": false}}

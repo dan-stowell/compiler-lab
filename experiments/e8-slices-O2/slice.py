@@ -2,6 +2,7 @@
 """E8: smallest callee-body depth whose slice reproduces a target's clang -O2 asm.
 
 Usage: slice.py <tu.i> <tu-with-linemarkers.i> <orig.c> <out.csv> <slices-dir> <cc> [cc args...]
+       slice.py --emit <tu.i> <target> <d> [--add-callers]   (print one slice at fixed d)
 
 Reuses E5's token splitter (../e5-dependency-slices/slice.py: tokenize, split,
 analyze, header_refs). Targets are the functions the full-TU compile emits as
@@ -165,17 +166,156 @@ def compile_s(cc, src_text, tmpdir, tag):
         return f.read(), None
 
 
+class TU:
+    """A preprocessed TU split into top-level declarations, with its call graph
+    and slice builder. sysoff: token start offsets from system headers (only for
+    the system-token counts; may be empty)."""
+
+    def __init__(self, src, sysoff=frozenset()):
+        self.src = src
+        decls = self.decls = split(tokenize(src))
+        self.total = sum(len(d.toks) for d in decls)
+        self.sysoff = sysoff
+        self.total_sys = self.nsys([t for d in decls for t in d.toks])
+        funcs = self.funcs = [d for d in decls if d.is_func]
+        for f in funcs:  # E5 names `void __attribute__((noreturn)) f(...)` "?"; fix
+            f.ref_ord.discard(f.name)
+            f.name = func_name([t for _, t, _, _ in f.header])
+            f.ref_ord.discard(f.name)
+        assert len({f.name for f in funcs}) == len(funcs), "function names not unique"
+        for d in decls:  # E5 misses parenthesized declarators: `extern void (lua_xxx) (...);`
+            if not d.is_func:
+                T = [t for _, t, _, _ in d.toks]
+                for j in range(1, len(T) - 2):
+                    if T[j - 1] == "(" and T[j + 1] == ")" and T[j + 2] == "(" and \
+                            re.fullmatch(r"[A-Za-z_]\w*", T[j]) and j >= 2 and T[j - 2] not in ("(", ","):
+                        d.decl_ord.add(T[j])
+                        if T[j - 2] in d.decl_ord:  # the return type was taken as the name
+                            d.decl_ord.discard(T[j - 2]); d.ref_ord.add(T[j - 2])
+        self.fdef = fdef = {d.name: d for d in funcs}
+        self.statics = [d for d in funcs if "static" in [t for _, t, _, _ in d.header]]
+        self.ord_prov, self.tag_prov = {}, {}
+        for d in decls:
+            if not d.is_func:
+                for n in d.decl_ord:
+                    self.ord_prov.setdefault(n, []).append(d)
+            for tg in d.decl_tag:
+                if not d.is_func:
+                    self.tag_prov.setdefault(tg, []).append(d)
+        self.calls = {f.name: {n for n in f.ref_ord if n in fdef and n != f.name} for f in funcs}
+        self.hdr = {f.name: header_refs(f) for f in funcs}
+        self.callers = {f.name: set() for f in funcs}
+        for f, cs in self.calls.items():
+            for c in cs:
+                self.callers[c].add(f)
+        self.static_names = {f.name for f in self.statics}
+
+    def nsys(self, ts):
+        return sum(1 for t in ts if t[2] in self.sysoff)
+
+    def txt(self, ts):
+        return self.src[ts[0][2]:ts[-1][3]]
+
+    def build(self, bodies):
+        """Slice source, token count and system-header token count for a set of
+        function bodies."""
+        fdef, hdr, decls = self.fdef, self.hdr, self.decls
+        inc, protos = set(), set()
+        wo = set().union(*(fdef[b].ref_ord | {b} for b in bodies))
+        wt = set().union(*(fdef[b].ref_tag for b in bodies))
+        so, st = set(), set()
+        while wo or wt:
+            no, nt = set(), set()
+            for n in wo - so:
+                so.add(n)
+                for d in self.ord_prov.get(n, []):
+                    if d.idx not in inc:
+                        inc.add(d.idx); no |= d.ref_ord; nt |= d.ref_tag
+                if n in fdef and n not in bodies and n not in protos:
+                    protos.add(n); no |= hdr[n][0]; nt |= hdr[n][1]
+            for tg in wt - st:
+                st.add(tg)
+                for d in self.tag_prov.get(tg, []):
+                    if d.idx not in inc:
+                        inc.add(d.idx); no |= d.ref_ord; nt |= d.ref_tag
+            wo, wt = no - so, nt - st
+        parts, ntok = [], 0
+        last_sys = 0
+        for d in decls:
+            if d.idx in inc:
+                parts.append(self.txt(d.toks)); ntok += len(d.toks); last_sys += self.nsys(d.toks)
+            elif d.is_func and d.name in bodies:
+                parts.append(self.txt(d.toks)); ntok += len(d.toks); last_sys += self.nsys(d.toks)
+            elif d.is_func and d.name in protos:
+                parts.append(self.txt(d.header) + ";"); ntok += len(d.header) + 1
+                last_sys += self.nsys(d.header)
+        return "\n".join(parts) + "\n", ntok, last_sys
+
+    def bodies_at(self, t, d, add_callers=False):
+        """Bodies of the depth-d slice of t (callees within d levels; with
+        add_callers, also all callers of every static callee in it). Returns
+        (bodies, exhausted) where exhausted means level d added nothing new
+        (d is beyond t's callee depth)."""
+        body, frontier = {t}, {t}
+        exhausted = False
+        for _ in range(d):
+            frontier = set().union(*(self.calls[f] for f in frontier)) - body
+            if not frontier:
+                exhausted = True
+                break
+            body |= frontier
+        bodies = set(body)
+        if add_callers:
+            for c in body - {t}:
+                if c in self.static_names:
+                    bodies |= self.callers[c]
+        return bodies, exhausted
+
+
+def search(tu, t, want, cc, tmp, add_callers=False, keep_dir=None):
+    """Smallest d whose slice reproduces t's normalized asm `want`. add_callers:
+    also include the bodies of all callers of every static callee already in
+    the slice. Returns ((d, ntok, nsys) or None, levels)."""
+    levels, body, frontier, d = [], {t}, {t}, 0
+    while True:
+        bodies = set(body)
+        if add_callers:
+            for c in body - {t}:
+                if c in tu.static_names:
+                    bodies |= tu.callers[c]
+        s, ntok, ns = tu.build(bodies)
+        if keep_dir:
+            with open(os.path.join(keep_dir, f"{t}.d{d}.c"), "w") as fh:
+                fh.write(s)
+        asm, err = compile_s(cc, s, tmp, "slice")
+        ok = asm is not None and norm_func(parse_asm(asm), t) == want
+        levels.append((d, len(bodies), ntok, "ok" if ok else ("compile_fail" if asm is None else "mismatch")))
+        if ok:
+            return (d, ntok, ns), levels
+        frontier = set().union(*(tu.calls[f] for f in frontier)) - body
+        if not frontier:
+            return None, levels
+        body |= frontier
+        d += 1
+
+
+def emit_main(argv):
+    """--emit <tu.i> <target> <d> [--add-callers]: print t's depth-d slice."""
+    tu = TU(open(argv[0]).read())
+    bodies, _ = tu.bodies_at(argv[1], int(argv[2]), "--add-callers" in argv[3:])
+    sys.stdout.write(tu.build(bodies)[0])
+
+
 def main():
-    tu, tu_lines, orig_c, out_csv, sdir = sys.argv[1:6]
+    if sys.argv[1] == "--emit":
+        return emit_main(sys.argv[2:])
+    tu_path, tu_lines, orig_c, out_csv, sdir = sys.argv[1:6]
     cc = sys.argv[6:]
     orig = open(orig_c, errors="replace").read()
-    src = open(tu).read()
-    decls = split(tokenize(src))
-    total = sum(len(d.toks) for d in decls)
-    sysoff = sys_offsets(src, open(tu_lines).read())
-    nsys = lambda ts: sum(1 for t in ts if t[2] in sysoff)
-    total_sys = sum(nsys(d.toks) for d in decls)
-    txt = lambda ts: src[ts[0][2]:ts[-1][3]]
+    src = open(tu_path).read()
+    tu = TU(src, sys_offsets(src, open(tu_lines).read()))
+    decls, total, total_sys = tu.decls, tu.total, tu.total_sys
+    txt = tu.txt
     tmp = tempfile.mkdtemp(prefix="e8-")
     os.makedirs(sdir, exist_ok=True)
 
@@ -185,66 +325,7 @@ def main():
     targets = [ln.split()[1] for ln in full_asm.split("\n")
                if ln.strip().startswith(".globl") and ln.split()[1] in full[0]]
 
-    funcs = [d for d in decls if d.is_func]
-    for f in funcs:  # E5 names `void __attribute__((noreturn)) f(...)` "?"; fix
-        f.ref_ord.discard(f.name)
-        f.name = func_name([t for _, t, _, _ in f.header])
-        f.ref_ord.discard(f.name)
-    assert len({f.name for f in funcs}) == len(funcs), "function names not unique"
-    for d in decls:  # E5 misses parenthesized declarators: `extern void (lua_xxx) (...);`
-        if not d.is_func:
-            T = [t for _, t, _, _ in d.toks]
-            for j in range(1, len(T) - 2):
-                if T[j - 1] == "(" and T[j + 1] == ")" and T[j + 2] == "(" and \
-                        re.fullmatch(r"[A-Za-z_]\w*", T[j]) and j >= 2 and T[j - 2] not in ("(", ","):
-                    d.decl_ord.add(T[j])
-                    if T[j - 2] in d.decl_ord:  # the return type was taken as the name
-                        d.decl_ord.discard(T[j - 2]); d.ref_ord.add(T[j - 2])
-    fdef = {d.name: d for d in funcs}
-    statics = [d for d in funcs if "static" in [t for _, t, _, _ in d.header]]
-    ord_prov, tag_prov = {}, {}
-    for d in decls:
-        if not d.is_func:
-            for n in d.decl_ord:
-                ord_prov.setdefault(n, []).append(d)
-        for tg in d.decl_tag:
-            if not d.is_func:
-                tag_prov.setdefault(tg, []).append(d)
-    calls = {f.name: {n for n in f.ref_ord if n in fdef and n != f.name} for f in funcs}
-    hdr = {f.name: header_refs(f) for f in funcs}
-
-    def build(bodies):
-        """Slice source and token count for a set of function bodies."""
-        inc, protos = set(), set()
-        wo = set().union(*(fdef[b].ref_ord | {b} for b in bodies))
-        wt = set().union(*(fdef[b].ref_tag for b in bodies))
-        so, st = set(), set()
-        while wo or wt:
-            no, nt = set(), set()
-            for n in wo - so:
-                so.add(n)
-                for d in ord_prov.get(n, []):
-                    if d.idx not in inc:
-                        inc.add(d.idx); no |= d.ref_ord; nt |= d.ref_tag
-                if n in fdef and n not in bodies and n not in protos:
-                    protos.add(n); no |= hdr[n][0]; nt |= hdr[n][1]
-            for tg in wt - st:
-                st.add(tg)
-                for d in tag_prov.get(tg, []):
-                    if d.idx not in inc:
-                        inc.add(d.idx); no |= d.ref_ord; nt |= d.ref_tag
-            wo, wt = no - so, nt - st
-        parts, ntok = [], 0
-        last_sys = 0
-        for d in decls:
-            if d.idx in inc:
-                parts.append(txt(d.toks)); ntok += len(d.toks); last_sys += nsys(d.toks)
-            elif d.is_func and d.name in bodies:
-                parts.append(txt(d.toks)); ntok += len(d.toks); last_sys += nsys(d.toks)
-            elif d.is_func and d.name in protos:
-                parts.append(txt(d.header) + ";"); ntok += len(d.header) + 1
-                last_sys += nsys(d.header)
-        return "\n".join(parts) + "\n", ntok, last_sys
+    funcs, fdef, statics, calls = tu.funcs, tu.fdef, tu.statics, tu.calls
 
     # Controls: the full TU recompiled, and re-joined from the splitter's
     # declarations, must reproduce every emitted function's normalized asm.
@@ -255,37 +336,7 @@ def main():
         p = parse_asm(a)
         ctl[tag] = sum(norm_func(p, n) == norm_func(full, n) for n in full[0])
 
-    callers = {f.name: set() for f in funcs}
-    for f, cs in calls.items():
-        for c in cs:
-            callers[c].add(f)
-    static_names = {f.name for f in statics}
     want = {t: norm_func(full, t) for t in targets}
-
-    def search(t, add_callers, keep):
-        """Smallest d whose slice reproduces t. add_callers: also include the
-        bodies of all callers of every static callee already in the slice."""
-        levels, body, frontier, d = [], {t}, {t}, 0
-        while True:
-            bodies = set(body)
-            if add_callers:
-                for c in body - {t}:
-                    if c in static_names:
-                        bodies |= callers[c]
-            s, ntok, ns = build(bodies)
-            if keep:
-                with open(os.path.join(sdir, f"{t}.d{d}.c"), "w") as fh:
-                    fh.write(s)
-            asm, err = compile_s(cc, s, tmp, "slice")
-            ok = asm is not None and norm_func(parse_asm(asm), t) == want[t]
-            levels.append((d, len(bodies), ntok, "ok" if ok else ("compile_fail" if asm is None else "mismatch")))
-            if ok:
-                return (d, ntok, ns), levels
-            frontier = set().union(*(calls[f] for f in frontier)) - body
-            if not frontier:
-                return None, levels
-            body |= frontier
-            d += 1
 
     rows = []
     for t in targets:
@@ -295,8 +346,8 @@ def main():
             if not fr:
                 break
             reach |= fr; rd += 1
-        res, levels = search(t, False, True)
-        cres, clev = search(t, True, False)
+        res, levels = search(tu, t, want[t], cc, tmp, False, sdir)
+        cres, clev = search(tu, t, want[t], cc, tmp, True)
         # callees the full TU inlined into t: referenced in t's body, not called/jumped/addressed in its asm
         tasm = "\n".join(full[0][t])
         inl = sorted(c for c in calls[t] if not re.search(rf"\b{re.escape(c)}\b", tasm))
