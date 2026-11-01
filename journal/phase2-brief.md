@@ -18,3 +18,7 @@ Lessons from phase 1 that apply:
 - Every mechanism lost to a cheap conventional baseline unless the question had no conventional answer, so each model names its strongest baseline up front.
 - Requiring bit-identity with a conventional result forced mechanisms to copy quirks; judge by semantics.
 - Decode or interpretation cost (E12: ~70× native) dominates any "run compressed" idea unless the model avoids per-instruction decoding.
+
+**Guidance from Dan (2026-11-01):**
+- Known techniques that modern production compilers don't widely use (SLP pattern matching, HashLife-style memoization, rematerialization, pebbling and so on) are worth noting and may prove useful. "Known" is not a reason to drop a model. Record such results as "known, not in production" and keep them if they work.
+- The aim is to drop production-compiler constraints and see what happens.
