@@ -81,6 +81,7 @@ DBG = re.compile(r"^\s*\.(loc|file)\b")
 UNIQ = re.compile(r"\.L\.\.(\d+)")              # string literals, case/goto labels
 OBJ = re.compile(r"^\s*\.type\s+\.L\.\.(\d+),\s*@object")
 LBL = re.compile(r"^\.L\.\.(\d+):$")
+VIS = re.compile(r"^\s*\.(globl|local)\s+(\S+)")
 CNT = re.compile(r"\.L\.([A-Za-z_]+)\.(\d+)\b")  # .L.else.N etc. (codegen counter)
 
 
@@ -88,11 +89,15 @@ def split_funcs(text):
     """({name: [lines]}, {N: [lines]}): functions from '.type name, @function', and
     .L..N data objects (string literals, static locals) from '.type .L..N, @object',
     each up to the next section/symbol boundary."""
-    funcs, objs, cur = {}, {}, None
+    funcs, objs, cur, vis = {}, {}, None, {}
     for line in text.splitlines():
+        m = VIS.match(line)
+        if m:
+            vis[m.group(2)] = line.strip()
         m = FUNC.match(line)
         if m:
-            cur = funcs.setdefault(m.group(1), [])
+            # the function's .globl/.local line is part of its hash (static<->extern)
+            cur = funcs.setdefault(m.group(1), [vis.get(m.group(1), "<no visibility>")])
             continue
         m = OBJ.match(line)
         if m:
@@ -110,7 +115,7 @@ def split_funcs(text):
     return funcs, objs
 
 
-def normalize(lines, objs=None):
+def normalize(lines, objs=None, keep_dbg=False):
     """Drop .loc/.file; renumber .L..N and .L.kind.N labels by first appearance.
     With objs, also append the (renumbered) contents of every referenced .L..N
     data object, transitively, so a changed string literal counts as a change."""
@@ -119,7 +124,7 @@ def normalize(lines, objs=None):
     def ren(line):
         line = UNIQ.sub(lambda m: ".L..u%d" % uniq.setdefault(m.group(1), len(uniq)), line)
         return CNT.sub(lambda m: ".L.%s.c%d" % (m.group(1), cnt.setdefault(m.group(2), len(cnt))), line)
-    out = [ren(l) for l in lines if not DBG.match(l)]
+    out = [ren(l) for l in lines if keep_dbg or not DBG.match(l)]
     if objs is not None:
         i = 0
         while i < len(uniq):
@@ -142,7 +147,7 @@ def load(work, k, cache):
             with open(f"{work}/asm/{k}.s", errors="replace") as f:
                 fs, objs = split_funcs(f.read())
             cache[k] = {n: (h(ls), h(normalize(ls)), h(l for l in ls if not DBG.match(l)),
-                            h(normalize(ls, objs)))
+                            h(normalize(ls, objs)), h(normalize(ls, keep_dbg=True)))
                         for n, ls in fs.items()}
     return cache[k]
 
@@ -154,7 +159,7 @@ def analyze(repo, rev, work, out):
         lines = [l.rstrip("\n").split("\t") for l in f]
     with open(out, "w") as o:
         o.write("commit,status,nfuncs,raw_changed,norm_changed,added,removed,raw_frac,norm_frac,"
-                "noloc_frac,normlit_frac\n")
+                "noloc_frac,normlit_frac,labelsonly_frac\n")
         for c, spec in lines:
             fm, bad = {}, []
             for item in spec.split():
@@ -182,12 +187,14 @@ def analyze(repo, rev, work, out):
                 norm = sum(1 for f in cur if f not in pm or pm[f][1] != cur[f][1])
                 noloc = sum(1 for f in cur if f not in pm or pm[f][2] != cur[f][2])
                 lit = sum(1 for f in cur if f not in pm or pm[f][3] != cur[f][3])
+                lab = sum(1 for f in cur if f not in pm or pm[f][4] != cur[f][4])
                 n = len(cur)
                 o.write(f"{c[:10]},ok,{n},{raw},{norm},{len(added)},{len(removed)},"
                         f"{raw / n if n else 0:.6f},{norm / n if n else 0:.6f},"
-                        f"{noloc / n if n else 0:.6f},{lit / n if n else 0:.6f}\n")
+                        f"{noloc / n if n else 0:.6f},{lit / n if n else 0:.6f},"
+                        f"{lab / n if n else 0:.6f}\n")
             else:
-                o.write(f"{c[:10]},{status},{len(fm)},,,,,,,,\n")
+                o.write(f"{c[:10]},{status},{len(fm)},,,,,,,,,\n")
             prev = (c, cur)
     print(f"analyze: {len(lines)} commits, {len(failed_files)} failing compile keys")
 

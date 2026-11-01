@@ -41,6 +41,14 @@ print(f"norm asm change frac: median {mn:.4f}  p90 {pct(norm, .9):.4f}  mean {st
 nl = [float(r["noloc_frac"]) for r in ok]
 print(f"diagnostic, strip .loc/.file only (no label renumbering): median {statistics.median(nl):.4f}  "
       f"p90 {pct(nl, .9):.4f}")
+lab = [float(r["labelsonly_frac"]) for r in ok]
+print(f"diagnostic, renumber labels only (keep .loc/.file): median {statistics.median(lab):.4f}  "
+      f"p90 {pct(lab, .9):.4f}")
+nl_m, lab_m = statistics.median(nl), statistics.median(lab)
+print(f"order A (.loc first):    raw {mr:.4f} -> -.loc {nl_m:.4f} -> +labels {mn:.4f}: "
+      f".loc {100*(mr-nl_m):.1f} pts, labels {100*(nl_m-mn):.1f} pts")
+print(f"order B (labels first):  raw {mr:.4f} -> labels {lab_m:.4f} -> +-.loc {mn:.4f}: "
+      f"labels {100*(mr-lab_m):.1f} pts, .loc {100*(lab_m-mn):.1f} pts")
 nlit = [float(r["normlit_frac"]) for r in ok]
 print(f"normalized + referenced literal/static contents: median {statistics.median(nlit):.4f}  "
       f"p90 {pct(nlit, .9):.4f}  mean {statistics.mean(nlit):.4f}")
