@@ -2,6 +2,18 @@
 
 Newest first. "Measured" means a run whose script is in the repo; "estimated" means arithmetic or analysis.
 
+## 2026-11-01: Cycle 3 results (both verified)
+
+**E8, slices under clang -O2 (Lua 5.4.6): the slice survives.** `experiments/e8-slices-O2/`
+- For 342 extern functions across 32 TUs, the smallest slice that reproduces a function's normalized -O2 asm has a median of **6.46%** of TU tokens (p90 22.6%); excluding system headers, 8.39%. Depth distribution: d=0 for 173, d=1 for 98, d=2 for 38, d=3 or 5 for 8, never for 25. 714 static functions are excluded because their code depends on their callers.
+- The first run, lparser.c alone, had N=2 and gave 27%. That was unrepresentative; the full sample reversed it.
+- **Mechanism found:** inlining depends on *callers of callees*. clang's last-call bonus inlines a static callee when the slice holds only one of its callers. Adding all callers of included static callees cuts the never-matching targets from 25 to 7.
+- Verifier fixes: the comparator ignored string-literal contents (`$.L.str` was parsed as a symbol) and collapsed whitespace inside strings. Both are fixed, with mutation self-tests. Verdicts were unchanged, and the verifier's independent rebuild of 20 targets agreed on d.
+
+**E9, executable compression (chibicc stage2): the fixed-width layout loses; the best variant is undecided.** `experiments/e9-executable-compression/`
+- The lower bound for a Re-Pair grammar with fixed-width symbols and operands, a separate operand stream and a label table is 63.9 KB (measured). That is 1.97× xz of the same `.o` text (32,524 B) and 1.58× xz of the linked text. The baseline was corrected in review from clang -Oz to the identical instruction sequence.
+- The verifier showed the bound isn't tight. With target offsets in the jumps and Huffman-coded operands per slot (tables counted), the estimate is about 50.2 KB, i.e. **1.22× xz(.text+.rela)**: on the threshold. Being runnable costs most for operands and branch-target addressing.
+
 ## 2026-11-01: Architecture challenge, then cycle 3
 
 An adversary challenged the "slice-addressed per-function compilation" direction suggested by E5 and E7. Its points:
