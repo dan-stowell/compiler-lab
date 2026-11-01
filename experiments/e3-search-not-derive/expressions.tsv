@@ -1,0 +1,200 @@
+0	(y * z)	3	PUSHY; PUSHZ; MUL
+1	(((y & 0) - (y - 4)) + z)	9	PUSHY; PUSHC 0; AND; PUSHY; PUSHC 4; SUB; SUB; PUSHZ; ADD
+2	(y ^ (y - 15))	5	PUSHY; PUSHY; PUSHC 15; SUB; XOR
+3	(x + (x & x))	5	PUSHX; PUSHX; PUSHX; AND; ADD
+4	(((11 + z) | y) ^ (z | x))	9	PUSHC 11; PUSHZ; ADD; PUSHY; OR; PUSHZ; PUSHX; OR; XOR
+5	(z & (14 + (y ^ 11)))	7	PUSHZ; PUSHC 14; PUSHY; PUSHC 11; XOR; ADD; AND
+6	(1 * ((y + z) - y))	7	PUSHC 1; PUSHY; PUSHZ; ADD; PUSHY; SUB; MUL
+7	((x * x) + (x ^ (x + y)))	9	PUSHX; PUSHX; MUL; PUSHX; PUSHX; PUSHY; ADD; XOR; ADD
+8	(x - (z + 10))	5	PUSHX; PUSHZ; PUSHC 10; ADD; SUB
+9	(x - x)	3	PUSHX; PUSHX; SUB
+10	((y ^ z) * x)	5	PUSHY; PUSHZ; XOR; PUSHX; MUL
+11	(6 | 12)	3	PUSHC 6; PUSHC 12; OR
+12	(2 * 4)	3	PUSHC 2; PUSHC 4; MUL
+13	(y & (x | (10 & x)))	7	PUSHY; PUSHX; PUSHC 10; PUSHX; AND; OR; AND
+14	((z - y) ^ (x & y))	7	PUSHZ; PUSHY; SUB; PUSHX; PUSHY; AND; XOR
+15	(z ^ 0)	3	PUSHZ; PUSHC 0; XOR
+16	(z + (x | x))	5	PUSHZ; PUSHX; PUSHX; OR; ADD
+17	(14 & z)	3	PUSHC 14; PUSHZ; AND
+18	((12 + 11) | (x + y))	7	PUSHC 12; PUSHC 11; ADD; PUSHX; PUSHY; ADD; OR
+19	(x ^ z)	3	PUSHX; PUSHZ; XOR
+20	(x ^ z)	3	PUSHX; PUSHZ; XOR
+21	(z - z)	3	PUSHZ; PUSHZ; SUB
+22	(x | x)	3	PUSHX; PUSHX; OR
+23	((x + 11) - 15)	5	PUSHX; PUSHC 11; ADD; PUSHC 15; SUB
+24	(z | (y - z))	5	PUSHZ; PUSHY; PUSHZ; SUB; OR
+25	(z * (z - (y + y)))	7	PUSHZ; PUSHZ; PUSHY; PUSHY; ADD; SUB; MUL
+26	(6 - z)	3	PUSHC 6; PUSHZ; SUB
+27	(y + 1)	3	PUSHY; PUSHC 1; ADD
+28	(x * ((12 | 14) * 8))	7	PUSHX; PUSHC 12; PUSHC 14; OR; PUSHC 8; MUL; MUL
+29	((z ^ (x - y)) - x)	7	PUSHZ; PUSHX; PUSHY; SUB; XOR; PUSHX; SUB
+30	(x - z)	3	PUSHX; PUSHZ; SUB
+31	(z & x)	3	PUSHZ; PUSHX; AND
+32	(z - 7)	3	PUSHZ; PUSHC 7; SUB
+33	((z ^ (15 * y)) ^ z)	7	PUSHZ; PUSHC 15; PUSHY; MUL; XOR; PUSHZ; XOR
+34	(y | ((x & 7) ^ y))	7	PUSHY; PUSHX; PUSHC 7; AND; PUSHY; XOR; OR
+35	((y + y) - y)	5	PUSHY; PUSHY; ADD; PUSHY; SUB
+36	(x * z)	3	PUSHX; PUSHZ; MUL
+37	(((x | x) & 11) | x)	7	PUSHX; PUSHX; OR; PUSHC 11; AND; PUSHX; OR
+38	(x * x)	3	PUSHX; PUSHX; MUL
+39	(z - (z + z))	5	PUSHZ; PUSHZ; PUSHZ; ADD; SUB
+40	(y + (z & x))	5	PUSHY; PUSHZ; PUSHX; AND; ADD
+41	(x * (x | x))	5	PUSHX; PUSHX; PUSHX; OR; MUL
+42	((z | x) * (5 & y))	7	PUSHZ; PUSHX; OR; PUSHC 5; PUSHY; AND; MUL
+43	(y & (8 - (x + z)))	7	PUSHY; PUSHC 8; PUSHX; PUSHZ; ADD; SUB; AND
+44	(8 & z)	3	PUSHC 8; PUSHZ; AND
+45	((x - y) & y)	5	PUSHX; PUSHY; SUB; PUSHY; AND
+46	(10 ^ z)	3	PUSHC 10; PUSHZ; XOR
+47	(x - ((x | x) - (z ^ z)))	9	PUSHX; PUSHX; PUSHX; OR; PUSHZ; PUSHZ; XOR; SUB; SUB
+48	(((x ^ x) & 5) + x)	7	PUSHX; PUSHX; XOR; PUSHC 5; AND; PUSHX; ADD
+49	((y & (x - 15)) - (z - 12))	9	PUSHY; PUSHX; PUSHC 15; SUB; AND; PUSHZ; PUSHC 12; SUB; SUB
+50	(y + (4 + y))	5	PUSHY; PUSHC 4; PUSHY; ADD; ADD
+51	((z ^ ((6 ^ y) + y)) * x)	9	PUSHZ; PUSHC 6; PUSHY; XOR; PUSHY; ADD; XOR; PUSHX; MUL
+52	((8 * (x - y)) - x)	7	PUSHC 8; PUSHX; PUSHY; SUB; MUL; PUSHX; SUB
+53	(x ^ z)	3	PUSHX; PUSHZ; XOR
+54	((z + x) * (y + (y - z)))	9	PUSHZ; PUSHX; ADD; PUSHY; PUSHY; PUSHZ; SUB; ADD; MUL
+55	(y ^ 13)	3	PUSHY; PUSHC 13; XOR
+56	((x + z) - y)	5	PUSHX; PUSHZ; ADD; PUSHY; SUB
+57	(((y | y) & x) & 11)	7	PUSHY; PUSHY; OR; PUSHX; AND; PUSHC 11; AND
+58	((5 & (x * (x + 12))) * y)	9	PUSHC 5; PUSHX; PUSHX; PUSHC 12; ADD; MUL; AND; PUSHY; MUL
+59	((z * x) ^ (13 * y))	7	PUSHZ; PUSHX; MUL; PUSHC 13; PUSHY; MUL; XOR
+60	(x + (x + 15))	5	PUSHX; PUSHX; PUSHC 15; ADD; ADD
+61	((x | (z | y)) ^ 0)	7	PUSHX; PUSHZ; PUSHY; OR; OR; PUSHC 0; XOR
+62	((x + 1) | (y ^ y))	7	PUSHX; PUSHC 1; ADD; PUSHY; PUSHY; XOR; OR
+63	(x | 1)	3	PUSHX; PUSHC 1; OR
+64	(x + z)	3	PUSHX; PUSHZ; ADD
+65	(z ^ y)	3	PUSHZ; PUSHY; XOR
+66	((y & ((9 ^ y) ^ y)) + x)	9	PUSHY; PUSHC 9; PUSHY; XOR; PUSHY; XOR; AND; PUSHX; ADD
+67	((x + (z | x)) * (x ^ z))	9	PUSHX; PUSHZ; PUSHX; OR; ADD; PUSHX; PUSHZ; XOR; MUL
+68	(z | x)	3	PUSHZ; PUSHX; OR
+69	(0 - z)	3	PUSHC 0; PUSHZ; SUB
+70	((y & (x * x)) & x)	7	PUSHY; PUSHX; PUSHX; MUL; AND; PUSHX; AND
+71	(y & (z - y))	5	PUSHY; PUSHZ; PUSHY; SUB; AND
+72	(((0 ^ x) ^ y) ^ 13)	7	PUSHC 0; PUSHX; XOR; PUSHY; XOR; PUSHC 13; XOR
+73	(z + x)	3	PUSHZ; PUSHX; ADD
+74	((x ^ y) * ((x ^ y) & 13))	9	PUSHX; PUSHY; XOR; PUSHX; PUSHY; XOR; PUSHC 13; AND; MUL
+75	(((9 ^ z) + 3) ^ (y | y))	9	PUSHC 9; PUSHZ; XOR; PUSHC 3; ADD; PUSHY; PUSHY; OR; XOR
+76	((7 * z) * (z & y))	7	PUSHC 7; PUSHZ; MUL; PUSHZ; PUSHY; AND; MUL
+77	((14 ^ 5) + (y + (z & z)))	9	PUSHC 14; PUSHC 5; XOR; PUSHY; PUSHZ; PUSHZ; AND; ADD; ADD
+78	((z ^ (11 | 1)) | (y + z))	9	PUSHZ; PUSHC 11; PUSHC 1; OR; XOR; PUSHY; PUSHZ; ADD; OR
+79	((x * 14) - y)	5	PUSHX; PUSHC 14; MUL; PUSHY; SUB
+80	(8 * ((y & z) * 11))	7	PUSHC 8; PUSHY; PUSHZ; AND; PUSHC 11; MUL; MUL
+81	(x - 3)	3	PUSHX; PUSHC 3; SUB
+82	(((7 ^ x) - z) + y)	7	PUSHC 7; PUSHX; XOR; PUSHZ; SUB; PUSHY; ADD
+83	((15 * 11) + 12)	5	PUSHC 15; PUSHC 11; MUL; PUSHC 12; ADD
+84	(((z ^ x) & 8) * x)	7	PUSHZ; PUSHX; XOR; PUSHC 8; AND; PUSHX; MUL
+85	((z ^ 2) | ((x + 8) * 2))	9	PUSHZ; PUSHC 2; XOR; PUSHX; PUSHC 8; ADD; PUSHC 2; MUL; OR
+86	((x | z) - 0)	5	PUSHX; PUSHZ; OR; PUSHC 0; SUB
+87	(z - y)	3	PUSHZ; PUSHY; SUB
+88	(z | (y ^ (x + x)))	7	PUSHZ; PUSHY; PUSHX; PUSHX; ADD; XOR; OR
+89	(z * y)	3	PUSHZ; PUSHY; MUL
+90	(12 ^ 12)	3	PUSHC 12; PUSHC 12; XOR
+91	((y ^ z) + ((x + 1) - y))	9	PUSHY; PUSHZ; XOR; PUSHX; PUSHC 1; ADD; PUSHY; SUB; ADD
+92	(y & (y + x))	5	PUSHY; PUSHY; PUSHX; ADD; AND
+93	(12 - x)	3	PUSHC 12; PUSHX; SUB
+94	((x ^ z) * z)	5	PUSHX; PUSHZ; XOR; PUSHZ; MUL
+95	(14 * 5)	3	PUSHC 14; PUSHC 5; MUL
+96	(x | ((y - (y + y)) * z))	9	PUSHX; PUSHY; PUSHY; PUSHY; ADD; SUB; PUSHZ; MUL; OR
+97	(((z | 11) & 2) ^ (z + x))	9	PUSHZ; PUSHC 11; OR; PUSHC 2; AND; PUSHZ; PUSHX; ADD; XOR
+98	((z + z) & ((0 | z) ^ x))	9	PUSHZ; PUSHZ; ADD; PUSHC 0; PUSHZ; OR; PUSHX; XOR; AND
+99	((x | (y | 7)) | (z + z))	9	PUSHX; PUSHY; PUSHC 7; OR; OR; PUSHZ; PUSHZ; ADD; OR
+100	(y & y)	3	PUSHY; PUSHY; AND
+101	((z | 6) - z)	5	PUSHZ; PUSHC 6; OR; PUSHZ; SUB
+102	(((x - 13) | z) + 12)	7	PUSHX; PUSHC 13; SUB; PUSHZ; OR; PUSHC 12; ADD
+103	(2 ^ 0)	3	PUSHC 2; PUSHC 0; XOR
+104	(4 + ((12 ^ y) * (y ^ x)))	9	PUSHC 4; PUSHC 12; PUSHY; XOR; PUSHY; PUSHX; XOR; MUL; ADD
+105	(z + (z ^ x))	5	PUSHZ; PUSHZ; PUSHX; XOR; ADD
+106	(z | y)	3	PUSHZ; PUSHY; OR
+107	((y | z) | (z | x))	7	PUSHY; PUSHZ; OR; PUSHZ; PUSHX; OR; OR
+108	(z * (((x - y) - z) | 8))	9	PUSHZ; PUSHX; PUSHY; SUB; PUSHZ; SUB; PUSHC 8; OR; MUL
+109	((x ^ x) & (x ^ z))	7	PUSHX; PUSHX; XOR; PUSHX; PUSHZ; XOR; AND
+110	(x + x)	3	PUSHX; PUSHX; ADD
+111	(z * y)	3	PUSHZ; PUSHY; MUL
+112	(y & (x - ((11 * y) * y)))	9	PUSHY; PUSHX; PUSHC 11; PUSHY; MUL; PUSHY; MUL; SUB; AND
+113	(z ^ (y * z))	5	PUSHZ; PUSHY; PUSHZ; MUL; XOR
+114	((y + 4) * (y + y))	7	PUSHY; PUSHC 4; ADD; PUSHY; PUSHY; ADD; MUL
+115	(2 & y)	3	PUSHC 2; PUSHY; AND
+116	(y | (z + (14 * 0)))	7	PUSHY; PUSHZ; PUSHC 14; PUSHC 0; MUL; ADD; OR
+117	(y ^ y)	3	PUSHY; PUSHY; XOR
+118	((y | z) * (x ^ 3))	7	PUSHY; PUSHZ; OR; PUSHX; PUSHC 3; XOR; MUL
+119	(((y + z) - 12) | 4)	7	PUSHY; PUSHZ; ADD; PUSHC 12; SUB; PUSHC 4; OR
+120	(y - (13 & z))	5	PUSHY; PUSHC 13; PUSHZ; AND; SUB
+121	((x - y) ^ z)	5	PUSHX; PUSHY; SUB; PUSHZ; XOR
+122	(y * z)	3	PUSHY; PUSHZ; MUL
+123	((z & x) + (z & (3 + y)))	9	PUSHZ; PUSHX; AND; PUSHZ; PUSHC 3; PUSHY; ADD; AND; ADD
+124	((x & (x | 3)) | (3 & x))	9	PUSHX; PUSHX; PUSHC 3; OR; AND; PUSHC 3; PUSHX; AND; OR
+125	(y ^ (z ^ ((x ^ y) | x)))	9	PUSHY; PUSHZ; PUSHX; PUSHY; XOR; PUSHX; OR; XOR; XOR
+126	(x ^ (z - (x & (z | z))))	9	PUSHX; PUSHZ; PUSHX; PUSHZ; PUSHZ; OR; AND; SUB; XOR
+127	(3 * z)	3	PUSHC 3; PUSHZ; MUL
+128	((y * (y * y)) + (z - 8))	9	PUSHY; PUSHY; PUSHY; MUL; MUL; PUSHZ; PUSHC 8; SUB; ADD
+129	(y - (y + 6))	5	PUSHY; PUSHY; PUSHC 6; ADD; SUB
+130	((y | (6 & x)) | y)	7	PUSHY; PUSHC 6; PUSHX; AND; OR; PUSHY; OR
+131	(z + 13)	3	PUSHZ; PUSHC 13; ADD
+132	(y * (x - (z & (y | x))))	9	PUSHY; PUSHX; PUSHZ; PUSHY; PUSHX; OR; AND; SUB; MUL
+133	((z * x) & (x ^ 15))	7	PUSHZ; PUSHX; MUL; PUSHX; PUSHC 15; XOR; AND
+134	((y * (z & x)) & (z ^ z))	9	PUSHY; PUSHZ; PUSHX; AND; MUL; PUSHZ; PUSHZ; XOR; AND
+135	(x + y)	3	PUSHX; PUSHY; ADD
+136	(x + (x & z))	5	PUSHX; PUSHX; PUSHZ; AND; ADD
+137	((y & (y | x)) * z)	7	PUSHY; PUSHY; PUSHX; OR; AND; PUSHZ; MUL
+138	(y + (x | z))	5	PUSHY; PUSHX; PUSHZ; OR; ADD
+139	(y + y)	3	PUSHY; PUSHY; ADD
+140	(z | 5)	3	PUSHZ; PUSHC 5; OR
+141	(z ^ (x + (y | 9)))	7	PUSHZ; PUSHX; PUSHY; PUSHC 9; OR; ADD; XOR
+142	(z | (z & (y & y)))	7	PUSHZ; PUSHZ; PUSHY; PUSHY; AND; AND; OR
+143	(y | y)	3	PUSHY; PUSHY; OR
+144	((6 ^ (y | 12)) ^ 14)	7	PUSHC 6; PUSHY; PUSHC 12; OR; XOR; PUSHC 14; XOR
+145	(1 * 11)	3	PUSHC 1; PUSHC 11; MUL
+146	(y + x)	3	PUSHY; PUSHX; ADD
+147	((((x + y) + x) + y) - x)	9	PUSHX; PUSHY; ADD; PUSHX; ADD; PUSHY; ADD; PUSHX; SUB
+148	((x | x) - x)	5	PUSHX; PUSHX; OR; PUSHX; SUB
+149	(11 * x)	3	PUSHC 11; PUSHX; MUL
+150	(9 * (11 ^ x))	5	PUSHC 9; PUSHC 11; PUSHX; XOR; MUL
+151	(z - ((x - x) ^ (z + x)))	9	PUSHZ; PUSHX; PUSHX; SUB; PUSHZ; PUSHX; ADD; XOR; SUB
+152	(z | y)	3	PUSHZ; PUSHY; OR
+153	(y + ((1 * z) | (z & 4)))	9	PUSHY; PUSHC 1; PUSHZ; MUL; PUSHZ; PUSHC 4; AND; OR; ADD
+154	(x + z)	3	PUSHX; PUSHZ; ADD
+155	(z ^ ((x * x) * (y & x)))	9	PUSHZ; PUSHX; PUSHX; MUL; PUSHY; PUSHX; AND; MUL; XOR
+156	(13 + (z ^ 4))	5	PUSHC 13; PUSHZ; PUSHC 4; XOR; ADD
+157	((x ^ z) | y)	5	PUSHX; PUSHZ; XOR; PUSHY; OR
+158	(z + y)	3	PUSHZ; PUSHY; ADD
+159	((x & y) + 5)	5	PUSHX; PUSHY; AND; PUSHC 5; ADD
+160	(z & 0)	3	PUSHZ; PUSHC 0; AND
+161	((5 & ((x ^ x) & z)) * x)	9	PUSHC 5; PUSHX; PUSHX; XOR; PUSHZ; AND; AND; PUSHX; MUL
+162	(y | (8 - x))	5	PUSHY; PUSHC 8; PUSHX; SUB; OR
+163	((y - (11 & (y ^ y))) * z)	9	PUSHY; PUSHC 11; PUSHY; PUSHY; XOR; AND; SUB; PUSHZ; MUL
+164	(((z * z) * x) * (y ^ y))	9	PUSHZ; PUSHZ; MUL; PUSHX; MUL; PUSHY; PUSHY; XOR; MUL
+165	(y * z)	3	PUSHY; PUSHZ; MUL
+166	(x + (x + ((z * y) | z)))	9	PUSHX; PUSHX; PUSHZ; PUSHY; MUL; PUSHZ; OR; ADD; ADD
+167	(((x - x) * y) * 15)	7	PUSHX; PUSHX; SUB; PUSHY; MUL; PUSHC 15; MUL
+168	((z + x) | y)	5	PUSHZ; PUSHX; ADD; PUSHY; OR
+169	((5 ^ x) | (y + y))	7	PUSHC 5; PUSHX; XOR; PUSHY; PUSHY; ADD; OR
+170	((12 ^ (14 - z)) | x)	7	PUSHC 12; PUSHC 14; PUSHZ; SUB; XOR; PUSHX; OR
+171	(z | (6 - z))	5	PUSHZ; PUSHC 6; PUSHZ; SUB; OR
+172	(((7 * 7) | (15 & z)) | z)	9	PUSHC 7; PUSHC 7; MUL; PUSHC 15; PUSHZ; AND; OR; PUSHZ; OR
+173	((15 * (x + y)) - (x ^ 15))	9	PUSHC 15; PUSHX; PUSHY; ADD; MUL; PUSHX; PUSHC 15; XOR; SUB
+174	((x & x) * y)	5	PUSHX; PUSHX; AND; PUSHY; MUL
+175	(y - x)	3	PUSHY; PUSHX; SUB
+176	(x - y)	3	PUSHX; PUSHY; SUB
+177	(7 + 9)	3	PUSHC 7; PUSHC 9; ADD
+178	(y ^ ((x | y) + y))	7	PUSHY; PUSHX; PUSHY; OR; PUSHY; ADD; XOR
+179	((12 - x) | ((x - y) - z))	9	PUSHC 12; PUSHX; SUB; PUSHX; PUSHY; SUB; PUSHZ; SUB; OR
+180	((y & y) ^ z)	5	PUSHY; PUSHY; AND; PUSHZ; XOR
+181	(((10 - z) + (6 + 9)) * x)	9	PUSHC 10; PUSHZ; SUB; PUSHC 6; PUSHC 9; ADD; ADD; PUSHX; MUL
+182	(15 & x)	3	PUSHC 15; PUSHX; AND
+183	(3 & z)	3	PUSHC 3; PUSHZ; AND
+184	(((6 * (z + y)) + 5) * 8)	9	PUSHC 6; PUSHZ; PUSHY; ADD; MUL; PUSHC 5; ADD; PUSHC 8; MUL
+185	(z & 3)	3	PUSHZ; PUSHC 3; AND
+186	(z | (z | x))	5	PUSHZ; PUSHZ; PUSHX; OR; OR
+187	(5 | (x * 11))	5	PUSHC 5; PUSHX; PUSHC 11; MUL; OR
+188	((0 | x) + (z | x))	7	PUSHC 0; PUSHX; OR; PUSHZ; PUSHX; OR; ADD
+189	((z & y) - (y & z))	7	PUSHZ; PUSHY; AND; PUSHY; PUSHZ; AND; SUB
+190	((x | y) & (0 & y))	7	PUSHX; PUSHY; OR; PUSHC 0; PUSHY; AND; AND
+191	((z - z) & ((y ^ 3) & x))	9	PUSHZ; PUSHZ; SUB; PUSHY; PUSHC 3; XOR; PUSHX; AND; AND
+192	((x - 6) + y)	5	PUSHX; PUSHC 6; SUB; PUSHY; ADD
+193	(((z - (y + y)) & x) * z)	9	PUSHZ; PUSHY; PUSHY; ADD; SUB; PUSHX; AND; PUSHZ; MUL
+194	(y & x)	3	PUSHY; PUSHX; AND
+195	(x & y)	3	PUSHX; PUSHY; AND
+196	((y * ((x & x) & 12)) | z)	9	PUSHY; PUSHX; PUSHX; AND; PUSHC 12; AND; MUL; PUSHZ; OR
+197	(y ^ 13)	3	PUSHY; PUSHC 13; XOR
+198	(8 & ((z ^ (0 + x)) - y))	9	PUSHC 8; PUSHZ; PUSHC 0; PUSHX; ADD; XOR; PUSHY; SUB; AND
+199	((8 * 9) & (z | x))	7	PUSHC 8; PUSHC 9; MUL; PUSHZ; PUSHX; OR; AND
