@@ -1,0 +1,157 @@
+callees inlined into luaV_execute in the full TU but not in the TU-free slice:
+luaV_idiv
+luaV_mod
+luaV_modf
+luaV_shiftl
+luaV_tointegerns
+inlined only in the TU-free slice:
+lessequalothers
+lessthanothers
+
+total function bytes: base 185334, tufree 212725 (1.148x)
+largest base functions: name base tufree [copies]
+  luaV_execute                  15865  13866
+  statement                      6968   6758
+  llex                           4092      0
+  luaK_posfix                    3477   2460
+  loadFunction                   3032   3032
+  str_format                     2446   2446
+  luaC_step                      2243   3716
+  dumpFunction                   2056   2056
+  propagatemark                  1989   3846 [2 copies]
+  str_pack                       1861   1861
+  lua_getinfo                    1816   1199
+  pmain                          1805   1805
+  match                          1769   1769
+  g_read                         1743   1743
+  str_unpack                     1697   1697
+  str_gsub                       1619   1619
+  atomic                         1515   1515
+  singlestep                     1373      0
+  luaG_traceexec                 1369    485
+  luaL_traceback                 1317    984
+changed >= 25% and >= 64 bytes (absent = fully inlined everywhere / dropped):
+  llex                           4092      0
+  luaX_lookahead                   18   4028
+  luaX_next                        56   3947
+  propagateall                      0   3792 [2 copies]
+  addk                            440   3520 [8 copies]
+  getobjname                      968   3872 [4 copies]
+  luaC_fullgc                     525   3154
+  luaC_changemode                 217   2501
+  luaC_runtilstate                 56   2232
+  traverseephemeron               667   2668 [4 copies]
+  propagatemark                  1989   3846 [2 copies]
+  luaC_step                      2243   3716
+  singlestep                     1373      0
+  clearbyvalues                   452   1808 [4 copies]
+  luaK_posfix                    3477   2460
+  luaK_exp2anyreg                  98   1009
+  luaG_traceexec                 1369    485
+  luaK_exp2nextreg                100    974
+  exp2reg                         843      0
+  read_long_string                772   1544 [2 copies]
+  reallymarkobject                188    940 [5 copies]
+  read_numeral                    720   1440 [2 copies]
+  luaK_storevar                   555   1214
+  patchlistaux                    309    958 [3 copies]
+  discharge2reg                   637      0
+  lua_getinfo                    1816   1199
+  luaK_goiftrue                   306    831
+  luaK_goiffalse                  244    763
+  luaG_callerror                   93    605
+  luaL_prepbuffsize                10    500
+  luaL_addlstring                  56    539
+  prepbuffsize                    480      0
+  luaL_addvalue                   103    577
+  luaH_get                        189    648
+  luaL_buffinitsize                65    505
+  jumponcond                      423      0
+  correctgraylist                 204    612 [3 copies]
+  sweeplist                         0    402
+  luaG_runerror                   657    262
+  luaK_int                        203    589
+  callbinTM                       384      0
+  lexerror                        328    711 [3 copies]
+  constfolding                    383      0
+  luaK_prefix                    1012   1392
+  sweep2old                         0    374
+  luaH_next                       438    807
+  luaH_getstr                     134    498
+  skip_sep                        351    702 [2 copies]
+  finishbinexpval                 606    264
+  luaL_traceback                 1317    984
+  luaK_codek                      289      0
+  luaK_indexed                    465    748
+  deletelist                        0    265
+  findfield                       262    524 [2 copies]
+  luaK_patchlist                   10    264
+  gethexa                         253    506 [2 copies]
+  varinfo                         249    498 [2 copies]
+  funcnamefromcall                244      0
+  markmt                          241    482 [2 copies]
+  luaK_exp2RK                     101    341
+  close_state                     229      0
+  precallC                        239    466 [2 copies]
+  freeobj                         225    450 [2 copies]
+  codearith                         0    225
+  aux_rawset                      224      0
+  pushglobalfuncname              223      0
+  luaK_fixline                     46    267
+  luaT_trybinassocTM              248     29
+  savelineinfo                    219      0
+  sweeptolive                     122    337
+  lua_rawset                       15    224
+  luaL_argerror                   224    430
+  luaK_self                       356    150
+  lua_rawsetp                      34    238
+  getgeneric                      193      0
+  lessequalothers                 189      0
+  auxsetstr                       181      0
+  check_next2                     179    358 [2 copies]
+  lua_setfield                    138    315
+  lessthanothers                  177      0
+  lua_getlocal                    286    116
+  lua_setglobal                    21    191
+  lua_setlocal                    240     73
+  luaK_code                       112    278
+  luaK_setlist                    274    109
+  lua_close                        16    178
+  lua_newstate                    537    694
+  lua_resetthread                 154      7
+  entergen                        147      0
+  lua_closethread                 171     31
+  luaV_lessthan                   351    490
+  luaV_lessequal                  355    486
+  inclinenumber                   129    258 [2 copies]
+  luaV_tointeger                  230    102
+  luaM_shrinkvector_              159     41
+  luaM_growaux_                   228    111
+  luaK_nil                        292    177
+  luaF_close                      418    306
+  save                            109    218 [2 copies]
+  luaK_ret                        151     43
+  luaK_codeAsBx                   128     21
+  luaL_addgsub                    249    142
+  luaK_codeABCk                   137     30
+  luaK_codeABx                    122     15
+  luaK_infix                      383    278
+  luaD_protectedparser            362    258
+  luaL_gsub                       199     96
+  luaV_tointegerns                143     42
+  luaK_jump                       109     10
+  luaK_exp2val                    114     17
+  luaE_warnerror                  233    138
+  luaS_hashlongstr                136     42
+  luaH_free                       194    101
+  luaL_error                      278    188
+  luaL_typeerror                  214    129
+  luaL_pushresultsize              93      9
+  luaL_callmeta                   164     83
+  luaT_callorderTM                157    236
+  luaL_checkudata                 126     48
+  luaK_exp2anyregup               100     22
+  luaM_saferealloc_               117     46
+  __tuf_lauxlib_boxgc               0     71
+  boxgc                            71      0
+  tryagain                         92    161 [2 copies]

@@ -1,0 +1,6 @@
+shuf1: lcode ltm lmem ltablib loadlib lbaselib lfunc ltable ldo lapi llex lauxlib lundump lobject lutf8lib lmathlib lvm lparser lcorolib lua liolib lstrlib ldump lopcodes lzio loslib lstate ldblib lstring lctype linit ldebug lgc
+shuf2: ltable loslib lundump linit ltablib lzio lua ldebug lmem lfunc lstate ltm lbaselib lstrlib lstring lopcodes lparser loadlib lapi ldblib ldump lvm lgc llex lauxlib liolib lcorolib lutf8lib lmathlib lobject lcode ldo lctype
+shuf3: ltablib ldebug llex lapi liolib lbaselib ldo lstate lmathlib lopcodes lparser lctype ldblib lmem lcorolib ltable lauxlib ldump lfunc ltm lutf8lib loadlib lua loslib lcode lundump lzio linit lvm lstrlib lobject lgc lstring
+shuf1: lcode ltm lmem ltablib loadlib lbaselib lfunc ltable ldo lapi llex lauxlib lundump lobject lutf8lib lmathlib lvm lparser lcorolib lua liolib lstrlib ldump lopcodes lzio loslib lstate ldblib lstring lctype linit ldebug lgc
+shuf2: ltable loslib lundump linit ltablib lzio lua ldebug lmem lfunc lstate ltm lbaselib lstrlib lstring lopcodes lparser loadlib lapi ldblib ldump lvm lgc llex lauxlib liolib lcorolib lutf8lib lmathlib lobject lcode ldo lctype
+shuf3: ltablib ldebug llex lapi liolib lbaselib ldo lstate lmathlib lopcodes lparser lctype ldblib lmem lcorolib ltable lauxlib ldump lfunc ltm lutf8lib loadlib lua loslib lcode lundump lzio linit lvm lstrlib lobject lgc lstring

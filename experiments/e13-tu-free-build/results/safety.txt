@@ -1,0 +1,36 @@
+lvm: 0 violation(s), 0 promoted, 17 targets, 15 static functions
+OK ldo: address-taken static 'unroll' (in precover) reached by 1 target(s); stays static
+OK ldo: address-taken static 'resume' (in lua_resume) reached by 1 target(s); stays static
+OK ldo: address-taken static 'closepaux' (in luaD_closeprotected) reached by 1 target(s); stays static
+OK ldo: address-taken static 'f_parser' (in luaD_protectedparser) reached by 1 target(s); stays static
+ldo: 0 violation(s), 0 promoted, 21 targets, 18 static functions
+ltable: 0 violation(s), 0 promoted, 15 targets, 22 static functions
+PROMOTE lgc: address-taken static 'dothecall' reached by 5 targets -> hidden global __tuf_lgc_dothecall, defined with luaC_changemode
+lgc: 0 violation(s), 1 promoted, 11 targets, 62 static functions
+OK lapi: address-taken static 'f_call' (in lua_pcallk) reached by 1 target(s); stays static
+lapi: 0 violation(s), 0 promoted, 81 targets, 12 static functions
+lstring: 0 violation(s), 0 promoted, 11 targets, 4 static functions
+lfunc: 0 violation(s), 0 promoted, 11 targets, 5 static functions
+ltm: 0 violation(s), 0 promoted, 14 targets, 1 static functions
+lobject: 0 violation(s), 0 promoted, 10 targets, 12 static functions
+ldebug: 0 violation(s), 0 promoted, 21 targets, 26 static functions
+OK lstate: address-taken static 'f_luaopen' (in lua_newstate) reached by 1 target(s); stays static
+lstate: 0 violation(s), 0 promoted, 16 targets, 7 static functions
+PROMOTE lauxlib: address-taken static 'boxgc' reached by 4 targets -> hidden global __tuf_lauxlib_boxgc, defined with luaL_prepbuffsize
+OK lauxlib: address-taken static 'getF' (in luaL_loadfilex) reached by 1 target(s); stays static
+OK lauxlib: address-taken static 'getS' (in luaL_loadbufferx) reached by 1 target(s); stays static
+OK lauxlib: address-taken static 'warnfoff' (in checkcontrol) reached by 1 target(s); stays static
+OK lauxlib: address-taken static 'warnfon' (in checkcontrol) reached by 1 target(s); stays static
+OK lauxlib: address-taken static 'warnfcont' (in warnfcont) reached by 1 target(s); stays static
+OK lauxlib: address-taken static 'warnfon' (in warnfcont) reached by 1 target(s); stays static
+OK lauxlib: address-taken static 'l_alloc' (in luaL_newstate) reached by 1 target(s); stays static
+OK lauxlib: address-taken static 'panic' (in luaL_newstate) reached by 1 target(s); stays static
+OK lauxlib: address-taken static 'warnfoff' (in luaL_newstate) reached by 1 target(s); stays static
+lauxlib: 0 violation(s), 1 promoted, 45 targets, 22 static functions
+lcode: 0 violation(s), 0 promoted, 37 targets, 66 static functions
+lparser: 0 violation(s), 0 promoted, 2 targets, 94 static functions
+llex: 0 violation(s), 0 promoted, 7 targets, 17 static functions
+lzio: 0 violation(s), 0 promoted, 3 targets, 0 static functions
+lmem: 0 violation(s), 0 promoted, 7 targets, 1 static functions
+lundump: 0 violation(s), 0 promoted, 1 targets, 19 static functions
+ldump: 0 violation(s), 0 promoted, 1 targets, 14 static functions
