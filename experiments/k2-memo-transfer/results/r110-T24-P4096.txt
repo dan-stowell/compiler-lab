@@ -1,0 +1,71 @@
+# rule=110 T=24 steps=2^24 P=4096 NB=20 seedA=1000 memo_cap=16777216
+scratch A0 ok=1 memo=55890 nodes=55902 lookups=279371 sec=0.01
+scratch B1 ok=1 memo=57764 nodes=57776 lookups=288741 sec=0.01
+scratch B2 ok=1 memo=51459 nodes=51474 lookups=257216 sec=0.01
+scratch B3 ok=1 memo=50497 nodes=50507 lookups=252406 sec=0.01
+scratch B4 ok=1 memo=54712 nodes=54726 lookups=273481 sec=0.01
+scratch B5 ok=1 memo=66091 nodes=66106 lookups=330376 sec=0.03
+scratch B6 ok=1 memo=47270 nodes=47280 lookups=236271 sec=0.01
+scratch B7 ok=1 memo=56391 nodes=56404 lookups=281876 sec=0.02
+scratch B8 ok=1 memo=60694 nodes=60706 lookups=303391 sec=0.01
+scratch B9 ok=1 memo=54662 nodes=54675 lookups=273231 sec=0.01
+scratch B10 ok=1 memo=73898 nodes=73912 lookups=369411 sec=0.01
+scratch B11 ok=1 memo=62143 nodes=62156 lookups=310636 sec=0.01
+scratch B12 ok=1 memo=50552 nodes=50567 lookups=252681 sec=0.01
+scratch B13 ok=1 memo=62066 nodes=62078 lookups=310251 sec=0.01
+scratch B14 ok=1 memo=63400 nodes=63416 lookups=316921 sec=0.01
+scratch B15 ok=1 memo=52504 nodes=52517 lookups=262441 sec=0.01
+scratch B16 ok=1 memo=63652 nodes=63667 lookups=318181 sec=0.01
+scratch B17 ok=1 memo=52371 nodes=52382 lookups=261776 sec=0.01
+scratch B18 ok=1 memo=61786 nodes=61803 lookups=308851 sec=0.01
+scratch B19 ok=1 memo=46260 nodes=46270 lookups=231221 sec=0.01
+scratch B20 ok=1 memo=59535 nodes=59545 lookups=297596 sec=0.01
+frozen A: memo_entries=55890 nodes=55902 memo_bytes=670680 node_bytes=670824 (12 B each: key,val,chain / l,r,chain)
+transfer B1 ok=1 lookups=216056 frozen_hits=139886 own_hits=32959 new_entries=43211 hit_rate=0.6475 scratch_entries=57764 new/scratch=0.7481 nodes_new=43218 nodes_frozen_hits=116221 sec=0.01
+transfer B2 ok=1 lookups=187461 frozen_hits=123607 own_hits=26362 new_entries=37492 hit_rate=0.6594 scratch_entries=51459 new/scratch=0.7286 nodes_new=37502 nodes_frozen_hits=103161 sec=0.02
+transfer B3 ok=1 lookups=181076 frozen_hits=119845 own_hits=25016 new_entries=36215 hit_rate=0.6618 scratch_entries=50497 new/scratch=0.7172 nodes_new=36221 nodes_frozen_hits=100180 sec=0.02
+transfer B4 ok=1 lookups=202621 frozen_hits=131002 own_hits=31095 new_entries=40524 hit_rate=0.6465 scratch_entries=54712 new/scratch=0.7407 nodes_new=40533 nodes_frozen_hits=109053 sec=0.02
+transfer B5 ok=1 lookups=253786 frozen_hits=156330 own_hits=46699 new_entries=50757 hit_rate=0.6160 scratch_entries=66091 new/scratch=0.7680 nodes_new=50768 nodes_frozen_hits=129504 sec=0.02
+transfer B6 ok=1 lookups=170706 frozen_hits=112109 own_hits=24456 new_entries=34141 hit_rate=0.6567 scratch_entries=47270 new/scratch=0.7223 nodes_new=34147 nodes_frozen_hits=93945 sec=0.01
+transfer B7 ok=1 lookups=207356 frozen_hits=135787 own_hits=30098 new_entries=41471 hit_rate=0.6548 scratch_entries=56391 new/scratch=0.7354 nodes_new=41480 nodes_frozen_hits=112964 sec=0.01
+transfer B8 ok=1 lookups=229561 frozen_hits=145283 own_hits=38366 new_entries=45912 hit_rate=0.6329 scratch_entries=60694 new/scratch=0.7565 nodes_new=45919 nodes_frozen_hits=120574 sec=0.02
+transfer B9 ok=1 lookups=201926 frozen_hits=129636 own_hits=31905 new_entries=40385 hit_rate=0.6420 scratch_entries=54662 new/scratch=0.7388 nodes_new=40394 nodes_frozen_hits=108103 sec=0.02
+transfer B10 ok=1 lookups=290661 frozen_hits=178491 own_hits=54038 new_entries=58132 hit_rate=0.6141 scratch_entries=73898 new/scratch=0.7867 nodes_new=58141 nodes_frozen_hits=147123 sec=0.02
+transfer B11 ok=1 lookups=234011 frozen_hits=146380 own_hits=40829 new_entries=46802 hit_rate=0.6255 scratch_entries=62143 new/scratch=0.7531 nodes_new=46811 nodes_frozen_hits=121390 sec=0.02
+transfer B12 ok=1 lookups=185476 frozen_hits=119225 own_hits=29156 new_entries=37095 hit_rate=0.6428 scratch_entries=50552 new/scratch=0.7338 nodes_new=37106 nodes_frozen_hits=99736 sec=0.01
+transfer B13 ok=1 lookups=233996 frozen_hits=149163 own_hits=38034 new_entries=46799 hit_rate=0.6375 scratch_entries=62066 new/scratch=0.7540 nodes_new=46806 nodes_frozen_hits=123685 sec=0.02
+transfer B14 ok=1 lookups=240341 frozen_hits=152589 own_hits=39684 new_entries=48068 hit_rate=0.6349 scratch_entries=63400 new/scratch=0.7582 nodes_new=48080 nodes_frozen_hits=126552 sec=0.02
+transfer B15 ok=1 lookups=193006 frozen_hits=126286 own_hits=28119 new_entries=38601 hit_rate=0.6543 scratch_entries=52504 new/scratch=0.7352 nodes_new=38609 nodes_frozen_hits=105249 sec=0.01
+transfer B16 ok=1 lookups=243996 frozen_hits=151269 own_hits=43928 new_entries=48799 hit_rate=0.6200 scratch_entries=63652 new/scratch=0.7667 nodes_new=48810 nodes_frozen_hits=125356 sec=0.02
+transfer B17 ok=1 lookups=191551 frozen_hits=125302 own_hits=27939 new_entries=38310 hit_rate=0.6541 scratch_entries=52371 new/scratch=0.7315 nodes_new=38317 nodes_frozen_hits=104510 sec=0.01
+transfer B18 ok=1 lookups=232476 frozen_hits=147761 own_hits=38220 new_entries=46495 hit_rate=0.6356 scratch_entries=61786 new/scratch=0.7525 nodes_new=46508 nodes_frozen_hits=122695 sec=0.02
+transfer B19 ok=1 lookups=163471 frozen_hits=109414 own_hits=21363 new_entries=32694 hit_rate=0.6693 scratch_entries=46260 new/scratch=0.7067 nodes_new=32700 nodes_frozen_hits=91831 sec=0.01
+transfer B20 ok=1 lookups=226086 frozen_hits=140522 own_hits=40347 new_entries=45217 hit_rate=0.6215 scratch_entries=59535 new/scratch=0.7595 nodes_new=45223 nodes_frozen_hits=116692 sec=0.01
+per-level over all B (level k = 2^k cells, 2^(k-2) steps):
+  k  lookups  frozen_hit_rate  new_entries
+   3     431145   1.0000          0
+   4    1289100   0.8848      86229
+   5     984515   0.5882     257820
+   6     652235   0.4480     196903
+   7     367175   0.3351     130447
+   8     194750   0.2900      73435
+   9     105645   0.2688      38950
+  10      59975   0.2677      21129
+  11      37410   0.2868      11995
+  12      25680   0.3125       7482
+  13      19960   0.3577       5136
+  14      17110   0.3868       3992
+  15      15945   0.3984       3422
+  16      15460   0.4094       3189
+  17      15350   0.4162       3092
+  18      15315   0.4178       3070
+  19      15025   0.4138       3063
+  20      12165   0.4095       3005
+  21       6660   0.3167       2433
+  22       3195   0.3374       1332
+  23       1185   0.3190        639
+  24        500   0.4060        237
+  25        100   0.0000        100
+  26         20   0.0000         20
+summary rule=110 T=24 n=20 mean_hit_rate=0.6414 min_hit_rate=0.6141 hit_rate_levels>=6=0.3726 mean_new/scratch=0.7447 max_new/scratch=0.7867
+rule(hit>=0.90 and new<=0.10 of scratch, means over B): INPUT-SPECIFIC

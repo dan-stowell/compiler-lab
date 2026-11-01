@@ -1,0 +1,211 @@
+validate rule=110 T=12 steps=4096 P=0 seed=background cells_compared=8192 mismatches=0 cells_differing_from_background=0 memo=88 nodes=95
+validate rule=110 T=12 steps=4096 P=256 seed=1 cells_compared=8192 mismatches=0 cells_differing_from_background=2180 memo=9348 nodes=9373
+validate rule=110 T=12 steps=4096 P=256 seed=2 cells_compared=8192 mismatches=0 cells_differing_from_background=1328 memo=6853 nodes=6870
+validate rule=110 T=12 steps=4096 P=256 seed=3 cells_compared=8192 mismatches=0 cells_differing_from_background=2297 memo=4952 nodes=4969
+validate rule=110 T=12 steps=4096 P=256 seed=4 cells_compared=8192 mismatches=0 cells_differing_from_background=2845 memo=4178 nodes=4194
+validate rule=110 T=12 steps=4096 P=256 seed=5 cells_compared=8192 mismatches=0 cells_differing_from_background=1153 memo=7339 nodes=7358
+validate rule=110 T=12: PASS
+validate rule=30 T=12 steps=4096 P=0 seed=background cells_compared=8192 mismatches=0 cells_differing_from_background=0 memo=13 nodes=16
+validate rule=30 T=12 steps=4096 P=256 seed=1 cells_compared=8192 mismatches=0 cells_differing_from_background=4089 memo=184604 nodes=184940
+validate rule=30 T=12 steps=4096 P=256 seed=2 cells_compared=8192 mismatches=0 cells_differing_from_background=4108 memo=183937 nodes=184270
+validate rule=30 T=12 steps=4096 P=256 seed=3 cells_compared=8192 mismatches=0 cells_differing_from_background=4094 memo=183802 nodes=184136
+validate rule=30 T=12 steps=4096 P=256 seed=4 cells_compared=8192 mismatches=0 cells_differing_from_background=4077 memo=184304 nodes=184638
+validate rule=30 T=12 steps=4096 P=256 seed=5 cells_compared=8192 mismatches=0 cells_differing_from_background=4159 memo=183307 nodes=183640
+validate rule=30 T=12: PASS
+validate rule=110 T=16 steps=65536 P=0 seed=background cells_compared=131072 mismatches=0 cells_differing_from_background=0 memo=116 nodes=123
+validate rule=110 T=16 steps=65536 P=1024 seed=11 cells_compared=131072 mismatches=0 cells_differing_from_background=39394 memo=22372 nodes=22390
+validate rule=110 T=16 steps=65536 P=1024 seed=12 cells_compared=131072 mismatches=0 cells_differing_from_background=36955 memo=13410 nodes=13424
+validate rule=110 T=16: PASS
+validate rule=30 T=16 steps=65536 P=0 seed=background cells_compared=131072 mismatches=0 cells_differing_from_background=0 memo=17 nodes=20
+validate rule=30 T=16 steps=65536 P=256 seed=11 cells_compared=131072 mismatches=0 cells_differing_from_background=65538 memo=28179002 nodes=28184136
+validate rule=30 T=16: PASS
+# rule=110 T=24 steps=2^24 P=256 NB=20 seedA=1000 memo_cap=16777216
+scratch A0 ok=1 memo=6678 nodes=6690 lookups=33311 sec=0.00
+scratch B1 ok=1 memo=7336 nodes=7350 lookups=36601 sec=0.00
+scratch B2 ok=1 memo=7808 nodes=7819 lookups=38961 sec=0.00
+scratch B3 ok=1 memo=5269 nodes=5279 lookups=26266 sec=0.00
+scratch B4 ok=1 memo=6163 nodes=6172 lookups=30736 sec=0.00
+scratch B5 ok=1 memo=10459 nodes=10472 lookups=52216 sec=0.00
+scratch B6 ok=1 memo=15167 nodes=15183 lookups=75756 sec=0.00
+scratch B7 ok=1 memo=10071 nodes=10082 lookups=50276 sec=0.00
+scratch B8 ok=1 memo=5773 nodes=5783 lookups=28786 sec=0.00
+scratch B9 ok=1 memo=8834 nodes=8851 lookups=44091 sec=0.00
+scratch B10 ok=1 memo=5516 nodes=5530 lookups=27501 sec=0.00
+scratch B11 ok=1 memo=5204 nodes=5216 lookups=25941 sec=0.00
+scratch B12 ok=1 memo=6299 nodes=6311 lookups=31416 sec=0.00
+scratch B13 ok=1 memo=8027 nodes=8043 lookups=40056 sec=0.00
+scratch B14 ok=1 memo=6900 nodes=6915 lookups=34421 sec=0.00
+scratch B15 ok=1 memo=5419 nodes=5433 lookups=27016 sec=0.00
+scratch B16 ok=1 memo=4790 nodes=4797 lookups=23871 sec=0.00
+scratch B17 ok=1 memo=12118 nodes=12131 lookups=60511 sec=0.00
+scratch B18 ok=1 memo=4030 nodes=4040 lookups=20071 sec=0.00
+scratch B19 ok=1 memo=5657 nodes=5666 lookups=28206 sec=0.00
+scratch B20 ok=1 memo=4495 nodes=4506 lookups=22396 sec=0.00
+frozen A: memo_entries=6678 nodes=6690 memo_bytes=80136 node_bytes=80280 (12 B each: key,val,chain / l,r,chain)
+transfer B1 ok=1 lookups=30441 frozen_hits=16053 own_hits=8300 new_entries=6088 hit_rate=0.5273 scratch_entries=7336 new/scratch=0.8299 nodes_new=6098 nodes_frozen_hits=13276 sec=0.00
+transfer B2 ok=1 lookups=33281 frozen_hits=17990 own_hits=8635 new_entries=6656 hit_rate=0.5405 scratch_entries=7808 new/scratch=0.8525 nodes_new=6663 nodes_frozen_hits=14896 sec=0.00
+transfer B3 ok=1 lookups=20991 frozen_hits=12194 own_hits=4599 new_entries=4198 hit_rate=0.5809 scratch_entries=5269 new/scratch=0.7967 nodes_new=4204 nodes_frozen_hits=10172 sec=0.00
+transfer B4 ok=1 lookups=24606 frozen_hits=14850 own_hits=4835 new_entries=4921 hit_rate=0.6035 scratch_entries=6163 new/scratch=0.7985 nodes_new=4926 nodes_frozen_hits=12312 sec=0.00
+transfer B5 ok=1 lookups=43886 frozen_hits=23415 own_hits=11694 new_entries=8777 hit_rate=0.5335 scratch_entries=10459 new/scratch=0.8392 nodes_new=8785 nodes_frozen_hits=19294 sec=0.00
+transfer B6 ok=1 lookups=67311 frozen_hits=32892 own_hits=20957 new_entries=13462 hit_rate=0.4887 scratch_entries=15167 new/scratch=0.8876 nodes_new=13473 nodes_frozen_hits=26993 sec=0.00
+transfer B7 ok=1 lookups=42351 frozen_hits=24393 own_hits=9488 new_entries=8470 hit_rate=0.5760 scratch_entries=10071 new/scratch=0.8410 nodes_new=8477 nodes_frozen_hits=19987 sec=0.00
+transfer B8 ok=1 lookups=23206 frozen_hits=13369 own_hits=5196 new_entries=4641 hit_rate=0.5761 scratch_entries=5773 new/scratch=0.8039 nodes_new=4647 nodes_frozen_hits=11156 sec=0.00
+transfer B9 ok=1 lookups=37656 frozen_hits=18798 own_hits=11327 new_entries=7531 hit_rate=0.4992 scratch_entries=8834 new/scratch=0.8525 nodes_new=7544 nodes_frozen_hits=15748 sec=0.00
+transfer B10 ok=1 lookups=21526 frozen_hits=12782 own_hits=4439 new_entries=4305 hit_rate=0.5938 scratch_entries=5516 new/scratch=0.7805 nodes_new=4314 nodes_frozen_hits=10724 sec=0.00
+transfer B11 ok=1 lookups=20936 frozen_hits=11972 own_hits=4777 new_entries=4187 hit_rate=0.5718 scratch_entries=5204 new/scratch=0.8046 nodes_new=4195 nodes_frozen_hits=10002 sec=0.00
+transfer B12 ok=1 lookups=25256 frozen_hits=14354 own_hits=5851 new_entries=5051 hit_rate=0.5683 scratch_entries=6299 new/scratch=0.8019 nodes_new=5059 nodes_frozen_hits=12006 sec=0.00
+transfer B13 ok=1 lookups=33456 frozen_hits=17810 own_hits=8955 new_entries=6691 hit_rate=0.5323 scratch_entries=8027 new/scratch=0.8336 nodes_new=6703 nodes_frozen_hits=14863 sec=0.00
+transfer B14 ok=1 lookups=28156 frozen_hits=15143 own_hits=7382 new_entries=5631 hit_rate=0.5378 scratch_entries=6900 new/scratch=0.8161 nodes_new=5642 nodes_frozen_hits=12696 sec=0.00
+transfer B15 ok=1 lookups=21866 frozen_hits=12113 own_hits=5380 new_entries=4373 hit_rate=0.5540 scratch_entries=5419 new/scratch=0.8070 nodes_new=4382 nodes_frozen_hits=10227 sec=0.00
+transfer B16 ok=1 lookups=18326 frozen_hits=12064 own_hits=2597 new_entries=3665 hit_rate=0.6583 scratch_entries=4790 new/scratch=0.7651 nodes_new=3668 nodes_frozen_hits=10076 sec=0.00
+transfer B17 ok=1 lookups=52631 frozen_hits=26990 own_hits=15115 new_entries=10526 hit_rate=0.5128 scratch_entries=12118 new/scratch=0.8686 nodes_new=10535 nodes_frozen_hits=22165 sec=0.00
+transfer B18 ok=1 lookups=15876 frozen_hits=8778 own_hits=3923 new_entries=3175 hit_rate=0.5529 scratch_entries=4030 new/scratch=0.7878 nodes_new=3181 nodes_frozen_hits=7472 sec=0.00
+transfer B19 ok=1 lookups=22231 frozen_hits=12880 own_hits=4905 new_entries=4446 hit_rate=0.5794 scratch_entries=5657 new/scratch=0.7859 nodes_new=4451 nodes_frozen_hits=10748 sec=0.00
+transfer B20 ok=1 lookups=18176 frozen_hits=10212 own_hits=4329 new_entries=3635 hit_rate=0.5618 scratch_entries=4495 new/scratch=0.8087 nodes_new=3642 nodes_frozen_hits=8649 sec=0.00
+per-level over all B (level k = 2^k cells, 2^(k-2) steps):
+  k  lookups  frozen_hit_rate  new_entries
+   2        630   1.0000          0
+   3     116085   0.9982        126
+   4     111720   0.6440      23217
+   5      72035   0.3858      22344
+   6      46855   0.3409      14407
+   7      32115   0.3292       9371
+   8      24975   0.3413       6423
+   9      21005   0.3673       4995
+  10      18495   0.3810       4201
+  11      17135   0.3907       3699
+  12      16215   0.3967       3427
+  13      15455   0.4024       3243
+  14      14970   0.4025       3091
+  15      14745   0.4060       2994
+  16      14635   0.4088       2949
+  17      14585   0.4104       2927
+  18      14565   0.4112       2917
+  19      14135   0.4045       2913
+  20      11020   0.3903       2827
+  21       6030   0.3297       2204
+  22       2980   0.3520       1206
+  23       1160   0.3431        596
+  24        500   0.4160        232
+  25        100   0.0000        100
+  26         20   0.0000         20
+summary rule=110 T=24 n=20 mean_hit_rate=0.5575 min_hit_rate=0.4887 hit_rate_levels>=6=0.3739 mean_new/scratch=0.8181 max_new/scratch=0.8876
+rule(hit>=0.90 and new<=0.10 of scratch, means over B): INPUT-SPECIFIC
+# rule=30 T=24 steps=2^24 P=256 NB=20 seedA=1000 memo_cap=16777216
+scratch A0 ok=0 memo=16777216 nodes=16778299 lookups=83886066 sec=8.71  CAP EXCEEDED
+scratch B1 ok=0 memo=16777216 nodes=16778303 lookups=83886067 sec=9.85  CAP EXCEEDED
+scratch B2 ok=0 memo=16777216 nodes=16778303 lookups=83886068 sec=9.52  CAP EXCEEDED
+scratch B3 ok=0 memo=16777216 nodes=16778306 lookups=83886069 sec=9.59  CAP EXCEEDED
+scratch B4 ok=0 memo=16777216 nodes=16778299 lookups=83886071 sec=12.22  CAP EXCEEDED
+scratch B5 ok=0 memo=16777216 nodes=16778305 lookups=83886071 sec=11.76  CAP EXCEEDED
+scratch B6 ok=0 memo=16777216 nodes=16778295 lookups=83886068 sec=13.12  CAP EXCEEDED
+scratch B7 ok=0 memo=16777216 nodes=16778300 lookups=83886066 sec=13.30  CAP EXCEEDED
+scratch B8 ok=0 memo=16777216 nodes=16778307 lookups=83886062 sec=11.57  CAP EXCEEDED
+scratch B9 ok=0 memo=16777216 nodes=16778304 lookups=83886074 sec=14.74  CAP EXCEEDED
+scratch B10 ok=0 memo=16777216 nodes=16778295 lookups=83886078 sec=13.28  CAP EXCEEDED
+scratch B11 ok=0 memo=16777216 nodes=16778305 lookups=83886073 sec=12.65  CAP EXCEEDED
+scratch B12 ok=0 memo=16777216 nodes=16778297 lookups=83886067 sec=12.73  CAP EXCEEDED
+scratch B13 ok=0 memo=16777216 nodes=16778294 lookups=83886076 sec=12.72  CAP EXCEEDED
+scratch B14 ok=0 memo=16777216 nodes=16778305 lookups=83886070 sec=13.66  CAP EXCEEDED
+scratch B15 ok=0 memo=16777216 nodes=16778299 lookups=83886074 sec=13.19  CAP EXCEEDED
+scratch B16 ok=0 memo=16777216 nodes=16778300 lookups=83886067 sec=12.85  CAP EXCEEDED
+scratch B17 ok=0 memo=16777216 nodes=16778295 lookups=83886068 sec=12.92  CAP EXCEEDED
+scratch B18 ok=0 memo=16777216 nodes=16778306 lookups=83886073 sec=12.89  CAP EXCEEDED
+scratch B19 ok=0 memo=16777216 nodes=16778301 lookups=83886070 sec=11.79  CAP EXCEEDED
+scratch B20 ok=0 memo=16777216 nodes=16778300 lookups=83886075 sec=13.06  CAP EXCEEDED
+A: memo cap 2^24 exceeded; transfer not run
+# rule=30 T=15 steps=2^15 P=256 NB=20 seedA=1000 memo_cap=16777216
+scratch A0 ok=1 memo=7139447 nodes=7142026 lookups=35697156 sec=4.47
+scratch B1 ok=1 memo=7150611 nodes=7153197 lookups=35752976 sec=5.26
+scratch B2 ok=1 memo=7171754 nodes=7174343 lookups=35858691 sec=4.79
+scratch B3 ok=1 memo=7161405 nodes=7163991 lookups=35806946 sec=5.27
+scratch B4 ok=1 memo=7145973 nodes=7148556 lookups=35729786 sec=5.26
+scratch B5 ok=1 memo=7169974 nodes=7172564 lookups=35849791 sec=5.31
+scratch B6 ok=1 memo=7129433 nodes=7132011 lookups=35647086 sec=4.99
+scratch B7 ok=1 memo=7137843 nodes=7140423 lookups=35689136 sec=4.40
+scratch B8 ok=1 memo=7156508 nodes=7159092 lookups=35782461 sec=5.25
+scratch B9 ok=1 memo=7156466 nodes=7159052 lookups=35782251 sec=5.40
+scratch B10 ok=1 memo=7143462 nodes=7146044 lookups=35717231 sec=4.06
+scratch B11 ok=1 memo=7165337 nodes=7167926 lookups=35826606 sec=5.18
+scratch B12 ok=1 memo=7136077 nodes=7138656 lookups=35680306 sec=7.47
+scratch B13 ok=1 memo=7126887 nodes=7129467 lookups=35634356 sec=6.68
+scratch B14 ok=1 memo=7160946 nodes=7163533 lookups=35804651 sec=5.50
+scratch B15 ok=1 memo=7133767 nodes=7136347 lookups=35668756 sec=4.28
+scratch B16 ok=1 memo=7142290 nodes=7144873 lookups=35711371 sec=5.18
+scratch B17 ok=1 memo=7133509 nodes=7136089 lookups=35667466 sec=5.97
+scratch B18 ok=1 memo=7173719 nodes=7176306 lookups=35868516 sec=6.55
+scratch B19 ok=1 memo=7140755 nodes=7143335 lookups=35703696 sec=4.95
+scratch B20 ok=1 memo=7144146 nodes=7146728 lookups=35720651 sec=5.53
+frozen A: memo_entries=7139447 nodes=7142026 memo_bytes=85673364 node_bytes=85704312 (12 B each: key,val,chain / l,r,chain)
+transfer B1 ok=1 lookups=35391856 frozen_hits=26524699 own_hits=1788786 new_entries=7078371 hit_rate=0.7495 scratch_entries=7150611 new/scratch=0.9899 nodes_new=7080947 nodes_frozen_hits=21217742 sec=6.57
+transfer B2 ok=1 lookups=35497611 frozen_hits=26604165 own_hits=1793924 new_entries=7099522 hit_rate=0.7495 scratch_entries=7171754 new/scratch=0.9899 nodes_new=7102103 nodes_frozen_hits=21281333 sec=5.79
+transfer B3 ok=1 lookups=35444451 frozen_hits=26564172 own_hits=1791389 new_entries=7088890 hit_rate=0.7495 scratch_entries=7161405 new/scratch=0.9899 nodes_new=7091463 nodes_frozen_hits=21249761 sec=5.87
+transfer B4 ok=1 lookups=35367846 frozen_hits=26506977 own_hits=1787300 new_entries=7073569 hit_rate=0.7495 scratch_entries=7145973 new/scratch=0.9899 nodes_new=7076147 nodes_frozen_hits=21203979 sec=5.55
+transfer B5 ok=1 lookups=35487176 frozen_hits=26596357 own_hits=1793384 new_entries=7097435 hit_rate=0.7495 scratch_entries=7169974 new/scratch=0.9899 nodes_new=7100018 nodes_frozen_hits=21275064 sec=5.61
+transfer B6 ok=1 lookups=35286221 frozen_hits=26445391 own_hits=1783586 new_entries=7057244 hit_rate=0.7495 scratch_entries=7129433 new/scratch=0.9899 nodes_new=7059813 nodes_frozen_hits=21153485 sec=6.03
+transfer B7 ok=1 lookups=35327556 frozen_hits=26476338 own_hits=1785707 new_entries=7065511 hit_rate=0.7495 scratch_entries=7137843 new/scratch=0.9899 nodes_new=7068080 nodes_frozen_hits=21178222 sec=6.42
+transfer B8 ok=1 lookups=35421271 frozen_hits=26546734 own_hits=1790283 new_entries=7084254 hit_rate=0.7495 scratch_entries=7156508 new/scratch=0.9899 nodes_new=7086830 nodes_frozen_hits=21235359 sec=6.03
+transfer B9 ok=1 lookups=35420361 frozen_hits=26546508 own_hits=1789781 new_entries=7084072 hit_rate=0.7495 scratch_entries=7156466 new/scratch=0.9899 nodes_new=7086654 nodes_frozen_hits=21235522 sec=7.06
+transfer B10 ok=1 lookups=35355416 frozen_hits=26497485 own_hits=1786848 new_entries=7071083 hit_rate=0.7495 scratch_entries=7143462 new/scratch=0.9899 nodes_new=7073658 nodes_frozen_hits=21195148 sec=6.45
+transfer B11 ok=1 lookups=35465026 frozen_hits=26579453 own_hits=1792568 new_entries=7093005 hit_rate=0.7495 scratch_entries=7165337 new/scratch=0.9899 nodes_new=7095587 nodes_frozen_hits=21260749 sec=6.26
+transfer B12 ok=1 lookups=35318071 frozen_hits=26469404 own_hits=1785053 new_entries=7063614 hit_rate=0.7495 scratch_entries=7136077 new/scratch=0.9898 nodes_new=7066187 nodes_frozen_hits=21173504 sec=5.62
+transfer B13 ok=1 lookups=35272116 frozen_hits=26435335 own_hits=1782358 new_entries=7054423 hit_rate=0.7495 scratch_entries=7126887 new/scratch=0.9898 nodes_new=7056998 nodes_frozen_hits=21147033 sec=5.63
+transfer B14 ok=1 lookups=35443161 frozen_hits=26563510 own_hits=1791019 new_entries=7088632 hit_rate=0.7495 scratch_entries=7160946 new/scratch=0.9899 nodes_new=7091210 nodes_frozen_hits=21249466 sec=6.30
+transfer B15 ok=1 lookups=35306441 frozen_hits=26460889 own_hits=1784264 new_entries=7061288 hit_rate=0.7495 scratch_entries=7133767 new/scratch=0.9898 nodes_new=7063861 nodes_frozen_hits=21167429 sec=5.40
+transfer B16 ok=1 lookups=35349591 frozen_hits=26493122 own_hits=1786551 new_entries=7069918 hit_rate=0.7495 scratch_entries=7142290 new/scratch=0.9899 nodes_new=7072496 nodes_frozen_hits=21192886 sec=6.22
+transfer B17 ok=1 lookups=35306196 frozen_hits=26460211 own_hits=1784746 new_entries=7061239 hit_rate=0.7494 scratch_entries=7133509 new/scratch=0.9899 nodes_new=7063813 nodes_frozen_hits=21165346 sec=5.91
+transfer B18 ok=1 lookups=35238216 frozen_hits=26420968 own_hits=1769605 new_entries=7047643 hit_rate=0.7498 scratch_entries=7173719 new/scratch=0.9824 nodes_new=7050204 nodes_frozen_hits=21133326 sec=6.76
+transfer B19 ok=1 lookups=35341311 frozen_hits=26487006 own_hits=1786043 new_entries=7068262 hit_rate=0.7495 scratch_entries=7140755 new/scratch=0.9898 nodes_new=7070834 nodes_frozen_hits=21188054 sec=6.16
+transfer B20 ok=1 lookups=35358826 frozen_hits=26499850 own_hits=1787211 new_entries=7071765 hit_rate=0.7495 scratch_entries=7144146 new/scratch=0.9899 nodes_new=7074340 nodes_frozen_hits=21197892 sec=5.93
+per-level over all B (level k = 2^k cells, 2^(k-2) steps):
+  k  lookups  frozen_hit_rate  new_entries
+   4  529909100   1.0000          0
+   5  132898320   0.0014  105981820
+   6   33339885   0.0011   26579664
+   7    8374280   0.0014    6667977
+   8    2126010   0.0076    1674856
+   9     547720   0.0147     425202
+  10     144970   0.0279     109544
+  11      40270   0.0509      28994
+  12      12070   0.0872       8054
+  13       3985   0.1390       2414
+  14       1490   0.2040        797
+  15        500   0.2460        298
+  16        100   0.0000        100
+  17         20   0.0000         20
+summary rule=30 T=15 n=20 mean_hit_rate=0.7495 min_hit_rate=0.7494 hit_rate_levels>=6=0.0018 mean_new/scratch=0.9895 max_new/scratch=0.9899
+rule(hit>=0.90 and new<=0.10 of scratch, means over B): INPUT-SPECIFIC
+# rule=110 T=16 steps=2^16 P=256 NB=20 seedA=1000 memo_cap=16777216
+frozen A: memo_entries=6039 nodes=6054 memo_bytes=72468 node_bytes=72648 (12 B each: key,val,chain / l,r,chain)
+summary rule=110 T=16 n=20 mean_hit_rate=0.6011 min_hit_rate=0.5457 hit_rate_levels>=6=0.3542 mean_new/scratch=0.7749 max_new/scratch=0.8285
+rule(hit>=0.90 and new<=0.10 of scratch, means over B): INPUT-SPECIFIC
+# rule=110 T=20 steps=2^20 P=256 NB=20 seedA=1000 memo_cap=16777216
+frozen A: memo_entries=6495 nodes=6505 memo_bytes=77940 node_bytes=78060 (12 B each: key,val,chain / l,r,chain)
+summary rule=110 T=20 n=20 mean_hit_rate=0.5517 min_hit_rate=0.4695 hit_rate_levels>=6=0.3286 mean_new/scratch=0.8149 max_new/scratch=0.8542
+rule(hit>=0.90 and new<=0.10 of scratch, means over B): INPUT-SPECIFIC
+# rule=110 T=24 steps=2^24 P=1024 NB=20 seedA=1000 memo_cap=16777216
+frozen A: memo_entries=20857 nodes=20870 memo_bytes=250284 node_bytes=250440 (12 B each: key,val,chain / l,r,chain)
+summary rule=110 T=24 n=20 mean_hit_rate=0.6157 min_hit_rate=0.5736 hit_rate_levels>=6=0.3430 mean_new/scratch=0.7623 max_new/scratch=0.7984
+rule(hit>=0.90 and new<=0.10 of scratch, means over B): INPUT-SPECIFIC
+# rule=110 T=24 steps=2^24 P=256 NB=20 seedA=1000 memo_cap=16777216
+frozen A: memo_entries=6678 nodes=6690 memo_bytes=80136 node_bytes=80280 (12 B each: key,val,chain / l,r,chain)
+summary rule=110 T=24 n=20 mean_hit_rate=0.5575 min_hit_rate=0.4887 hit_rate_levels>=6=0.3739 mean_new/scratch=0.8181 max_new/scratch=0.8876
+rule(hit>=0.90 and new<=0.10 of scratch, means over B): INPUT-SPECIFIC
+# rule=110 T=24 steps=2^24 P=4096 NB=20 seedA=1000 memo_cap=16777216
+frozen A: memo_entries=55890 nodes=55902 memo_bytes=670680 node_bytes=670824 (12 B each: key,val,chain / l,r,chain)
+summary rule=110 T=24 n=20 mean_hit_rate=0.6414 min_hit_rate=0.6141 hit_rate_levels>=6=0.3726 mean_new/scratch=0.7447 max_new/scratch=0.7867
+rule(hit>=0.90 and new<=0.10 of scratch, means over B): INPUT-SPECIFIC
+# rule=110 T=24 steps=2^24 P=64 NB=20 seedA=1000 memo_cap=16777216
+frozen A: memo_entries=4516 nodes=4528 memo_bytes=54192 node_bytes=54336 (12 B each: key,val,chain / l,r,chain)
+summary rule=110 T=24 n=20 mean_hit_rate=0.5217 min_hit_rate=0.4411 hit_rate_levels>=6=0.4132 mean_new/scratch=0.7907 max_new/scratch=0.8695
+rule(hit>=0.90 and new<=0.10 of scratch, means over B): INPUT-SPECIFIC
+# rule=30 T=15 steps=2^15 P=256 NB=20 seedA=1000 memo_cap=16777216
+frozen A: memo_entries=7139447 nodes=7142026 memo_bytes=85673364 node_bytes=85704312 (12 B each: key,val,chain / l,r,chain)
+summary rule=30 T=15 n=20 mean_hit_rate=0.7495 min_hit_rate=0.7494 hit_rate_levels>=6=0.0018 mean_new/scratch=0.9895 max_new/scratch=0.9899
+rule(hit>=0.90 and new<=0.10 of scratch, means over B): INPUT-SPECIFIC
+# rule=30 T=24 steps=2^24 P=256 NB=20 seedA=1000 memo_cap=16777216
+A: memo cap 2^24 exceeded; transfer not run
+
+real	9m18.132s
+user	8m34.439s
+sys	0m6.667s

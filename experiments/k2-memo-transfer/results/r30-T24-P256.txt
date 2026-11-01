@@ -1,0 +1,23 @@
+# rule=30 T=24 steps=2^24 P=256 NB=20 seedA=1000 memo_cap=16777216
+scratch A0 ok=0 memo=16777216 nodes=16778299 lookups=83886066 sec=8.71  CAP EXCEEDED
+scratch B1 ok=0 memo=16777216 nodes=16778303 lookups=83886067 sec=9.85  CAP EXCEEDED
+scratch B2 ok=0 memo=16777216 nodes=16778303 lookups=83886068 sec=9.52  CAP EXCEEDED
+scratch B3 ok=0 memo=16777216 nodes=16778306 lookups=83886069 sec=9.59  CAP EXCEEDED
+scratch B4 ok=0 memo=16777216 nodes=16778299 lookups=83886071 sec=12.22  CAP EXCEEDED
+scratch B5 ok=0 memo=16777216 nodes=16778305 lookups=83886071 sec=11.76  CAP EXCEEDED
+scratch B6 ok=0 memo=16777216 nodes=16778295 lookups=83886068 sec=13.12  CAP EXCEEDED
+scratch B7 ok=0 memo=16777216 nodes=16778300 lookups=83886066 sec=13.30  CAP EXCEEDED
+scratch B8 ok=0 memo=16777216 nodes=16778307 lookups=83886062 sec=11.57  CAP EXCEEDED
+scratch B9 ok=0 memo=16777216 nodes=16778304 lookups=83886074 sec=14.74  CAP EXCEEDED
+scratch B10 ok=0 memo=16777216 nodes=16778295 lookups=83886078 sec=13.28  CAP EXCEEDED
+scratch B11 ok=0 memo=16777216 nodes=16778305 lookups=83886073 sec=12.65  CAP EXCEEDED
+scratch B12 ok=0 memo=16777216 nodes=16778297 lookups=83886067 sec=12.73  CAP EXCEEDED
+scratch B13 ok=0 memo=16777216 nodes=16778294 lookups=83886076 sec=12.72  CAP EXCEEDED
+scratch B14 ok=0 memo=16777216 nodes=16778305 lookups=83886070 sec=13.66  CAP EXCEEDED
+scratch B15 ok=0 memo=16777216 nodes=16778299 lookups=83886074 sec=13.19  CAP EXCEEDED
+scratch B16 ok=0 memo=16777216 nodes=16778300 lookups=83886067 sec=12.85  CAP EXCEEDED
+scratch B17 ok=0 memo=16777216 nodes=16778295 lookups=83886068 sec=12.92  CAP EXCEEDED
+scratch B18 ok=0 memo=16777216 nodes=16778306 lookups=83886073 sec=12.89  CAP EXCEEDED
+scratch B19 ok=0 memo=16777216 nodes=16778301 lookups=83886070 sec=11.79  CAP EXCEEDED
+scratch B20 ok=0 memo=16777216 nodes=16778300 lookups=83886075 sec=13.06  CAP EXCEEDED
+A: memo cap 2^24 exceeded; transfer not run
