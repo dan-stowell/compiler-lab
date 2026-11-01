@@ -2,6 +2,26 @@
 
 Newest first. "Measured" means a run whose script is in the repo; "estimated" means arithmetic or analysis.
 
+## 2026-11-01: Phase 2 begins; cycle 7 results (E15, E16)
+
+**E15, output churn of E13 units (ceiling).** `experiments/e15-output-churn/`
+- Over 477,399 function-transitions in 1500 lua/lua commits, a unit's whole -O2 output changes at rate 0.0147. The slice key changes at 0.079 (5.4× as often), closure bodies at 0.0157, target bodies at 0.0075.
+- 36% of output changes are context-only.
+- Also found that E14's population was inflated (glibc extern-inline functions counted as targets).
+
+**E16, layout-projection key: a compile-free key built from what a function *uses*, with no false hits observed.** `experiments/e16-projection-key/`
+- The key is a union over the target and its reached statics: bodies, desugared expression types, accessed fields' bit offsets and widths, record size and alignment, whole layout for by-value use or bitfields, clang's own sizeof/alignof for every type mentioned, enum constants, callee prototypes with attributes, and globals' types and const initializers.
+- Extraction is a syntax-only clang pass, about 108 ms per unit.
+- Results: **22,771 informative hits** (slice key changed, projection equal) in 203 commits, **0 false hits**. Per-hit 95% bound 0.013% (below E10's 0.035% effect); commit-clustered bound 1.48%. The key changes 2.12× as often as the output, and 2.5× less often than the slice key.
+- Over-invalidation comes mostly from containing-record size (`global_State`, `GCUnion`).
+- **Adversarial verification found three rounds of holes, each fixed with mutation tests (19/19):**
+  1. typedef expansion: 19 false hits in the first run;
+  2. typedef alignment attributes and packed-enum sizeof: hand-built, absent from history;
+  3. bitfield access unit, where widening a neighbour turns a `movw` store into `movl`: hand-built, absent from history.
+- Finding: a function's dependencies can be stated as *facts it uses*, finer than declarations, and such a key behaved soundly on 1500 commits of real history. But a sound projection must model the **compiler's lowering decisions** (store widths, alignment, ABI), not just C semantics. Every hole was a lowering fact.
+
+Phase 2 (inventing computational models) started; see `phase2-brief.md`, `phase2-models-*.md`, `phase2-plan.md`. Kill tests K1–K5 are below as they land.
+
 ## 2026-11-01: E10 (verified) and E14 (settled from existing data)
 
 **E10, hidden dependencies of learned slices: unsound for bit-identity, at a low rate.** `experiments/e10-hidden-deps/`
