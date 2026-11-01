@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 """E2: Merkle ripple of closure keys over chibicc's first-parent history.
 
-Usage: ripple.py <repo> <rev> <out.csv> [--include-tests]
+Usage: ripple.py <repo> <rev> <out.csv> [--include-tests] [--any-ident]
 
 Per commit (vs its first parent): #functions, fraction whose body hash changed
-(incl. added), fraction whose closure key changed (incl. added), #removed,
-largest SCC size of the call graph.
+(incl. added), fraction whose closure key changed (incl. added, and a variant
+over functions present in both commits), #removed, largest SCC size, and
+whether any largest-SCC member's body changed.
+
+A call is an identifier followed by '(' and not preceded by '->' or '.';
+--any-ident restores the older rule (any identifier naming a function).
 """
 import hashlib
 import re
@@ -152,6 +156,9 @@ def h(*parts):
     return m.hexdigest()
 
 
+ANY_IDENT = "--any-ident" in sys.argv
+
+
 class Repo:
     def __init__(self, path):
         self.path = path
@@ -186,7 +193,12 @@ class Repo:
             fs = []
             for name, body in split_functions(tokenize(self.blob(sha))):
                 bh = h(*(t for _, t in body))
-                ids = {t for k, t in body if k == "id"}
+                if ANY_IDENT:  # old rule: any identifier naming a function
+                    ids = {t for k, t in body if k == "id"}
+                else:  # call = ident followed by '(' and not after '->' or '.'
+                    ids = {t for j, (k, t) in enumerate(body)
+                           if k == "id" and j + 1 < len(body) and body[j + 1][1] == "("
+                           and not (j > 0 and body[j - 1][1] in ("->", "."))}
                 fs.append((name, bh, ids))
             self.cache[sha] = fs
         return self.cache[sha]
@@ -289,9 +301,10 @@ def main():
     prev = None
     with open(out_csv, "w") as f:
         f.write("idx,commit,n_funcs,n_added,n_removed,body_changed,closure_changed,"
-                "body_frac,closure_frac,largest_scc\n")
+                "body_frac,closure_frac,largest_scc,n_common,closure_changed_common,"
+                "closure_frac_excl_added,big_scc_touched\n")
         for i, r in enumerate(revs):
-            cur, big, _ = analyze(repo, r, include_tests)
+            cur, big, sccs = analyze(repo, r, include_tests)
             if prev is not None:
                 added = [u for u in cur if u not in prev]
                 removed = [u for u in prev if u not in cur]
@@ -300,8 +313,14 @@ def main():
                 n = len(cur)
                 bf = bch / n if n else 0.0
                 cf = cch / n if n else 0.0
+                common = [u for u in cur if u in prev]
+                cc_common = sum(1 for u in common if prev[u][1] != cur[u][1])
+                cfx = cc_common / len(common) if common else 0.0
+                # did any member of the largest SCC get a new/changed body?
+                bs = max(sccs, key=len) if sccs else []
+                touched = int(any(u not in prev or prev[u][0] != cur[u][0] for u in bs))
                 f.write(f"{i},{r[:7]},{n},{len(added)},{len(removed)},{bch},{cch},"
-                        f"{bf:.4f},{cf:.4f},{big}\n")
+                        f"{bf:.4f},{cf:.4f},{big},{len(common)},{cc_common},{cfx:.4f},{touched}\n")
             prev = cur
 
 

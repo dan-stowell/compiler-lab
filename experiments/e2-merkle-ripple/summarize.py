@@ -18,6 +18,12 @@ for path in sys.argv[1:]:
     print(f"functions at last commit: {rows[-1]['n_funcs']}; largest SCC at last commit: {scc[-1]} (max over history {max(scc)})")
     print(f"body-hash change frac:   median {statistics.median(bf):.4f}  p90 {pct(bf,.9):.4f}  mean {statistics.mean(bf):.4f}")
     print(f"closure-key change frac: median {statistics.median(cf):.4f}  p90 {pct(cf,.9):.4f}  mean {statistics.mean(cf):.4f}")
+    cx = [float(r["closure_frac_excl_added"]) for r in rows]
+    print(f"closure change, excl. added (over functions in both commits): median {statistics.median(cx):.4f}  p90 {pct(cx,.9):.4f}  mean {statistics.mean(cx):.4f}")
+    t = [float(r["closure_frac"]) for r in rows if r["big_scc_touched"] == "1"]
+    u = [float(r["closure_frac"]) for r in rows if r["big_scc_touched"] == "0"]
+    print(f"bimodality: largest-SCC body touched in {len(t)} transitions (closure median {statistics.median(t):.4f}); "
+          f"not touched in {len(u)} (closure median {statistics.median(u):.4f})")
     print(f"removed functions: total {sum(rm)}, commits with removals {sum(1 for x in rm if x)}")
     print(f"amplification (sum closure changed / sum body changed): "
           f"{sum(int(r['closure_changed']) for r in rows) / max(1, sum(int(r['body_changed']) for r in rows)):.2f}")
