@@ -1,0 +1,16 @@
+== ripple.csv: 316 commits, 315 transitions
+included transitions: 315; excluded: 0 (self fails 0, parent fails 0)
+distinct compiles: 1034, failed: 0, compile CPU total (user+sys): 30.4s
+raw  asm change frac: median 0.2642  p90 0.6032  mean 0.2995
+norm asm change frac: median 0.0206  p90 0.1692  mean 0.0599
+diagnostic, strip .loc/.file only (no label renumbering): median 0.1939  p90 0.4915
+diagnostic, renumber labels only (keep .loc/.file): median 0.1528  p90 0.5233
+order A (.loc first):    raw 0.2642 -> -.loc 0.1939 -> +labels 0.0206: .loc 7.0 pts, labels 17.3 pts
+order B (labels first):  raw 0.2642 -> labels 0.1528 -> +-.loc 0.0206: labels 11.1 pts, .loc 13.2 pts
+normalized + referenced literal/static contents: median 0.0206  p90 0.1692  mean 0.0599
+functions at last included commit: 324; added total 354, removed total 34
+E2 reference (source-level): body median 0.0154, closure median 0.2162
+raw - norm medians: 24.4 points
+DECISION 1: normalized median <= 3% -> output addressing removes closure ripple
+DECISION 1b (with literal contents): <= 3%
+DECISION 2: raw - normalized > 5 points -> hidden global counters cause ripple
