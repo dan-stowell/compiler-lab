@@ -62,3 +62,10 @@ The chunk store wins here. The file is about 60 KB, so a manifest has only about
 
 ## Decision
 At the workload where the gap should be largest (64 MiB, small edits, per-version marginal), the gap is **6.7× in ops and 7–21× in bytes**. On the real history the gap is below 1×. That is well under the 100× kill threshold. **P1 is the known rope/finger-tree property (O(edits·log n) per version against a sqrt(n) chunk-store optimum), and it is dropped.**
+
+## Independent verification (2026-11-01)
+
+The rerun reproduces exactly, and an independent numpy scan agrees on parity for 5 versions. Corrections:
+- **Finer search grid** (64 MiB, V=2000): best grammar L=128 at 9,329 ops; best chunk store c=2K at 58,378. That is **6.3×** ops (not 6.7×) and 6.0–19.7× bytes.
+- **Scaling, measured:** ops gap ≈3.5× at 16 MiB, 6.3× at 64 MiB, 11.6× at 256 MiB, i.e. ×1.85 per 4× size, consistent with √n/log n. 100× would need ~32 GiB (not 14 GiB).
+- **The kill is stronger:** a chunk store with a tree-shaped manifest and per-node summaries (a standard Merkle layout) *is* the grammar, so the gap to a conventional store is ~1×. "Grammar-resident data" is the known monoid-annotated Merkle tree; known, not in production compilers.
