@@ -1,0 +1,7 @@
+LEnum
+LTnum
+floatforloop
+forprep
+lessequalothers
+lessthanothers
+pushclosure

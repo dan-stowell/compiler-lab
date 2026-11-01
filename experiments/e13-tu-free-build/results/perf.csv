@@ -1,0 +1,150 @@
+1,binary_trees,base,4798492990,,instructions:u,0.00%,333839112,100.00,3.68,insn per cycle
+1,binary_trees,base,1302305885,,cycles:u,1.65%,333839112,100.00,,
+1,binary_trees,shuf1,4798492936,,instructions:u,0.00%,461812368,100.00,3.70,insn per cycle
+1,binary_trees,shuf1,1298553763,,cycles:u,3.04%,461812368,100.00,,
+1,binary_trees,shuf2,4798494612,,instructions:u,0.00%,425767793,100.00,3.43,insn per cycle
+1,binary_trees,shuf2,1399798517,,cycles:u,3.44%,425767793,100.00,,
+1,binary_trees,shuf3,4798492898,,instructions:u,0.00%,334458557,100.00,3.45,insn per cycle
+1,binary_trees,shuf3,1390180671,,cycles:u,2.39%,334458557,100.00,,
+1,binary_trees,tufree,4875664580,,instructions:u,0.00%,499288861,100.00,3.35,insn per cycle
+1,binary_trees,tufree,1457157752,,cycles:u,3.26%,499288861,100.00,,
+1,fib,base,4549970638,,instructions:u,0.00%,313342072,100.00,4.13,insn per cycle
+1,fib,base,1100972096,,cycles:u,2.38%,313342072,100.00,,
+1,fib,shuf1,4549970309,,instructions:u,0.00%,285272910,100.00,4.32,insn per cycle
+1,fib,shuf1,1053773436,,cycles:u,0.87%,285272910,100.00,,
+1,fib,shuf2,4549971813,,instructions:u,0.00%,290054982,100.00,4.12,insn per cycle
+1,fib,shuf2,1103595742,,cycles:u,2.01%,290054982,100.00,,
+1,fib,shuf3,4549969787,,instructions:u,0.00%,364385312,100.00,3.85,insn per cycle
+1,fib,shuf3,1180497494,,cycles:u,6.28%,364385312,100.00,,
+1,fib,tufree,4660709244,,instructions:u,0.00%,312462363,100.00,4.20,insn per cycle
+1,fib,tufree,1109387353,,cycles:u,2.10%,312462363,100.00,,
+1,nbody,base,5366572826,,instructions:u,0.61%,392833359,100.00,3.83,insn per cycle
+1,nbody,base,1401787970,,cycles:u,1.53%,392833359,100.00,,
+1,nbody,shuf1,5417873856,,instructions:u,0.45%,408998409,100.00,3.69,insn per cycle
+1,nbody,shuf1,1468055137,,cycles:u,3.63%,408998409,100.00,,
+1,nbody,shuf2,5390874083,,instructions:u,0.38%,400203617,100.00,3.76,insn per cycle
+1,nbody,shuf2,1433886017,,cycles:u,2.97%,400203617,100.00,,
+1,nbody,shuf3,5331472231,,instructions:u,0.44%,390487759,100.00,3.61,insn per cycle
+1,nbody,shuf3,1475613579,,cycles:u,2.41%,390487759,100.00,,
+1,nbody,tufree,5258880527,,instructions:u,0.50%,358724597,100.00,3.87,insn per cycle
+1,nbody,tufree,1358674775,,cycles:u,1.41%,358724597,100.00,,
+1,spectral_norm,base,4204432033,,instructions:u,0.00%,273856845,100.00,4.08,insn per cycle
+1,spectral_norm,base,1030215523,,cycles:u,1.50%,273856845,100.00,,
+1,spectral_norm,shuf1,4204431215,,instructions:u,0.00%,286231838,100.00,4.04,insn per cycle
+1,spectral_norm,shuf1,1039739347,,cycles:u,1.43%,286231838,100.00,,
+1,spectral_norm,shuf2,4204432901,,instructions:u,0.00%,289303865,100.00,3.94,insn per cycle
+1,spectral_norm,shuf2,1067150309,,cycles:u,1.93%,289303865,100.00,,
+1,spectral_norm,shuf3,4204430966,,instructions:u,0.00%,283423896,100.00,3.92,insn per cycle
+1,spectral_norm,shuf3,1071423598,,cycles:u,1.38%,283423896,100.00,,
+1,spectral_norm,tufree,4192044188,,instructions:u,0.00%,347101050,100.00,3.45,insn per cycle
+1,spectral_norm,tufree,1214286414,,cycles:u,4.89%,347101050,100.00,,
+1,strings,base,2819811924,,instructions:u,0.05%,290336696,100.00,2.86,insn per cycle
+1,strings,base,984990236,,cycles:u,6.69%,290336696,100.00,,
+1,strings,shuf1,2822832566,,instructions:u,0.04%,210615002,100.00,3.41,insn per cycle
+1,strings,shuf1,827299376,,cycles:u,2.44%,210615002,100.00,,
+1,strings,shuf2,2827373281,,instructions:u,0.07%,242031412,100.00,3.32,insn per cycle
+1,strings,shuf2,852759373,,cycles:u,3.92%,242031412,100.00,,
+1,strings,shuf3,2824542977,,instructions:u,0.05%,287057290,100.00,3.39,insn per cycle
+1,strings,shuf3,833457810,,cycles:u,3.65%,287057290,100.00,,
+1,strings,tufree,2786732744,,instructions:u,0.06%,209244868,100.00,3.45,insn per cycle
+1,strings,tufree,807111897,,cycles:u,2.48%,209244868,100.00,,
+2,binary_trees,base,4798493345,,instructions:u,0.00%,373782054,100.00,3.50,insn per cycle
+2,binary_trees,base,1371063129,,cycles:u,2.85%,373782054,100.00,,
+2,binary_trees,shuf1,4798493111,,instructions:u,0.00%,495742055,100.00,2.96,insn per cycle
+2,binary_trees,shuf1,1623759644,,cycles:u,6.58%,495742055,100.00,,
+2,binary_trees,shuf2,4798494419,,instructions:u,0.00%,613639388,100.00,3.16,insn per cycle
+2,binary_trees,shuf2,1519266484,,cycles:u,5.92%,613639388,100.00,,
+2,binary_trees,shuf3,4798492837,,instructions:u,0.00%,332919097,100.00,3.52,insn per cycle
+2,binary_trees,shuf3,1361296227,,cycles:u,5.04%,332919097,100.00,,
+2,binary_trees,tufree,4875664407,,instructions:u,0.00%,346608944,100.00,3.41,insn per cycle
+2,binary_trees,tufree,1430858233,,cycles:u,6.17%,346608944,100.00,,
+2,fib,base,4549970304,,instructions:u,0.00%,322204056,100.00,4.00,insn per cycle
+2,fib,base,1137789768,,cycles:u,2.86%,322204056,100.00,,
+2,fib,shuf1,4549969960,,instructions:u,0.00%,308137004,100.00,4.21,insn per cycle
+2,fib,shuf1,1080322905,,cycles:u,1.21%,308137004,100.00,,
+2,fib,shuf2,4549971882,,instructions:u,0.00%,283255172,100.00,4.28,insn per cycle
+2,fib,shuf2,1062900967,,cycles:u,0.97%,283255172,100.00,,
+2,fib,shuf3,4549969630,,instructions:u,0.00%,282229072,100.00,4.24,insn per cycle
+2,fib,shuf3,1074279395,,cycles:u,1.84%,282229072,100.00,,
+2,fib,tufree,4660709251,,instructions:u,0.00%,281550745,100.00,4.38,insn per cycle
+2,fib,tufree,1064419363,,cycles:u,1.52%,281550745,100.00,,
+2,nbody,base,5358472532,,instructions:u,0.44%,355118808,100.00,4.01,insn per cycle
+2,nbody,base,1336477416,,cycles:u,1.92%,355118808,100.00,,
+2,nbody,shuf1,5401672688,,instructions:u,0.54%,417223903,100.00,3.88,insn per cycle
+2,nbody,shuf1,1392794370,,cycles:u,2.81%,417223903,100.00,,
+2,nbody,shuf2,5350374775,,instructions:u,0.32%,424997917,100.00,3.31,insn per cycle
+2,nbody,shuf2,1616171424,,cycles:u,2.66%,424997917,100.00,,
+2,nbody,shuf3,5355772599,,instructions:u,0.43%,436611502,100.00,3.33,insn per cycle
+2,nbody,shuf3,1606387355,,cycles:u,3.11%,436611502,100.00,,
+2,nbody,tufree,5285881760,,instructions:u,0.54%,410035863,100.00,3.57,insn per cycle
+2,nbody,tufree,1482620962,,cycles:u,2.66%,410035863,100.00,,
+2,spectral_norm,base,4204431464,,instructions:u,0.00%,282942343,100.00,3.77,insn per cycle
+2,spectral_norm,base,1113864631,,cycles:u,3.12%,282942343,100.00,,
+2,spectral_norm,shuf1,4204431544,,instructions:u,0.00%,291958547,100.00,3.36,insn per cycle
+2,spectral_norm,shuf1,1251582233,,cycles:u,4.37%,291958547,100.00,,
+2,spectral_norm,shuf2,4204432947,,instructions:u,0.00%,282497647,100.00,3.45,insn per cycle
+2,spectral_norm,shuf2,1218451702,,cycles:u,4.10%,282497647,100.00,,
+2,spectral_norm,shuf3,4204430591,,instructions:u,0.00%,433166810,100.00,3.35,insn per cycle
+2,spectral_norm,shuf3,1254342366,,cycles:u,4.88%,433166810,100.00,,
+2,spectral_norm,tufree,4192045266,,instructions:u,0.00%,416610257,100.00,2.95,insn per cycle
+2,spectral_norm,tufree,1421769514,,cycles:u,2.55%,416610257,100.00,,
+2,strings,base,2817891646,,instructions:u,0.04%,335598177,100.00,2.72,insn per cycle
+2,strings,base,1037424860,,cycles:u,3.26%,335598177,100.00,,
+2,strings,shuf1,2820916817,,instructions:u,0.04%,357670997,100.00,2.62,insn per cycle
+2,strings,shuf1,1075949079,,cycles:u,6.24%,357670997,100.00,,
+2,strings,shuf2,2822432791,,instructions:u,0.04%,338076794,100.00,2.67,insn per cycle
+2,strings,shuf2,1058192884,,cycles:u,3.92%,338076794,100.00,,
+2,strings,shuf3,2822393590,,instructions:u,0.04%,293137958,100.00,2.47,insn per cycle
+2,strings,shuf3,1143420816,,cycles:u,5.23%,293137958,100.00,,
+2,strings,tufree,2786127058,,instructions:u,0.05%,345094424,100.00,2.40,insn per cycle
+2,strings,tufree,1159697367,,cycles:u,3.02%,345094424,100.00,,
+3,binary_trees,base,4798494568,,instructions:u,0.00%,552079169,100.00,2.41,insn per cycle
+3,binary_trees,base,1993125926,,cycles:u,5.89%,552079169,100.00,,
+3,binary_trees,shuf1,4798494453,,instructions:u,0.00%,628675495,100.00,2.20,insn per cycle
+3,binary_trees,shuf1,2181029503,,cycles:u,7.30%,628675495,100.00,,
+3,binary_trees,shuf2,4798495978,,instructions:u,0.00%,649501843,100.00,1.96,insn per cycle
+3,binary_trees,shuf2,2443875514,,cycles:u,2.97%,649501843,100.00,,
+3,binary_trees,shuf3,4798495654,,instructions:u,0.00%,676057844,100.00,1.98,insn per cycle
+3,binary_trees,shuf3,2420075004,,cycles:u,4.23%,676057844,100.00,,
+3,binary_trees,tufree,4875666685,,instructions:u,0.00%,680525930,100.00,1.95,insn per cycle
+3,binary_trees,tufree,2503825465,,cycles:u,4.71%,680525930,100.00,,
+3,fib,base,4549972162,,instructions:u,0.00%,438424897,100.00,3.17,insn per cycle
+3,fib,base,1433842086,,cycles:u,2.12%,438424897,100.00,,
+3,fib,shuf1,4549971845,,instructions:u,0.00%,395973580,100.00,3.15,insn per cycle
+3,fib,shuf1,1444188123,,cycles:u,2.02%,395973580,100.00,,
+3,fib,shuf2,4549974018,,instructions:u,0.00%,440483264,100.00,3.16,insn per cycle
+3,fib,shuf2,1439507998,,cycles:u,2.96%,440483264,100.00,,
+3,fib,shuf3,4549972206,,instructions:u,0.00%,414383235,100.00,3.10,insn per cycle
+3,fib,shuf3,1467575695,,cycles:u,1.90%,414383235,100.00,,
+3,fib,tufree,4660711475,,instructions:u,0.00%,467873390,100.00,2.90,insn per cycle
+3,fib,tufree,1609741385,,cycles:u,1.49%,467873390,100.00,,
+3,nbody,base,5396275847,,instructions:u,0.59%,553954102,100.00,2.76,insn per cycle
+3,nbody,base,1956425536,,cycles:u,1.10%,553954102,100.00,,
+3,nbody,shuf1,5320674183,,instructions:u,0.29%,542649055,100.00,2.80,insn per cycle
+3,nbody,shuf1,1902056962,,cycles:u,1.28%,542649055,100.00,,
+3,nbody,shuf2,5361176247,,instructions:u,0.46%,608030916,100.00,2.86,insn per cycle
+3,nbody,shuf2,1876724704,,cycles:u,0.82%,608030916,100.00,,
+3,nbody,shuf3,5390873638,,instructions:u,0.33%,707461613,100.00,2.65,insn per cycle
+3,nbody,shuf3,2030840592,,cycles:u,1.09%,707461613,100.00,,
+3,nbody,tufree,5245382462,,instructions:u,0.44%,504784557,100.00,2.82,insn per cycle
+3,nbody,tufree,1861355708,,cycles:u,1.83%,504784557,100.00,,
+3,spectral_norm,base,4204433865,,instructions:u,0.00%,461370405,100.00,2.81,insn per cycle
+3,spectral_norm,base,1498204767,,cycles:u,1.15%,461370405,100.00,,
+3,spectral_norm,shuf1,4204433273,,instructions:u,0.00%,552113669,100.00,2.84,insn per cycle
+3,spectral_norm,shuf1,1481469411,,cycles:u,1.08%,552113669,100.00,,
+3,spectral_norm,shuf2,4204434065,,instructions:u,0.00%,407685508,100.00,2.83,insn per cycle
+3,spectral_norm,shuf2,1486946165,,cycles:u,0.95%,407685508,100.00,,
+3,spectral_norm,shuf3,4204438654,,instructions:u,0.00%,478030626,100.00,2.80,insn per cycle
+3,spectral_norm,shuf3,1503646746,,cycles:u,0.86%,478030626,100.00,,
+3,spectral_norm,tufree,4192045931,,instructions:u,0.00%,419093288,100.00,2.74,insn per cycle
+3,spectral_norm,tufree,1528405499,,cycles:u,0.74%,419093288,100.00,,
+3,strings,base,2820647913,,instructions:u,0.05%,382409083,100.00,2.19,insn per cycle
+3,strings,base,1285698687,,cycles:u,0.89%,382409083,100.00,,
+3,strings,shuf1,2823511256,,instructions:u,0.06%,377222544,100.00,2.18,insn per cycle
+3,strings,shuf1,1296999132,,cycles:u,1.36%,377222544,100.00,,
+3,strings,shuf2,2825574998,,instructions:u,0.05%,347467470,100.00,2.21,insn per cycle
+3,strings,shuf2,1280897734,,cycles:u,1.42%,347467470,100.00,,
+3,strings,shuf3,2825965063,,instructions:u,0.05%,351230165,100.00,2.19,insn per cycle
+3,strings,shuf3,1288649859,,cycles:u,1.04%,351230165,100.00,,
+3,strings,tufree,2782730265,,instructions:u,0.05%,357736596,100.00,2.14,insn per cycle
+3,strings,tufree,1301140146,,cycles:u,1.11%,357736596,100.00,,

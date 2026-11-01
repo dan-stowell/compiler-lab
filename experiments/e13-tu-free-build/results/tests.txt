@@ -1,0 +1,4 @@
+base: pass (exit 0, final OK)
+total time: 0.44s (wall time: 1s)
+tufree: pass (exit 0, final OK)
+total time: 0.38s (wall time: 0s)

@@ -1,0 +1,5 @@
+targets: 331 in 19 files
+targets per file: lapi 81, lauxlib 45, lcode 37, ldebug 21, ldo 21, lvm 17, lstate 16, ltable 15, ltm 14, lfunc 11, lgc 11, lstring 11, lobject 10, llex 7, lmem 7, lzio 3, lparser 2, ldump 1, lundump 1
+slice tokens / TU tokens: median 1.57%, p90 7.10%, max 69.87%
+slice tokens: median 338, p90 1531, max 52155
+static functions reached per target: median 1, max 95

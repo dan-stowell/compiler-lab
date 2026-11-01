@@ -1,0 +1,226 @@
+Ubuntu clang version 18.1.3 (1ubuntu1)
+lua-5.4.6.tar.gz: OK
+lua-5.4.6-tests.tar.gz: OK
+== 1. baseline
+== 2. safety check
+lvm: 0 violation(s), 0 promoted, 17 targets, 15 static functions
+OK ldo: address-taken static 'unroll' (in precover) reached by 1 target(s); stays static
+OK ldo: address-taken static 'resume' (in lua_resume) reached by 1 target(s); stays static
+OK ldo: address-taken static 'closepaux' (in luaD_closeprotected) reached by 1 target(s); stays static
+OK ldo: address-taken static 'f_parser' (in luaD_protectedparser) reached by 1 target(s); stays static
+ldo: 0 violation(s), 0 promoted, 21 targets, 18 static functions
+ltable: 0 violation(s), 0 promoted, 15 targets, 22 static functions
+PROMOTE lgc: address-taken static 'dothecall' reached by 5 targets -> hidden global __tuf_lgc_dothecall, defined with luaC_changemode
+lgc: 0 violation(s), 1 promoted, 11 targets, 62 static functions
+OK lapi: address-taken static 'f_call' (in lua_pcallk) reached by 1 target(s); stays static
+lapi: 0 violation(s), 0 promoted, 81 targets, 12 static functions
+lstring: 0 violation(s), 0 promoted, 11 targets, 4 static functions
+lfunc: 0 violation(s), 0 promoted, 11 targets, 5 static functions
+ltm: 0 violation(s), 0 promoted, 14 targets, 1 static functions
+lobject: 0 violation(s), 0 promoted, 10 targets, 12 static functions
+ldebug: 0 violation(s), 0 promoted, 21 targets, 26 static functions
+OK lstate: address-taken static 'f_luaopen' (in lua_newstate) reached by 1 target(s); stays static
+lstate: 0 violation(s), 0 promoted, 16 targets, 7 static functions
+PROMOTE lauxlib: address-taken static 'boxgc' reached by 4 targets -> hidden global __tuf_lauxlib_boxgc, defined with luaL_prepbuffsize
+OK lauxlib: address-taken static 'getF' (in luaL_loadfilex) reached by 1 target(s); stays static
+OK lauxlib: address-taken static 'getS' (in luaL_loadbufferx) reached by 1 target(s); stays static
+OK lauxlib: address-taken static 'warnfoff' (in checkcontrol) reached by 1 target(s); stays static
+OK lauxlib: address-taken static 'warnfon' (in checkcontrol) reached by 1 target(s); stays static
+OK lauxlib: address-taken static 'warnfcont' (in warnfcont) reached by 1 target(s); stays static
+OK lauxlib: address-taken static 'warnfon' (in warnfcont) reached by 1 target(s); stays static
+OK lauxlib: address-taken static 'l_alloc' (in luaL_newstate) reached by 1 target(s); stays static
+OK lauxlib: address-taken static 'panic' (in luaL_newstate) reached by 1 target(s); stays static
+OK lauxlib: address-taken static 'warnfoff' (in luaL_newstate) reached by 1 target(s); stays static
+lauxlib: 0 violation(s), 1 promoted, 45 targets, 22 static functions
+lcode: 0 violation(s), 0 promoted, 37 targets, 66 static functions
+lparser: 0 violation(s), 0 promoted, 2 targets, 94 static functions
+llex: 0 violation(s), 0 promoted, 7 targets, 17 static functions
+lzio: 0 violation(s), 0 promoted, 3 targets, 0 static functions
+lmem: 0 violation(s), 0 promoted, 7 targets, 1 static functions
+lundump: 0 violation(s), 0 promoted, 1 targets, 19 static functions
+ldump: 0 violation(s), 0 promoted, 1 targets, 14 static functions
+== 3. TU-free build
+targets: 331 in 19 files
+targets per file: lapi 81, lauxlib 45, lcode 37, ldebug 21, ldo 21, lvm 17, lstate 16, ltable 15, ltm 14, lfunc 11, lgc 11, lstring 11, lobject 10, llex 7, lmem 7, lzio 3, lparser 2, ldump 1, lundump 1
+slice tokens / TU tokens: median 1.57%, p90 7.10%, max 69.87%
+slice tokens: median 338, p90 1531, max 52155
+static functions reached per target: median 1, max 95
+== 4. tests (basic mode)
+base: pass (exit 0, final OK)
+total time: 0.44s (wall time: 1s)
+tufree: pass (exit 0, final OK)
+total time: 0.38s (wall time: 0s)
+== 5. benchmarks
+outputs identical for all variants
+== 6. analysis
+== instructions (ratio variant/base; benchmarks: binary_trees fib nbody spectral_norm strings)
+shuf1   per-bench 1.0000 1.0000 1.0012 1.0000 1.0011  geomean 1.0004  CI_bench [0.9997, 1.0012]  CI_meas [0.9981, 1.0028]
+shuf2   per-bench 1.0000 1.0000 0.9988 1.0000 1.0020  geomean 1.0002  CI_bench [0.9987, 1.0016]  CI_meas [0.9989, 1.0014]
+shuf3   per-bench 1.0000 1.0000 0.9973 1.0000 1.0017  geomean 0.9998  CI_bench [0.9978, 1.0018]  CI_meas [0.9983, 1.0013]
+tufree  per-bench 1.0161 1.0243 0.9795 0.9971 0.9879  geomean 1.0008  CI_bench [0.9777, 1.0245]  CI_meas [0.9996, 1.0021]
+noise floor (shuffled link orders vs base): geomean ratios 1.0004 1.0002 0.9998; max |dev| 0.04%
+== cycles (ratio variant/base; benchmarks: binary_trees fib nbody spectral_norm strings)
+shuf1   per-bench 1.0936 0.9743 1.0145 1.0358 0.9674  geomean 1.0161  CI_bench [0.9551, 1.0810]  CI_meas [0.8799, 1.1734]
+shuf2   per-bench 1.1492 0.9819 1.0494 1.0358 0.9649  geomean 1.0343  CI_bench [0.9498, 1.1263]  CI_meas [0.8944, 1.1960]
+shuf3   per-bench 1.1082 1.0135 1.0891 1.0514 0.9871  geomean 1.0489  CI_bench [0.9879, 1.1136]  CI_meas [0.9018, 1.2200]
+tufree  per-bench 1.1554 1.0302 1.0017 1.1434 0.9879  geomean 1.0613  CI_bench [0.9677, 1.1640]  CI_meas [0.9100, 1.2379]
+noise floor (shuffled link orders vs base): geomean ratios 1.0161 1.0343 1.0489; max |dev| 4.89%
+DECISION (instructions, CI_bench [0.9777, 1.0245], tests pass): viable at no measurable cost
+callees inlined into luaV_execute in the full TU but not in the TU-free slice:
+luaV_idiv
+luaV_mod
+luaV_modf
+luaV_shiftl
+luaV_tointegerns
+inlined only in the TU-free slice:
+lessequalothers
+lessthanothers
+
+function sizes (bytes), base vs tufree, functions >= 1% of base text that changed:
+total function bytes: base 185334, tufree 212725 (1.148x)
+largest base functions: name base tufree [copies]
+  luaV_execute                  15865  13866
+  statement                      6968   6758
+  llex                           4092      0
+  luaK_posfix                    3477   2460
+  loadFunction                   3032   3032
+  str_format                     2446   2446
+  luaC_step                      2243   3716
+  dumpFunction                   2056   2056
+  propagatemark                  1989   3846 [2 copies]
+  str_pack                       1861   1861
+  lua_getinfo                    1816   1199
+  pmain                          1805   1805
+  match                          1769   1769
+  g_read                         1743   1743
+  str_unpack                     1697   1697
+  str_gsub                       1619   1619
+  atomic                         1515   1515
+  singlestep                     1373      0
+  luaG_traceexec                 1369    485
+  luaL_traceback                 1317    984
+changed >= 25% and >= 64 bytes (absent = fully inlined everywhere / dropped):
+  llex                           4092      0
+  luaX_lookahead                   18   4028
+  luaX_next                        56   3947
+  propagateall                      0   3792 [2 copies]
+  addk                            440   3520 [8 copies]
+  getobjname                      968   3872 [4 copies]
+  luaC_fullgc                     525   3154
+  luaC_changemode                 217   2501
+  luaC_runtilstate                 56   2232
+  traverseephemeron               667   2668 [4 copies]
+  propagatemark                  1989   3846 [2 copies]
+  luaC_step                      2243   3716
+  singlestep                     1373      0
+  clearbyvalues                   452   1808 [4 copies]
+  luaK_posfix                    3477   2460
+  luaK_exp2anyreg                  98   1009
+  luaG_traceexec                 1369    485
+  luaK_exp2nextreg                100    974
+  exp2reg                         843      0
+  read_long_string                772   1544 [2 copies]
+  reallymarkobject                188    940 [5 copies]
+  read_numeral                    720   1440 [2 copies]
+  luaK_storevar                   555   1214
+  patchlistaux                    309    958 [3 copies]
+  discharge2reg                   637      0
+  lua_getinfo                    1816   1199
+  luaK_goiftrue                   306    831
+  luaK_goiffalse                  244    763
+  luaG_callerror                   93    605
+  luaL_prepbuffsize                10    500
+  luaL_addlstring                  56    539
+  prepbuffsize                    480      0
+  luaL_addvalue                   103    577
+  luaH_get                        189    648
+  luaL_buffinitsize                65    505
+  jumponcond                      423      0
+  correctgraylist                 204    612 [3 copies]
+  sweeplist                         0    402
+  luaG_runerror                   657    262
+  luaK_int                        203    589
+  callbinTM                       384      0
+  lexerror                        328    711 [3 copies]
+  constfolding                    383      0
+  luaK_prefix                    1012   1392
+  sweep2old                         0    374
+  luaH_next                       438    807
+  luaH_getstr                     134    498
+  skip_sep                        351    702 [2 copies]
+  finishbinexpval                 606    264
+  luaL_traceback                 1317    984
+  luaK_codek                      289      0
+  luaK_indexed                    465    748
+  deletelist                        0    265
+  findfield                       262    524 [2 copies]
+  luaK_patchlist                   10    264
+  gethexa                         253    506 [2 copies]
+  varinfo                         249    498 [2 copies]
+  funcnamefromcall                244      0
+  markmt                          241    482 [2 copies]
+  luaK_exp2RK                     101    341
+  close_state                     229      0
+  precallC                        239    466 [2 copies]
+  freeobj                         225    450 [2 copies]
+  codearith                         0    225
+  aux_rawset                      224      0
+  pushglobalfuncname              223      0
+  luaK_fixline                     46    267
+  luaT_trybinassocTM              248     29
+  savelineinfo                    219      0
+  sweeptolive                     122    337
+  lua_rawset                       15    224
+  luaL_argerror                   224    430
+  luaK_self                       356    150
+  lua_rawsetp                      34    238
+  getgeneric                      193      0
+  lessequalothers                 189      0
+  auxsetstr                       181      0
+  check_next2                     179    358 [2 copies]
+  lua_setfield                    138    315
+  lessthanothers                  177      0
+  lua_getlocal                    286    116
+  lua_setglobal                    21    191
+  lua_setlocal                    240     73
+  luaK_code                       112    278
+  luaK_setlist                    274    109
+  lua_close                        16    178
+  lua_newstate                    537    694
+  lua_resetthread                 154      7
+  entergen                        147      0
+  lua_closethread                 171     31
+  luaV_lessthan                   351    490
+  luaV_lessequal                  355    486
+  inclinenumber                   129    258 [2 copies]
+  luaV_tointeger                  230    102
+  luaM_shrinkvector_              159     41
+  luaM_growaux_                   228    111
+  luaK_nil                        292    177
+  luaF_close                      418    306
+  save                            109    218 [2 copies]
+  luaK_ret                        151     43
+  luaK_codeAsBx                   128     21
+  luaL_addgsub                    249    142
+  luaK_codeABCk                   137     30
+  luaK_codeABx                    122     15
+  luaK_infix                      383    278
+  luaD_protectedparser            362    258
+  luaL_gsub                       199     96
+  luaV_tointegerns                143     42
+  luaK_jump                       109     10
+  luaK_exp2val                    114     17
+  luaE_warnerror                  233    138
+  luaS_hashlongstr                136     42
+  luaH_free                       194    101
+  luaL_error                      278    188
+  luaL_typeerror                  214    129
+  luaL_pushresultsize              93      9
+  luaL_callmeta                   164     83
+  luaT_callorderTM                157    236
+  luaL_checkudata                 126     48
+  luaK_exp2anyregup               100     22
+  luaM_saferealloc_               117     46
+  __tuf_lauxlib_boxgc               0     71
+  boxgc                            71      0
+  tryagain                         92    161 [2 copies]

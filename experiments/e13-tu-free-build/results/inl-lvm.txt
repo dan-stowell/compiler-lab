@@ -1,0 +1,10 @@
+LEnum
+LTnum
+floatforloop
+forprep
+luaV_idiv
+luaV_mod
+luaV_modf
+luaV_shiftl
+luaV_tointegerns
+pushclosure

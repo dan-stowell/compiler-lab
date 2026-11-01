@@ -1,0 +1,13 @@
+== instructions (ratio variant/base; benchmarks: binary_trees fib nbody spectral_norm strings)
+shuf1   per-bench 1.0000 1.0000 1.0012 1.0000 1.0011  geomean 1.0004  CI_bench [0.9997, 1.0012]  CI_meas [0.9981, 1.0028]
+shuf2   per-bench 1.0000 1.0000 0.9988 1.0000 1.0020  geomean 1.0002  CI_bench [0.9987, 1.0016]  CI_meas [0.9989, 1.0014]
+shuf3   per-bench 1.0000 1.0000 0.9973 1.0000 1.0017  geomean 0.9998  CI_bench [0.9978, 1.0018]  CI_meas [0.9983, 1.0013]
+tufree  per-bench 1.0161 1.0243 0.9795 0.9971 0.9879  geomean 1.0008  CI_bench [0.9777, 1.0245]  CI_meas [0.9996, 1.0021]
+noise floor (shuffled link orders vs base): geomean ratios 1.0004 1.0002 0.9998; max |dev| 0.04%
+== cycles (ratio variant/base; benchmarks: binary_trees fib nbody spectral_norm strings)
+shuf1   per-bench 1.0936 0.9743 1.0145 1.0358 0.9674  geomean 1.0161  CI_bench [0.9551, 1.0810]  CI_meas [0.8799, 1.1734]
+shuf2   per-bench 1.1492 0.9819 1.0494 1.0358 0.9649  geomean 1.0343  CI_bench [0.9498, 1.1263]  CI_meas [0.8944, 1.1960]
+shuf3   per-bench 1.1082 1.0135 1.0891 1.0514 0.9871  geomean 1.0489  CI_bench [0.9879, 1.1136]  CI_meas [0.9018, 1.2200]
+tufree  per-bench 1.1554 1.0302 1.0017 1.1434 0.9879  geomean 1.0613  CI_bench [0.9677, 1.1640]  CI_meas [0.9100, 1.2379]
+noise floor (shuffled link orders vs base): geomean ratios 1.0161 1.0343 1.0489; max |dev| 4.89%
+DECISION (instructions, CI_bench [0.9777, 1.0245], tests pass): viable at no measurable cost
