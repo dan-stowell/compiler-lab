@@ -1,13 +1,12 @@
-# Cycle 3 plan
+# Cycle 3 plan (revised after review)
 
-E5 found that under chibicc a function compiles to identical asm from its body, a ~2.5% context slice, and one "defined here" bit per callee. E7 found that output hashes are stable once global counters are normalized away. An architecture challenge (adversary, 2026-11-01) argued that slice-keyed caching on chibicc just re-derives Bazel, rustc queries and ThinLTO, and that the first E8 design (a slice memo over history) would pass by construction. The one possibly new claim is that a tiny, fixed amount of callee information is enough. That holds for a non-optimizing compiler; whether it survives optimization is the decisive test.
+E5 found that under chibicc a function compiles to identical asm from its body, a ~2.5% context slice, and one "defined here" bit per callee. An architecture challenge argued that slice-keyed caching on chibicc re-derives Bazel, rustc queries and ThinLTO, and that the one possibly new claim is "a small, fixed slice is enough". That has to survive an optimizing compiler.
 
-## E8: Do slices survive -O2? (assumption: optimized code of a function depends on its callees' bodies)
-- Input: Lua 5.4.6 `lparser.c`, preprocessed with the project's own flags. Compiler: clang -O2 (installed version, recorded).
-- Question: for each function the full-TU compile emits, what fraction needs callee **bodies** in its slice to reproduce its normalized asm byte for byte? Try the information levels in order, stopping at the first that matches:
-  1. callee prototypes only
-  2. prototypes with a "defined here" bit (`static` and visibility preserved; body-less `noinline` stubs are not allowed, since they change output)
-  3. callee bodies, transitively
-- Functions absent from the full-TU output (inlined everywhere) are reported separately, not in the fraction. Normalize by renumbering local labels (.LBB, .Ltmp, .LCPI and friends) and stripping debug and section directives. Compare only the function's own text plus the constant-pool data it references.
-- Number: the fraction of emitted functions that need level 3.
-- Rule: ≤10% means a small callee summary survives optimization, which is worth building on. Above 10% means the direction reduces to ThinLTO plus Bazel; stop it and record why.
+## E8: How big must a slice be under clang -O2?
+- Input: Lua 5.4.6 `lparser.c`, preprocessed with the project's flags. Compiler: clang 18, `-O2 -fno-pic` (fixed explicitly).
+- Targets: externally visible functions only. Static functions also depend on their callers (interprocedural constant propagation, dead-argument elimination) and can't be emitted standalone without changing their code. Report how many static functions are excluded for that reason.
+- Procedure: for each target, try depth d = 0, 1, 2, … until its normalized asm matches the full-TU output. At depth d, the slice holds the target, its context declarations, and the **bodies** of callees within d call levels (prototypes beyond that), in original order. Record the smallest matching d and that slice's size in tokens as a fraction of the TU. A target that never matches short of the full TU counts as 100%. The full TU itself is the normalization control (it must match 100%).
+- Normalization: rename private labels bijectively (.LBB, .Ltmp, .LJTI, .LCPI, .L.str, .Lfunc_end) while keeping reference identity. Compare the function's text plus the referenced rodata (jump tables, constants, strings), extracted by label. Strip only enumerated debug directives (.loc, .file, .cfi_*), nothing else.
+- Number: median smallest-matching slice size, as % of TU tokens. Also report the distribution of d.
+- Rule: median ≤10% means a dependency-bounded slice survives -O2, which is worth an edit-based test next. Above 10% means the optimizer couples functions too tightly; record that the direction reduces to ThinLTO-style summaries.
+- No "defined here" level: under clang a body-less static declaration changes codegen (`@PLT`, `-Wundefined-internal`), so it isn't a faithful summary.
