@@ -1,0 +1,5 @@
+binom n=20 p=0.50 mean z=-0.91 var ratio=1.0010 (se 0.0014)
+binom n=1000 p=0.30 mean z=1.82 var ratio=1.0015 (se 0.0014)
+binom n=1048576 p=0.50 mean z=0.16 var ratio=0.9998 (se 0.0014)
+binom n=1099511627776 p=0.50 mean z=0.95 var ratio=1.0002 (se 0.0014)
+binom n=1000 p=0.5 chi2=123.8 over 131 cells (z=-0.39)

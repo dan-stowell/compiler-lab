@@ -1,0 +1,13 @@
+range N=65536 W=262144 count_visits_mean=20.3 count_visits_max=23 sum_visits_mean=815
+range N=262144 W=1048576 count_visits_mean=24.8 count_visits_max=27 sum_visits_mean=3746
+range N=1048576 W=4194304 count_visits_mean=29.2 count_visits_max=31 sum_visits_mean=14783
+range N=4194304 W=16777216 count_visits_mean=33.0 count_visits_max=35 sum_visits_mean=63108
+range N=16777216 W=67108864 count_visits_mean=36.7 count_visits_max=39 sum_visits_mean=253743
+range N=67108864 W=268435456 count_visits_mean=40.9 count_visits_max=43 sum_visits_mean=918726
+range N=268435456 W=1073741824 count_visits_mean=44.7 count_visits_max=46 sum_visits_mean=4122194
+range N=1073741824 W=4294967296 count_visits_mean=48.9 count_visits_max=51 sum_visits_mean=18198239
+range N=4294967296 W=17179869184 count_visits_mean=52.4 count_visits_max=55 sum_visits_mean=skipped
+range N=17179869184 W=68719476736 count_visits_mean=56.6 count_visits_max=59 sum_visits_mean=skipped
+range N=68719476736 W=274877906944 count_visits_mean=61.1 count_visits_max=63 sum_visits_mean=skipped
+range N=274877906944 W=1099511627776 count_visits_mean=64.9 count_visits_max=67 sum_visits_mean=skipped
+range N=1099511627776 W=4398046511104 count_visits_mean=68.5 count_visits_max=71 sum_visits_mean=skipped
