@@ -1,0 +1,28 @@
+slice-changed transitions: 37692; excluded: compile fail 80, extraction fail 0; counted 37612
+  output changed (E15) 7017; projection changed 13926; projection changed, output same 6928
+  ratio projection/output change rate: 1.985  (slice/output: 5.360)
+  per all 477399 function-transitions: slice 0.07895, output 0.01470, projection 0.02917
+  informative hits (slice changed, projection equal): 23686 in 207 distinct commits
+  false hits (informative hit, whole-unit output changed): 19 in 7 commits
+  false-hit rate 0.0802%; commit-clustered bootstrap 95% CI [0.0227%, 0.1553%]
+  slices keyed: 37806; with >=1 fallback: 1990 (5.26%); events: {'unknown:OffsetOfExpr': 6350, 'sizeof_record_missing': 106}
+  extraction CPU per slice: mean 65 ms, median 48 ms, p90 86 ms, total 2444 s
+  FALSE HIT ('ldo', 590, '910a731a4a3b53ce078c54836bdf0e6620cf97e7', 'cabecdc2343d072653ebdff6d1424b156a935240', 'luaD_growstack')
+  FALSE HIT ('lutf8lib', 242, '1f19e4c4ac16aa63c4ef7ecda6249d4f4116873d', '1bd3d2c99e7b58df44f3561c13585a149d329feb', 'luaopen_utf8')
+  FALSE HIT ('ltablib', 242, '6841c0b64a1300cac5a25cd2724bb5c635ec0ee6', 'cfe7f4ac6731c78010d6814eff17e357bbff5c17', 'luaopen_table')
+  FALSE HIT ('ltablib', 248, 'cfe7f4ac6731c78010d6814eff17e357bbff5c17', '6841c0b64a1300cac5a25cd2724bb5c635ec0ee6', 'luaopen_table')
+  FALSE HIT ('loadlib', 825, '808aa36adb758ec0162b491977a0f3e0b3177989', 'e4e1c83e0729b2989bf6dd4b3ab1b44f59437410', 'luaopen_package')
+  FALSE HIT ('lcorolib', 848, 'a5723b655e332cd8ba5118df464ac923e4ca7731', 'd148a05a3d8422c4df2ace8eee77f036ba0fb786', 'luaopen_coroutine')
+  FALSE HIT ('lutf8lib', 1465, 'e6566250df49f201759c13a6ec67023e24671f4e', '566fe5ae14f6fe78fbe436fa0ecb7ce6575f1d9c', 'luaopen_utf8')
+  FALSE HIT ('lauxlib', 242, '4ba757ba66cc95cde636e5527fd1f8e23e69cc82', '87072a0d69d0bb36d2086d72d1d477a89e76c568', 'luaL_gsub')
+  FALSE HIT ('lutf8lib', 248, '1bd3d2c99e7b58df44f3561c13585a149d329feb', '1f19e4c4ac16aa63c4ef7ecda6249d4f4116873d', 'luaopen_utf8')
+  FALSE HIT ('lauxlib', 248, '87072a0d69d0bb36d2086d72d1d477a89e76c568', '4ba757ba66cc95cde636e5527fd1f8e23e69cc82', 'luaL_gsub')
+  FALSE HIT ('lapi', 590, '52f918a45a57b31a3faec84c69913b765fb41e58', '7e8617c5bfc954d74cb904e44964dbf471e96bca', 'lua_gettop')
+  FALSE HIT ('loadlib', 242, '118055941a261f2131c55717a59ba8320fb1510a', '655c1f5e51b7b80c8d4f8087fa96497bd148ec1f', 'luaopen_package')
+  FALSE HIT ('lauxlib', 825, 'd6c0373b31821f6995413f33458b7f1f0bfb9e56', '9499d68ee24f22b0219dd740d7e85c53d5d9e035', 'luaL_gsub')
+  FALSE HIT ('ltablib', 825, '277bf2d85436ea56fa79015e4cfaf222c7fd7f2d', 'd9a3f87d521b7b80c371193bbed55111d761c7c3', 'luaopen_table')
+  FALSE HIT ('lapi', 590, '52f918a45a57b31a3faec84c69913b765fb41e58', '7e8617c5bfc954d74cb904e44964dbf471e96bca', 'lua_absindex')
+  FALSE HIT ('lcorolib', 1276, '208deba6ed0d36445108393394f5a211648528d7', 'bdc1936c401de8188834b644b0244fb9b968a817', 'luaopen_coroutine')
+  FALSE HIT ('loadlib', 248, '655c1f5e51b7b80c8d4f8087fa96497bd148ec1f', '118055941a261f2131c55717a59ba8320fb1510a', 'luaopen_package')
+  FALSE HIT ('lutf8lib', 825, '4c9bd843a7e372ad731197bca402b55a44cabaa1', '103a8025b52da667b53e1fa9889cf7aeedff82c7', 'luaopen_utf8')
+  FALSE HIT ('ldo', 590, '910a731a4a3b53ce078c54836bdf0e6620cf97e7', 'cabecdc2343d072653ebdff6d1424b156a935240', 'luaD_inctop')

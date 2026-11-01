@@ -1,0 +1,9 @@
+transitions 37692; slices 37806; to key 37214
+  keyed 5000 (93s)
+  keyed 10000 (179s)
+  keyed 15000 (273s)
+  keyed 20000 (374s)
+  keyed 25000 (466s)
+  keyed 30000 (563s)
+  keyed 35000 (658s)
+wall 696s for 37214 slices; extraction CPU per slice: mean 106 ms, median 70 ms

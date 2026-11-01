@@ -1,0 +1,26 @@
+asm_changed_ctx_only cases: 2509; changed context decls (cases touching each):
+     854  global_State
+     529  CallInfo
+     436  lua_State
+     336  StackValue
+     183  OP_ADD OP_ADDI OP_BAND OP_BNOT OP_BOR OP
+     142  OP_ADD OP_ADDI OP_BAND OP_BANDK OP_BNOT 
+     137  Proto
+     120  lua_Debug
+     114  OP_ADD OP_ADDI OP_ADDK OP_BAND OP_BANDK 
+      84  lu_mem
+      84  l_obj
+      84  l_mem
+      79  FuncState
+      78  TKey
+      77  TValue lua_TValue
+      73  TMS TM_ADD TM_BAND TM_BNOT TM_BOR TM_BXO
+      37  VCALL VCONST VFALSE VGLOBAL VINDEXED VIN
+      31  ls_byte
+      30  VCALL VFALSE VINDEXED VINDEXI VINDEXSTR 
+      30  Labeldesc
+      29  Mbuffer
+      29  AbsLineInfo
+      27  VCALL VCONST VFALSE VINDEXED VINDEXI VIN
+      23  luaL_Buffer
+      21  TString

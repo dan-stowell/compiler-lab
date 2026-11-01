@@ -1,0 +1,12 @@
+commits 1500; function-transitions 477399; on changed TUs 105530
+measure                               count  rate/all rate/TUchg
+slice_changed                         37692   0.07895    0.35717
+closure_body_changed                   7477   0.01566    0.07085
+target_body_changed                    3596   0.00753    0.03408
+output_changed                         7017   0.01470    0.06649
+asm_changed_ctx_only                   2509   0.00526    0.02378
+body_changed_output_same               2912   0.00610    0.02759
+excluded_compile_fail                    80   0.00017    0.00076
+slice changes leaving whole-unit output identical: 30595 / 37612 (81.3%)
+output changes that are context-only: 2509 / 7017 (35.8%); in 139 commits
+slice-key / output change-rate ratio: 5.37x; closure-body / output: 1.07x

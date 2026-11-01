@@ -1,0 +1,4 @@
+results/slices/
+results/*.json
+__pycache__/
+run.log

@@ -1,0 +1,21 @@
+  PASS synthetic: bitfield store access unit (trailing c 4->20 bits: movw->movl): key changed
+  PASS synthetic: packed enum, sizeof(E): key changed
+  PASS synthetic: typedef aligned(32), local whose address escapes: key changed
+  PASS synthetic: used field offset (swap a,x): key changed
+  PASS synthetic: typedef width (T int->long): key changed
+  PASS synthetic: typedef signedness (T int->unsigned): key changed
+  PASS synthetic: callee attribute (+noreturn on g): key changed
+  PASS synthetic: callee attribute (const->pure on h): key changed
+  PASS synthetic: enum constant value used (E2): key changed
+  PASS synthetic: pointer-arith pointee layout (Big): key changed
+  PASS synthetic: typedef'd record local by value (ArrT size): key changed
+  PASS synthetic: pointer subtraction via typedef'd pointer (Elt size): key changed
+  PASS synthetic: control: unused field type, same size (a int->unsigned): key same
+  PASS synthetic: control: unused callee attribute elsewhere: key same
+  (lua_gc slice from TU ffda826ad3; global_State fields used: 9/43)
+  PASS real lua_gc: swap global_State.totalbytes/GCdebt (used field's offset moves, size same): key changed
+  PASS real lua_gc control: swap unused global_State.allgc/sweepgc: key same
+  PASS real lua_gc: lu_byte unsigned char->unsigned short: key changed
+  PASS real lua_gc: +noreturn on callee luaE_setdebt: key changed
+  PASS real luaL_gsub: aligned(64) on the luaL_Buffer typedef (record layout unchanged): key changed
+mutation tests: all pass

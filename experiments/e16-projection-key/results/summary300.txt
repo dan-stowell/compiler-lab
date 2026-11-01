@@ -1,0 +1,8 @@
+slice-changed transitions: 300; excluded: compile fail 0, extraction fail 0; counted 300
+  output changed (E15) 51; projection changed 112; projection changed, output same 61
+  ratio projection/output change rate: 2.196  (slice/output: 5.882)
+  informative hits (slice changed, projection equal): 188 in 102 distinct commits
+  false hits (informative hit, whole-unit output changed): 0 in 0 commits
+  95% upper bound on false-hit rate: per-hit (rule of three) 1.59574%; commit-clustered (hits in a commit fully correlated, n_eff = commits) 2.9412%
+  slices keyed: 592; with >=1 fallback: 34 (5.74%); events: {'probe_unspellable_anon': 417, 'probe_rejected': 470, 'unknown:OffsetOfExpr': 121}
+  extraction CPU per slice: mean 92 ms, median 72 ms, p90 125 ms, total 54 s

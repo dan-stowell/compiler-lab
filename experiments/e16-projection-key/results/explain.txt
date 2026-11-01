@@ -1,0 +1,31 @@
+projection changed, output same: 7824 transitions; sampled 400
+item kinds differing (transitions touching each; 'alone' = the only differing kind):
+    229  alone    93  M (field access)
+    171  alone    80  BODY/N (bodies, node types)
+    170  alone    26  TY
+     65  alone    20  L (whole layout, ptrarith)
+     28  alone     1  F
+     21  alone     6  L (whole layout, value)
+     13  alone     0  SZ
+      4  alone     2  L (whole layout, offsetof)
+      3  alone     0  G
+      2  alone     0  ET
+      2  alone     0  E
+      2  alone     2  Gdecl
+      1  alone     0  X
+top (kind, record/name) pairs (transitions touching each):
+      89  M (field access): struct global_State
+      71  TY: struct lua_State
+      61  M (field access): union GCUnion
+      60  M (field access): struct lua_State
+      41  L (whole layout, ptrarith): union StackValue
+      16  M (field access): struct CallInfo
+      15  M (field access): union Value
+      14  TY: struct TString
+      14  L (whole layout, ptrarith): struct lua_TValue
+      14  TY: union GCUnion *
+      13  SZ: sizeof
+      12  M (field access): struct TString
+      11  L (whole layout, ptrarith): struct TValue
+      11  M (field access): struct lua_TValue
+      10  TY: struct GCObject *
