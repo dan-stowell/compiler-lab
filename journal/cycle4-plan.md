@@ -16,9 +16,10 @@
 - Reuse e9.py by exec-ing it, as verify/extra.py does. Add only a bit writer, canonical Huffman and a decoder.
 - Rule: ≤1.25× against both means building and timing an interpreter comes next. Otherwise, this encoding loses to entropy coding; that rejects this encoding, not executable compression in general.
 
-## E12 (follows E11's pass): Run the compressed code (assumption: code must be expanded to native form to run at useful speed)
-- Question: how much slower is stage2 chibicc when executed directly from `payload.bin` by an interpreter that never materializes expanded instructions, compared with native stage2, when compiling one fixed input (chibicc's `tokenize.c`)?
-- Interpreter: C, a virtual register file plus the real process memory for data, stack and heap. One handler per skeleton (137). Rules run as call-threaded subroutines. Calls to external libc symbols go through a native trampoline (SysV ABI, including `%al` for varargs). Data sections are loaded natively, as the linker would.
-- Correctness: the interpreted compiler's `.s` output equals native stage2's byte for byte.
-- Number: interpreted / native wall time (median of 5). Also report resident code bytes (payload plus interpreter `.text`) against native `.text`, and instructions retired (perf stat).
-- Rule: ≤10× means keeping cold code compressed and executable is practical (only hot code would need native form), so the next step is a hot/cold split. Above 10×, executable compression is a storage format, not an execution format, at this design.
+## E12 (follows E11's pass): Hot/cold frontier for executable compression (revised after review)
+- Review findings: a whole-compiler interpreter is mostly ABI engineering (atexit callbacks into interpreted code, every call indirect through a symbol map, x87 returns from strtold, varargs `reg_save_area`, guest stack). A Huffman-streaming interpreter is likely 40–120× native, so a single "≤10×" rule is settled in advance. The profile is extremely skewed: 12 of 324 functions cover 90% of chibicc's dynamic instructions, 74 cover 99%.
+- Question: keeping the hottest k functions native and the rest in E11's executable payload, what is the smallest resident code size (payload + hot native bytes + symbol map + decoder tables) that keeps estimated runtime ≤1.5× native? Report it as a fraction of native stage2 `.text`.
+- Inputs (measured): (1) a per-function dynamic instruction profile of native stage2 `-cc1` compiling tokenize.c (callgrind), and per-function native byte sizes; (2) a C port of E11's decoder, timed on sequential whole-payload decode: ns per decoded guest instruction. Use that as an **optimistic** per-instruction interpretation cost (decode only, no execute or dispatch) and also at 3× for a pessimistic estimate.
+- Number: the minimal resident fraction at ≤1.5×, under the optimistic and pessimistic costs.
+- Rule: if even the optimistic cost needs >50% of native `.text` resident, executable compression buys little RAM for this program: stop. If the pessimistic cost reaches ≤30%, build the real hot/cold interpreter next. In between, build the decode+dispatch core and remeasure the cost.
+- The C decoder must round-trip payload.bin against E11's output (correctness check).
