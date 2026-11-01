@@ -1,26 +1,39 @@
-# Phase 2, cycle 1 plan: three computational models
+# Phase 2, cycle 1 plan (revised after review): kill tests first
 
-Chosen from 12 candidates (`phase2-models-*.md`). Each challenges a different assumption; each gets a minimal language, one operation, one number at a named boundary, a failure workload, and a scaling question. Data movement is measured with perf Zen 4 fill counters plus cachegrind, with computed byte counts as cross-checks; instructions and generated code bytes are counted too.
+All three reviews (two adversaries and codex) agreed that, as first planned, P1–P3 were known techniques with weak baselines:
+- P1 is compressed pattern matching on SLPs, or monoid-annotated ropes.
+- P2 is Gosper's HashLife.
+- P3 is Halide scheduling plus rematerialization or pebbling.
 
-## P1: Grammar-resident data (assumption: data must be materialized to be computed on)
-- Language: data is a hash-consed SLP over 64-byte leaves (balanced, persistent; edits create O(log n) nodes). A program is `fold(leaf: bytes→M, combine: M×M→M)` with `combine` associative. Evaluation is a memoized pass over the unique nodes; nothing is ever expanded.
-- Operation: run a regex (chosen **after** the data is stored, so nothing can be precomputed) over every version of a file history. M is the DFA's transition function (|Q| states → array of |Q| bytes); combine is function composition.
-- Input: real history, the lua/lua `lvm.c` across all of its commits (use content-defined chunking so insertions don't shift every leaf; record the chunker). Synthetic random edits only as a secondary.
-- Baseline: each version stored zstd `--long` compressed, stream-decompressed into an L1-sized buffer and scanned by a table DFA (the same regex).
-- Number: bytes moved from DRAM (fills × 64) plus bytes through the core (loads), baseline vs model, for the whole query over all versions. Include grammar construction separately (it is a one-time storage cost).
-- Rule: ≥100× fewer DRAM bytes **and** ≥10× fewer bytes through the core means the model wins at that boundary. Report the DFA size where it stops winning (failure: |Q| growth) and on random (high-entropy) data.
+Each "100×" was set against a strawman. The measurement plan was also broken: on this VM, `ls_any_fills_from_sys.dram_io_all` reports about 1/40 of streaming traffic, so use `64 × (demand DRAM fills + l2_pf_miss_l2_l3.all)`, cross-checked by computed bytes. The guest's 32 MiB L3 also swallows small inputs.
 
-## P2: Spacetime memo machine (assumption: compiling and executing are separate; a program is stored code)
-- Language: a 1-D cellular rule of radius 1 (an 8-entry table). The machine is HashLife over 1-D macrocells: the memo table maps (macrocell) → centre after 2^(k-1) steps, and nothing else exists.
-- Kill test first (about 1 hour): for rule 110 on a random 1K-cell patch over its periodic background, count unique macrocells per level and memo entries to reach 2^30 steps. Compare with rule 30.
-- Operation: compute the state of a 2^20-cell window after T=2^40 steps.
-- Baseline: bit-sliced AVX2 direct stepping (bytes = n/8·T; estimated, since it can't be run to 2^40). Measure the direct baseline at T=2^20 and extrapolate linearly (labelled).
-- Number: memo bytes + DRAM traffic for the query vs baseline bytes at the same T. Find T where HashLife overtakes.
-- Failure: rule 30 (chaotic). Scaling question: does any useful computation (e.g. a cellular adder or sorter on structured input) have this redundancy?
+Before any language is built, each model gets a cheap kill test against its **strongest** baseline. A model survives only if the kill test leaves a ≥100× gap at a named boundary, or shows a property beyond the known technique.
 
-## P3: Residency as meaning (assumption: memory holds whatever the program computed; residency is an implementation detail)
-- Language: a straight-line DAG language. Every node is declared `pin` (counts against a static byte budget B checked before running) or `recipe` (recomputed from its inputs at each use, never stored). A program whose pinned live set can exceed B is rejected. The evaluator executes within a B-byte arena.
-- Operation: a deep, narrow-output dependency graph, e.g. a 2^20-element pipeline of 32 stencil stages with one scalar output. Under B = 32 KB (L1) the checker forces most stages to be recipes.
-- Baseline: the same computation materializing each stage (B unbounded), and an optimized checkpointing (pebbling) schedule at the same B.
-- Number: DRAM bytes and total instructions, model vs both baselines, plus the recomputation factor.
-- Rule: ≥100× fewer DRAM bytes than materializing, at any slowdown, together with a measured position against pebbling, means residency-as-meaning is worth a scaling study. Failure: high-fan-out DAGs (recomputation grows exponentially with depth); measure where the instruction count explodes.
+## K1 (P1): Grammar-resident data vs a chunk-summary store
+- Strongest baseline: a deduplicating chunk store that keeps, per unique chunk, the DFA transition summary for the query (computed once at query time), and composes summaries per version. This is the same monoid done conventionally.
+- The only remaining difference is per-version work: the grammar does O(edits·log n) compositions per version, the chunk store O(n/chunk).
+- Workload where per-version work dominates: V = 10^4 versions of a 64 MiB file with 1–10 small edits each (past L3), plus one real history for realism (lua/lua lvm.c, labelled small).
+- Output: per-version accept/reject of a regex chosen after storage (|Q| ≤ 64).
+- Number: compositions and bytes through the core per query (computed exactly from node and summary counts and sizes), grammar vs chunk store, including summary construction.
+- Kill: if the gap is <100× at the workload where it should be largest, P1 is the known rope/finger-tree property and is dropped.
+
+## K2 (P2): Does executing produce a reusable program? (memo-table transfer)
+- Claim beyond Gosper: the memo table built while executing on input A works as a compiled program for different inputs B.
+- Machine: 1-D HashLife over a radius-1 rule (level-k cells determine their centre for 2^(k-2) steps).
+- Test: a cellular computation with structure. Use rule 110 on random finite patches over its standard periodic background, and as a control rule 30.
+  1. Build the memo by evolving patch A to 2^24 steps.
+  2. Freeze it.
+  3. Evolve 20 unseen patches B_i to 2^24 steps, counting lookups served by the frozen table vs new entries.
+- Number: the transfer hit rate (frozen hits / all lookups on B) and new entries per B relative to building from scratch.
+- Kill test cap: memo ≤ 2^24 entries.
+- Rule: transfer hit rate ≥90% with new entries ≤10% of from-scratch means executing produced a reusable program; continue to a structured computation. Otherwise the memo is input-specific and the compile=execute framing adds nothing.
+
+## K3 (P3): Residency on a DAG that cannot be fused
+- Workload: a radix-2 butterfly network (FFT shape, integer ops mod 2^32) over n = 2^24 elements, with **seeded leaves** (element i = splitmix(i)), so roots are cheaper to regenerate than to fetch. Output: a 64-bit hash of all outputs.
+- Baselines:
+  - the best conventional schedule: cache-blocked or recursive (four-step) FFT ordering, where spill traffic is Θ(n log n / log B) per Hong–Kung;
+  - full materialization per stage.
+- Model: a budget B = 1 MiB (L2). Every value beyond the budget is a recipe recomputed from seeds, with no spilling at all.
+- Number: DRAM bytes (corrected counter, plus computed bytes) and instructions, model vs the blocked schedule. Report the recomputation factor.
+- Rule: ≥100× fewer DRAM bytes than the blocked schedule means residency-as-meaning moves a known lower bound by exploiting regenerable roots. The cost in instructions is reported, not judged. Otherwise drop P3.
+- Note: with seeded leaves, the blocked schedule's compulsory traffic is only spills (no input read). This is the honest comparison.
