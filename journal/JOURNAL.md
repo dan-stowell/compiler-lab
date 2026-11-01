@@ -2,6 +2,18 @@
 
 Newest first. "Measured" means a run whose script is in the repo; "estimated" means arithmetic or analysis.
 
+## 2026-11-01: Cycle 5: dropping bit-identity
+
+The ideator pointed out the assumption shared by every experiment so far: "correct" meant bit-identical to the whole-TU compile, which forces mechanisms to copy compiler quirks. Its spot-checks (single runs): per-TU flag search beats -Oz by only 1.0%; zstd dictionaries trained on other programs shrink Lua's .text by ≤1.1%; across Lua 5.4.6→5.4.7, 572/644 functions are unchanged after normalization.
+
+**E13, TU-free build of Lua: viable at no measurable instruction cost (verified).** `experiments/e13-tu-free-build/`
+- Lua's 19 core files were split into **331 objects, one per extern function**. Each object compiles its file with every other extern body replaced by a prototype; median slice 1.57% of file tokens. Statics are copied per object (96 extra copies, function bytes 1.148×).
+- Address-taken statics reached by several targets (`boxgc`, `dothecall`) became single hidden globals. The safety check caught the plan's wrong assumption ("none exist"): 17 address-taken statics.
+- The official test suite passes ("final OK") and benchmark outputs are identical. Instructions retired: geomean **1.0008×** (interval 0.978–1.025 over 5 benchmarks; per-benchmark 0.98–1.024). Cycles: 1.061, inconclusive (relinking in a shuffled order alone moves cycles by 4.9%).
+- Five helpers no longer inline into `luaV_execute` (idiv, mod, modf, shiftl, tointegerns) with no instruction-count effect.
+- Caveat: extern const data is duplicated as local copies (`lua_ident`, `luaT_typenames_`); nothing observable was found.
+- Finding: for this program, cross-function knowledge inside a TU is not load-bearing. A function plus the statics it reaches is a sufficient compilation unit. With E8 (tiny slices) and E7 (stable outputs), that makes per-function, content-addressed, TU-free compilation practical, **provided bit-identity with the whole-TU compile isn't required**.
+
 ## 2026-11-01: Cycle 4 results so far
 
 **E11, measured executable compression: passes the payload gate.** `experiments/e11-exec-compression-measured/`
