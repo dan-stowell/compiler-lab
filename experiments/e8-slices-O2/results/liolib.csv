@@ -1,0 +1,3 @@
+# total_tokens=14835 sys_header_tokens=7205 n_decls=601 n_funcs=60 n_static_defs=45 static_defs_named_in_source=45 static_emitted_in_full_asm=30 targets=1 control_recompile=31/31 control_rejoin=31/31
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full,slice_sys_header_tokens
+luaopen_io,2,0.0852,1264,2,5,119,2,0.1089,d0:1f/647t/mismatch d1:3f/1095t/mismatch d2:5f/1264t/ok,d0:1f/647t/mismatch d1:3f/1095t/mismatch d2:7f/1615t/ok,createmeta createstdfile,199

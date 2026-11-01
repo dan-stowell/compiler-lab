@@ -1,0 +1,23 @@
+# total_tokens=19632 sys_header_tokens=3265 n_decls=617 n_funcs=47 n_static_defs=26 static_defs_named_in_source=26 static_emitted_in_full_asm=4 targets=21 control_recompile=25/25 control_rejoin=25/25
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full,slice_sys_header_tokens
+luaG_getfuncline,1,0.0682,1339,1,2,78,1,0.0682,d0:1f/1229t/mismatch d1:2f/1339t/ok,d0:1f/1229t/mismatch d1:2f/1339t/ok,getbaseline,24
+lua_sethook,1,0.0582,1142,1,2,99,1,0.0582,d0:1f/1093t/mismatch d1:2f/1142t/ok,d0:1f/1093t/mismatch d1:2f/1142t/ok,settraps,24
+lua_gethook,0,0.0505,991,0,1,15,0,0.0505,d0:1f/991t/ok,d0:1f/991t/ok,,24
+lua_gethookmask,0,0.0505,991,0,1,15,0,0.0505,d0:1f/991t/ok,d0:1f/991t/ok,,24
+lua_gethookcount,0,0.0505,991,0,1,15,0,0.0505,d0:1f/991t/ok,d0:1f/991t/ok,,24
+lua_getstack,0,0.0556,1091,0,1,108,0,0.0556,d0:1f/1091t/ok,d0:1f/1091t/ok,,24
+luaG_findlocal,1,0.0929,1824,1,3,251,1,0.1234,d0:1f/1634t/mismatch d1:3f/1824t/ok,d0:1f/1634t/mismatch d1:6f/2423t/ok,currentpc findvararg,24
+lua_getlocal,2,0.1103,2165,2,4,320,2,0.1408,d0:1f/1718t/mismatch d1:2f/1975t/mismatch d2:4f/2165t/ok,d0:1f/1718t/mismatch d1:2f/1975t/mismatch d2:7f/2764t/ok,luaG_findlocal,24
+lua_setlocal,2,0.1024,2010,2,4,165,2,0.1329,d0:1f/1203t/mismatch d1:2f/1820t/mismatch d2:4f/2010t/ok,d0:1f/1203t/mismatch d1:2f/1820t/mismatch d2:7f/2609t/ok,luaG_findlocal,24
+lua_getinfo,never,1.0000,19632,7,20,402,4,0.2724,d0:1f/1794t/mismatch d1:3f/2625t/mismatch d2:7f/3120t/mismatch d3:10f/3455t/mismatch d4:12f/4170t/mismatch d5:13f/5173t/mismatch d6:19f/6142t/mismatch d7:20f/6157t/mismatch,d0:1f/1794t/mismatch d1:3f/2625t/mismatch d2:8f/3581t/mismatch d3:14f/4680t/mismatch d4:16f/5347t/ok,auxgetinfo collectvalidlines,3265
+luaG_typeerror,0,0.0553,1086,5,21,41,0,0.0553,d0:1f/1086t/ok,d0:1f/1086t/ok,,24
+luaG_callerror,never,1.0000,19632,5,23,90,never,1.0000,d0:1f/1193t/mismatch d1:5f/2110t/mismatch d2:11f/4348t/mismatch d3:20f/5829t/mismatch d4:22f/5927t/mismatch d5:23f/6037t/mismatch,d0:1f/1193t/mismatch d1:8f/2384t/mismatch d2:18f/5200t/mismatch d3:25f/6800t/mismatch d4:27f/6898t/mismatch d5:28f/7008t/mismatch,formatvarinfo,3265
+luaG_forerror,0,0.0569,1117,4,8,41,0,0.0569,d0:1f/1117t/ok,d0:1f/1117t/ok,,24
+luaG_runerror,3,0.1322,2596,3,7,288,3,0.1954,d0:1f/1768t/mismatch d1:4f/2316t/mismatch d2:6f/2486t/mismatch d3:7f/2596t/ok,d0:1f/1768t/mismatch d1:5f/2734t/mismatch d2:10f/3726t/mismatch d3:11f/3836t/ok,getcurrentline luaG_addinfo,28
+luaG_concaterror,0,0.0583,1145,6,22,88,0,0.0583,d0:1f/1145t/ok,d0:1f/1145t/ok,,24
+luaG_opinterror,0,0.0577,1132,6,22,70,0,0.0577,d0:1f/1132t/ok,d0:1f/1132t/ok,,24
+luaG_tointerror,0,0.0592,1163,4,20,59,0,0.0592,d0:1f/1163t/ok,d0:1f/1163t/ok,,24
+luaG_ordererror,0,0.0609,1195,4,8,81,0,0.0609,d0:1f/1195t/ok,d0:1f/1195t/ok,,62
+luaG_addinfo,0,0.0592,1163,0,1,113,0,0.0592,d0:1f/1163t/ok,d0:1f/1163t/ok,,24
+luaG_errormsg,0,0.0664,1303,0,1,263,0,0.0664,d0:1f/1303t/ok,d0:1f/1303t/ok,,24
+luaG_traceexec,2,0.1252,2458,2,4,537,2,0.1252,d0:1f/2162t/mismatch d1:3f/2348t/mismatch d2:4f/2458t/ok,d0:1f/2162t/mismatch d1:3f/2348t/mismatch d2:4f/2458t/ok,changedline luaG_getfuncline,24

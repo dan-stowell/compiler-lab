@@ -1,0 +1,66 @@
+selftest luaL_argerror: mutated string byte rejected
+selftest luaL_argerror: mutated instruction rejected
+selftest luaL_checkoption: mutated string byte rejected
+selftest luaL_checkoption: mutated instruction rejected
+selftest luaO_tostring: mutated string byte rejected
+selftest luaO_tostring: mutated instruction rejected
+files=32 targets=342 tu_tokens_total=553553
+static defs excluded=714 (named in the .c source: 714; emitted standalone in full asm: 299)
+controls (recompile and rejoin reproduce every emitted function, all files): True
+median slice frac=6.46%  p90=22.59%  mean=14.11%  max=100.00%
+system-header tokens: 185522 of 553553 TU tokens
+excluding system headers (slice and TU): median=8.17% p90=30.11%
+whole slice over non-system TU tokens:    median=8.39% p90=30.40%
+median absolute slice size: 1457 tokens (never-matching counted as their whole TU)
+d distribution: {'0': 173, '1': 98, '2': 38, '3': 4, '5': 4, 'never': 25}
+targets with any compile_fail level: 0
+per-file (targets, median, p90, max, file tokens, controls):
+  lapi       n= 81 median= 6.19% p90= 7.56% max=100.00% tokens=27928 ctl=84/84,84/84
+  lauxlib    n= 45 median= 1.50% p90= 6.14% max=100.00% tokens=17144 ctl=58/58,58/58
+  lbaselib   n=  1 median= 4.47% p90= 4.47% max= 4.47% tokens=13660 ctl=29/29,29/29
+  lcode      n= 37 median= 6.43% p90=100.00% max=100.00% tokens=33388 ctl=49/49,49/49
+  lcorolib   n=  1 median= 3.55% p90= 3.55% max= 3.55% tokens=9213 ctl=11/11,11/11
+  lctype     n=  0 (no emitted extern functions)
+  ldblib     n=  1 median= 3.75% p90= 3.75% max= 3.75% tokens=12313 ctl=19/19,19/19
+  ldebug     n= 21 median= 5.92% p90=13.22% max=100.00% tokens=19632 ctl=25/25,25/25
+  ldo        n= 21 median= 7.25% p90=11.99% max=16.47% tokens=21394 ctl=28/28,28/28
+  ldump      n=  1 median=34.40% p90=34.40% max=34.40% tokens=8094 ctl=3/3,3/3
+  lfunc      n= 11 median=14.12% p90=17.03% max=23.91% tokens=10596 ctl=11/11,11/11
+  lgc        n= 11 median= 6.88% p90=100.00% max=100.00% tokens=25776 ctl=26/26,26/26
+  linit      n=  1 median= 5.86% p90= 5.86% max= 5.86% tokens=5683 ctl=1/1,1/1
+  liolib     n=  1 median= 8.52% p90= 8.52% max= 8.52% tokens=14835 ctl=31/31,31/31
+  llex       n=  7 median=10.98% p90=13.08% max=13.08% tokens=15715 ctl=17/17,17/17
+  lmathlib   n=  1 median= 6.08% p90= 6.08% max= 6.08% tokens=18172 ctl=32/32,32/32
+  lmem       n=  7 median=14.12% p90=18.27% max=18.27% tokens=8393 ctl=8/8,8/8
+  loadlib    n=  1 median=12.09% p90=12.09% max=12.09% tokens=12864 ctl=13/13,13/13
+  lobject    n= 10 median= 4.47% p90=12.19% max=12.19% tokens=25408 ctl=13/13,13/13
+  lopcodes   n=  0 (no emitted extern functions)
+  loslib     n=  1 median= 2.63% p90= 2.63% max= 2.63% tokens=14146 ctl=14/14,14/14
+  lparser    n=  2 median=26.77% p90=46.96% max=46.96% tokens=24173 ctl=23/23,23/23
+  lstate     n= 16 median= 7.92% p90=15.97% max=100.00% tokens=14095 ctl=18/18,18/18
+  lstring    n= 11 median=11.44% p90=22.59% max=22.71% tokens=11031 ctl=12/12,12/12
+  lstrlib    n=  1 median= 2.81% p90= 2.81% max= 2.81% tokens=28922 ctl=37/37,37/37
+  ltable     n= 15 median= 8.67% p90=100.00% max=100.00% tokens=22941 ctl=18/18,18/18
+  ltablib    n=  1 median= 3.19% p90= 3.19% max= 3.19% tokens=9785 ctl=11/11,11/11
+  ltm        n= 14 median=10.59% p90=11.99% max=13.49% tokens=12989 ctl=15/15,15/15
+  lundump    n=  1 median=41.27% p90=41.27% max=41.27% tokens=12599 ctl=4/4,4/4
+  lutf8lib   n=  1 median= 3.30% p90= 3.30% max= 3.30% tokens=10992 ctl=9/9,9/9
+  lvm        n= 17 median= 2.68% p90=100.00% max=100.00% tokens=74644 ctl=19/19,19/19
+  lzio       n=  3 median=14.76% p90=17.09% max=17.09% tokens=7751 ctl=3/3,3/3
+add-callers variant: median frac=7.45% p90=36.56%; d distribution: {'0': 173, '1': 101, '2': 42, '3': 11, '4': 7, '5': 1, 'never': 7}
+  of 169 targets needing d>0, 29 match at a smaller d with callers added; 20 get a smaller slice
+largest slices:
+  lapi:lua_setfield d=never (closure depth 1, 3 bodies) frac=100.00% callers-variant d=1 frac=39.20%; inlined: index2value
+  lauxlib:luaL_traceback d=never (closure depth 5, 20 bodies) frac=100.00% callers-variant d=2 frac=13.14%; inlined: lastlevel luaL_addstring luaL_addvalue luaL_buffinit luaL_prepbuffsize luaL_pushresult pushfuncname
+  lauxlib:luaL_buffinitsize d=never (closure depth 4, 11 bodies) frac=100.00% callers-variant d=1 frac=4.76%; inlined: luaL_buffinit
+  lcode:luaK_int d=never (closure depth 3, 10 bodies) frac=100.00% callers-variant d=never frac=100.00%; inlined: fitsBx luaK_codeAsBx luaK_intK
+  lcode:luaK_exp2nextreg d=never (closure depth 5, 42 bodies) frac=100.00% callers-variant d=2 frac=20.24%; inlined: freeexp luaK_reserveregs
+  lcode:luaK_exp2RK d=never (closure depth 5, 48 bodies) frac=100.00% callers-variant d=never frac=100.00%; inlined: luaK_exp2anyreg
+  lcode:luaK_storevar d=never (closure depth 5, 50 bodies) frac=100.00% callers-variant d=4 frac=35.89%; inlined: codeABRK freeexp luaK_codeABCk luaK_exp2anyreg
+  lcode:luaK_goiftrue d=never (closure depth 6, 45 bodies) frac=100.00% callers-variant d=3 frac=28.17%; inlined: luaK_concat luaK_patchtohere negatecondition
+decision: median <= 10%: slice survives -O2
+inline remarks (tu/lparser.i):
+  'close_func' not inlined into 'mainfunc' because too costly to inline (cost=730, threshold=225) [-Rpass-missed=inline]
+  'close_func' not inlined into 'luaY_parser' because too costly to inline (cost=715, threshold=225) [-Rpass-missed=inline]
+inline remarks (slices/lparser/luaY_parser.d4.c):
+  'close_func' inlined into 'mainfunc' with (cost=-14265, threshold=225) at callsite mainfunc:14:3; [-Rpass=inline]

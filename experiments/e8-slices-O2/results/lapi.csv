@@ -1,0 +1,83 @@
+# total_tokens=27928 sys_header_tokens=3265 n_decls=602 n_funcs=93 n_static_defs=12 static_defs_named_in_source=12 static_emitted_in_full_asm=3 targets=81 control_recompile=84/84 control_rejoin=84/84
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full,slice_sys_header_tokens
+lua_checkstack,0,0.0402,1124,0,1,121,0,0.0402,d0:1f/1124t/ok,d0:1f/1124t/ok,,24
+lua_xmove,0,0.0424,1184,0,1,201,0,0.0424,d0:1f/1184t/ok,d0:1f/1184t/ok,,24
+lua_atpanic,0,0.0370,1032,0,1,53,0,0.0370,d0:1f/1032t/ok,d0:1f/1032t/ok,,24
+lua_version,0,0.0357,998,0,1,22,0,0.0357,d0:1f/998t/ok,d0:1f/998t/ok,,24
+lua_absindex,0,0.0372,1039,0,1,60,0,0.0372,d0:1f/1039t/ok,d0:1f/1039t/ok,,24
+lua_gettop,0,0.0363,1014,0,1,38,0,0.0363,d0:1f/1014t/ok,d0:1f/1014t/ok,,24
+lua_settop,0,0.0444,1239,0,1,233,0,0.0444,d0:1f/1239t/ok,d0:1f/1239t/ok,,24
+lua_closeslot,1,0.0431,1204,1,2,100,1,0.0754,d0:1f/1119t/mismatch d1:2f/1204t/ok,d0:1f/1119t/mismatch d1:5f/2106t/ok,index2stack,24
+lua_rotate,1,0.0520,1451,1,3,117,1,0.0839,d0:1f/1128t/mismatch d1:3f/1451t/ok,d0:1f/1128t/mismatch d1:6f/2344t/ok,index2stack reverse,24
+lua_copy,1,0.0744,2079,1,2,396,1,0.3656,d0:1f/1750t/mismatch d1:2f/2079t/ok,d0:1f/1750t/mismatch d1:36f/10210t/ok,index2value,24
+lua_pushvalue,1,0.0639,1784,1,2,130,1,0.3656,d0:1f/1122t/mismatch d1:2f/1784t/ok,d0:1f/1122t/mismatch d1:36f/10210t/ok,index2value,24
+lua_type,1,0.0623,1741,1,2,87,1,0.3656,d0:1f/1079t/mismatch d1:2f/1741t/ok,d0:1f/1079t/mismatch d1:36f/10210t/ok,index2value,24
+lua_typename,0,0.0378,1056,0,1,48,0,0.0378,d0:1f/1056t/ok,d0:1f/1056t/ok,,24
+lua_iscfunction,1,0.0627,1750,1,2,96,1,0.3656,d0:1f/1088t/mismatch d1:2f/1750t/ok,d0:1f/1088t/mismatch d1:36f/10210t/ok,index2value,24
+lua_isinteger,1,0.0612,1708,1,2,54,1,0.3656,d0:1f/1046t/mismatch d1:2f/1708t/ok,d0:1f/1046t/mismatch d1:36f/10210t/ok,index2value,24
+lua_isnumber,1,0.0632,1766,1,2,89,1,0.3656,d0:1f/1104t/mismatch d1:2f/1766t/ok,d0:1f/1104t/mismatch d1:36f/10210t/ok,index2value,24
+lua_isstring,1,0.0619,1730,1,2,76,1,0.3656,d0:1f/1068t/mismatch d1:2f/1730t/ok,d0:1f/1068t/mismatch d1:36f/10210t/ok,index2value,24
+lua_isuserdata,1,0.0626,1748,1,2,94,1,0.3656,d0:1f/1086t/mismatch d1:2f/1748t/ok,d0:1f/1086t/mismatch d1:36f/10210t/ok,index2value,24
+lua_rawequal,1,0.0652,1821,1,2,136,1,0.3656,d0:1f/1159t/mismatch d1:2f/1821t/ok,d0:1f/1159t/mismatch d1:36f/10210t/ok,index2value,24
+lua_arith,0,0.0445,1244,0,1,231,0,0.0445,d0:1f/1244t/ok,d0:1f/1244t/ok,,24
+lua_compare,1,0.0703,1963,1,2,219,1,0.3656,d0:1f/1301t/mismatch d1:2f/1963t/ok,d0:1f/1301t/mismatch d1:36f/10210t/ok,index2value,24
+lua_stringtonumber,0,0.0384,1073,0,1,69,0,0.0384,d0:1f/1073t/ok,d0:1f/1073t/ok,,24
+lua_tonumberx,1,0.0641,1790,1,2,109,1,0.3656,d0:1f/1128t/mismatch d1:2f/1790t/ok,d0:1f/1128t/mismatch d1:36f/10210t/ok,index2value,24
+lua_tointegerx,1,0.0651,1819,1,2,124,1,0.3656,d0:1f/1157t/mismatch d1:2f/1819t/ok,d0:1f/1157t/mismatch d1:36f/10210t/ok,index2value,24
+lua_toboolean,1,0.0621,1735,1,2,81,1,0.3656,d0:1f/1073t/mismatch d1:2f/1735t/ok,d0:1f/1073t/mismatch d1:36f/10210t/ok,index2value,24
+lua_tolstring,1,0.0742,2073,1,2,373,1,0.3656,d0:1f/1744t/mismatch d1:2f/2073t/ok,d0:1f/1744t/mismatch d1:36f/10210t/ok,index2value,24
+lua_rawlen,1,0.0691,1929,1,2,251,1,0.3656,d0:1f/1600t/mismatch d1:2f/1929t/ok,d0:1f/1600t/mismatch d1:36f/10210t/ok,index2value,24
+lua_tocfunction,1,0.0648,1810,1,2,156,1,0.3656,d0:1f/1481t/mismatch d1:2f/1810t/ok,d0:1f/1481t/mismatch d1:36f/10210t/ok,index2value,24
+lua_touserdata,1,0.0697,1947,1,3,32,1,0.3745,d0:1f/1037t/mismatch d1:3f/1947t/ok,d0:1f/1037t/mismatch d1:37f/10458t/ok,index2value touserdata,24
+lua_tothread,1,0.0631,1763,1,2,108,1,0.3656,d0:1f/1434t/mismatch d1:2f/1763t/ok,d0:1f/1434t/mismatch d1:36f/10210t/ok,index2value,24
+lua_topointer,1,0.0748,2089,1,3,173,1,0.3745,d0:1f/1179t/mismatch d1:3f/2089t/ok,d0:1f/1179t/mismatch d1:37f/10458t/ok,index2value touserdata,24
+lua_pushnil,0,0.0379,1059,0,1,83,0,0.0379,d0:1f/1059t/ok,d0:1f/1059t/ok,,24
+lua_pushnumber,0,0.0390,1090,0,1,111,0,0.0390,d0:1f/1090t/ok,d0:1f/1090t/ok,,24
+lua_pushinteger,0,0.0390,1090,0,1,111,0,0.0390,d0:1f/1090t/ok,d0:1f/1090t/ok,,24
+lua_pushlstring,0,0.0580,1621,0,1,233,0,0.0580,d0:1f/1621t/ok,d0:1f/1621t/ok,,24
+lua_pushstring,0,0.0583,1627,0,1,269,0,0.0583,d0:1f/1627t/ok,d0:1f/1627t/ok,,24
+lua_pushvfstring,0,0.0404,1129,0,1,93,0,0.0404,d0:1f/1129t/ok,d0:1f/1129t/ok,,28
+lua_pushfstring,0,0.0409,1142,0,1,107,0,0.0409,d0:1f/1142t/ok,d0:1f/1142t/ok,,28
+lua_pushcclosure,0,0.0646,1803,0,1,448,0,0.0646,d0:1f/1803t/ok,d0:1f/1803t/ok,,24
+lua_pushboolean,0,0.0396,1105,0,1,126,0,0.0396,d0:1f/1105t/ok,d0:1f/1105t/ok,,24
+lua_pushlightuserdata,0,0.0391,1092,0,1,112,0,0.0391,d0:1f/1092t/ok,d0:1f/1092t/ok,,24
+lua_pushthread,0,0.0529,1478,0,1,169,0,0.0529,d0:1f/1478t/ok,d0:1f/1478t/ok,,24
+lua_getglobal,1,0.0694,1939,1,2,88,1,0.0720,d0:1f/1422t/mismatch d1:2f/1939t/ok,d0:1f/1422t/mismatch d1:3f/2011t/ok,auxgetstr,24
+lua_gettable,1,0.0729,2036,1,2,322,1,0.3656,d0:1f/1707t/mismatch d1:2f/2036t/ok,d0:1f/1707t/mismatch d1:36f/10210t/ok,index2value,24
+lua_getfield,1,0.0801,2236,1,3,40,1,0.3866,d0:1f/1057t/mismatch d1:3f/2236t/ok,d0:1f/1057t/mismatch d1:38f/10796t/ok,auxgetstr index2value,24
+lua_geti,1,0.0782,2183,1,2,462,1,0.3656,d0:1f/1854t/mismatch d1:2f/2183t/ok,d0:1f/1854t/mismatch d1:36f/10210t/ok,index2value,24
+lua_rawget,2,0.0735,2053,2,4,89,2,0.4121,d0:1f/1121t/mismatch d1:3f/1724t/mismatch d2:4f/2053t/ok,d0:1f/1121t/mismatch d1:8f/2751t/mismatch d2:43f/11508t/ok,finishrawget gettable,24
+lua_rawgeti,2,0.0721,2014,2,4,49,2,0.4121,d0:1f/1082t/mismatch d1:3f/1685t/mismatch d2:4f/2014t/ok,d0:1f/1082t/mismatch d1:8f/2751t/mismatch d2:43f/11508t/ok,finishrawget gettable,24
+lua_rawgetp,2,0.0746,2084,2,4,115,2,0.4121,d0:1f/1152t/mismatch d1:3f/1755t/mismatch d2:4f/2084t/ok,d0:1f/1152t/mismatch d1:8f/2751t/mismatch d2:43f/11508t/ok,finishrawget gettable,24
+lua_createtable,0,0.0579,1616,0,1,234,0,0.0579,d0:1f/1616t/ok,d0:1f/1616t/ok,,24
+lua_getmetatable,1,0.0713,1990,1,2,336,1,0.3656,d0:1f/1661t/mismatch d1:2f/1990t/ok,d0:1f/1661t/mismatch d1:36f/10210t/ok,index2value,24
+lua_getiuservalue,1,0.0708,1976,1,2,319,1,0.3656,d0:1f/1647t/mismatch d1:2f/1976t/ok,d0:1f/1647t/mismatch d1:36f/10210t/ok,index2value,24
+lua_setglobal,0,0.0508,1420,1,2,87,0,0.0508,d0:1f/1420t/ok,d0:1f/1420t/ok,,24
+lua_settable,1,0.0797,2226,1,2,489,1,0.3656,d0:1f/1897t/mismatch d1:2f/2226t/ok,d0:1f/1897t/mismatch d1:36f/10210t/ok,index2value,24
+lua_setfield,never,1.0000,27928,1,3,39,1,0.3920,d0:1f/1055t/mismatch d1:3f/2409t/mismatch,d0:1f/1055t/mismatch d1:38f/10947t/ok,index2value,3265
+lua_seti,1,0.0842,2352,1,2,608,1,0.3656,d0:1f/2023t/mismatch d1:2f/2352t/ok,d0:1f/2023t/mismatch d1:36f/10210t/ok,index2value,24
+lua_rawset,0,0.0371,1035,3,4,37,0,0.0371,d0:1f/1035t/ok,d0:1f/1035t/ok,,24
+lua_rawsetp,0,0.0392,1096,3,4,93,0,0.0392,d0:1f/1096t/ok,d0:1f/1096t/ok,,24
+lua_rawseti,2,0.0731,2041,2,3,261,2,0.4050,d0:1f/1640t/mismatch d1:2f/1712t/mismatch d2:3f/2041t/ok,d0:1f/1640t/mismatch d1:7f/2553t/mismatch d2:42f/11310t/ok,gettable,24
+lua_setmetatable,1,0.0851,2376,1,2,670,1,0.3656,d0:1f/2047t/mismatch d1:2f/2376t/ok,d0:1f/2047t/mismatch d1:36f/10210t/ok,index2value,24
+lua_setiuservalue,1,0.0756,2110,1,2,431,1,0.3656,d0:1f/1781t/mismatch d1:2f/2110t/ok,d0:1f/1781t/mismatch d1:36f/10210t/ok,index2value,24
+lua_callk,0,0.0450,1258,0,1,222,0,0.0450,d0:1f/1258t/ok,d0:1f/1258t/ok,,24
+lua_pcallk,1,0.0618,1727,1,3,489,1,0.0773,d0:1f/1588t/mismatch d1:3f/1727t/ok,d0:1f/1588t/mismatch d1:6f/2160t/ok,index2stack,24
+lua_load,0,0.0685,1913,0,1,449,0,0.0685,d0:1f/1913t/ok,d0:1f/1913t/ok,,24
+lua_dump,0,0.0554,1547,0,1,171,0,0.0554,d0:1f/1547t/ok,d0:1f/1547t/ok,,24
+lua_status,0,0.0355,991,0,1,15,0,0.0355,d0:1f/991t/ok,d0:1f/991t/ok,,24
+lua_gc,0,0.0619,1729,0,1,663,0,0.0619,d0:1f/1729t/ok,d0:1f/1729t/ok,,28
+lua_error,0,0.0542,1514,0,1,154,0,0.0542,d0:1f/1514t/ok,d0:1f/1514t/ok,,24
+lua_next,2,0.0669,1867,2,3,116,2,0.4050,d0:1f/1133t/mismatch d1:2f/1538t/mismatch d2:3f/1867t/ok,d0:1f/1133t/mismatch d1:7f/2553t/mismatch d2:42f/11310t/ok,gettable,24
+lua_toclose,1,0.0431,1205,1,2,107,1,0.0754,d0:1f/1120t/mismatch d1:2f/1205t/ok,d0:1f/1120t/mismatch d1:5f/2106t/ok,index2stack,24
+lua_concat,0,0.0574,1604,0,1,226,0,0.0574,d0:1f/1604t/ok,d0:1f/1604t/ok,,24
+lua_len,1,0.0629,1757,1,2,77,1,0.3656,d0:1f/1095t/mismatch d1:2f/1757t/ok,d0:1f/1095t/mismatch d1:36f/10210t/ok,index2value,24
+lua_getallocf,0,0.0373,1041,0,1,60,0,0.0373,d0:1f/1041t/ok,d0:1f/1041t/ok,,24
+lua_setallocf,0,0.0370,1034,0,1,51,0,0.0370,d0:1f/1034t/ok,d0:1f/1034t/ok,,24
+lua_setwarnf,0,0.0370,1033,0,1,50,0,0.0370,d0:1f/1033t/ok,d0:1f/1033t/ok,,24
+lua_warning,0,0.0376,1050,0,1,40,0,0.0376,d0:1f/1050t/ok,d0:1f/1050t/ok,,24
+lua_newuserdatauv,0,0.0608,1698,0,1,288,0,0.0608,d0:1f/1698t/ok,d0:1f/1698t/ok,,24
+lua_getupvalue,1,0.0798,2229,1,3,181,1,0.3787,d0:1f/1202t/mismatch d1:3f/2229t/ok,d0:1f/1202t/mismatch d1:37f/10575t/ok,aux_upvalue index2value,24
+lua_setupvalue,1,0.0869,2426,1,3,352,1,0.3787,d0:1f/1732t/mismatch d1:3f/2426t/ok,d0:1f/1732t/mismatch d1:37f/10575t/ok,aux_upvalue index2value,24
+lua_upvalueid,1,0.0722,2016,1,3,211,1,0.3735,d0:1f/1562t/mismatch d1:3f/2016t/ok,d0:1f/1562t/mismatch d1:37f/10430t/ok,index2value,24
+lua_upvaluejoin,2,0.0728,2033,2,3,197,2,0.3735,d0:1f/1566t/mismatch d1:2f/1704t/mismatch d2:3f/2033t/ok,d0:1f/1566t/mismatch d1:3f/1933t/mismatch d2:37f/10430t/ok,,24

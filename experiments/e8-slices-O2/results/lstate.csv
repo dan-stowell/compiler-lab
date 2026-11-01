@@ -1,0 +1,18 @@
+# total_tokens=14095 sys_header_tokens=3940 n_decls=563 n_funcs=23 n_static_defs=7 static_defs_named_in_source=7 static_emitted_in_full_asm=2 targets=16 control_recompile=18/18 control_rejoin=18/18
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full,slice_sys_header_tokens
+luaE_setdebt,0,0.0777,1095,0,1,109,0,0.0777,d0:1f/1095t/ok,d0:1f/1095t/ok,,24
+lua_setcstacklimit,0,0.0720,1015,0,1,35,0,0.0720,d0:1f/1015t/ok,d0:1f/1015t/ok,,24
+luaE_extendCI,0,0.0784,1105,0,1,96,0,0.0784,d0:1f/1105t/ok,d0:1f/1105t/ok,,24
+luaE_freeCI,0,0.0774,1091,0,1,83,0,0.0774,d0:1f/1091t/ok,d0:1f/1091t/ok,,24
+luaE_shrinkCI,0,0.0800,1128,0,1,120,0,0.0800,d0:1f/1128t/ok,d0:1f/1128t/ok,,24
+luaE_checkcstack,0,0.0780,1099,0,1,58,0,0.0780,d0:1f/1099t/ok,d0:1f/1099t/ok,,24
+luaE_incCstack,0,0.0756,1065,1,2,56,0,0.0756,d0:1f/1065t/ok,d0:1f/1065t/ok,,24
+lua_newthread,1,0.1597,2251,1,3,379,1,0.2264,d0:1f/1820t/mismatch d1:3f/2251t/ok,d0:1f/1820t/mismatch d1:5f/3191t/ok,preinit_thread stack_init,61
+luaE_freethread,2,0.0959,1352,2,3,93,2,0.1135,d0:1f/1157t/mismatch d1:2f/1277t/mismatch d2:3f/1352t/ok,d0:1f/1157t/mismatch d1:3f/1525t/mismatch d2:4f/1600t/ok,freestack,24
+luaE_resetthread,0,0.0885,1248,0,1,190,0,0.0885,d0:1f/1248t/ok,d0:1f/1248t/ok,,24
+lua_closethread,1,0.0942,1328,1,2,65,1,0.0942,d0:1f/1077t/mismatch d1:2f/1328t/ok,d0:1f/1077t/mismatch d1:2f/1328t/ok,luaE_resetthread,24
+lua_resetthread,2,0.0967,1363,2,3,24,2,0.0967,d0:1f/1028t/mismatch d1:2f/1112t/mismatch d2:3f/1363t/ok,d0:1f/1028t/mismatch d1:2f/1112t/mismatch d2:3f/1363t/ok,lua_closethread,24
+lua_newstate,never,1.0000,14095,3,9,683,2,0.3095,d0:1f/2117t/mismatch d1:5f/2947t/mismatch d2:8f/3746t/mismatch d3:9f/3821t/mismatch,d0:1f/2117t/mismatch d1:7f/3427t/mismatch d2:11f/4362t/ok,luai_makeseed preinit_thread,3940
+lua_close,0,0.0722,1017,3,4,32,0,0.0722,d0:1f/1017t/ok,d0:1f/1017t/ok,,24
+luaE_warning,0,0.0742,1046,0,1,55,0,0.0742,d0:1f/1046t/ok,d0:1f/1046t/ok,,24
+luaE_warnerror,1,0.1100,1551,1,2,149,1,0.1100,d0:1f/1512t/mismatch d1:2f/1551t/ok,d0:1f/1512t/mismatch d1:2f/1551t/ok,luaE_warning,24

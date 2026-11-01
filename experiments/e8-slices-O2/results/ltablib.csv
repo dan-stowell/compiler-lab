@@ -1,0 +1,3 @@
+# total_tokens=9785 sys_header_tokens=4382 n_decls=458 n_funcs=24 n_static_defs=16 static_defs_named_in_source=16 static_emitted_in_full_asm=10 targets=1 control_recompile=11/11 control_rejoin=11/11
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full,slice_sys_header_tokens
+luaopen_table,0,0.0319,312,0,1,69,0,0.0319,d0:1f/312t/ok,d0:1f/312t/ok,,6

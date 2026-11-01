@@ -1,0 +1,47 @@
+# total_tokens=17144 sys_header_tokens=7918 n_decls=651 n_funcs=79 n_static_defs=22 static_defs_named_in_source=22 static_emitted_in_full_asm=13 targets=45 control_recompile=58/58 control_rejoin=58/58
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full,slice_sys_header_tokens
+luaL_traceback,never,1.0000,17144,5,20,279,2,0.1314,d0:1f/675t/mismatch d1:8f/1395t/mismatch d2:11f/1948t/mismatch d3:15f/2718t/mismatch d4:18f/3145t/mismatch d5:20f/3268t/mismatch,d0:1f/675t/mismatch d1:8f/1395t/mismatch d2:13f/2252t/ok,lastlevel luaL_addstring luaL_addvalue luaL_buffinit luaL_prepbuffsize luaL_pushresult pushfuncname,7918
+luaL_buffinit,0,0.0111,190,0,1,71,0,0.0111,d0:1f/190t/ok,d0:1f/190t/ok,,6
+luaL_addstring,1,0.0176,301,5,11,27,1,0.0176,d0:1f/199t/mismatch d1:2f/301t/ok,d0:1f/199t/mismatch d1:2f/301t/ok,luaL_addlstring,74
+luaL_prepbuffsize,0,0.0085,145,4,10,25,0,0.0085,d0:1f/145t/ok,d0:1f/145t/ok,,6
+luaL_addvalue,0,0.0161,276,4,10,89,0,0.0161,d0:1f/276t/ok,d0:1f/276t/ok,,43
+luaL_pushresult,0,0.0150,257,0,1,91,0,0.0150,d0:1f/257t/ok,d0:1f/257t/ok,,6
+luaL_argerror,0,0.0239,409,2,5,158,0,0.0239,d0:1f/409t/ok,d0:1f/409t/ok,,44
+luaL_error,1,0.0217,372,1,2,61,1,0.0217,d0:1f/168t/mismatch d1:2f/372t/ok,d0:1f/168t/mismatch d1:2f/372t/ok,luaL_where,18
+luaL_typeerror,1,0.0463,794,3,7,117,1,0.0463,d0:1f/289t/mismatch d1:3f/794t/ok,d0:1f/289t/mismatch d1:3f/794t/ok,luaL_getmetafield,44
+luaL_getmetafield,0,0.0119,204,0,1,103,0,0.0119,d0:1f/204t/ok,d0:1f/204t/ok,,0
+luaL_where,0,0.0137,235,0,1,74,0,0.0137,d0:1f/235t/ok,d0:1f/235t/ok,,6
+luaL_fileresult,0,0.0135,232,0,1,91,0,0.0135,d0:1f/232t/ok,d0:1f/232t/ok,,35
+luaL_execresult,1,0.0242,415,1,2,169,1,0.0242,d0:1f/306t/mismatch d1:2f/415t/ok,d0:1f/306t/mismatch d1:2f/415t/ok,luaL_fileresult,35
+luaL_newmetatable,0,0.0131,225,0,1,103,0,0.0131,d0:1f/225t/ok,d0:1f/225t/ok,,0
+luaL_setmetatable,0,0.0055,95,0,1,41,0,0.0055,d0:1f/95t/ok,d0:1f/95t/ok,,0
+luaL_testudata,0,0.0131,225,0,1,121,0,0.0131,d0:1f/225t/ok,d0:1f/225t/ok,,0
+luaL_checkudata,1,0.0354,607,4,9,78,1,0.0354,d0:1f/177t/mismatch d1:3f/607t/ok,d0:1f/177t/mismatch d1:3f/607t/ok,luaL_testudata,6
+luaL_checkoption,2,0.0777,1332,4,11,128,2,0.0993,d0:1f/346t/mismatch d1:4f/825t/mismatch d2:7f/1332t/ok,d0:1f/346t/mismatch d1:4f/825t/mismatch d2:11f/1702t/ok,luaL_checklstring luaL_optlstring,128
+luaL_optlstring,2,0.0198,339,6,10,73,2,0.0345,d0:1f/192t/mismatch d1:2f/272t/mismatch d2:3f/339t/ok,d0:1f/192t/mismatch d1:2f/272t/mismatch d2:6f/591t/ok,luaL_checklstring,37
+luaL_checklstring,1,0.0114,196,5,9,63,1,0.0269,d0:1f/129t/mismatch d1:2f/196t/ok,d0:1f/129t/mismatch d1:5f/462t/ok,tag_error,6
+luaL_checkstack,0,0.0079,136,2,3,64,0,0.0079,d0:1f/136t/ok,d0:1f/136t/ok,,0
+luaL_checktype,1,0.0097,167,5,9,49,1,0.0269,d0:1f/100t/mismatch d1:2f/167t/ok,d0:1f/100t/mismatch d1:5f/462t/ok,tag_error,0
+luaL_checkany,0,0.0069,118,3,6,49,0,0.0069,d0:1f/118t/ok,d0:1f/118t/ok,,0
+luaL_checknumber,1,0.0106,182,5,9,59,1,0.0269,d0:1f/115t/mismatch d1:2f/182t/ok,d0:1f/115t/mismatch d1:5f/462t/ok,tag_error,0
+luaL_optnumber,2,0.0152,260,6,10,47,2,0.0307,d0:1f/113t/mismatch d1:2f/193t/mismatch d2:3f/260t/ok,d0:1f/113t/mismatch d1:2f/193t/mismatch d2:6f/526t/ok,luaL_checknumber,0
+luaL_checkinteger,0,0.0066,113,4,10,59,0,0.0066,d0:1f/113t/ok,d0:1f/113t/ok,,0
+luaL_optinteger,1,0.0111,191,5,11,47,1,0.0111,d0:1f/114t/mismatch d1:2f/191t/ok,d0:1f/114t/mismatch d1:2f/191t/ok,luaL_checkinteger,0
+luaL_addlstring,0,0.0132,227,4,10,66,0,0.0132,d0:1f/227t/ok,d0:1f/227t/ok,,43
+luaL_pushresultsize,1,0.0176,301,1,2,30,1,0.0176,d0:1f/153t/mismatch d1:2f/301t/ok,d0:1f/153t/mismatch d1:2f/301t/ok,luaL_pushresult,6
+luaL_buffinitsize,never,1.0000,17144,4,11,36,1,0.0476,d0:1f/188t/mismatch d1:3f/571t/mismatch d2:6f/1128t/mismatch d3:9f/1588t/mismatch d4:11f/1847t/mismatch,d0:1f/188t/mismatch d1:6f/816t/ok,luaL_buffinit,7918
+luaL_ref,0,0.0209,358,0,1,206,0,0.0209,d0:1f/358t/ok,d0:1f/358t/ok,,0
+luaL_unref,0,0.0100,171,0,1,82,0,0.0100,d0:1f/171t/ok,d0:1f/171t/ok,,0
+luaL_loadfilex,2,0.0743,1273,2,5,343,2,0.0743,d0:1f/885t/mismatch d1:4f/1234t/mismatch d2:5f/1273t/ok,d0:1f/885t/mismatch d1:4f/1234t/mismatch d2:5f/1273t/ok,errfile,404
+luaL_loadbufferx,0,0.0106,182,1,2,58,0,0.0106,d0:1f/182t/ok,d0:1f/182t/ok,,6
+luaL_loadstring,1,0.0156,267,2,3,38,1,0.0156,d0:1f/152t/mismatch d1:2f/267t/ok,d0:1f/152t/mismatch d1:2f/267t/ok,luaL_loadbufferx,37
+luaL_callmeta,1,0.0220,377,1,2,76,1,0.0220,d0:1f/214t/mismatch d1:2f/377t/ok,d0:1f/214t/mismatch d1:2f/377t/ok,luaL_getmetafield,5
+luaL_len,0,0.0107,183,2,3,79,0,0.0107,d0:1f/183t/ok,d0:1f/183t/ok,,0
+luaL_tolstring,1,0.0614,1053,2,5,314,1,0.0614,d0:1f/701t/mismatch d1:4f/1053t/ok,d0:1f/701t/mismatch d1:4f/1053t/ok,luaL_getmetafield,23
+luaL_setfuncs,1,0.0230,394,3,4,134,1,0.0230,d0:1f/299t/mismatch d1:2f/394t/ok,d0:1f/299t/mismatch d1:2f/394t/ok,luaL_checkstack,0
+luaL_getsubtable,0,0.0121,208,0,1,87,0,0.0121,d0:1f/208t/ok,d0:1f/208t/ok,,0
+luaL_requiref,1,0.0321,551,1,2,177,1,0.0321,d0:1f/450t/mismatch d1:2f/551t/ok,d0:1f/450t/mismatch d1:2f/551t/ok,luaL_getsubtable,5
+luaL_addgsub,1,0.0267,458,5,12,92,1,0.0267,d0:1f/343t/mismatch d1:3f/458t/ok,d0:1f/343t/mismatch d1:3f/458t/ok,luaL_addlstring luaL_addstring,113
+luaL_gsub,2,0.0496,850,6,15,75,2,0.0496,d0:1f/310t/mismatch d1:4f/735t/mismatch d2:6f/850t/ok,d0:1f/310t/mismatch d1:4f/735t/mismatch d2:6f/850t/ok,luaL_buffinit luaL_pushresult,113
+luaL_newstate,0,0.0146,251,4,7,65,0,0.0146,d0:1f/251t/ok,d0:1f/251t/ok,,6
+luaL_checkversion_,0,0.0090,155,2,3,73,0,0.0090,d0:1f/155t/ok,d0:1f/155t/ok,,6

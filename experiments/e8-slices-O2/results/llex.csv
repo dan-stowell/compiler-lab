@@ -1,0 +1,9 @@
+# total_tokens=15715 sys_header_tokens=3387 n_decls=527 n_funcs=24 n_static_defs=17 static_defs_named_in_source=17 static_emitted_in_full_asm=10 targets=7 control_recompile=17/17 control_rejoin=17/17
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full,slice_sys_header_tokens
+luaX_init,0,0.1098,1725,0,1,161,0,0.1098,d0:1f/1725t/ok,d0:1f/1725t/ok,,24
+luaX_token2str,0,0.1156,1816,0,1,127,0,0.1156,d0:1f/1816t/ok,d0:1f/1816t/ok,,24
+luaX_syntaxerror,0,0.0984,1547,3,5,33,0,0.0984,d0:1f/1547t/ok,d0:1f/1547t/ok,,24
+luaX_newstring,0,0.1308,2056,0,1,299,0,0.1308,d0:1f/2056t/ok,d0:1f/2056t/ok,,24
+luaX_setinput,0,0.1149,1805,0,1,187,0,0.1149,d0:1f/1805t/ok,d0:1f/1805t/ok,,24
+luaX_next,0,0.1033,1624,4,20,64,0,0.1033,d0:1f/1624t/ok,d0:1f/1624t/ok,,24
+luaX_lookahead,0,0.0962,1511,4,20,41,0,0.0962,d0:1f/1511t/ok,d0:1f/1511t/ok,,24

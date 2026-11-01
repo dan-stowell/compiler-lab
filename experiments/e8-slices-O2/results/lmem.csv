@@ -1,0 +1,9 @@
+# total_tokens=8393 sys_header_tokens=2260 n_decls=430 n_funcs=8 n_static_defs=1 static_defs_named_in_source=1 static_emitted_in_full_asm=1 targets=7 control_recompile=8/8 control_rejoin=8/8
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full,slice_sys_header_tokens
+luaM_growaux_,2,0.1827,1533,3,4,165,2,0.1827,d0:1f/1250t/mismatch d1:2f/1380t/mismatch d2:3f/1533t/ok,d0:1f/1250t/mismatch d1:2f/1380t/mismatch d2:3f/1533t/ok,luaM_saferealloc_,24
+luaM_saferealloc_,1,0.1544,1296,2,3,74,1,0.1544,d0:1f/1143t/mismatch d1:2f/1296t/ok,d0:1f/1143t/mismatch d1:2f/1296t/ok,luaM_realloc_,24
+luaM_shrinkvector_,2,0.1692,1420,3,4,91,2,0.1692,d0:1f/1137t/mismatch d1:2f/1267t/mismatch d2:3f/1420t/ok,d0:1f/1137t/mismatch d1:2f/1267t/mismatch d2:3f/1420t/ok,luaM_saferealloc_,24
+luaM_toobig,0,0.1242,1042,0,1,22,0,0.1242,d0:1f/1042t/ok,d0:1f/1042t/ok,,24
+luaM_free_,0,0.1250,1049,0,1,59,0,0.1250,d0:1f/1049t/ok,d0:1f/1049t/ok,,24
+luaM_realloc_,0,0.1389,1166,1,2,152,0,0.1389,d0:1f/1166t/ok,d0:1f/1166t/ok,,24
+luaM_malloc_,0,0.1412,1185,1,2,148,0,0.1412,d0:1f/1185t/ok,d0:1f/1185t/ok,,24

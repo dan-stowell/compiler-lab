@@ -1,0 +1,13 @@
+# total_tokens=10596 sys_header_tokens=2260 n_decls=449 n_funcs=16 n_static_defs=5 static_defs_named_in_source=5 static_emitted_in_full_asm=0 targets=11 control_recompile=11/11 control_rejoin=11/11
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full,slice_sys_header_tokens
+luaF_newCclosure,0,0.1381,1463,0,1,118,0,0.1381,d0:1f/1463t/ok,d0:1f/1463t/ok,,24
+luaF_newLclosure,0,0.1412,1496,0,1,151,0,0.1412,d0:1f/1496t/ok,d0:1f/1496t/ok,,24
+luaF_initupvals,0,0.1527,1618,0,1,247,0,0.1527,d0:1f/1618t/ok,d0:1f/1618t/ok,,24
+luaF_findupval,1,0.1555,1648,1,2,124,1,0.1555,d0:1f/1129t/mismatch d1:2f/1648t/ok,d0:1f/1129t/mismatch d1:2f/1648t/ok,newupval,24
+luaF_newtbcupval,1,0.1354,1435,1,2,226,1,0.1354,d0:1f/1224t/mismatch d1:2f/1435t/ok,d0:1f/1224t/mismatch d1:2f/1435t/ok,checkclosemth,24
+luaF_unlinkupval,0,0.0989,1048,0,1,65,0,0.0989,d0:1f/1048t/ok,d0:1f/1048t/ok,,24
+luaF_closeupval,1,0.1703,1804,1,2,376,1,0.1703,d0:1f/1747t/mismatch d1:2f/1804t/ok,d0:1f/1747t/mismatch d1:2f/1804t/ok,luaF_unlinkupval,24
+luaF_close,2,0.2391,2534,2,6,127,2,0.2391,d0:1f/1178t/mismatch d1:4f/2130t/mismatch d2:6f/2534t/ok,d0:1f/1178t/mismatch d1:4f/2130t/mismatch d2:6f/2534t/ok,luaF_closeupval poptbclist prepcallclosemth,24
+luaF_newproto,0,0.1492,1581,0,1,239,0,0.1492,d0:1f/1581t/ok,d0:1f/1581t/ok,,24
+luaF_freeproto,0,0.1300,1378,0,1,219,0,0.1300,d0:1f/1378t/ok,d0:1f/1378t/ok,,24
+luaF_getlocalname,0,0.1167,1237,0,1,98,0,0.1167,d0:1f/1237t/ok,d0:1f/1237t/ok,,24
