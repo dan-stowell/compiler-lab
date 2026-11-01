@@ -48,3 +48,9 @@ The optimistic cost needs 72.4% > 50% resident, so the rule says **stop**: execu
 - The optimistic cost is a lower bound on interpretation cost: decode only, using a bit-serial canonical Huffman decoder. A lookup-table decoder could be faster, but it would also raise the table bytes.
 - The order is by self Ir, as the plan says. Ordering by Ir per native byte was not tried.
 - The single workload is tokenize.c, so the profile could shift on other inputs.
+
+## Independent verification (2026-11-01)
+
+Confirmed. The verifier's own frontier script (`verify-frontier.py`) reproduces k=86 at 72.4% and k=121 at 86.9%. Pinned decode medians were 9.2–9.5 ns.
+
+Under fairer accounting (verifier's estimate), the stop still holds: payload trimmed to cold functions pro rata, and decoder tables at the narrowest widths (≈12.7 KB instead of 35.2 KB, with no speed loss). That gives **57.1%** optimistic and 69% pessimistic. Getting under 50% would need the symbol map, tables and decoder code to fit in ≤3 KB together.
