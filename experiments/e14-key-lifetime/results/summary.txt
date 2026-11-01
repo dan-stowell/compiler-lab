@@ -1,0 +1,7 @@
+commits 1500; function-transitions 739505
+key                     changes    rate   1/rate vs per-TU
+per-TU (token hash)      135092  0.1827      5.5     1.00x
+E14 TU-free key          104880  0.1418      7.1     1.29x
+E8 minimal slice          37312  0.0505     19.8     3.62x
+body hash                  3603  0.0049    205.2    37.49x
+changed-TU transitions (TU-level, >=1 common extern) 7249; every E14 key in the TU changed: 5862 (80.9%)
