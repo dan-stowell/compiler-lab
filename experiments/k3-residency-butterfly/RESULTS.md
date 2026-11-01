@@ -60,3 +60,12 @@ DRAM bytes = 64 × (`ls_any_fills_from_sys.dram_io_all` + `l2_pf_miss_l2_l3.all`
 ## Where it fails (estimates from the counted work)
 - **Non-regenerable leaves:** if leaves must be read from DRAM, the model re-reads the input once per chunk, 74 × 64 MiB ≈ 5 GB, against the blocked schedule's 128 MB. That is about 37× *more* traffic.
 - **Scaling:** recomputation grows like n/B. At n = 2^30 with B = 1 MiB that is about 4096× the leaves. The blocked schedule's traffic grows only like n·log n / log B, about 2–3 passes. Instructions become prohibitive long before bytes matter.
+
+## Independent verification (2026-11-01)
+
+Confirmed on a quiet core.
+- Blocked schedule: 74.6–79.4 MB. Model: 14.5–30.3 MB at 12.59G instructions and 28.38× recompute. Hashes match.
+- The model's traffic is the noise floor: a 1 MiB L2-resident control that regenerates nothing reads 4.6 MB/Gcycle, the model 3.8–3.9. The floor scales with arena size (0.03 MB/Gcycle for ALU-only spin).
+- The blocked schedule is near-optimal: one 64 MiB spill, written once and read once.
+- A hybrid (regenerate some blocks, spill the rest) trades DRAM linearly against ~28× recompute. The 100× rule cannot be measured on this VM.
+- Verdict: known Savage red-pebble tradeoff; known, not in production. With regenerable roots, an L2-sized arena removes all spill traffic at ~28× recompute (~47× instructions).
