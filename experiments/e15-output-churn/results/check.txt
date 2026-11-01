@@ -1,0 +1,3 @@
+   043ae7156b017dbb23a49aab5efce344c0673458 luaD_inctop compile_fail
+   f1b92bd68681d0e399ad36c177c84c6f7d6d308c luaH_getn compile_fail
+E13-unit (reachable part) vs slice, 300 sampled (TU, target) on changed-TU transitions: {'same; slice .s blocks not reachable from target: 0': 297, 'compile_fail': 2, 'same; slice .s blocks not reachable from target: 3': 1}
