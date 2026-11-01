@@ -1,0 +1,118 @@
+# total_tokens=29852 n_decls=836 n_funcs=116
+func,func_tokens,slice_tokens,n_decls,n_synth_protos,slice_frac,context_frac,status,effective_frac,cause
+__va_arg_mem,66,88,1,0,0.0029,0.0007,ok,0.0029,
+__va_arg_gp,56,94,1,1,0.0031,0.0013,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+__va_arg_fp,56,94,1,1,0.0031,0.0013,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+align_down,24,34,1,0,0.0011,0.0003,ok,0.0011,
+enter_scope,32,119,8,0,0.0040,0.0029,ok,0.0040,
+leave_scope,14,79,5,0,0.0026,0.0022,ok,0.0026,
+find_var,65,839,28,0,0.0281,0.0259,ok,0.0281,
+find_tag,65,818,27,0,0.0274,0.0252,ok,0.0274,
+new_node,43,737,24,0,0.0247,0.0232,ok,0.0247,
+new_binary,48,733,21,1,0.0246,0.0229,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+new_unary,38,738,22,1,0.0247,0.0234,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+new_num,34,719,21,1,0.0241,0.0229,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+new_long,40,730,22,1,0.0245,0.0231,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+new_ulong,40,730,22,1,0.0245,0.0231,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+new_var_node,35,720,21,1,0.0241,0.0229,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+new_vla_ptr,35,720,21,1,0.0241,0.0229,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+new_cast,65,804,28,0,0.0269,0.0248,ok,0.0269,
+push_scope,40,836,31,0,0.0280,0.0267,ok,0.0280,
+new_initializer,275,1007,26,0,0.0337,0.0245,ok,0.0337,
+new_var,61,786,25,1,0.0263,0.0243,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+new_lvar,45,736,22,1,0.0247,0.0231,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+new_gvar,51,742,22,1,0.0249,0.0231,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+new_unique_name,24,35,1,0,0.0012,0.0004,ok,0.0012,
+new_anon_gvar,21,715,21,2,0.0240,0.0232,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+new_string_literal,33,715,21,1,0.0240,0.0228,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+get_ident,38,749,25,0,0.0251,0.0238,ok,0.0251,
+find_typedef,48,751,22,1,0.0252,0.0235,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+push_tag_scope,32,788,27,0,0.0264,0.0253,ok,0.0264,
+declspec,1095,2059,49,1,0.0690,0.0323,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+func_params,273,1059,29,0,0.0355,0.0263,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+array_dimensions,140,929,30,0,0.0311,0.0264,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+type_suffix,70,811,23,2,0.0272,0.0248,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+pointers,92,802,24,0,0.0269,0.0238,ok,0.0269,
+declarator,165,919,25,1,0.0308,0.0253,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+abstract_declarator,111,846,24,1,0.0283,0.0246,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+typename,46,795,24,1,0.0266,0.0251,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+is_end,36,720,22,0,0.0241,0.0229,ok,0.0241,
+consume_end,71,755,22,0,0.0253,0.0229,ok,0.0253,
+enum_specifier,233,1058,28,5,0.0354,0.0276,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+typeof_specifier,87,834,27,0,0.0279,0.0250,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+compute_vla_size,160,927,23,5,0.0311,0.0257,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+new_alloca,65,781,23,2,0.0262,0.0240,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+declaration,429,1427,31,11,0.0478,0.0334,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+skip_excess_element,50,762,24,0,0.0255,0.0239,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+string_initializer,268,1046,29,2,0.0350,0.0261,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+array_designator,136,861,25,0,0.0288,0.0243,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+struct_designator,159,901,27,0,0.0302,0.0249,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+designation,296,1139,28,2,0.0382,0.0282,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+count_array_init_elements,174,985,27,3,0.0330,0.0272,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+array_initializer1,261,1120,27,6,0.0375,0.0288,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+array_initializer2,150,971,28,3,0.0325,0.0275,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+struct_initializer1,162,976,26,4,0.0327,0.0273,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+struct_initializer2,118,902,27,1,0.0302,0.0263,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+union_initializer,167,974,27,2,0.0326,0.0270,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+initializer2,248,1154,31,4,0.0387,0.0303,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+copy_struct_type,90,793,25,0,0.0266,0.0235,ok,0.0266,
+initializer,137,912,25,2,0.0306,0.0260,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+init_desg_expr,113,872,24,3,0.0292,0.0254,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+create_lvar_init,307,1090,25,3,0.0365,0.0262,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+lvar_initializer,112,946,27,3,0.0317,0.0279,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+read_buf,74,114,7,0,0.0038,0.0013,ok,0.0038,
+write_buf,85,125,7,0,0.0042,0.0013,ok,0.0042,
+write_gvar_data,472,1289,32,2,0.0432,0.0274,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+gvar_initializer,90,889,28,1,0.0298,0.0268,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+is_typename,154,910,26,1,0.0305,0.0253,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+asm_stmt,112,837,24,1,0.0280,0.0243,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+stmt,1358,2370,45,6,0.0794,0.0339,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+compound_stmt,223,1106,33,3,0.0370,0.0296,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+expr_stmt,78,818,25,1,0.0274,0.0248,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+expr,64,799,24,1,0.0268,0.0246,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+eval,24,720,23,0,0.0241,0.0233,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+eval2,814,1639,43,0,0.0549,0.0276,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+eval_rval,98,815,24,0,0.0273,0.0240,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+is_const_expr,158,856,24,0,0.0287,0.0234,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+const_expr,31,740,24,0,0.0248,0.0238,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+eval_double,225,954,27,0,0.0320,0.0244,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+to_assign,723,1499,23,6,0.0502,0.0260,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+assign,370,1151,26,2,0.0386,0.0262,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+conditional,213,1025,27,4,0.0343,0.0272,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+logor,74,809,24,1,0.0271,0.0246,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+logand,74,809,24,1,0.0271,0.0246,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+bitor,74,809,24,1,0.0271,0.0246,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+bitxor,74,809,24,1,0.0271,0.0246,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+bitand,74,809,24,1,0.0271,0.0246,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+equality,117,852,24,1,0.0285,0.0246,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+relational,185,920,24,1,0.0308,0.0246,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+shift,117,852,24,1,0.0285,0.0246,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+new_add,195,964,25,3,0.0323,0.0258,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+new_sub,265,1060,27,4,0.0355,0.0266,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+add,113,863,26,0,0.0289,0.0251,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+mul,151,886,24,1,0.0297,0.0246,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+cast,113,877,28,0,0.0294,0.0256,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+unary,356,1212,30,5,0.0406,0.0287,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+struct_members,355,1178,32,0,0.0395,0.0276,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+attribute_list,172,902,25,0,0.0302,0.0245,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+struct_union_decl,197,1037,30,4,0.0347,0.0281,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+struct_decl,268,991,23,2,0.0332,0.0242,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+union_decl,122,834,23,1,0.0279,0.0239,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+get_struct_member,120,834,25,0,0.0279,0.0239,ok,0.0279,
+struct_ref,119,845,24,1,0.0283,0.0243,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+new_inc_dec,61,795,24,2,0.0266,0.0246,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+postfix,402,1414,37,7,0.0474,0.0339,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+funcall,326,1129,29,2,0.0378,0.0269,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+generic_selection,230,1018,30,0,0.0341,0.0264,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+primary,1035,2047,38,9,0.0686,0.0339,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+parse_typedef,100,891,27,2,0.0298,0.0265,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+create_param_lvars,51,762,22,2,0.0255,0.0238,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+resolve_goto_labels,107,819,25,0,0.0274,0.0239,ok,0.0274,
+find_func,71,842,28,0,0.0282,0.0258,ok,0.0282,
+mark_live,74,756,21,1,0.0253,0.0228,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+function,431,1415,38,10,0.0474,0.0330,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+global_variable,185,1017,29,2,0.0341,0.0279,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+is_function,50,762,24,0,0.0255,0.0239,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+scan_globals,127,819,23,0,0.0274,0.0232,ok,0.0274,
+declare_builtin_functions,44,772,27,1,0.0259,0.0244,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
+parse,143,954,29,3,0.0320,0.0272,mismatch,1.0000,only callee address differs: lea (defined) vs GOTPCREL (declared)
