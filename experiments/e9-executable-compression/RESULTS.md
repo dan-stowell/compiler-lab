@@ -55,3 +55,12 @@ Context (measured): clang `-Oz` `.text` is 62,738 B, and `xz -9e` of it is 31,53
 ## Caveats
 - Re-Pair is greedy, so this is a bound for this representation built with Re-Pair, not for every grammar. Since the payload is 1.58–1.97× the denominator, a better grammar would have to save 21–37% of the total payload before it reached 1.25×. Operands and the label table, which a better grammar does not change, already account for 74% of B's payload.
 - Variable-length or entropy-coded operands could narrow the gap, but they are outside the fixed-width representation tested. As the plan says, this rejects the representation, not executable compression in general.
+
+## Independent verification (2026-11-01)
+
+The numbers reproduce exactly. The bound is **not tight**: the label table is inflated by the separate operand stream. These are the verifier's **estimates**, from scripts in `verify/`:
+- Interleaving operands with symbols: 57.9 KB (1.78×).
+- Target offsets inside the 4,235 jumps, with a table only for the 324 functions: about 54.2 KB (1.67×; 1.31× against xz of .text+.rela.text = 41,212 B).
+- Adding Huffman-coded operands per slot, dictionaries counted: about 50.2 KB, i.e. 1.54× primary, 1.24× linked, **1.22× text+rela**.
+
+The fixed-width layout loses. The best estimated variant sits at the 1.25× threshold against relocation-inclusive denominators. Undecided until it is built and measured.
