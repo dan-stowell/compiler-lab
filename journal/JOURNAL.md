@@ -2,6 +2,21 @@
 
 Newest first. "Measured" means a run whose script is in the repo; "estimated" means arithmetic or analysis.
 
+## 2026-11-01: Cycle 4 results so far
+
+**E11, measured executable compression: passes the payload gate.** `experiments/e11-exec-compression-measured/`
+- A real file, `payload.bin`, holds chibicc stage2's code in 47,034 B. It uses Re-Pair symbols within blocks, 19-bit target bit-offsets inside jumps, a function entry table, and canonical Huffman operands per slot.
+- That is **1.141×** xz -9e(.text+.rela.text) and **1.164×** xz(linked .text), both measured and under the 1.25× gate; native .text is 263 KB.
+- It round-trips all 79,400 instructions and decodes from every branch target (2,523), call resume point (2,478) and function entry (324) using the file alone. The verifier wrote an independent decoder sharing no code (`verify/dec.py`) and it agrees.
+- Caveat: charging only our side for 1,323 symbol addresses would give 1.27–1.30×.
+- Finding: a random-access executable form costs only about 14–16% more than the best general-purpose entropy coder on the same code.
+
+**E12, hot/cold frontier: executable compression doesn't pay as an execution format here.** `experiments/e12-hot-cold-frontier/`
+- The C decoder runs at 9.66 ns per guest instruction (measured), so pure decoding is about 70× native.
+- With the hottest k functions native and the rest compressed, ≤1.5× native runtime needs **72.4%** of native .text resident (k=86) at the optimistic cost, and 86.9% at 3× cost. Under fairer accounting by the verifier (cold-only payload, narrow tables) it is still 57.1%, above the 50% stop line.
+- Why: the profile is skewed (14 functions give 90% of instructions), but the warm tail is still too expensive at about 70× per instruction. Decoder tables (35 KB, reducible to about 13 KB) are as large as the savings.
+- Finding: E11's format is a **storage and transfer** format, not an execution format, for a program with chibicc's profile. Demand paging already keeps never-run code out of RAM. A compressed form wins only for code that is warm but rarely run, and here that code is too hot.
+
 ## 2026-11-01: Cycle 3 results (both verified)
 
 **E8, slices under clang -O2 (Lua 5.4.6): the slice survives.** `experiments/e8-slices-O2/`
