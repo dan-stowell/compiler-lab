@@ -1,7 +1,12 @@
 selftest luaL_argerror: mutated string byte rejected
 selftest luaL_argerror: mutated instruction rejected
+selftest luaL_argerror: mutated string space->two spaces rejected
+selftest luaL_argerror: mutated string space->tab rejected
 selftest luaL_checkoption: mutated string byte rejected
 selftest luaL_checkoption: mutated instruction rejected
+selftest luaL_checkoption: mutated string space->two spaces rejected
+selftest luaL_checkoption: mutated string space->tab rejected
+selftest luaO_tostring: no referenced string contains a space; whitespace cases skipped
 selftest luaO_tostring: mutated string byte rejected
 selftest luaO_tostring: mutated instruction rejected
 files=32 targets=342 tu_tokens_total=553553

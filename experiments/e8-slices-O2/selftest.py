@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Comparator self-test: in a target's full-TU asm, flip one byte of a string
-literal it references, and separately change one of its instructions; the
+literal it references, turn one space in such a string into two spaces and
+into a tab, and separately change one of its instructions; the
 normalized comparison (slice.norm_func) must reject both and accept the original.
 
 Usage: selftest.py <full.s> <target>
@@ -37,7 +38,23 @@ mut_str = "\n".join(lines)
 fstart = asm.index(f"\n{t}:")
 k = asm.index("\tmovq\t", fstart)
 mut_ins = asm[:k] + "\tmovl\t" + asm[k + 6:]
-for name, a in (("string byte", mut_str), ("instruction", mut_ins)):
+muts = [("string byte", mut_str), ("instruction", mut_ins)]
+# whitespace inside a referenced string: one space -> two spaces, and -> a tab
+for lab in strs:
+    j = lines.index(f"{lab}:")
+    while '"' not in lines[j]:
+        j += 1
+    orig = asm.split("\n")[j]
+    q = orig.find(" ", orig.index('"'))
+    if q >= 0:
+        for name, rep in (("string space->two spaces", "  "), ("string space->tab", "\t")):
+            ls = asm.split("\n")
+            ls[j] = orig[:q] + rep + orig[q + 1:]
+            muts.append((name, "\n".join(ls)))
+        break
+else:
+    print(f"selftest {t}: no referenced string contains a space; whitespace cases skipped")
+for name, a in muts:
     got = m.norm_func(m.parse_asm(a), t)
     assert got != want, f"comparator accepted a mutated {name} in {t}"
     print(f"selftest {t}: mutated {name} rejected")

@@ -29,6 +29,7 @@ for ft in lauxlib:luaL_argerror lauxlib:luaL_checkoption lobject:luaO_tostring; 
   $CC -std=gnu99 -O2 -fno-pic -w -S tu/$f.i -o tu/$f.s
   python3 -I selftest.py tu/$f.s ${ft#*:}
 done | tee tu/selftest.txt
+grep -q "space->tab rejected" tu/selftest.txt  # the whitespace cases must have run somewhere
 echo "$files" | xargs -P "$JOBS" -I{} \
   python3 -I slice.py tu/{}.i tu/{}.lines.i lua-5.4.6/src/{}.c results/{}.csv slices/{} \
     $CC -std=gnu99 -O2 -fno-pic -w
