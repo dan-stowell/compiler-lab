@@ -11,11 +11,9 @@ E5 found that under chibicc a function compiles to identical asm from its body, 
 - Rule: median ≤10% means a dependency-bounded slice survives -O2, which is worth an edit-based test next. Above 10% means the optimizer couples functions too tightly; record that the direction reduces to ThinLTO-style summaries.
 - No "defined here" level: under clang a body-less static declaration changes codegen (`@PLT`, `-Wundefined-internal`), so it isn't a faithful summary.
 
-## E9: Executable compression (assumption: compact code must be decompressed before it runs)
-- Background (ideator, single run, unverified): chibicc's stage2 stack asm is 79,399 instructions. `xz -9e` of the clang `-Oz` .text is 29,976 B. A crude Re-Pair run within basic blocks gives about 60 KB (2.0×). The LLVM machine outliner gains only 0.9%.
-- Question: can a representation that runs directly with no sequential decoding be as small as xz? Directly means fixed-width symbols, grammar rules executed as call-threaded subroutines, and random access at every branch target.
-- Representation to try: a Re-Pair grammar over opcode skeletons, with operands in a separate fixed-width stream and a table of distinct instructions. Every byte needed to execute counts: rule bodies, symbol stream, operand stream, instruction table, and any branch-target index into the operand stream.
-- Input: chibicc stage2's self-compiled asm (`.text` only, labels resolved to symbol indices).
-- Number: total encoded bytes / 29,976 B (xz -9e of the -Oz .text). Report xz of the same stack asm as a second reference.
-- Rule: ≤1.25× means an executable form at entropy-coder size exists, so the next step is building the interpreter and measuring speed. Above 1.25×, executability costs more than entropy coding saves.
-- Size only this cycle; the round-trip check (expand the grammar back and compare with the original instruction sequence) is required.
+## E9: Executable compression (assumption: compact code must be decompressed before it runs). Revised after review.
+- Question: can a grammar form of chibicc stage2's own instruction sequence, executed without expanding it, be as small as xz of that same sequence? Execution here means sequential symbol dispatch, rules within basic blocks, and every branch target entered with no decoding of preceding code.
+- Denominator: `xz -9e` of stage2's `.text`, the identical instructions (about 32.5 KB; pin the file and its hash). clang `-Oz` (≈30 KB) is context only.
+- Step 1, the decider: a lower bound = final symbols × ⌈log2 alphabet⌉ + operands at a fixed width per skeleton + instruction/skeleton table + label table (symbol position, operand offset), from a Re-Pair run that keeps every label and operand distinct. Report payload-only, plus the handler cost separately (one native handler per distinct skeleton, or a fixed generic interpreter).
+- Rule: if the lower bound is >1.25× the denominator, this representation loses to entropy coding: record it and stop. Only if ≤1.25×, build the full encoding with a round-trip check and a branch-entry check.
+- A failure rejects this representation, not executable compression in general.
