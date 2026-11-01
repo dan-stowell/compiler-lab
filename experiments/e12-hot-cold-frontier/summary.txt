@@ -1,0 +1,16 @@
+machine: AMD EPYC 9554P 64-Core Processor, 8 vCPUs, 6.12.113, gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+E11 Python decode: 79400 instructions -> work/e11-python.txt
+C decoder round trip vs E11 Python decoder: OK (79400 instructions, identical start/skeleton/values)
+C decoder .text (dec.o: init + decode) = 3748 B
+instructions=79400 reps=1001 median_ns=767025 min_ns=705842 median_ns_per_instr=9.660 min_ns_per_instr=8.890 table_bytes=35168 payload_bytes=47034 chk=325758433
+-cc1 output under callgrind == chibicc -S tokenize.c
+callgrind total Ir=967034299  load bias=0x0  chibicc functions=324 (native bytes 263383)  .text=263634 B
+Ir: chibicc functions 783960747 (81.07%); other binary .text 47; /usr/lib/x86_64-linux-gnu/libc.so.6 182268132 (18.85%); ??? 634173 (0.07%); /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 171170 (0.02%); /usr/libexec/valgrind/vgpreload_core-amd64-linux.so 30 (0.00%)
+native_wall_median_s=0.094386 user+sys_median_s=0.0800 runs_s=0.0954,0.0944,0.0784,0.0877,0.1118
+fixed resident = payload 47034 + symbol map 5292 + decoder tables 35168 + decoder .text 3748 = 91242 B = 34.6% of native .text 263634 B (the k=0 floor)
+k=0 (all chibicc interpreted): ratio optimistic 80.4x, pessimistic 240.9x
+optimistic (c=9.66 ns/instr): smallest resident at ratio<=1.5: k=86 hot functions, ratio 1.496, cold Ir 4898291 (0.507% of total), resident 190807 B = 72.4% of native .text
+  sensitivity (ESTIMATE): payload + hot native only (no symbol map, decoder tables or code) = 55.6%; payload trimmed to cold functions pro rata by native bytes (29254 B) + hot native only = 48.9%
+pessimistic (c=28.98 ns/instr): smallest resident at ratio<=1.5: k=121 hot functions, ratio 1.488, cold Ir 1595678 (0.165% of total), resident 229211 B = 86.9% of native .text
+  sensitivity (ESTIMATE): payload + hot native only (no symbol map, decoder tables or code) = 70.2%; payload trimmed to cold functions pro rata by native bytes (22396 B) + hot native only = 60.8%
+DECISION: optimistic needs >50% of native .text resident: executable compression buys little RAM here; stop
