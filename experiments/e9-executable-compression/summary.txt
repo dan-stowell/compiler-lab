@@ -1,0 +1,29 @@
+instructions=79400 blocks=7856 distinct_instrs=6066 skeletons=137 operand_slots=55 operands=36454
+labels_in_text=3962 label_table_B=3719 (functions=324, unreferenced non-function labels=243) symbols_referenced=1628 external_or_data_symbols=1323
+Re-Pair round trip: OK for both variants
+
+[A whole-instruction] chosen stop: rules=2126 (of 3721 run) top-level=22936 symbol width=13 bits
+  top-level symbols                             37271 B
+  rule bodies                                    6910 B
+  label table                                    6973 B
+  operands (in instruction table)                7582 B
+  instruction table: skeleton ids                6066 B
+  skeleton table (est. 32 b/skeleton)             548 B
+  PAYLOAD BOUND                                 65350 B  ratio=2.009 (vs linked 1.618)
+
+[B skeleton+operand stream] chosen stop: rules=887 (of 1546 run) top-level=10995 symbol width=10 bits
+  top-level symbols                             13744 B
+  rule bodies                                    2218 B
+  label table                                   14876 B
+  operands (separate stream)                    32542 B
+  skeleton table (est. 32 b/skeleton)             548 B
+  PAYLOAD BOUND                                 63927 B  ratio=1.966 (vs linked 1.582)
+
+denominator: xz -9e of stage2 .text (9 .o files, concatenated) = 32524 B (size 263370, sha256 d8602f4c4d1a7675...)
+alt denominator: xz -9e of linked stage2 .text = 40400 B (size 263634, sha256 e7e0c2b0ff2de72b...)
+context: clang -Oz .text = 62738 B, xz -9e = 31532 B
+smaller bound: variant B = 63927 B, ratio = 1.966 (vs linked: 1.582)
+fuller bound (+ per-slot value dictionaries 2592 B, + external symbol address table 5292 B est.): 71811 B, ratio = 2.208 (vs linked 1.778)
+handler cost (estimate, 16 B/handler x 137 skeletons) = 2192 B; payload+handlers ratio = 2.033 (vs linked 1.637)
+handler cost (estimate, 32 B/handler x 137 skeletons) = 4384 B; payload+handlers ratio = 2.100 (vs linked 1.691)
+DECISION: bound > 1.25x denominator: representation loses, stop
