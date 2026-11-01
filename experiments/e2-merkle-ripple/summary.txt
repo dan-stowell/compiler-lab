@@ -1,0 +1,38 @@
+== ripple.csv: 315 commit transitions
+functions at last commit: 297; largest SCC at last commit: 76 (max over history 76)
+body-hash change frac:   median 0.0154  p90 0.0699  mean 0.0414
+closure-key change frac: median 0.2577  p90 0.4922  mean 0.2394
+removed functions: total 8, commits with removals 5
+amplification (sum closure changed / sum body changed): 9.94
+  commits with >=100 functions (261): body median 0.0127, closure median 0.2252, p90 0.4800
+closure ripple histogram:
+           0   13 #############
+      (0,5%]   89 #########################################################################################
+     (5,10%]   32 ################################
+    (10,20%]   12 ############
+    (20,30%]   22 ######################
+    (30,40%]   67 ###################################################################
+    (40,50%]   56 ########################################################
+    (50,75%]   25 #########################
+   (75,100%]    2 ##
+DECISION: median closure ripple > 10% -> closure keys over-invalidate
+
+== ripple-with-tests.csv: 315 commit transitions
+functions at last commit: 395; largest SCC at last commit: 76 (max over history 76)
+body-hash change frac:   median 0.0178  p90 0.0773  mean 0.0428
+closure-key change frac: median 0.2326  p90 0.4120  mean 0.2091
+removed functions: total 16, commits with removals 11
+amplification (sum closure changed / sum body changed): 8.32
+  commits with >=100 functions (272): body median 0.0152, closure median 0.2088, p90 0.4021
+closure ripple histogram:
+           0    7 #######
+      (0,5%]  100 ####################################################################################################
+     (5,10%]   26 ##########################
+    (10,20%]   13 #############
+    (20,30%]   71 #######################################################################
+    (30,40%]   53 #####################################################
+    (40,50%]   34 ##################################
+    (50,75%]   11 ###########
+   (75,100%]    2 ##
+DECISION: median closure ripple > 10% -> closure keys over-invalidate
+
