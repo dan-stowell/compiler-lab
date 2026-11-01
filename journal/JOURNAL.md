@@ -2,6 +2,32 @@
 
 Newest first. "Measured" means a run whose script is in the repo; "estimated" means arithmetic or analysis.
 
+## 2026-11-01: Architecture challenge, then cycle 3
+
+An adversary challenged the "slice-addressed per-function compilation" direction suggested by E5 and E7. Its points:
+- Most of it exists already: Bazel/RBE, distcc pump mode, rustc red-green and early cutoff, Zig per-Decl incrementality, ThinLTO summaries.
+- The slicer is itself dependency analysis, recomputed on every build, so it isn't free.
+- The first E8 design (a slice memo over history) would pass by construction.
+
+The only possibly new claim is that a small, fixed amount of callee information is enough. Under chibicc's non-optimizing codegen, that is a property of the compiler. Cycle 3 therefore tests whether slices survive clang -O2 (`cycle3-plan.md`). Plan review added:
+- A static function's code also depends on its callers (constant propagation, dead-argument elimination), so only extern functions are targets.
+- No body-less declaration can stand in for "defined here" under clang.
+
+## 2026-11-01: Cycle 2 results (both verified)
+
+**E5, dependency slices: the rule fails as written, but one bit fixes it.** `experiments/e5-dependency-slices/`
+- Strict slices (callees as prototypes) reproduce chibicc's asm for only 23/116 parse.c functions. All 93 failures have one cause: codegen.c:143 emits `lea f(%rip)` for callees defined in the TU and `mov f@GOTPCREL` for callees only declared.
+- With callees as empty stubs (carrying the "defined here" bit), 116/116 verify. The median slice is 2.85% of TU tokens (p90 4.14%, max 8.39% for `stmt`); context alone is 2.5%.
+- The verifier's own greedy-minimized slices were never larger, and a stricter comparison that also checks string-literal data still passes 116/116.
+- Finding: the header-struct cluster does not drag in the TU. What a prototype lacks is one bit.
+
+**E7, output-addressed asm over history: both rules hold.** `experiments/e7-output-addressed/`
+- HEAD chibicc compiled all 315 historical transitions (1034 compiles, 30 s CPU).
+- The per-function asm hash changes for a median 26.4% of functions raw (p90 60.3%), but 2.1% (p90 16.9%) after stripping `.loc` and renumbering labels per function. That is close to the 1.5% body rate and far below E2's 21.6% closure keys.
+- The file-wide label counter and `.loc` line numbers each account for 7–17 points, depending on which is removed first; both are needed.
+- Verifier fixes: hash visibility lines (static↔extern changes were missed), and correct the order-dependent decomposition. Caveat: named static data is in no function's hash.
+- Finding: raw output ripple comes from the compiler's global state, not the program. Output addressing works once that state is removed.
+
 ## 2026-11-01: Cycle 2 setup
 
 Two of the five candidate experiments were settled on paper by plan review, without being built:
