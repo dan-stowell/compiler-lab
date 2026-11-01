@@ -5,4 +5,4 @@ slice-changed transitions: 300; excluded: compile fail 0, extraction fail 0; cou
   false hits (informative hit, whole-unit output changed): 0 in 0 commits
   95% upper bound on false-hit rate: per-hit (rule of three) 1.59574%; commit-clustered (hits in a commit fully correlated, n_eff = commits) 2.9412%
   slices keyed: 592; with >=1 fallback: 34 (5.74%); events: {'probe_unspellable_anon': 417, 'probe_rejected': 470, 'unknown:OffsetOfExpr': 121}
-  extraction CPU per slice: mean 88 ms, median 69 ms, p90 117 ms, total 52 s
+  extraction CPU per slice: mean 92 ms, median 72 ms, p90 125 ms, total 54 s

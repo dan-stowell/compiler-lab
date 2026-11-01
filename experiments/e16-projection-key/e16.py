@@ -511,6 +511,11 @@ class Proj:
             return
         off, bits, ftype = lay[3][n["name"]]
         self.items.append(("M", rname, n["name"], off, bits, ftype, self.canon(f.get("type")), lay[1], lay[2]))
+        if bits is not None or f.get("isBitfield"):
+            # the load/store width depends on the bitfield access unit (neighbouring
+            # bitfields), not just this field: key the whole layout (conservative)
+            self.fallbacks["bitfield_whole_layout"] += 1
+            self.whole(rname, "bitfield")
 
 
 def project(src):
@@ -552,8 +557,11 @@ MUTS = [  # (name, from, to, expect key change)
 ]
 
 
-# adversarial edits found by the verifier: typedef attributes and packed enums
+# adversarial edits found by the verifier: typedef attributes, packed enums,
+# bitfield access unit
 SYN2 = [  # (name, source, from, to); each must change the key
+    ("bitfield store access unit (trailing c 4->20 bits: movw->movl)",
+     "struct S { unsigned a:3; unsigned b:5; unsigned c:4; };\nvoid f(struct S *p) { p->b = 7; }\n", "c:4", "c:20"),
     ("packed enum, sizeof(E)", "typedef enum E { A, B } E;\nunsigned long f(void) { return sizeof(E); }",
      "typedef enum E {", "typedef enum __attribute__((packed)) E {"),
     ("typedef aligned(32), local whose address escapes", "typedef int T;\nvoid g(T*);\nvoid f(void) { T x; g(&x); }",

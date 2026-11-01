@@ -37,7 +37,7 @@ This is the third version of the key: v1 had a typedef bug, and v2 lacked the ty
 - Run order: a 300-transition cost pilot first, then all transitions.
 
 ## Measured
-**Mutation tests (`results/mutate.txt`): 18/18 pass.**
+**Mutation tests (`results/mutate.txt`): 19/19 pass** (the bitfield access-unit test was added in v4).
 - Each of these changes the key:
   - synthetic edits:
     - the offset of a used field (size unchanged)
@@ -113,6 +113,17 @@ These are hand edits to real slices. None of them occurs in the history. The tab
 - Cause of the misses: typedef expansion dropped typedef attributes, and SZ recorded only record sizes.
 - Fix: TY, described in Setup.
 - History outcome: the fix changed no false-hit count (0 before and after). It added about 400 projection changes, i.e. 2.06 → 2.12.
+
+## Holes found by adversarial verification
+| round | hole | effect | fix (mutation test that fails on the previous code) |
+|---|---|---|---|
+| 1 (v1, also seen in history: 19 false hits) | typedef expansion hid records and pointers from the by-value and pointer-arithmetic tests | `luaL_Buffer b` frame size, `StkId` subtraction | test resolved types without typedef brackets (typedef'd record local; typedef'd-pointer subtraction) |
+| 2 (v2, hand edits only) | typedef attributes dropped by expansion; SZ recorded only record sizes | `aligned(64)` typedef, packed-enum `sizeof` | TY: clang-evaluated sizeof/alignof of every type used (3 tests) |
+| 3 (v3, hand edits only) | bitfield access unit not captured: in `struct S{unsigned a:3,b:5,c:4;}`, `p->b=7` is `movw`, but widening `c` to 20 bits makes it `movl` with the key unchanged | load/store width | any bitfield access adds the containing record's whole layout (bitfield store test) |
+
+After the v4 bitfield fix, the full rerun gives counts identical to v3: no Lua slice accesses a bitfield, and the `bitfield_whole_layout` event never fires.
+
+Lesson: the key has to model the compiler's **lowering decisions** (frame alignment, access widths, enum storage size), not just C semantics. Each round was a decision the C-level view of "what the function uses" left out. Zero false hits in history did not reveal rounds 2 and 3.
 
 ## Earlier bug (v1), found by the experiment
 - The first run had **19 false hits in 7 commits**.

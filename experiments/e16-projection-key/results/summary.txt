@@ -5,5 +5,5 @@ slice-changed transitions: 37692; excluded: compile fail 80, extraction fail 0; 
   informative hits (slice changed, projection equal): 22771 in 203 distinct commits
   false hits (informative hit, whole-unit output changed): 0 in 0 commits
   95% upper bound on false-hit rate: per-hit (rule of three) 0.01317%; commit-clustered (hits in a commit fully correlated, n_eff = commits) 1.4778%
-  slices keyed: 37806; with >=1 fallback: 1937 (5.12%); events: {'probe_unspellable_anon': 25735, 'probe_rejected': 33210, 'unknown:OffsetOfExpr': 6350}
-  extraction CPU per slice: mean 108 ms, median 71 ms, p90 135 ms, total 4087 s
+  slices keyed: 37806; with >=1 fallback: 1937 (5.12%); events: {'probe_unspellable_anon': 25735, 'unknown:OffsetOfExpr': 6350, 'probe_rejected': 33210}
+  extraction CPU per slice: mean 106 ms, median 70 ms, p90 133 ms, total 4006 s

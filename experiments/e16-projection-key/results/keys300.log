@@ -1,2 +1,2 @@
 transitions 300; slices 592; to key 592
-wall 8s for 592 slices; extraction CPU per slice: mean 88 ms, median 69 ms
+wall 9s for 592 slices; extraction CPU per slice: mean 92 ms, median 72 ms

@@ -1,3 +1,4 @@
+  PASS synthetic: bitfield store access unit (trailing c 4->20 bits: movw->movl): key changed
   PASS synthetic: packed enum, sizeof(E): key changed
   PASS synthetic: typedef aligned(32), local whose address escapes: key changed
   PASS synthetic: used field offset (swap a,x): key changed
