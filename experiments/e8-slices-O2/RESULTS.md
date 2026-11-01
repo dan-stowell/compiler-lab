@@ -29,8 +29,10 @@ Baseline slices are written to `slices/<file>/` and the preprocessed TUs to `tu/
 - Comparator fix (after a verifier finding): the symbol regex used to let a name start with `$`. So `movl $.L.str.N, %esi` resolved to
   `$.L.str.N`, which never matched a data label, and string contents were never compared. Whitespace collapsing also reached inside strings.
   Both are fixed: the leading `$` is no longer part of the name, and quoted text is kept verbatim. `run.sh` now runs `selftest.py` first. For
-  luaL_argerror, luaL_checkoption and luaO_tostring, it flips one byte of a referenced `.asciz` and, separately, changes one `movq` to `movl`, and
-  it asserts that the comparator rejects both. With the old regex, the string mutation was accepted (checked). Re-running after the fix changed
+  luaL_argerror, luaL_checkoption and luaO_tostring, it flips one byte of a referenced `.asciz`, turns one space inside such a string into two spaces and into a tab, and changes one
+  `movq` to `movl`, and it asserts that the comparator rejects all four. luaO_tostring has no string with a space, so its whitespace cases are skipped,
+  and `run.sh` requires that they ran somewhere. With the old regex, the byte flip was accepted. With the old whitespace collapsing, the
+  two-space mutation was accepted. Both were checked. Re-running after the fix changed
   no result: every number below is identical to the run before it.
 - Controls (measured, per file): recompiling the full TU, and recompiling it after re-joining it from the splitter's declarations, both reproduce
   every emitted function in all 32 files (for example lparser 23/23 and lapi 84/84).
