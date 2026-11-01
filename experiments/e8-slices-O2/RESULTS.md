@@ -23,8 +23,15 @@ Baseline slices are written to `slices/<file>/` and the preprocessed TUs to `tu/
 - Comparison: the function's text runs from `.globl`/`.p2align`/`.type` to `.size`. To that the script appends the data blocks it
   references, extracted by label and followed transitively: jump tables, `.LCPI`, `.L.str`, and local objects, each with its section line.
   Private labels (`.L…`, plus the `BBn_m` names in clang's loop comments) are renamed bijectively in order of first occurrence.
-  Only `.loc`, `.file` and `.cfi_*` lines are stripped. Comments are kept. Runs of whitespace are collapsed to one space. This was added for the
-  all-files run: renaming changes label lengths, and clang pads comments to a column. Without it, `lua_pushcclosure` differed only in that padding.
+  Only `.loc`, `.file` and `.cfi_*` lines are stripped. Comments are kept. Outside quoted strings, runs of whitespace are collapsed to one space.
+  This was added for the all-files run: renaming changes label lengths, and clang pads comments to a column. Without it, `lua_pushcclosure` differed
+  only in that padding. Everything from a line's first `"` onward is compared verbatim.
+- Comparator fix (after a verifier finding): the symbol regex used to let a name start with `$`. So `movl $.L.str.N, %esi` resolved to
+  `$.L.str.N`, which never matched a data label, and string contents were never compared. Whitespace collapsing also reached inside strings.
+  Both are fixed: the leading `$` is no longer part of the name, and quoted text is kept verbatim. `run.sh` now runs `selftest.py` first. For
+  luaL_argerror, luaL_checkoption and luaO_tostring, it flips one byte of a referenced `.asciz` and, separately, changes one `movq` to `movl`, and
+  it asserts that the comparator rejects both. With the old regex, the string mutation was accepted (checked). Re-running after the fix changed
+  no result: every number below is identical to the run before it.
 - Controls (measured, per file): recompiling the full TU, and recompiling it after re-joining it from the splitter's declarations, both reproduce
   every emitted function in all 32 files (for example lparser 23/23 and lapi 84/84).
 
@@ -46,6 +53,12 @@ Baseline slices are written to `slices/<file>/` and the preprocessed TUs to `tu/
 - **714 static functions excluded**, all defined in the Lua `.c` files themselves. 299 of them are emitted standalone in the full-TU asm,
   and the rest are inlined everywhere.
 - **Median smallest-matching slice: 6.46% of its TU. p90: 22.59%.** Mean 14.11%.
+- Second denominator, excluding system headers (from the same TU preprocessed with line markers; files under `/` count as system).
+  185,522 of the 553,553 TU tokens are system-header tokens.
+  - Whole slice over non-system TU tokens: **median 8.39%, p90 30.40%**. This reproduces the verifier's figure.
+  - System-header tokens removed from both the slice and the TU: median 8.17%, p90 30.11%.
+  Either way the median stays ≤ 10%.
+- Median absolute slice size: **1,457 tokens**. Never-matching targets count as their whole TU.
 - Distribution of d: {0: 173, 1: 98, 2: 38, 3: 4, 5: 4, never: 25}. So 79% match at d ≤ 1, and 7.3% never match short of the full TU.
 
 Per-file medians (n = targets; from `summary.txt`):
@@ -86,6 +99,7 @@ At each d, the slice also includes the bodies of all callers of every static cal
 ## Decision
 The rule: median ≤ 10% means a dependency-bounded slice survives -O2. Over 342 targets the **median is 6.46%, so the slice
 survives -O2**, and an edit-based test is worth running next. This reverses the N = 2 lparser reading (26.77%), which was not representative.
+Excluding system headers, the median is 8.39% (p90 30.40%), which is closer to the bar but still under it.
 The caveat is the tail. p90 is 22.6%, and 7.3% of targets need the whole TU under callee-only slicing. Most of that tail needs
 caller information for static callees (call-site counts), which is the ThinLTO-summary-style fact.
 

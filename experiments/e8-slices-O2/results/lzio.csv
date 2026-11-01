@@ -1,5 +1,5 @@
-# total_tokens=7751 n_decls=410 n_funcs=3 n_static_defs=0 static_defs_named_in_source=0 static_emitted_in_full_asm=0 targets=3 control_recompile=3/3 control_rejoin=3/3
-target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full
-luaZ_fill,0,0.1476,1144,0,1,110,0,0.1476,d0:1f/1144t/ok,d0:1f/1144t/ok,
-luaZ_init,0,0.1420,1101,0,1,56,0,0.1420,d0:1f/1101t/ok,d0:1f/1101t/ok,
-luaZ_read,1,0.1709,1325,1,2,119,1,0.1709,d0:1f/1223t/mismatch d1:2f/1325t/ok,d0:1f/1223t/mismatch d1:2f/1325t/ok,luaZ_fill
+# total_tokens=7751 sys_header_tokens=3265 n_decls=410 n_funcs=3 n_static_defs=0 static_defs_named_in_source=0 static_emitted_in_full_asm=0 targets=3 control_recompile=3/3 control_rejoin=3/3
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full,slice_sys_header_tokens
+luaZ_fill,0,0.1476,1144,0,1,110,0,0.1476,d0:1f/1144t/ok,d0:1f/1144t/ok,,24
+luaZ_init,0,0.1420,1101,0,1,56,0,0.1420,d0:1f/1101t/ok,d0:1f/1101t/ok,,24
+luaZ_read,1,0.1709,1325,1,2,119,1,0.1709,d0:1f/1223t/mismatch d1:2f/1325t/ok,d0:1f/1223t/mismatch d1:2f/1325t/ok,luaZ_fill,61

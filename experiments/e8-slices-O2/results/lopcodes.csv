@@ -1,2 +1,2 @@
-# total_tokens=6384 n_decls=221 n_funcs=0 n_static_defs=0 static_defs_named_in_source=0 static_emitted_in_full_asm=0 targets=0 control_recompile=0/0 control_rejoin=0/0
-target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full
+# total_tokens=6384 sys_header_tokens=476 n_decls=221 n_funcs=0 n_static_defs=0 static_defs_named_in_source=0 static_emitted_in_full_asm=0 targets=0 control_recompile=0/0 control_rejoin=0/0
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full,slice_sys_header_tokens

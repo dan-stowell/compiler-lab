@@ -1,13 +1,13 @@
-# total_tokens=11031 n_decls=476 n_funcs=15 n_static_defs=4 static_defs_named_in_source=4 static_emitted_in_full_asm=1 targets=11 control_recompile=12/12 control_rejoin=12/12
-target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full
-luaS_eqlngstr,0,0.0192,212,0,1,73,0,0.0192,d0:1f/212t/ok,d0:1f/212t/ok,
-luaS_hash,0,0.0108,119,0,1,81,0,0.0108,d0:1f/119t/ok,d0:1f/119t/ok,
-luaS_hashlongstr,1,0.0246,271,1,2,68,1,0.0246,d0:1f/207t/mismatch d1:2f/271t/ok,d0:1f/207t/mismatch d1:2f/271t/ok,luaS_hash
-luaS_resize,1,0.1227,1353,1,2,184,1,0.1790,d0:1f/1215t/mismatch d1:2f/1353t/ok,d0:1f/1215t/mismatch d1:3f/1974t/ok,
-luaS_clearcache,0,0.0978,1079,0,1,96,0,0.0978,d0:1f/1079t/ok,d0:1f/1079t/ok,
-luaS_init,2,0.2259,2492,4,9,179,2,0.2471,d0:1f/1602t/mismatch d1:3f/1975t/mismatch d2:5f/2492t/ok,d0:1f/1602t/mismatch d1:4f/2209t/mismatch d2:6f/2726t/ok,tablerehash
-luaS_newlstr,2,0.2271,2505,4,8,139,2,0.2271,d0:1f/1244t/mismatch d1:3f/1761t/mismatch d2:6f/2505t/ok,d0:1f/1244t/mismatch d1:3f/1761t/mismatch d2:6f/2505t/ok,internshrstr luaS_createlngstrobj
-luaS_createlngstrobj,1,0.1379,1521,1,2,57,1,0.1838,d0:1f/1064t/mismatch d1:2f/1521t/ok,d0:1f/1064t/mismatch d1:3f/2028t/ok,createstrobj
-luaS_remove,0,0.0989,1091,0,1,104,0,0.0989,d0:1f/1091t/ok,d0:1f/1091t/ok,
-luaS_new,0,0.1144,1262,5,9,154,0,0.1144,d0:1f/1262t/ok,d0:1f/1262t/ok,
-luaS_newudata,0,0.1535,1693,0,1,270,0,0.1535,d0:1f/1693t/ok,d0:1f/1693t/ok,
+# total_tokens=11031 sys_header_tokens=3265 n_decls=476 n_funcs=15 n_static_defs=4 static_defs_named_in_source=4 static_emitted_in_full_asm=1 targets=11 control_recompile=12/12 control_rejoin=12/12
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full,slice_sys_header_tokens
+luaS_eqlngstr,0,0.0192,212,0,1,73,0,0.0192,d0:1f/212t/ok,d0:1f/212t/ok,,47
+luaS_hash,0,0.0108,119,0,1,81,0,0.0108,d0:1f/119t/ok,d0:1f/119t/ok,,6
+luaS_hashlongstr,1,0.0246,271,1,2,68,1,0.0246,d0:1f/207t/mismatch d1:2f/271t/ok,d0:1f/207t/mismatch d1:2f/271t/ok,luaS_hash,6
+luaS_resize,1,0.1227,1353,1,2,184,1,0.1790,d0:1f/1215t/mismatch d1:2f/1353t/ok,d0:1f/1215t/mismatch d1:3f/1974t/ok,,24
+luaS_clearcache,0,0.0978,1079,0,1,96,0,0.0978,d0:1f/1079t/ok,d0:1f/1079t/ok,,24
+luaS_init,2,0.2259,2492,4,9,179,2,0.2471,d0:1f/1602t/mismatch d1:3f/1975t/mismatch d2:5f/2492t/ok,d0:1f/1602t/mismatch d1:4f/2209t/mismatch d2:6f/2726t/ok,tablerehash,102
+luaS_newlstr,2,0.2271,2505,4,8,139,2,0.2271,d0:1f/1244t/mismatch d1:3f/1761t/mismatch d2:6f/2505t/ok,d0:1f/1244t/mismatch d1:3f/1761t/mismatch d2:6f/2505t/ok,internshrstr luaS_createlngstrobj,102
+luaS_createlngstrobj,1,0.1379,1521,1,2,57,1,0.1838,d0:1f/1064t/mismatch d1:2f/1521t/ok,d0:1f/1064t/mismatch d1:3f/2028t/ok,createstrobj,24
+luaS_remove,0,0.0989,1091,0,1,104,0,0.0989,d0:1f/1091t/ok,d0:1f/1091t/ok,,24
+luaS_new,0,0.1144,1262,5,9,154,0,0.1144,d0:1f/1262t/ok,d0:1f/1262t/ok,,99
+luaS_newudata,0,0.1535,1693,0,1,270,0,0.1535,d0:1f/1693t/ok,d0:1f/1693t/ok,,24

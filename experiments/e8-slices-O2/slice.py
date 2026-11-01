@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """E8: smallest callee-body depth whose slice reproduces a target's clang -O2 asm.
 
-Usage: slice.py <tu.i> <orig.c> <out.csv> <slices-dir> <cc> [cc args...]
+Usage: slice.py <tu.i> <tu-with-linemarkers.i> <orig.c> <out.csv> <slices-dir> <cc> [cc args...]
 
 Reuses E5's token splitter (../e5-dependency-slices/slice.py: tokenize, split,
 analyze, header_refs). Targets are the functions the full-TU compile emits as
@@ -32,7 +32,8 @@ DEBUG_DIRS = (".loc", ".file", ".cfi_")
 # private labels (.LBB, .Ltmp, .LJTI, .LCPI, .L.str, .Lfunc_end, ...) and the
 # BBn_m form clang's loop comments use for the same blocks
 PRIV_RE = re.compile(r"\.L[A-Za-z0-9_.$]*[A-Za-z0-9_$]|\bBB\d+_\d+\b")
-SYM_RE = re.compile(r"[A-Za-z_.$][A-Za-z0-9_.$]*")
+# no leading `$`: in `movl $.L.str.3, %esi` the referenced label is `.L.str.3`
+SYM_RE = re.compile(r"[A-Za-z_.][A-Za-z0-9_.$]*")
 LABEL_RE = re.compile(r"^([A-Za-z_.$][A-Za-z0-9_.$]*):")
 DATA_END = (".type", ".section", ".size", ".text", ".globl", ".data", ".bss",
             ".local", ".comm", ".ident", ".addrsig")
@@ -105,7 +106,32 @@ def norm_func(parsed, name):
         return ren[key] if m.group(0).startswith(".") else ren[key][2:]
     # renaming changes label lengths, which shifts clang's comment padding:
     # collapse whitespace runs (formatting only; no line or token is dropped)
-    return "\n".join(" ".join(PRIV_RE.sub(sub, ln).split()) for ln in out)
+    return "\n".join(collapse(PRIV_RE.sub(sub, ln)) for ln in out)
+
+
+def collapse(ln):
+    """Collapse whitespace runs outside quoted strings (from the first '"' on,
+    the line is kept verbatim, so .asciz/.ascii contents are compared exactly)."""
+    q = ln.find('"')
+    if q < 0:
+        return " ".join(ln.split())
+    return " ".join(ln[:q].split()) + " " + ln[q:]
+
+
+def sys_offsets(src, lines_tu):
+    """Start offsets (in the -P TU src) of tokens that come from system headers,
+    using the same TU preprocessed with line markers. Asserts identical tokens."""
+    toks, sysflag, cur = [], [], ""
+    for ln in lines_tu.split("\n"):
+        m = re.match(r'#\s*(?:line\s+)?\d+\s+"([^"]*)"', ln)
+        if m:
+            cur = m.group(1)
+            continue
+        for t in tokenize(ln):
+            toks.append(t[1]); sysflag.append(cur.startswith("/"))
+    ptoks = tokenize(src)
+    assert [t[1] for t in ptoks] == toks, "-P and line-marker TUs differ"
+    return {t[2] for t, f in zip(ptoks, sysflag) if f}
 
 
 def func_name(h):
@@ -140,12 +166,15 @@ def compile_s(cc, src_text, tmpdir, tag):
 
 
 def main():
-    tu, orig_c, out_csv, sdir = sys.argv[1:5]
-    cc = sys.argv[5:]
+    tu, tu_lines, orig_c, out_csv, sdir = sys.argv[1:6]
+    cc = sys.argv[6:]
     orig = open(orig_c, errors="replace").read()
     src = open(tu).read()
     decls = split(tokenize(src))
     total = sum(len(d.toks) for d in decls)
+    sysoff = sys_offsets(src, open(tu_lines).read())
+    nsys = lambda ts: sum(1 for t in ts if t[2] in sysoff)
+    total_sys = sum(nsys(d.toks) for d in decls)
     txt = lambda ts: src[ts[0][2]:ts[-1][3]]
     tmp = tempfile.mkdtemp(prefix="e8-")
     os.makedirs(sdir, exist_ok=True)
@@ -206,14 +235,16 @@ def main():
                         inc.add(d.idx); no |= d.ref_ord; nt |= d.ref_tag
             wo, wt = no - so, nt - st
         parts, ntok = [], 0
+        last_sys = 0
         for d in decls:
             if d.idx in inc:
-                parts.append(txt(d.toks)); ntok += len(d.toks)
+                parts.append(txt(d.toks)); ntok += len(d.toks); last_sys += nsys(d.toks)
             elif d.is_func and d.name in bodies:
-                parts.append(txt(d.toks)); ntok += len(d.toks)
+                parts.append(txt(d.toks)); ntok += len(d.toks); last_sys += nsys(d.toks)
             elif d.is_func and d.name in protos:
                 parts.append(txt(d.header) + ";"); ntok += len(d.header) + 1
-        return "\n".join(parts) + "\n", ntok
+                last_sys += nsys(d.header)
+        return "\n".join(parts) + "\n", ntok, last_sys
 
     # Controls: the full TU recompiled, and re-joined from the splitter's
     # declarations, must reproduce every emitted function's normalized asm.
@@ -241,7 +272,7 @@ def main():
                 for c in body - {t}:
                     if c in static_names:
                         bodies |= callers[c]
-            s, ntok = build(bodies)
+            s, ntok, ns = build(bodies)
             if keep:
                 with open(os.path.join(sdir, f"{t}.d{d}.c"), "w") as fh:
                     fh.write(s)
@@ -249,7 +280,7 @@ def main():
             ok = asm is not None and norm_func(parse_asm(asm), t) == want[t]
             levels.append((d, len(bodies), ntok, "ok" if ok else ("compile_fail" if asm is None else "mismatch")))
             if ok:
-                return (d, ntok), levels
+                return (d, ntok, ns), levels
             frontier = set().union(*(calls[f] for f in frontier)) - body
             if not frontier:
                 return None, levels
@@ -270,20 +301,22 @@ def main():
         tasm = "\n".join(full[0][t])
         inl = sorted(c for c in calls[t] if not re.search(rf"\b{re.escape(c)}\b", tasm))
         fmt = lambda r: (str(r[0]), f"{r[1] / total:.4f}", r[1]) if r else ("never", "1.0000", total)
+        ssys = res[2] if res else total_sys
         lv = lambda L: " ".join(f"d{a}:{b}f/{c}t/{e}" for a, b, c, e in L)
         rows.append((t, *fmt(res), rd, len(reach), len(fdef[t].toks), *fmt(cres)[:2],
-                     lv(levels), lv(clev), " ".join(inl)))
+                     lv(levels), lv(clev), " ".join(inl), ssys))
 
     emitted_static = [n for n in full[0] if n not in targets]
     with open(out_csv, "w") as fh:
-        fh.write(f"# total_tokens={total} n_decls={len(decls)} n_funcs={len(funcs)} "
+        fh.write(f"# total_tokens={total} sys_header_tokens={total_sys} n_decls={len(decls)} n_funcs={len(funcs)} "
                  f"n_static_defs={len(statics)} "
                  f"static_defs_named_in_source={sum(1 for f in statics if re.search(rf'\b{f.name}\s*\(', orig))} "
                  f"static_emitted_in_full_asm={len(emitted_static)} "
                  f"targets={len(targets)} control_recompile={ctl['recompile']}/{len(full[0])} "
                  f"control_rejoin={ctl['rejoin']}/{len(full[0])}\n")
         fh.write("target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,"
-                 "callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full\n")
+                 "callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full,"
+                 "slice_sys_header_tokens\n")
         for r in rows:
             fh.write(",".join(map(str, r)) + "\n")
 

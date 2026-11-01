@@ -1,7 +1,17 @@
+selftest luaL_argerror: mutated string byte rejected
+selftest luaL_argerror: mutated instruction rejected
+selftest luaL_checkoption: mutated string byte rejected
+selftest luaL_checkoption: mutated instruction rejected
+selftest luaO_tostring: mutated string byte rejected
+selftest luaO_tostring: mutated instruction rejected
 files=32 targets=342 tu_tokens_total=553553
 static defs excluded=714 (named in the .c source: 714; emitted standalone in full asm: 299)
 controls (recompile and rejoin reproduce every emitted function, all files): True
 median slice frac=6.46%  p90=22.59%  mean=14.11%  max=100.00%
+system-header tokens: 185522 of 553553 TU tokens
+excluding system headers (slice and TU): median=8.17% p90=30.11%
+whole slice over non-system TU tokens:    median=8.39% p90=30.40%
+median absolute slice size: 1457 tokens (never-matching counted as their whole TU)
 d distribution: {'0': 173, '1': 98, '2': 38, '3': 4, '5': 4, 'never': 25}
 targets with any compile_fail level: 0
 per-file (targets, median, p90, max, file tokens, controls):

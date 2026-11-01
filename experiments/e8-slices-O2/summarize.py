@@ -21,7 +21,9 @@ for path in sys.argv[1:]:
         r = ln.split(",")
         allrows.append(dict(file=name, t=r[0], d=r[1], frac=float(r[2]), tok=int(r[3]),
                             rd=r[4], rb=r[5], cd=r[7], cfrac=float(r[8]), lev=r[9],
-                            clev=r[10], inl=r[11]))
+                            clev=r[10], inl=r[11], ssys=int(r[12]),
+                            tot=int(meta[name]["total_tokens"]),
+                            tsys=int(meta[name]["sys_header_tokens"])))
 
 S = lambda k: sum(int(m[k]) for m in meta.values())
 ctl_ok = all(m["control_recompile"].split("/")[0] == m["control_recompile"].split("/")[1]
@@ -35,6 +37,13 @@ print(f"static defs excluded={S('n_static_defs')} (named in the .c source: "
 print(f"controls (recompile and rejoin reproduce every emitted function, all files): {ctl_ok}")
 print(f"median slice frac={statistics.median(fr):.2%}  p90={pct(fr, 0.9):.2%}  "
       f"mean={statistics.mean(fr):.2%}  max={max(fr):.2%}")
+nos = [(r["tok"] - r["ssys"]) / (r["tot"] - r["tsys"]) for r in allrows]
+nos2 = [r["tok"] / (r["tot"] - r["tsys"]) for r in allrows]
+print(f"system-header tokens: {S('sys_header_tokens')} of {S('total_tokens')} TU tokens")
+print(f"excluding system headers (slice and TU): median={statistics.median(nos):.2%} p90={pct(nos, 0.9):.2%}")
+print(f"whole slice over non-system TU tokens:    median={statistics.median(nos2):.2%} p90={pct(nos2, 0.9):.2%}")
+print(f"median absolute slice size: {statistics.median(r['tok'] for r in allrows):.0f} tokens "
+      f"(never-matching counted as their whole TU)")
 print("d distribution:", dict(sorted(Counter(r["d"] for r in allrows).items(),
                                      key=lambda kv: (kv[0] == "never", int(kv[0]) if kv[0] != "never" else 0))))
 cf = sum("compile_fail" in r["lev"] for r in allrows)

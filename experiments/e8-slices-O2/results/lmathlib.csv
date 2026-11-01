@@ -1,3 +1,3 @@
-# total_tokens=18172 n_decls=954 n_funcs=51 n_static_defs=38 static_defs_named_in_source=38 static_emitted_in_full_asm=31 targets=1 control_recompile=32/32 control_rejoin=32/32
-target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full
-luaopen_math,2,0.0608,1104,5,6,156,2,0.0693,d0:1f/848t/mismatch d1:2f/1012t/mismatch d2:3f/1104t/ok,d0:1f/848t/mismatch d1:2f/1012t/mismatch d2:4f/1259t/ok,setrandfunc
+# total_tokens=18172 sys_header_tokens=12346 n_decls=954 n_funcs=51 n_static_defs=38 static_defs_named_in_source=38 static_emitted_in_full_asm=31 targets=1 control_recompile=32/32 control_rejoin=32/32
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full,slice_sys_header_tokens
+luaopen_math,2,0.0608,1104,5,6,156,2,0.0693,d0:1f/848t/mismatch d1:2f/1012t/mismatch d2:3f/1104t/ok,d0:1f/848t/mismatch d1:2f/1012t/mismatch d2:4f/1259t/ok,setrandfunc,30
