@@ -86,3 +86,16 @@ compresses each run well, at about 6 K entries for 2^24 steps, but the compresse
 - The hit rate counts every memo lookup at every level, as the plan defines it. A hit stops the recursion, so frozen
   hits also shrink B's total lookups. The levels ≥6 column is the less flattering view.
 - A is a single random patch. A memo built from many A's was not tested, because the plan does not call for it.
+
+## Independent verification (2026-11-01)
+
+Confirmed. A reduced rerun reproduces (hit 0.557, new/scratch 0.823), and an independent Python stepper (`verify/direct.py`) matches HashLife at 2^13 and 2^16 steps. The overall hit rate is pinned near 55% by trivially-hitting low levels; **new/scratch is the honest measure**. A memo built from many patches (`verify/k2m.c`):
+
+| A patches | memo entries | hit | levels ≥6 | new/scratch |
+|---|---|---|---|---|
+| 1 | 6.7K | 0.557 | 0.37 | 0.82 |
+| 10 | 54K | 0.559 | 0.40 | 0.64 |
+| 100 | 399K | 0.551 | 0.44 | 0.50 |
+| 1000 | 3.2M | 0.548 | 0.46 | 0.42 |
+
+Transfer improves slowly while the memo grows by ~3.2K entries per patch, so the verdict stands: the memo is input-specific.
