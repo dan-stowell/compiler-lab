@@ -1,0 +1,4 @@
+selftest prefix=1048576 naive=76175 table=76175 OK |Q|=256 A=70 words=63
+patterns: auto|break|case|char|const|continue|default|do|double|else|enum|extern|float|for|goto|if|int|long|register|return|short|signed|sizeof|static|struct|switch|typedef|union|unsigned|void|volatile|while|and|elseif|end|false|function|in|local|nil|not|or|repeat|then|true|until|lua_State|luaL_|TValue|setobj|Token|Node|Type|malloc|include|define|NULL|uint8_t|size_t|printf|error|assert|strcmp
+selftest prefix=1048576 naive=46385 table=46385 OK |Q|=256 A=70 words=63
+patterns: auto|break|case|char|const|continue|default|do|double|else|enum|extern|float|for|goto|if|int|long|register|return|short|signed|sizeof|static|struct|switch|typedef|union|unsigned|void|volatile|while|and|elseif|end|false|function|in|local|nil|not|or|repeat|then|true|until|lua_State|luaL_|TValue|setobj|Token|Node|Type|malloc|include|define|NULL|uint8_t|size_t|printf|error|assert|strcmp
