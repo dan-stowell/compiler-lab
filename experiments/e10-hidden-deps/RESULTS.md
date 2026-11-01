@@ -142,3 +142,13 @@ Keying on bodies alone would have missed 1 of the 22 (d862da6d, a caller-count c
 - Flags are pinned to today's makefile. The `-std=c99` pin breaks 2014-2015 ldo, lmathlib, liolib and loslib, so those files contribute only after the chain restarts.
 - Call edges are E8's: any reference to a TU function name. The cause classifier sees only the `call`/`jmp` targets in the normalized asm.
 - An earlier, incomplete run gave the same 22 mismatches. In that run xargs stopped launching chains after one chain was killed by hand, so it is not reported.
+
+## Independent verification (2026-11-01)
+
+Confirmed.
+- E8 reproduces unchanged under the refactored slice.py.
+- Four mismatches were reproduced by hand (1227, 1200, 777, 1356). In each, the slice is byte-identical at N and N+1, the full-TU asm differs, and -Rpass shows the out-of-slice callee newly inlined.
+- Five random non-mismatch hits were confirmed. No hit has an unchanged TU token stream.
+- The 200-commit pilot reproduces (n=10,084, 2 mismatches).
+
+Correction to the cause labels: at 1227 (`luaH_set`) the "caller count changed" label simplifies a two-level effect. `luaH_newkey` stopped being inlined into `luaH_finishset`, which shrank `luaH_finishset` below the inlining threshold for `luaH_set`.
