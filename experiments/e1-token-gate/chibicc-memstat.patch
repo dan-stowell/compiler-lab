@@ -1,0 +1,167 @@
+diff --git a/chibicc.h b/chibicc.h
+index f73eeec..32ce90c 100644
+--- a/chibicc.h
++++ b/chibicc.h
+@@ -31,6 +31,21 @@ typedef struct Member Member;
+ typedef struct Relocation Relocation;
+ typedef struct Hideset Hideset;
+ 
++//
++// memstat.c (E1 experiment: allocation accounting)
++//
++
++enum { MS_OTHER, MS_TOKEN, MS_NODE, MS_TYPE, MS_OBJ, MS_MEMBER, MS_NKINDS };
++enum { MP_STARTUP, MP_LEX_PP, MP_PARSE, MP_CODEGEN, MP_WRITE, MP_NPHASES };
++extern int memstat_kind;
++extern int memstat_phase;
++#define MS_CALLOC(kind, n, sz) \
++  (memstat_kind = (kind), memstat_tmp = calloc(n, sz), memstat_kind = MS_OTHER, memstat_tmp)
++extern void *memstat_tmp;
++struct Obj;
++void memstat_walk(struct Obj *prog);
++void memstat_report(size_t outbuf_len, void *outbuf);
++
+ //
+ // strings.c
+ //
+diff --git a/main.c b/main.c
+index ffaabf4..e685b45 100644
+--- a/main.c
++++ b/main.c
+@@ -514,6 +514,7 @@ static Token *append_tokens(Token *tok1, Token *tok2) {
+ 
+ static void cc1(void) {
+   Token *tok = NULL;
++  memstat_phase = MP_LEX_PP;
+ 
+   // Process -include option
+   for (int i = 0; i < opt_include.len; i++) {
+@@ -550,7 +551,10 @@ static void cc1(void) {
+     return;
+   }
+ 
++  memstat_phase = MP_PARSE;
+   Obj *prog = parse(tok);
++  memstat_walk(prog);
++  memstat_phase = MP_CODEGEN;
+ 
+   // Open a temporary output buffer.
+   char *buf;
+@@ -562,9 +566,11 @@ static void cc1(void) {
+   fclose(output_buf);
+ 
+   // Write the asembly text to a file.
++  memstat_phase = MP_WRITE;
+   FILE *out = open_file(output_file);
+   fwrite(buf, buflen, 1, out);
+   fclose(out);
++  memstat_report(buflen, buf);
+ }
+ 
+ static void assemble(char *input, char *output) {
+diff --git a/parse.c b/parse.c
+index 6acaeb8..b8aa091 100644
+--- a/parse.c
++++ b/parse.c
+@@ -190,7 +190,7 @@ static Type *find_tag(Token *tok) {
+ }
+ 
+ static Node *new_node(NodeKind kind, Token *tok) {
+-  Node *node = calloc(1, sizeof(Node));
++  Node *node = MS_CALLOC(MS_NODE, 1, sizeof(Node));
+   node->kind = kind;
+   node->tok = tok;
+   return node;
+@@ -244,7 +244,7 @@ static Node *new_vla_ptr(Obj *var, Token *tok) {
+ Node *new_cast(Node *expr, Type *ty) {
+   add_type(expr);
+ 
+-  Node *node = calloc(1, sizeof(Node));
++  Node *node = MS_CALLOC(MS_NODE, 1, sizeof(Node));
+   node->kind = ND_CAST;
+   node->tok = expr->tok;
+   node->lhs = expr;
+@@ -299,7 +299,7 @@ static Initializer *new_initializer(Type *ty, bool is_flexible) {
+ }
+ 
+ static Obj *new_var(char *name, Type *ty) {
+-  Obj *var = calloc(1, sizeof(Obj));
++  Obj *var = MS_CALLOC(MS_OBJ, 1, sizeof(Obj));
+   var->name = name;
+   var->ty = ty;
+   var->align = ty->align;
+@@ -1283,7 +1283,7 @@ static Type *copy_struct_type(Type *ty) {
+   Member head = {};
+   Member *cur = &head;
+   for (Member *mem = ty->members; mem; mem = mem->next) {
+-    Member *m = calloc(1, sizeof(Member));
++    Member *m = MS_CALLOC(MS_MEMBER, 1, sizeof(Member));
+     *m = *mem;
+     cur = cur->next = m;
+   }
+@@ -2554,7 +2554,7 @@ static void struct_members(Token **rest, Token *tok, Type *ty) {
+     // Anonymous struct member
+     if ((basety->kind == TY_STRUCT || basety->kind == TY_UNION) &&
+         consume(&tok, tok, ";")) {
+-      Member *mem = calloc(1, sizeof(Member));
++      Member *mem = MS_CALLOC(MS_MEMBER, 1, sizeof(Member));
+       mem->ty = basety;
+       mem->idx = idx++;
+       mem->align = attr.align ? attr.align : mem->ty->align;
+@@ -2568,7 +2568,7 @@ static void struct_members(Token **rest, Token *tok, Type *ty) {
+         tok = skip(tok, ",");
+       first = false;
+ 
+-      Member *mem = calloc(1, sizeof(Member));
++      Member *mem = MS_CALLOC(MS_MEMBER, 1, sizeof(Member));
+       mem->ty = declarator(&tok, tok, basety);
+       mem->name = mem->ty->name;
+       mem->idx = idx++;
+diff --git a/preprocess.c b/preprocess.c
+index 2bef487..e71668a 100644
+--- a/preprocess.c
++++ b/preprocess.c
+@@ -89,7 +89,7 @@ static Token *skip_line(Token *tok) {
+ }
+ 
+ static Token *copy_token(Token *tok) {
+-  Token *t = calloc(1, sizeof(Token));
++  Token *t = MS_CALLOC(MS_TOKEN, 1, sizeof(Token));
+   *t = *tok;
+   t->next = NULL;
+   return t;
+diff --git a/tokenize.c b/tokenize.c
+index 5c49c02..8433efe 100644
+--- a/tokenize.c
++++ b/tokenize.c
+@@ -98,7 +98,7 @@ bool consume(Token **rest, Token *tok, char *str) {
+ 
+ // Create a new token.
+ static Token *new_token(TokenKind kind, char *start, char *end) {
+-  Token *tok = calloc(1, sizeof(Token));
++  Token *tok = MS_CALLOC(MS_TOKEN, 1, sizeof(Token));
+   tok->kind = kind;
+   tok->loc = start;
+   tok->len = end - start;
+diff --git a/type.c b/type.c
+index 02ade59..b819a52 100644
+--- a/type.c
++++ b/type.c
+@@ -18,7 +18,7 @@ Type *ty_double = &(Type){TY_DOUBLE, 8, 8};
+ Type *ty_ldouble = &(Type){TY_LDOUBLE, 16, 16};
+ 
+ static Type *new_type(TypeKind kind, int size, int align) {
+-  Type *ty = calloc(1, sizeof(Type));
++  Type *ty = MS_CALLOC(MS_TYPE, 1, sizeof(Type));
+   ty->kind = kind;
+   ty->size = size;
+   ty->align = align;
+@@ -88,7 +88,7 @@ bool is_compatible(Type *t1, Type *t2) {
+ }
+ 
+ Type *copy_type(Type *ty) {
+-  Type *ret = calloc(1, sizeof(Type));
++  Type *ret = MS_CALLOC(MS_TYPE, 1, sizeof(Type));
+   *ret = *ty;
+   ret->origin = ty;
+   return ret;
