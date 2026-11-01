@@ -56,9 +56,13 @@ Before any language is built, each model gets a cheap kill test against its **st
 ## K6 (follows K4): Run-once code for op streams executed once
 - Principle (ideator): the generator sees the data D it reads, never the run-time state S. Run-once code removes work only when decisions depending on D alone are expensive for a data-generic loop (mispredicted branches, or predication paying for all paths) and cheap for the generator (template copy indexed by opcode, no branch). Immediates never save bytes for once-used data.
 - Sanity check (`p0-prototypes/round3/ro.c`, single runs, 16M ops, 6 kinds): run-once 6.0–6.3 cycles/op (5.2 generation alone) vs predicated interpreter 7.7–8.2 vs computed-goto 19.5. With predictable (single-kind) streams, computed-goto wins at 3.1.
-- Question: on an op stream that is executed exactly once, with 16–32 opcode kinds of uneven cost, is generating and running throwaway native code ≥2× faster (cycles/op, generation included) than the strongest interpreter for that stream (the better of predicated/branch-free and computed-goto)?
-- Inputs:
-  1. synthetic random streams (16 and 32 kinds);
-  2. a **real** op stream: the dynamic bytecode trace of Lua 5.4.6 running a fixed benchmark (opcodes plus operands, replayed against a register file). Opcode predictability there is whatever it is.
-- Measure cycles/op, instructions, branch-misses and `ic_cache_fill_*` with perf, pinned. Tune the generator (pre-assembled templates, memcpy plus immediate patching).
-- Rule: ≥2× on the real stream means "compile each op stream once, run once, discard" beats interpretation for once-executed code, so study where the crossover sits (predictability, ops per chunk). Under 2× on the real stream, kill it: the gain is too small to change how such streams are executed.
+- Revised after review (adversary and codex). At 6 kinds the prototype's predicated baseline is honest: a mask-select rewrite gave 7.8, no faster. But its generator is slow (≈5 cycles/op vs K4's ≈1.6), so K6 must first fix the generator.
+- Step 0, gate by arithmetic: for each candidate stream, measure computed-goto branch-misses/op (perf) and generation-only cycles/op. An interpreter costs ≈3 + 20×misses cycles/op. If that is < 2×(gen + ~1), kill for that stream without building more.
+- Generator: K4's design (precomputed template lengths, a single copy plus immediate patch; no overlapping memcpy plus byte patching). Correctness compares **all** registers and final state, across every implementation.
+- Baselines: computed-goto, predicated/branch-free, and a **hybrid** (predicate the cheap ALU group, branch on rare expensive ops). Report the best per stream. Opcode bucketing or SIMD only where register dependencies allow; charge all overheads.
+- Streams:
+  1. one synthetic stream (16 kinds, uneven costs, random), and a one-dimensional predictability sweep (entropy of the opcode distribution), to locate the crossover;
+  2. a **naturally supplied command stream**: either Lua 5.4.6 bytecode at PCs that execute exactly once (module and init code, with faithful register semantics for the supported subset), or a PDF/PostScript-style content stream subset (path and text operators over a graphics-state register file) taken from real files;
+  3. the full Lua benchmark trace, as the *predictable control* (expected to lose).
+- Measurement: perf cycles, instructions, branch-misses, `ic_cache_fill_*`, pinned, repeated (≥5), with serialized timing.
+- Rule: ≥2× the best baseline on the natural stream means run-once code beats interpretation for once-executed command streams, so continue. Otherwise report the crossover (misses/op where run-once wins) and the measured position of natural streams relative to it. That kills it as a general execution model for natural streams, while still recording it as a known-but-unused technique with a measured regime.
