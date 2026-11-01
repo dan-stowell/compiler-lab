@@ -1,0 +1,3 @@
+# total_tokens=13660 n_decls=578 n_funcs=46 n_static_defs=31 static_defs_named_in_source=31 static_emitted_in_full_asm=28 targets=1 control_recompile=29/29 control_rejoin=29/29
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full
+luaopen_base,0,0.0447,611,0,1,80,0,0.0447,d0:1f/611t/ok,d0:1f/611t/ok,

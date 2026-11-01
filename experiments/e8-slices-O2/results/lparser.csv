@@ -1,0 +1,4 @@
+# total_tokens=24173 n_decls=652 n_funcs=96 n_static_defs=94 static_defs_named_in_source=94 static_emitted_in_full_asm=21 targets=2 control_recompile=23/23 control_rejoin=23/23
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full
+luaY_nvarstack,2,0.0659,1594,2,3,19,2,0.1844,d0:1f/1518t/mismatch d1:2f/1574t/mismatch d2:3f/1594t/ok,d0:1f/1518t/mismatch d1:8f/2895t/mismatch d2:16f/4458t/ok,reglevel
+luaY_parser,5,0.4696,11352,9,96,629,4,0.4886,d0:1f/2497t/mismatch d1:2f/2874t/mismatch d2:8f/4262t/mismatch d3:15f/5318t/mismatch d4:37f/8178t/mismatch d5:60f/11352t/ok,d0:1f/2497t/mismatch d1:2f/2874t/mismatch d2:16f/5882t/mismatch d3:31f/8283t/mismatch d4:57f/11812t/ok,mainfunc

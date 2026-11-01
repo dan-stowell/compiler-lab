@@ -1,0 +1,23 @@
+# total_tokens=21394 n_decls=676 n_funcs=44 n_static_defs=18 static_defs_named_in_source=18 static_emitted_in_full_asm=7 targets=21 control_recompile=28/28 control_rejoin=28/28
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full
+luaD_seterrorobj,0,0.0850,1818,0,1,395,0,0.0850,d0:1f/1818t/ok,d0:1f/1818t/ok,
+luaD_throw,0,0.0626,1340,0,1,207,0,0.0626,d0:1f/1340t/ok,d0:1f/1340t/ok,
+luaD_rawrunprotected,0,0.0557,1192,0,1,94,0,0.0557,d0:1f/1192t/ok,d0:1f/1192t/ok,
+luaD_reallocstack,1,0.1050,2247,1,4,278,1,0.1050,d0:1f/1432t/mismatch d1:4f/2247t/ok,d0:1f/1432t/mismatch d1:4f/2247t/ok,relstack
+luaD_growstack,0,0.0645,1379,2,5,203,0,0.0645,d0:1f/1379t/ok,d0:1f/1379t/ok,
+luaD_shrinkstack,1,0.0789,1687,2,6,108,1,0.0789,d0:1f/1230t/mismatch d1:3f/1687t/ok,d0:1f/1230t/mismatch d1:3f/1687t/ok,stackinuse
+luaD_inctop,0,0.0549,1174,3,6,79,0,0.0549,d0:1f/1174t/ok,d0:1f/1174t/ok,
+luaD_hook,0,0.0725,1552,3,6,445,0,0.0725,d0:1f/1552t/ok,d0:1f/1552t/ok,
+luaD_hookcall,0,0.0741,1585,4,7,141,0,0.0741,d0:1f/1585t/ok,d0:1f/1585t/ok,
+luaD_tryfuncTM,0,0.0746,1595,3,6,422,0,0.0746,d0:1f/1595t/ok,d0:1f/1595t/ok,
+luaD_poscall,1,0.1123,2403,5,9,93,1,0.1123,d0:1f/1192t/mismatch d1:3f/2403t/ok,d0:1f/1192t/mismatch d1:3f/2403t/ok,moveresults
+luaD_pretailcall,0,0.1004,2148,3,13,638,0,0.1004,d0:1f/2148t/ok,d0:1f/2148t/ok,
+luaD_precall,1,0.1549,3314,3,13,537,1,0.1862,d0:1f/2064t/mismatch d1:5f/3314t/ok,d0:1f/2064t/mismatch d1:6f/3983t/ok,prepCallInfo
+luaD_call,1,0.0670,1434,5,15,26,1,0.0825,d0:1f/1108t/mismatch d1:2f/1434t/ok,d0:1f/1108t/mismatch d1:4f/1765t/ok,ccall
+luaD_callnoyield,1,0.0672,1438,5,15,30,1,0.0825,d0:1f/1112t/mismatch d1:2f/1438t/ok,d0:1f/1112t/mismatch d1:4f/1765t/ok,ccall
+lua_resume,2,0.1647,3524,6,26,335,2,0.1696,d0:1f/1532t/mismatch d1:6f/2948t/mismatch d2:10f/3524t/ok,d0:1f/1532t/mismatch d1:6f/2948t/mismatch d2:12f/3628t/ok,precover resume_error
+lua_isyieldable,0,0.0502,1075,0,1,25,0,0.0502,d0:1f/1075t/ok,d0:1f/1075t/ok,
+lua_yieldk,0,0.0645,1379,1,2,245,0,0.0645,d0:1f/1379t/ok,d0:1f/1379t/ok,
+luaD_closeprotected,0,0.0595,1273,1,3,130,0,0.0595,d0:1f/1273t/ok,d0:1f/1273t/ok,
+luaD_pcall,0,0.0647,1384,3,11,156,0,0.0647,d0:1f/1384t/ok,d0:1f/1384t/ok,
+luaD_protectedparser,1,0.1199,2565,4,14,419,1,0.1199,d0:1f/1820t/mismatch d1:3f/2565t/ok,d0:1f/1820t/mismatch d1:3f/2565t/ok,luaD_pcall

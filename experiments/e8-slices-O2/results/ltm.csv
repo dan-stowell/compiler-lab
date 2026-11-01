@@ -1,0 +1,16 @@
+# total_tokens=12989 n_decls=511 n_funcs=15 n_static_defs=1 static_defs_named_in_source=1 static_emitted_in_full_asm=1 targets=14 control_recompile=15/15 control_rejoin=15/15
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full
+luaT_init,0,0.1159,1505,0,1,143,0,0.1159,d0:1f/1505t/ok,d0:1f/1505t/ok,
+luaT_gettm,0,0.0855,1111,0,1,95,0,0.0855,d0:1f/1111t/ok,d0:1f/1111t/ok,
+luaT_gettmbyobj,0,0.1181,1534,0,1,184,0,0.1181,d0:1f/1534t/ok,d0:1f/1534t/ok,
+luaT_objtypename,0,0.1349,1752,0,1,302,0,0.1349,d0:1f/1752t/ok,d0:1f/1752t/ok,
+luaT_callTM,0,0.1103,1433,0,1,382,0,0.1103,d0:1f/1433t/ok,d0:1f/1433t/ok,
+luaT_callTMres,0,0.1154,1499,0,1,450,0,0.1154,d0:1f/1499t/ok,d0:1f/1499t/ok,
+luaT_trybinTM,0,0.0972,1263,2,4,166,0,0.0972,d0:1f/1263t/ok,d0:1f/1263t/ok,
+luaT_tryconcatTM,0,0.0875,1136,2,4,94,0,0.0875,d0:1f/1136t/ok,d0:1f/1136t/ok,
+luaT_trybinassocTM,1,0.1046,1359,3,5,59,1,0.1046,d0:1f/1119t/mismatch d1:2f/1359t/ok,d0:1f/1119t/mismatch d1:2f/1359t/ok,luaT_trybinTM
+luaT_trybiniTM,0,0.0892,1159,4,6,95,0,0.0892,d0:1f/1159t/ok,d0:1f/1159t/ok,
+luaT_callorderTM,0,0.1014,1317,2,4,262,0,0.1014,d0:1f/1317t/ok,d0:1f/1317t/ok,
+luaT_callorderiTM,0,0.0951,1235,3,5,183,0,0.0951,d0:1f/1235t/ok,d0:1f/1235t/ok,
+luaT_adjustvarargs,0,0.1199,1557,0,1,391,0,0.1199,d0:1f/1557t/ok,d0:1f/1557t/ok,
+luaT_getvarargs,0,0.1072,1392,0,1,357,0,0.1072,d0:1f/1392t/ok,d0:1f/1392t/ok,

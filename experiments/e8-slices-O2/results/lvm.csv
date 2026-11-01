@@ -1,0 +1,19 @@
+# total_tokens=74644 n_decls=1119 n_funcs=44 n_static_defs=15 static_defs_named_in_source=15 static_emitted_in_full_asm=2 targets=17 control_recompile=19/19 control_rejoin=19/19
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full
+luaV_tonumber_,1,0.0233,1738,1,2,167,1,0.0249,d0:1f/1169t/mismatch d1:2f/1738t/ok,d0:1f/1169t/mismatch d1:3f/1862t/ok,l_strton
+luaV_flttointeger,0,0.0023,170,0,1,106,0,0.0023,d0:1f/170t/ok,d0:1f/170t/ok,
+luaV_tointegerns,1,0.0171,1274,1,2,122,1,0.0171,d0:1f/1162t/mismatch d1:2f/1274t/ok,d0:1f/1162t/mismatch d1:2f/1274t/ok,luaV_flttointeger
+luaV_tointeger,2,0.0258,1928,2,4,45,2,0.0284,d0:1f/1103t/mismatch d1:3f/1816t/mismatch d2:4f/1928t/ok,d0:1f/1103t/mismatch d1:4f/2006t/mismatch d2:5f/2118t/ok,l_strton luaV_tointegerns
+luaV_finishget,0,0.0283,2113,0,1,599,0,0.0283,d0:1f/2113t/ok,d0:1f/2113t/ok,
+luaV_finishset,0,0.0322,2401,0,1,826,0,0.0322,d0:1f/2401t/ok,d0:1f/2401t/ok,
+luaV_lessthan,never,1.0000,74644,3,7,88,3,0.6359,d0:1f/1116t/mismatch d1:3f/1867t/mismatch d2:6f/2370t/mismatch d3:7f/2482t/mismatch,d0:1f/1116t/mismatch d1:4f/46747t/mismatch d2:8f/47374t/mismatch d3:9f/47466t/ok,LTnum
+luaV_lessequal,never,1.0000,74644,3,7,88,3,0.6359,d0:1f/1116t/mismatch d1:3f/1867t/mismatch d2:6f/2370t/mismatch d3:7f/2482t/mismatch,d0:1f/1116t/mismatch d1:4f/46747t/mismatch d2:8f/47374t/mismatch d3:9f/47466t/ok,LEnum
+luaV_equalobj,2,0.0442,3297,2,3,1577,2,0.0442,d0:1f/3041t/mismatch d1:2f/3185t/mismatch d2:3f/3297t/ok,d0:1f/3041t/mismatch d1:2f/3185t/mismatch d2:3f/3297t/ok,luaV_tointegerns
+luaV_concat,1,0.0403,3006,1,2,1277,1,0.0403,d0:1f/2731t/mismatch d1:2f/3006t/ok,d0:1f/2731t/mismatch d1:2f/3006t/ok,copy2buff
+luaV_objlen,0,0.0268,2001,0,1,528,0,0.0268,d0:1f/2001t/ok,d0:1f/2001t/ok,
+luaV_idiv,0,0.0153,1143,0,1,117,0,0.0153,d0:1f/1143t/ok,d0:1f/1143t/ok,
+luaV_mod,0,0.0150,1118,0,1,92,0,0.0150,d0:1f/1118t/ok,d0:1f/1118t/ok,
+luaV_modf,0,0.0145,1084,0,1,78,0,0.0145,d0:1f/1084t/ok,d0:1f/1084t/ok,
+luaV_shiftl,0,0.0021,155,0,1,124,0,0.0021,d0:1f/155t/ok,d0:1f/155t/ok,
+luaV_finishOp,0,0.0283,2109,2,3,923,0,0.0283,d0:1f/2109t/ok,d0:1f/2109t/ok,
+luaV_execute,never,1.0000,74644,3,29,43414,3,0.7507,d0:1f/46213t/mismatch d1:18f/54198t/mismatch d2:27f/55541t/mismatch d3:29f/55806t/mismatch,d0:1f/46213t/mismatch d1:20f/54430t/mismatch d2:29f/55773t/mismatch d3:31f/56038t/ok,LEnum LTnum floatforloop forprep luaV_idiv luaV_mod luaV_modf luaV_shiftl luaV_tointegerns pushclosure

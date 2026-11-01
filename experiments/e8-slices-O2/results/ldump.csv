@@ -1,0 +1,3 @@
+# total_tokens=8094 n_decls=398 n_funcs=15 n_static_defs=14 static_defs_named_in_source=14 static_emitted_in_full_asm=2 targets=1 control_recompile=3/3 control_rejoin=3/3
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full
+luaU_dump,2,0.3440,2784,3,15,94,2,0.3616,d0:1f/1343t/mismatch d1:4f/1750t/mismatch d2:14f/2784t/ok,d0:1f/1343t/mismatch d1:7f/2279t/mismatch d2:15f/2927t/ok,dumpByte dumpHeader

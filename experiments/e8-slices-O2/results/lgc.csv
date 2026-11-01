@@ -1,0 +1,13 @@
+# total_tokens=25776 n_decls=662 n_funcs=80 n_static_defs=62 static_defs_named_in_source=62 static_emitted_in_full_asm=15 targets=11 control_recompile=26/26 control_rejoin=26/26
+target,smallest_d,slice_frac,slice_tokens,reach_max_d,reach_bodies,target_tokens,callers_d,callers_frac,levels(d:bodies/tokens/status),callers_levels,inlined_in_full
+luaC_barrier_,0,0.0477,1230,2,4,213,0,0.0477,d0:1f/1230t/ok,d0:1f/1230t/ok,
+luaC_barrierback_,1,0.0733,1890,1,3,183,1,0.2258,d0:1f/1533t/mismatch d1:3f/1890t/ok,d0:1f/1533t/mismatch d1:12f/5821t/ok,getgclist linkgclist_
+luaC_fix,0,0.0434,1119,0,1,132,0,0.0434,d0:1f/1119t/ok,d0:1f/1119t/ok,
+luaC_newobjdt,0,0.0448,1154,0,1,136,0,0.0448,d0:1f/1154t/ok,d0:1f/1154t/ok,
+luaC_newobj,1,0.0468,1207,1,2,28,1,0.0468,d0:1f/1064t/mismatch d1:2f/1207t/ok,d0:1f/1064t/mismatch d1:2f/1207t/ok,luaC_newobjdt
+luaC_checkfinalizer,2,0.0688,1774,4,7,339,2,0.0744,d0:1f/1386t/mismatch d1:3f/1504t/mismatch d2:5f/1774t/ok,d0:1f/1386t/mismatch d1:4f/1560t/mismatch d2:7f/1919t/ok,correctpointers
+luaC_changemode,never,1.0000,25776,6,52,57,never,1.0000,d0:1f/1065t/mismatch d1:3f/1288t/mismatch d2:8f/2574t/mismatch d3:21f/5626t/mismatch d4:36f/8668t/mismatch d5:48f/11996t/mismatch d6:52f/13078t/mismatch,d0:1f/1065t/mismatch d1:5f/1481t/mismatch d2:13f/3634t/mismatch d3:40f/10910t/mismatch d4:59f/14119t/mismatch d5:63f/15153t/mismatch d6:65f/15395t/mismatch,enterinc
+luaC_freeallobjects,5,0.3764,9702,7,54,113,3,0.2624,d0:1f/1499t/mismatch d1:5f/1790t/mismatch d2:10f/3432t/mismatch d3:18f/4677t/mismatch d4:30f/7556t/mismatch d5:42f/9702t/ok,d0:1f/1499t/mismatch d1:7f/2431t/mismatch d2:18f/5289t/mismatch d3:28f/6763t/ok,callallpendingfinalizers deletelist luaC_changemode separatetobefnz
+luaC_runtilstate,0,0.0405,1043,5,41,48,0,0.0405,d0:1f/1043t/ok,d0:1f/1043t/ok,
+luaC_step,never,1.0000,25776,5,60,74,4,0.5920,d0:1f/1104t/mismatch d1:3f/1503t/mismatch d2:9f/2606t/mismatch d3:23f/5171t/mismatch d4:48f/12036t/mismatch d5:60f/14460t/mismatch,d0:1f/1104t/mismatch d1:3f/1503t/mismatch d2:13f/2862t/mismatch d3:27f/5438t/mismatch d4:62f/15259t/ok,genstep incstep
+luaC_fullgc,never,1.0000,25776,6,55,64,never,1.0000,d0:1f/1076t/mismatch d1:3f/1240t/mismatch d2:8f/1683t/mismatch d3:14f/3337t/mismatch d4:32f/7026t/mismatch d5:48f/11825t/mismatch d6:55f/13334t/mismatch,d0:1f/1076t/mismatch d1:4f/1456t/mismatch d2:13f/2644t/mismatch d3:20f/4632t/mismatch d4:51f/12467t/mismatch d5:64f/15307t/mismatch d6:67f/15611t/mismatch,fullgen fullinc
