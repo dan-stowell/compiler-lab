@@ -10,3 +10,14 @@ Prototypes are in `experiments/p0-prototypes/` (single runs, unverified).
 - **M6. Linear-sketch (IBLT) state.** Finds differences between snapshots in O(d). A dirty log wins wherever there is a single writer.
 
 Measurement note: use /usr/lib/linux-tools-6.8.0-147/perf. Zen 4 events `ls_any_fills_from_sys.*` and `ic_cache_fill_*` work, but miss L2-prefetcher fills, so streaming baselines are undercounted.
+
+## Round 2 (ideator, 2026-11-01)
+
+Observation: every route to a ≥100× DRAM cut found so far comes from one of three sources: (1) data never needed, because a generator produces it; (2) reuse across versions or queries; (3) the baseline making many passes, one of which can be removed. No new model added a fourth source.
+
+- **R1. Run-once code, never kept.** A description is expanded into machine code in 4 KiB chunks in a single-page RWX ring, each executed once and then overwritten; the expanded program never exists whole. Closest known: JITs and Pike's Blit bitblt compiler (both cache code). Prototype `round2/ring.c` (single runs): 1.42–1.61 ns per generated instruction at 680 instructions per chunk, against 1.16 ns for a native generator loop, so about 1.3× native (vs E12's ~70× decode). Each write-then-execute switch costs ~40–50 ns.
+- **R2. Fixpoint-only programs with time skew.** Asynchronous iteration licensed by the semantics. Prototype `round2/skew.py`: PageRank, 99% block-local edges, 7 global passes vs 76 (Gauss–Seidel). Random graphs: 34 passes regardless. **Dead:** the gain is capped by the baseline's pass count (best ≈18×).
+- **R3. Huge random objects with global constraints.** A sorted 2^40-element seeded column exists only as a recursive binomial split tree. Closest known: Goldreich–Goldwasser–Nussboim; Sanders' recursive sampling. Open question: do operations compose (joins)?
+- **R4. Reuse decided by certificate.** Store the output plus a certificate; a one-pass verifier decides whether the old output holds for a new, opaque input. Ceiling: recompute passes ÷ 1.
+- **R5. Lossy residents, exact outputs.** MSB-first bit-planes with interval demand. Ceiling ≤64× by construction.
+- Dropped: page-table values, runtime residency probing, dropping dirty lines, bit-sliced version lanes, superposed programs over one scan (shared scans), future-read-time addressing, tier-explicit messages (Sequoia), seed search for real data (fractal compression).

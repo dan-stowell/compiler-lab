@@ -37,3 +37,18 @@ Before any language is built, each model gets a cheap kill test against its **st
 - Number: DRAM bytes (corrected counter, plus computed bytes) and instructions, model vs the blocked schedule. Report the recomputation factor.
 - Rule: ≥100× fewer DRAM bytes than the blocked schedule means residency-as-meaning moves a known lower bound by exploiting regenerable roots. The cost in instructions is reported, not judged. Otherwise drop P3.
 - Note: with seeded leaves, the blocked schedule's compulsory traffic is only spills (no input read). This is the honest comparison.
+
+## K4 (R1): Run-once generated code on a data-dependent program
+- Semantics: a program is a generator emitting x86 machine code in chunks into a fixed 4 KiB–64 KiB RWX ring. Each chunk is executed once and overwritten. Generated code never exists whole, and no code bytes are fetched from DRAM.
+- Operation: run a DFA (|Q| = 256, from a fixed regex set) over a 1 GiB input, where the generator **specializes code to the data**: for each 4 KiB input block it emits straight-line code with the input bytes as immediates and transitions resolved at generation time. The generated code is the input fused with the program.
+- Baselines: a table-driven DFA (the strongest; its data movement is the input once plus the table) and an interpreter.
+- Number: total cycles, instructions, `ic_cache_fill_*`, and DRAM bytes (corrected counter), model vs table-driven, including generation.
+- Rule (judged on what the model reveals, not speed): report the generation cost per input byte and per generated instruction against R1's 1.3× microbenchmark. If the data-specialized run-once code is within 3× of the table-driven DFA in cycles, "fusing data into throwaway code" is a viable execution model, so look for a workload where specialization removes work the table version must do. Above 10×, the model only works when generation is data-independent.
+- Failure workload: tiny chunks (<64 instructions), measured explicitly.
+
+## K5 (R3): Do huge random objects compose?
+- Semantics: a sorted column of N seeded values (N up to 2^40) exists only as a recursive split tree. Node (range, count, seed) splits its count binomially between halves using its seed. Leaves materialize at ≤64 values.
+- Operations: (a) range count and range sum in O(log N) node visits, the expected easy case; (b) an equi-join count between two independent columns with overlapping key ranges, by simultaneous recursive descent.
+- Baseline: materialization, which is impossible at 2^40 (stated), and at N = 2^26 for correctness checks against an exact sort-merge join.
+- Number: node visits as a function of N for (b).
+- Rule: if join visits grow sub-linearly (for example O(√N) or polylog for a sampled-key-space join), operations compose, and generated objects support relational algebra without materialization. If they grow Θ(N), the model supports only single-object queries; record that.
