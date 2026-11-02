@@ -1,0 +1,30 @@
+check Q=0 nops=4194304 cgoto=fb6dee83088fc9b7 pred=fb6dee83088fc9b7 hybrid=fb6dee83088fc9b7 jit=fb6dee83088fc9b7 distinct_regs=8 OK
+stats Q=0 nops=16777216 entropy_bits=4.000 add_frac=0.062 divrem_frac=0.1249 depth_unit=2730805 ops_per_level=6.14 depth_weighted=9865547 weighted_cyc_per_op=0.588
+check Q=250 nops=4194304 cgoto=1512b02f8c2afcf8 pred=1512b02f8c2afcf8 hybrid=1512b02f8c2afcf8 jit=1512b02f8c2afcf8 distinct_regs=13 OK
+stats Q=250 nops=16777216 entropy_bits=3.625 add_frac=0.297 divrem_frac=0.0938 depth_unit=2730805 ops_per_level=6.14 depth_weighted=8433647 weighted_cyc_per_op=0.503
+check Q=500 nops=4194304 cgoto=37aa105ff14a579e pred=37aa105ff14a579e hybrid=37aa105ff14a579e jit=37aa105ff14a579e distinct_regs=15 OK
+stats Q=500 nops=16777216 entropy_bits=2.830 add_frac=0.531 divrem_frac=0.0625 depth_unit=2730805 ops_per_level=6.14 depth_weighted=6871951 weighted_cyc_per_op=0.410
+check Q=700 nops=4194304 cgoto=1075b8b85c24e7c6 pred=1075b8b85c24e7c6 hybrid=1075b8b85c24e7c6 jit=1075b8b85c24e7c6 distinct_regs=16 OK
+stats Q=700 nops=16777216 entropy_bits=1.957 add_frac=0.719 divrem_frac=0.0375 depth_unit=2730805 ops_per_level=6.14 depth_weighted=5465260 weighted_cyc_per_op=0.326
+check Q=800 nops=4194304 cgoto=2bbe091095d4de08 pred=2bbe091095d4de08 hybrid=2bbe091095d4de08 jit=2bbe091095d4de08 distinct_regs=16 OK
+stats Q=800 nops=16777216 entropy_bits=1.429 add_frac=0.812 divrem_frac=0.0250 depth_unit=2730805 ops_per_level=6.14 depth_weighted=4672714 weighted_cyc_per_op=0.279
+check Q=900 nops=4194304 cgoto=4941232c3ea5170b pred=4941232c3ea5170b hybrid=4941232c3ea5170b jit=4941232c3ea5170b distinct_regs=16 OK
+stats Q=900 nops=16777216 entropy_bits=0.815 add_frac=0.906 divrem_frac=0.0125 depth_unit=2730805 ops_per_level=6.14 depth_weighted=3785585 weighted_cyc_per_op=0.226
+check Q=950 nops=4194304 cgoto=91ab3b5ad03938e9 pred=91ab3b5ad03938e9 hybrid=91ab3b5ad03938e9 jit=91ab3b5ad03938e9 distinct_regs=16 OK
+stats Q=950 nops=16777216 entropy_bits=0.456 add_frac=0.953 divrem_frac=0.0063 depth_unit=2730805 ops_per_level=6.14 depth_weighted=3282891 weighted_cyc_per_op=0.196
+check Q=980 nops=4194304 cgoto=4662fe58c225cf15 pred=4662fe58c225cf15 hybrid=4662fe58c225cf15 jit=4662fe58c225cf15 distinct_regs=16 OK
+stats Q=980 nops=16777216 entropy_bits=0.208 add_frac=0.981 divrem_frac=0.0025 depth_unit=2730805 ops_per_level=6.14 depth_weighted=2961206 weighted_cyc_per_op=0.177
+check Q=1000 nops=4194304 cgoto=a31e272015f12c43 pred=a31e272015f12c43 hybrid=a31e272015f12c43 jit=a31e272015f12c43 distinct_regs=1 OK
+stats Q=1000 nops=16777216 entropy_bits=0.000 add_frac=1.000 divrem_frac=0.0000 depth_unit=2730805 ops_per_level=6.14 depth_weighted=2730805 weighted_cyc_per_op=0.163
+check data/natural-once.k6p expected=325e4d39855f39b5 cgoto=325e4d39855f39b5 hybrid=325e4d39855f39b5 jit=325e4d39855f39b5 acc=18 OK
+stats data/natural-once.k6p recs=16333 writes=5915 ext_writes_per_ext=0.62 depth=5 recs_per_level=3266.6 mismatches=0
+  kinds: MOVE=0.414 EXT=0.580 LOADNIL=0.005 ADD=0.000 EQ=0.001 TEST=0.001
+  kind_entropy_bits=1.041
+check data/natural-full.k6p expected=b03f233d2dcdaa9e cgoto=b03f233d2dcdaa9e hybrid=b03f233d2dcdaa9e jit=b03f233d2dcdaa9e acc=3619 OK
+stats data/natural-full.k6p recs=86685 writes=65487 ext_writes_per_ext=1.11 depth=88 recs_per_level=985.1 mismatches=0
+  kinds: MOVE=0.251 EXT=0.678 LOADNIL=0.001 ADD=0.002 FORLOOP=0.001 EQ=0.017 LT=0.039 TEST=0.011
+  kind_entropy_bits=1.270
+check data/bench-full.k6p expected=d8de28493c52ca0e cgoto=d8de28493c52ca0e hybrid=d8de28493c52ca0e jit=d8de28493c52ca0e acc=86213 OK
+stats data/bench-full.k6p recs=5954336 writes=1699022 ext_writes_per_ext=0.78 depth=6008 recs_per_level=991.1 mismatches=0
+  kinds: MOVE=0.135 EXT=0.366 ADD=0.197 SUB=0.040 MUL=0.164 DIV=0.031 SHL=0.000 FORLOOP=0.037 EQ=0.010 LT=0.010 TEST=0.010
+  kind_entropy_bits=2.523
