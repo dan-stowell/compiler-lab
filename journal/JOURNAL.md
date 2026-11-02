@@ -2,6 +2,19 @@
 
 Newest first. "Measured" means a run whose script is in the repo; "estimated" means arithmetic or analysis.
 
+## 2026-11-02: Phase 3 (implicit worlds): wound up at the design stage
+
+Phase 3 asked whether large states can stay implicit across chains of independent operations, through three models: relationships first (rectangle covers), shared latent state (low-rank), and intensional results (piecewise-polynomial columns). See `phase3-brief.md` and `phase3-plan.md`. Experiments Q1–Q3 were started and then stopped when the phase was wound up. Q2 and Q3 left unrun source (`experiments/q2-*`, `q3-*`, marked `STATUS.md`); Q1 left nothing. **No phase-3 numbers are measured.**
+
+Conclusions reached at the design and review stage. These are analytic, from an ideator plus two adversarial reviews and codex, and not measured:
+- **Composition criterion (hypothesis, untested):** an operation composes compactly iff it distributes over the representation's terms: linear operations add term counts, bilinear ones multiply them. What forces materialization is any operation whose value at an element depends on the **interaction of terms** there: distinct/difference under set semantics, pointwise nonlinearity (ReLU, hashing) under low rank, and composition of unaligned index maps (reorder, then zip) under piecewise models. The cost then becomes the number of overlap cells, Θ(N) for generic or independent inputs; K5 is the special case.
+- **Where 100× can and cannot come from:**
+  - (a) When the model is handed the structure, a baseline handed the same generator or factors also moves ~0 DRAM: phase 2's "data never needed" source.
+  - (b) When structure must be discovered from materialized input, the strongest baselines need only 1–2 passes (XᵀX plus a sketch; histogram plus multiselect), and discovery costs ≥1, so the ceiling is ≤2× for Q2 and Q3.
+  - (c) Given equal structural information, structure-aware conventional systems (factorized/d-representations, cover-aware bitsets, factor-aware BLAS, pieces plus selection) match each model wherever the operations distribute.
+- **The one open case:** Q1's set-semantics projection of a join variable at sparse rectangle overlap, against row-deduplicated adjacency with Boolean bitset products. Also untested: a regime with an equal resident-memory budget, with independent queries arriving online over data that is expensive to regenerate.
+- Design pitfalls caught in review: overlap ≈128 makes Q1's set semantics degenerate (every pair non-empty); a non-negative product makes Q3's running total monotone and collapses the chain; "power iteration on X" isn't a real breaker (it runs on the in-cache covariance).
+
 ## 2026-11-02: Phase 2, kill tests K1–K6 (all verified)
 
 12 candidate models were generated first (`phase2-models-*.md`). Plan review found that the first three picks were known techniques against strawman baselines, so each got a kill test against its **strongest** baseline. Known techniques that production compilers don't use are recorded as such, per Dan.
