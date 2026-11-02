@@ -10,7 +10,7 @@ set -eu
 cd "$(dirname "$0")"
 PERF=/usr/lib/linux-tools-6.8.0-147/perf
 [ -x $PERF ] || { echo "perf missing at $PERF"; exit 1; }
-CPU=${CPU:-5}
+CPU=${CPU:-6}
 REPS=${REPS:-5}
 CM=${CM:-128}
 EVA=cycles:u,instructions:u,ic_cache_fill_l2:u,ic_cache_fill_sys:u,ls_any_fills_from_sys.dram_io_all:u
@@ -47,16 +47,20 @@ for r in $(seq $REPS); do
     measure $g control control seeded
     for inp in seeded text:data/text.list; do
       measure $g main table $inp 65536 0 $G
+      measure $g main tableB $inp 65536 0 $G
       measure $g main interp $inp 65536 0 $G
       for ring in 4096 16384 65536; do
         measure $g main jit $inp $ring 0 $G
         measure $g main gen $inp $ring 0 $G
+        measure $g main jitL $inp $ring 0 $G
+        measure $g main genL $inp $ring 0 $G
       done
     done
   done
   # failure curve: 128 MiB seeded input (past the 32 MiB L3), 64 KiB ring, chunk = n input bytes
   # (3n+5 generated instructions per chunk); group A only.
   measure A curve table seeded 65536 0 $CM
+  measure A curve tableB seeded 65536 0 $CM
   for n in 1 2 4 8 16 19 32 64 128 256 1024 5460; do
     measure A curve jit seeded 65536 $n $CM
     measure A curve gen seeded 65536 $n $CM

@@ -3,8 +3,95 @@ selftest prefix=1048576 naive=76175 table=76175 OK |Q|=256 A=70 words=63
 patterns: auto|break|case|char|const|continue|default|do|double|else|enum|extern|float|for|goto|if|int|long|register|return|short|signed|sizeof|static|struct|switch|typedef|union|unsigned|void|volatile|while|and|elseif|end|false|function|in|local|nil|not|or|repeat|then|true|until|lua_State|luaL_|TValue|setobj|Token|Node|Type|malloc|include|define|NULL|uint8_t|size_t|printf|error|assert|strcmp
 selftest prefix=1048576 naive=46385 table=46385 OK |Q|=256 A=70 words=63
 patterns: auto|break|case|char|const|continue|default|do|double|else|enum|extern|float|for|goto|if|int|long|register|return|short|signed|sizeof|static|struct|switch|typedef|union|unsigned|void|volatile|while|and|elseif|end|false|function|in|local|nil|not|or|repeat|then|true|until|lua_State|luaL_|TValue|setobj|Token|Node|Type|malloc|include|define|NULL|uint8_t|size_t|printf|error|assert|strcmp
-start 2026-11-01T23:27:33Z loadavg 11.47 9.70 7.66 13/298 1123544 cpu=5
+start 2026-11-01T23:51:31Z loadavg 0.42 0.79 3.23 1/268 1180093 cpu=6
 rep 1
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
 Events disabled
 Events enabled
 Events disabled
@@ -360,7 +447,181 @@ Events disabled
 Events disabled
 Events enabled
 Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
 rep 3
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
 Events disabled
 Events enabled
 Events disabled
@@ -716,6 +977,93 @@ Events disabled
 Events disabled
 Events enabled
 Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
 rep 5
 Events disabled
 Events enabled
@@ -894,55 +1242,165 @@ Events disabled
 Events disabled
 Events enabled
 Events disabled
-end 2026-11-01T23:40:51Z loadavg 1.14 3.46 6.01 1/260 1177685
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+Events disabled
+Events enabled
+Events disabled
+end 2026-11-02T00:12:03Z loadavg 1.67 1.52 1.87 1/268 1192583
 == noise control (fixed 2^28 splitmix chain, pinned) ==
-runs=10 median ns=993.7 ms (range 20.3% of median); median cycles=3500.2 M (range 0.8%); load1 at runs: min 1.14 max 12.50
-effective GHz (cycles/ns, median) = 3.52
+runs=10 median ns=1000.1 ms (range 81.1% of median); median cycles=3492.3 M (range 0.3%); load1 at runs: min 0.42 max 1.91
+effective GHz (cycles/ns, median) = 3.49
 
 == input seeded, N=1073741824 bytes; final (state, matches) over table/interp/jit = [('70', '77833848')] -> AGREE ==
-mode      ring chunk    ns/B ns rng%  cyc/B  ins/B   IPC icL2/KiB icSys/MiB DRAM B/B code B/B x table
-table    65536  5460   1.434    24.2   5.15   7.00  1.36     0.04     10.88    1.017     0.00    1.00
-interp   65536  5460   1.942    35.3   7.01  26.01  3.71     0.03      8.43    1.182     0.00    1.36
-jit       4096   340   1.690    32.2   6.03  12.16  2.02   192.81     19.22    1.115    12.04    1.17
-jit      16384  1364   1.741    42.7   6.21  12.04  1.94   192.25     34.70    1.175    12.01    1.21
-jit      65536  5460   1.698    43.5   6.09  12.01  1.97   192.79    105.17    1.178    12.00    1.18
-gen       4096   340   0.447    52.9   1.63   9.12  5.61     0.01     10.27    1.014    12.04    0.32
-gen      16384  1364   0.458    39.1   1.58   9.03  5.71     0.00      8.40    1.044    12.01    0.31
-gen      65536  5460   0.494    66.3   1.79   9.01  5.04     0.01      9.02    1.165    12.00    0.35
-generation cost (gen mode = emit only) and jit split (exec = jit - gen, ESTIMATED by subtraction):
-  ring  4096: gen 0.447 ns/input B, 0.148 ns/gen instr, 0.539 cyc/gen instr, 3.015 gen instr/input B; exec(est) 4.40 cyc/B vs table 5.15 cyc/B; jit total 1.17x table cycles, 1.18x table ns
-  ring 16384: gen 0.458 ns/input B, 0.153 ns/gen instr, 0.527 cyc/gen instr, 3.004 gen instr/input B; exec(est) 4.63 cyc/B vs table 5.15 cyc/B; jit total 1.21x table cycles, 1.21x table ns
-  ring 65536: gen 0.494 ns/input B, 0.165 ns/gen instr, 0.595 cyc/gen instr, 3.001 gen instr/input B; exec(est) 4.31 cyc/B vs table 5.15 cyc/B; jit total 1.18x table cycles, 1.18x table ns
+mode      ring chunk    ns/B ns rng%  cyc/B  ins/B   IPC icL2/KiB icSys/MiB DRAM B/B code B/B  x best x 1chain
+table    65536  5460   1.435    95.0   5.07   7.00  1.38     0.01      6.54    1.020     0.00    3.11     1.00
+tableB   65536  5460   0.464    92.4   1.63   7.03  4.32     0.00     14.57    1.075     0.00    1.00     0.32
+interp   65536  5460   2.012    40.1   7.26  26.00  3.58     0.03     12.03    1.159     0.00    4.46     1.43
+jit       4096   340   1.755     6.3   6.27  12.15  1.94   192.81     10.14    1.112    12.04    3.85     1.24
+jit      16384  1364   1.830     8.1   6.55  12.04  1.84   192.26     24.43    1.162    12.01    4.02     1.29
+jit      65536  5460   1.761    95.7   6.36  12.01  1.89   192.84     79.51    1.159    12.00    3.91     1.25
+gen       4096   340   0.584     7.7   2.08   9.11  4.38     0.00      7.29    1.017    12.04    1.28     0.41
+gen      16384  1364   0.592    12.2   2.05   9.03  4.39     0.01      7.21    1.043    12.01    1.26     0.41
+gen      65536  5460   0.587    96.3   2.07   9.01  4.35     0.01      8.76    1.149    12.00    1.27     0.41
+jitL      4096    32   1.330     7.0   4.69  10.26  2.19   244.99     26.83    1.026    15.19    2.88     0.92
+jitL     16384   135   1.203    94.6   4.25   9.15  2.15   238.92     36.69    1.034    14.90    2.61     0.84
+jitL     65536   544   1.086   103.6   3.86   8.89  2.30   239.77     54.67    1.044    14.83    2.37     0.76
+genL      4096    32   0.568    22.2   2.05   7.11  3.47     0.01     21.40    1.064    15.19    1.26     0.40
+genL     16384   135   0.541    99.8   1.94   6.11  3.14     0.01     23.73    1.049    14.90    1.19     0.38
+genL     65536   544   0.554    96.5   1.99   5.87  2.96     0.01     22.85    1.060    14.83    1.22     0.39
+generation cost (gen* = emit only) and split (exec = jit - gen, ESTIMATED by subtraction); vs best table:
+  jit  ring  4096: gen 0.584 ns/input B, 0.194 ns/gen instr, 0.690 cyc/gen instr, 3.015 gen instr/input B, 2.08 gen cyc/B; exec(est) 4.19 cyc/B; best table 1.63 cyc/B; total 3.85x best-table cycles
+  jit  ring 16384: gen 0.592 ns/input B, 0.197 ns/gen instr, 0.684 cyc/gen instr, 3.004 gen instr/input B, 2.05 gen cyc/B; exec(est) 4.49 cyc/B; best table 1.63 cyc/B; total 4.02x best-table cycles
+  jit  ring 65536: gen 0.587 ns/input B, 0.195 ns/gen instr, 0.689 cyc/gen instr, 3.001 gen instr/input B, 2.07 gen cyc/B; exec(est) 4.29 cyc/B; best table 1.63 cyc/B; total 3.91x best-table cycles
+  jitL ring  4096: gen 0.568 ns/input B, 0.181 ns/gen instr, 0.653 cyc/gen instr, 3.137 gen instr/input B, 2.05 gen cyc/B; exec(est) 2.64 cyc/B; best table 1.63 cyc/B; total 2.88x best-table cycles
+  jitL ring 16384: gen 0.541 ns/input B, 0.178 ns/gen instr, 0.639 cyc/gen instr, 3.038 gen instr/input B, 1.94 gen cyc/B; exec(est) 2.31 cyc/B; best table 1.63 cyc/B; total 2.61x best-table cycles
+  jitL ring 65536: gen 0.554 ns/input B, 0.184 ns/gen instr, 0.659 cyc/gen instr, 3.015 gen instr/input B, 1.99 gen cyc/B; exec(est) 1.87 cyc/B; best table 1.63 cyc/B; total 2.37x best-table cycles
+  RULE: best run-once jitL ring 65536 = 3.86 cyc/B vs best table 1.63 cyc/B -> 2.37x
 
 == input text:data/text.list, N=1073741824 bytes; final (state, matches) over table/interp/jit = [('70', '47107915')] -> AGREE ==
-mode      ring chunk    ns/B ns rng%  cyc/B  ins/B   IPC icL2/KiB icSys/MiB DRAM B/B code B/B x table
-table    65536  5460   1.443    47.9   5.09   7.00  1.38     0.01      8.51    1.025     0.00    1.00
-interp   65536  5460   1.970    36.5   6.90  26.01  3.77     0.02      8.29    1.182     0.00    1.35
-jit       4096   340   1.752    36.9   6.16  12.16  1.97   192.82     19.13    1.120    12.04    1.21
-jit      16384  1364   1.783    32.7   6.31  12.04  1.91   192.39     30.54    1.181    12.01    1.24
-jit      65536  5460   1.745    30.4   6.06  12.01  1.98   192.76     87.76    1.178    12.00    1.19
-gen       4096   340   0.492    59.6   1.60   9.12  5.70     0.01      9.34    1.015    12.04    0.31
-gen      16384  1364   0.459    23.5   1.59   9.03  5.68     0.00      9.11    1.047    12.01    0.31
-gen      65536  5460   0.503    28.5   1.76   9.01  5.12     0.01      9.90    1.162    12.00    0.35
-generation cost (gen mode = emit only) and jit split (exec = jit - gen, ESTIMATED by subtraction):
-  ring  4096: gen 0.492 ns/input B, 0.163 ns/gen instr, 0.531 cyc/gen instr, 3.015 gen instr/input B; exec(est) 4.56 cyc/B vs table 5.09 cyc/B; jit total 1.21x table cycles, 1.21x table ns
-  ring 16384: gen 0.459 ns/input B, 0.153 ns/gen instr, 0.529 cyc/gen instr, 3.004 gen instr/input B; exec(est) 4.73 cyc/B vs table 5.09 cyc/B; jit total 1.24x table cycles, 1.24x table ns
-  ring 65536: gen 0.503 ns/input B, 0.168 ns/gen instr, 0.586 cyc/gen instr, 3.001 gen instr/input B; exec(est) 4.30 cyc/B vs table 5.09 cyc/B; jit total 1.19x table cycles, 1.21x table ns
+mode      ring chunk    ns/B ns rng%  cyc/B  ins/B   IPC icL2/KiB icSys/MiB DRAM B/B code B/B  x best x 1chain
+table    65536  5460   1.433   103.7   5.09   7.00  1.37     0.01      5.74    1.023     0.00    3.14     1.00
+tableB   65536  5460   0.470    96.6   1.62   7.03  4.34     0.01     14.98    1.072     0.00    1.00     0.32
+interp   65536  5460   2.079    90.6   7.31  26.00  3.56     0.04     14.49    1.159     0.00    4.51     1.44
+jit       4096   340   1.780   109.4   6.38  12.15  1.90   192.82     16.62    1.113    12.04    3.94     1.25
+jit      16384  1364   1.875    85.9   6.61  12.04  1.82   192.25     28.09    1.164    12.01    4.08     1.30
+jit      65536  5460   1.800    99.9   6.41  12.01  1.87   192.69     81.90    1.157    12.00    3.95     1.26
+gen       4096   340   0.586    89.1   2.09   9.11  4.37     0.00      7.45    1.016    12.04    1.29     0.41
+gen      16384  1364   0.585    89.8   2.04   9.03  4.43     0.01      7.77    1.042    12.01    1.26     0.40
+gen      65536  5460   0.578    94.8   2.07   9.01  4.35     0.01      7.14    1.149    12.00    1.28     0.41
+jitL      4096    32   1.262    91.4   4.47  10.26  2.29   244.98     27.21    1.025    15.19    2.76     0.88
+jitL     16384   135   1.208    91.1   4.27   9.15  2.14   238.92     32.27    1.029    14.90    2.64     0.84
+jitL     65536   544   1.081    92.9   3.80   8.89  2.34   239.79    101.02    1.040    14.83    2.34     0.75
+genL      4096    32   0.562    85.4   2.00   7.11  3.55     0.01     24.38    1.055    15.19    1.24     0.39
+genL     16384   135   0.540    89.7   1.92   6.11  3.18     0.01     24.25    1.047    14.90    1.18     0.38
+genL     65536   544   0.560    82.1   1.97   5.87  2.98     0.01     24.54    1.051    14.83    1.22     0.39
+generation cost (gen* = emit only) and split (exec = jit - gen, ESTIMATED by subtraction); vs best table:
+  jit  ring  4096: gen 0.586 ns/input B, 0.194 ns/gen instr, 0.692 cyc/gen instr, 3.015 gen instr/input B, 2.09 gen cyc/B; exec(est) 4.30 cyc/B; best table 1.62 cyc/B; total 3.94x best-table cycles
+  jit  ring 16384: gen 0.585 ns/input B, 0.195 ns/gen instr, 0.678 cyc/gen instr, 3.004 gen instr/input B, 2.04 gen cyc/B; exec(est) 4.57 cyc/B; best table 1.62 cyc/B; total 4.08x best-table cycles
+  jit  ring 65536: gen 0.578 ns/input B, 0.193 ns/gen instr, 0.691 cyc/gen instr, 3.001 gen instr/input B, 2.07 gen cyc/B; exec(est) 4.34 cyc/B; best table 1.62 cyc/B; total 3.95x best-table cycles
+  jitL ring  4096: gen 0.562 ns/input B, 0.179 ns/gen instr, 0.638 cyc/gen instr, 3.137 gen instr/input B, 2.00 gen cyc/B; exec(est) 2.47 cyc/B; best table 1.62 cyc/B; total 2.76x best-table cycles
+  jitL ring 16384: gen 0.540 ns/input B, 0.178 ns/gen instr, 0.632 cyc/gen instr, 3.038 gen instr/input B, 1.92 gen cyc/B; exec(est) 2.35 cyc/B; best table 1.62 cyc/B; total 2.64x best-table cycles
+  jitL ring 65536: gen 0.560 ns/input B, 0.186 ns/gen instr, 0.654 cyc/gen instr, 3.015 gen instr/input B, 1.97 gen cyc/B; exec(est) 1.83 cyc/B; best table 1.62 cyc/B; total 2.34x best-table cycles
+  RULE: best run-once jitL ring 65536 = 3.80 cyc/B vs best table 1.62 cyc/B -> 2.34x
 
 == failure curve: 128 MiB seeded, 64 KiB ring, chunk = n input bytes (3n+5 instr/chunk), group A ==
-table: 5.08 cyc/B, 1.431 ns/B
+table (1 chain): 5.06 cyc/B; tableB (8 lanes): 1.61 cyc/B; 'x table' = vs tableB
     n instr/chunk jit cyc/B x table jit ns/B gen ns/B gen ns/instr jit ns/chunk icL2/KiB
-    1           8    239.23   47.09   66.733    2.628        0.328         66.7  3033.93
-    2          11    124.18   24.44   34.666    1.538        0.280         69.3  1564.34
-    4          17     78.11   15.38   22.774    1.008        0.237         91.1   918.78
-    8          29     41.97    8.26   13.365    0.744        0.205        106.9   696.61
-   16          53     12.93    2.55    3.689    0.707        0.213         59.0   261.24
-   19          62     10.75    2.12    2.960    0.594        0.182         56.2   242.07
-   32         101      7.59    1.49    2.259    0.545        0.173         72.3   225.02
-   64         197      6.97    1.37    2.049    0.584        0.190        131.1   208.42
-  128         389      6.36    1.25    1.857    0.510        0.168        237.7   200.37
-  256         773      6.25    1.23    1.737    0.488        0.162        444.8   196.22
- 1024        3077      6.23    1.23    1.734    0.510        0.170       1776.1   193.25
- 5460       16385      6.31    1.24    1.773    0.504        0.168       9677.5   192.70
+    1           8    233.77  145.34   65.715    2.462        0.308         65.7  3069.30
+    2          11    138.75   86.27   38.676    1.451        0.264         77.4  1940.98
+    4          17     81.09   50.42   22.494    0.965        0.227         90.0  1011.90
+    8          29     33.50   20.83    9.538    0.753        0.208         76.3   480.24
+   16          53     12.96    8.06    3.593    0.666        0.201         57.5   277.58
+   19          62     10.55    6.56    2.928    0.650        0.199         55.6   229.56
+   32         101      7.83    4.87    2.212    0.635        0.201         70.8   225.58
+   64         197      6.89    4.28    1.927    0.640        0.208        123.3   208.63
+  128         389      6.63    4.12    1.865    0.600        0.198        238.7   200.36
+  256         773      6.57    4.09    1.840    0.575        0.191        471.1   196.18
+ 1024        3077      6.62    4.12    1.899    0.591        0.197       1944.6   193.57
+ 5460       16385      6.41    3.99    1.769    0.578        0.192       9656.3   192.72
 
 ALL RESULTS AGREE
+exit=0

@@ -39,38 +39,47 @@ for inp in ("seeded", "text:data/text.list"):
         continue
     N = float(next(iter(main))[5])
     tbl = next(v for k, v in main.items() if k[1] == "table")
-    tcyc = med(tbl, "cycles", "A")
-    results = {(r["state"], r["matches"]) for k, v in main.items() if k[1] != "gen" for r in v}
+    tblB = next(v for k, v in main.items() if k[1] == "tableB")
+    tcyc1 = med(tbl, "cycles", "A")
+    tcyc = min(tcyc1, med(tblB, "cycles", "A"))  # best table baseline
+    results = {(r["state"], r["matches"]) for k, v in main.items() if not k[1].startswith("gen") for r in v}
     agree = len(results) == 1
     ok &= agree
     print(f"\n== input {inp}, N={N:.0f} bytes; final (state, matches) over table/interp/jit = "
           f"{sorted(results)} -> {'AGREE' if agree else 'DISAGREE'} ==")
     print(f"{'mode':7}{'ring':>7}{'chunk':>6} {'ns/B':>7}{'ns rng%':>8}{'cyc/B':>7}{'ins/B':>7}{'IPC':>6}"
-          f"{'icL2/KiB':>9}{'icSys/MiB':>10}{'DRAM B/B':>9}{'code B/B':>9}{'x table':>8}")
-    order = sorted(main.items(), key=lambda kv: (["table", "interp", "jit", "gen"].index(kv[0][1]), int(kv[0][3])))
+          f"{'icL2/KiB':>9}{'icSys/MiB':>10}{'DRAM B/B':>9}{'code B/B':>9}{'x best':>8}{'x 1chain':>9}")
+    MODES = ["table", "tableB", "interp", "jit", "gen", "jitL", "genL"]
+    order = sorted(main.items(), key=lambda kv: (MODES.index(kv[0][1]), int(kv[0][3])))
     for k, v in order:
         cyc, ins = med(v, "cycles", "A"), med(v, "instructions", "A")
         dram = 64 * (med(v, "ls_any_fills_from_sys.dram_io_all", "B") + med(v, "l2_pf_miss_l2_l3.all", "B"))
         print(f"{k[1]:7}{k[3]:>7}{k[4]:>6} {med(v,'ns')/N:7.3f}{spread(v,'ns'):8.1f}{cyc/N:7.2f}{ins/N:7.2f}{ins/cyc:6.2f}"
               f"{med(v,'ic_cache_fill_l2','A')/(N/1024):9.2f}{med(v,'ic_cache_fill_sys','A')/(N/2**20):10.2f}"
-              f"{dram/N:9.3f}{med(v,'gen_bytes')/N:9.2f}{cyc/tcyc:8.2f}")
-    print("generation cost (gen mode = emit only) and jit split (exec = jit - gen, ESTIMATED by subtraction):")
-    for ring in ("4096", "16384", "65536"):
-        g = [v for k, v in main.items() if k[1] == "gen" and k[3] == ring][0]
-        j = [v for k, v in main.items() if k[1] == "jit" and k[3] == ring][0]
-        gi = med(g, "gen_instr")
-        print(f"  ring {ring:>5}: gen {med(g,'ns')/N:.3f} ns/input B, {med(g,'ns')/gi:.3f} ns/gen instr, "
-              f"{med(g,'cycles','A')/gi:.3f} cyc/gen instr, {gi/N:.3f} gen instr/input B; "
-              f"exec(est) {(med(j,'cycles','A')-med(g,'cycles','A'))/N:.2f} cyc/B vs table {tcyc/N:.2f} cyc/B; "
-              f"jit total {med(j,'cycles','A')/tcyc:.2f}x table cycles, {med(j,'ns')/med(tbl,'ns'):.2f}x table ns")
+              f"{dram/N:9.3f}{med(v,'gen_bytes')/N:9.2f}{cyc/tcyc:8.2f}{cyc/tcyc1:9.2f}")
+    print("generation cost (gen* = emit only) and split (exec = jit - gen, ESTIMATED by subtraction); vs best table:")
+    for jm, gm in (("jit", "gen"), ("jitL", "genL")):
+        for ring in ("4096", "16384", "65536"):
+            g = [v for k, v in main.items() if k[1] == gm and k[3] == ring][0]
+            j = [v for k, v in main.items() if k[1] == jm and k[3] == ring][0]
+            gi = med(g, "gen_instr")
+            print(f"  {jm:4} ring {ring:>5}: gen {med(g,'ns')/N:.3f} ns/input B, {med(g,'ns')/gi:.3f} ns/gen instr, "
+                  f"{med(g,'cycles','A')/gi:.3f} cyc/gen instr, {gi/N:.3f} gen instr/input B, {med(g,'cycles','A')/N:.2f} gen cyc/B; "
+                  f"exec(est) {(med(j,'cycles','A')-med(g,'cycles','A'))/N:.2f} cyc/B; best table {tcyc/N:.2f} cyc/B; "
+                  f"total {med(j,'cycles','A')/tcyc:.2f}x best-table cycles")
+    best_j = min((med(v, "cycles", "A"), k[1], k[3]) for k, v in main.items() if k[1] in ("jit", "jitL"))
+    print(f"  RULE: best run-once {best_j[1]} ring {best_j[2]} = {best_j[0]/N:.2f} cyc/B vs best table {tcyc/N:.2f} cyc/B "
+          f"-> {best_j[0]/tcyc:.2f}x")
 
 print("\n== failure curve: 128 MiB seeded, 64 KiB ring, chunk = n input bytes (3n+5 instr/chunk), group A ==")
 cv = {k: v for k, v in runs.items() if k[0] == "curve"}
 if cv:
     N = float(next(iter(cv))[5])
     tbl = next(v for k, v in cv.items() if k[1] == "table")
-    tcyc = med(tbl, "cycles")
-    print(f"table: {tcyc/N:.2f} cyc/B, {med(tbl,'ns')/N:.3f} ns/B")
+    tblB = next(v for k, v in cv.items() if k[1] == "tableB")
+    print(f"table (1 chain): {med(tbl,'cycles')/N:.2f} cyc/B; tableB (8 lanes): {med(tblB,'cycles')/N:.2f} cyc/B; 'x table' = vs tableB")
+    tcyc = med(tblB, "cycles")
+    tbl = tbl + tblB
     print(f"{'n':>5}{'instr/chunk':>12}{'jit cyc/B':>10}{'x table':>8}{'jit ns/B':>9}{'gen ns/B':>9}{'gen ns/instr':>13}"
           f"{'jit ns/chunk':>13}{'icL2/KiB':>9}")
     ns_ = sorted({int(k[4]) for k in cv if k[1] == "jit"})

@@ -151,6 +151,33 @@ static uint64_t run_table(uint32_t *st) {
   *st = s; return cnt;
 }
 
+// Lane-parallel table baseline (from the K4 verifier). The AC state after reading
+// >= maxdepth bytes from the root equals the true state (it is the longest suffix that
+// is a trie node), so a block of 8*LW bytes is split into 8 lanes of LW bytes; lanes 1..7
+// start at the root WARM bytes early, lane 0 continues the previous block's lane 7.
+// 8 independent chains overlap their load latency. main() checks maxdepth <= WARM.
+#define WARM 32
+#define LW 4096
+static uint64_t run_tableB(uint32_t *st) {
+  const uint32_t a = A; uint64_t cnt = 0; uint32_t s7 = *st; size_t nb = N / (8 * LW);
+  for (size_t b = 0; b < nb; b++) {
+    const uint8_t *q0 = IN + b * 8 * LW, *q1 = q0 + LW, *q2 = q1 + LW, *q3 = q2 + LW, *q4 = q3 + LW, *q5 = q4 + LW, *q6 = q5 + LW, *q7 = q6 + LW;
+    uint32_t s0 = s7, s1 = S0, s2 = S0, s3 = S0, s4 = S0, s5 = S0, s6 = S0; s7 = S0;
+    for (int i = -WARM; i < 0; i++) {
+#define WW(sv, qv) sv = T[(uint32_t)qv[i] << 8 | sv];
+      WW(s1, q1) WW(s2, q2) WW(s3, q3) WW(s4, q4) WW(s5, q5) WW(s6, q6) WW(s7, q7)
+    }
+    uint32_t c0 = 0, c1 = 0, c2 = 0, c3 = 0;
+    for (int i = 0; i < LW; i++) {
+#define L(sv, qv, cv) sv = T[(uint32_t)qv[i] << 8 | sv]; cv += sv < a;
+      L(s0, q0, c0) L(s1, q1, c1) L(s2, q2, c2) L(s3, q3, c3) L(s4, q4, c0) L(s5, q5, c1) L(s6, q6, c2) L(s7, q7, c3)
+    }
+    cnt += (uint64_t)c0 + c1 + c2 + c3;
+  }
+  for (size_t i = nb * 8 * LW; i < N; i++) { s7 = T[(uint32_t)IN[i] << 8 | s7]; cnt += s7 < a; }
+  *st = s7; return cnt;
+}
+
 enum { OP_STEP, OP_ACC, OP_END };
 static uint64_t run_interp(uint32_t *st, size_t n, uint64_t *ops) {
   uint8_t *bc = malloc(3 * n + 1); uint32_t s = *st; uint64_t cnt = 0, nops = 0; const uint32_t a = A;
@@ -190,6 +217,51 @@ static inline uint8_t *emit_chunk(uint8_t *q, const uint8_t *in, size_t m) {
   memcpy(q, tail, 8); return q + 8;
 }
 
+// ---- lane-interleaved run-once code (jitL) ----
+// Same 8-lane split as tableB. A chunk covers c steps; a step advances all 8 lanes by one
+// byte, interleaved, so the 8 independent chains overlap. Per lane byte (input baked in):
+//   movzx rL, byte [rL + T+256*b]; cmp rLb, A; adc cnt(L&3), 0    (warm-up steps: movzx only)
+// Lane states live in r8 r9 r10 r11 r13 r14 r15 rbx across a chunk and in a context
+// struct (rdi) between chunks; counters eax ecx edx esi are summed into ctx.cnt.
+static const int LREG[8] = {8, 9, 10, 11, 13, 14, 15, 3};
+static const int LCNT[4] = {0, 1, 2, 6};
+static uint8_t lpat[8][256][16], lwpat[8][256][16];
+static int llen[8], lwlen[8];
+#define LSTEP_MAX 120
+#define LOVH 128
+struct lctx { uint32_t s[8]; uint64_t cnt; };
+static void build_lpat(void) {
+  for (int k = 0; k < 8; k++) for (int b = 0; b < 256; b++) {
+    int r = LREG[k], n = 0; uint8_t *q = lpat[k][b]; uint32_t d = (uint32_t)(uintptr_t)T + 256u * b;
+    if (r >= 8) q[n++] = 0x45;
+    q[n++] = 0x0f; q[n++] = 0xb6; q[n++] = 0x80 | (r & 7) << 3 | (r & 7); memcpy(q + n, &d, 4); n += 4;
+    memcpy(lwpat[k][b], q, 16); lwlen[k] = n;
+    if (r >= 8) q[n++] = 0x41;
+    q[n++] = 0x80; q[n++] = 0xf8 | (r & 7); q[n++] = (uint8_t)A;
+    q[n++] = 0x83; q[n++] = 0xd0 | LCNT[k & 3]; q[n++] = 0x00;
+    llen[k] = n;
+  }
+  for (int k = 0; k < 8; k++) if (llen[k] != (k == 7 ? 13 : 15) || lwlen[k] != (k == 7 ? 7 : 8)) { fprintf(stderr, "lane pattern length\n"); exit(1); }
+}
+static uint8_t *emit_lchunk(uint8_t *q, const uint8_t *base, int i0, int i1) {
+  static const uint8_t push[] = {0x53, 0x41, 0x55, 0x41, 0x56, 0x41, 0x57};
+  memcpy(q, push, sizeof push); q += sizeof push;
+  for (int k = 0; k < 8; k++) { int r = LREG[k]; if (r >= 8) *q++ = 0x44; *q++ = 0x8b; *q++ = 0x47 | (r & 7) << 3; *q++ = 4 * k; }
+  static const uint8_t zero[] = {0x31, 0xc0, 0x31, 0xc9, 0x31, 0xd2, 0x31, 0xf6};
+  memcpy(q, zero, sizeof zero); q += sizeof zero;
+  for (int i = i0; i < i1; i++) {
+    // lengths are compile-time constants (15/8 bytes for r8..r15 lanes, 13/7 for rbx) so this unrolls
+#define LEN(k) ((k) == 7 ? 13 : 15)
+#define WLEN(k) ((k) == 7 ? 7 : 8)
+    if (i < 0) { _Pragma("GCC unroll 8") for (int k = 1; k < 8; k++) { memcpy(q, lwpat[k][base[k * LW + i]], 16); q += WLEN(k); } }
+    else { _Pragma("GCC unroll 8") for (int k = 0; k < 8; k++) { memcpy(q, lpat[k][base[k * LW + i]], 16); q += LEN(k); } }
+  }
+  for (int k = 0; k < 8; k++) { int r = LREG[k]; if (r >= 8) *q++ = 0x44; *q++ = 0x89; *q++ = 0x47 | (r & 7) << 3; *q++ = 4 * k; }
+  static const uint8_t tail[] = {0x48, 0x01, 0xc8, 0x48, 0x01, 0xf2, 0x48, 0x01, 0xd0, 0x48, 0x01, 0x47, 0x20,
+                                 0x41, 0x5f, 0x41, 0x5e, 0x41, 0x5d, 0x5b, 0xc3};
+  memcpy(q, tail, sizeof tail); return q + sizeof tail;
+}
+
 int main(int argc, char **argv) {
   if (argc < 3) { fprintf(stderr, "usage: k4 MODE INPUT [ring] [chunk] [MiB]\n"); return 2; }
   const char *mode = argv[1], *inp = argv[2];
@@ -198,6 +270,7 @@ int main(int argc, char **argv) {
   size_t mib = argc > 5 ? strtoul(argv[5], 0, 0) : 1024;
   if (getenv("K4_CTL")) { ctl = open(getenv("K4_CTL"), O_WRONLY); ack = open(getenv("K4_ACK"), O_RDONLY); }
   int nq = build_dfa();
+  for (int w = 0; w < nwords; w++) if (strlen(words[w]) > WARM) { fprintf(stderr, "word longer than WARM\n"); return 1; }
 
   if (!strcmp(mode, "control")) {
     uint64_t x = 1; perf_cmd("enable\n"); double t0 = now();
@@ -220,20 +293,41 @@ int main(int argc, char **argv) {
     printf("\n"); return ref != c;
   }
 
-  // largest chunk that fits the ring (one slot) unless given
-  size_t maxchunk = (ring - CHUNK_OVH - 4) / PER_BYTE;
+  // largest chunk that fits the ring (one slot) unless given; for jitL/genL, chunk = steps (8 lane bytes each)
+  int lanes = !strcmp(mode, "jitL") || !strcmp(mode, "genL");
+  size_t ovh = lanes ? LOVH + 16 : CHUNK_OVH + 4, per = lanes ? LSTEP_MAX : PER_BYTE;
+  size_t maxchunk = (ring - ovh) / per;
   if (!chunk) chunk = maxchunk;
   if (chunk > maxchunk) { fprintf(stderr, "chunk %zu > max %zu for ring %zu\n", chunk, maxchunk, ring); return 2; }
-  size_t slot = (CHUNK_OVH + 4 + PER_BYTE * chunk + 63) & ~(size_t)63;
+  size_t slot = (ovh + per * chunk + 63) & ~(size_t)63;
   size_t nslots = ring / slot;
   uint8_t *R = mmap(0, ring, PROT_READ | PROT_WRITE | PROT_EXEC, MAP_PRIVATE | MAP_ANONYMOUS | MAP_POPULATE, -1, 0);
   if (R == MAP_FAILED) { perror("mmap ring"); return 1; }
-  build_pat();
+  build_pat(); build_lpat();
   memset(R, 0xc3, ring);
 
   uint32_t s = S0; uint64_t cnt = 0, ginstr = 0, gbytes = 0, nchunks = 0;
   perf_cmd("enable\n"); double t0 = now();
   if (!strcmp(mode, "table")) cnt = run_table(&s);
+  else if (!strcmp(mode, "tableB")) cnt = run_tableB(&s);
+  else if (lanes) {
+    int exec = !strcmp(mode, "jitL"); size_t k = 0, nb = N / (8 * LW); struct lctx cx;
+    for (size_t b = 0; b < nb; b++) {
+      const uint8_t *base = IN + b * 8 * LW;
+      cx.s[0] = s; for (int j = 1; j < 8; j++) cx.s[j] = S0; cx.cnt = 0;
+      for (int i0 = -WARM; i0 < LW; i0 += chunk, nchunks++) {
+        int i1 = i0 + (int)chunk < LW ? i0 + (int)chunk : LW;
+        uint8_t *p = R + k * slot; if (++k == nslots) k = 0;
+        uint8_t *e = emit_lchunk(p, base, i0, i1);
+        gbytes += e - p; ginstr += 33;
+        for (int i = i0; i < i1; i++) ginstr += i < 0 ? 7 : 24;
+        if (exec) ((void (*)(struct lctx *))p)(&cx);
+      }
+      s = cx.s[7]; cnt += cx.cnt;
+    }
+    for (size_t i = nb * 8 * LW; i < N; i++) { s = T[(uint32_t)IN[i] << 8 | s]; cnt += s < (uint32_t)A; }
+    if (!exec) { s = R[(N * 7) % ring]; }
+  }
   else if (!strcmp(mode, "interp")) cnt = run_interp(&s, chunk, &ginstr);
   else if (!strcmp(mode, "jit") || !strcmp(mode, "gen")) {
     int exec = !strcmp(mode, "jit"); size_t k = 0;
