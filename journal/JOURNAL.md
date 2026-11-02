@@ -2,6 +2,26 @@
 
 Newest first. "Measured" means a run whose script is in the repo; "estimated" means arithmetic or analysis.
 
+## 2026-11-02: Phase 2, kill tests K1–K6 (all verified)
+
+12 candidate models were generated first (`phase2-models-*.md`). Plan review found that the first three picks were known techniques against strawman baselines, so each got a kill test against its **strongest** baseline. Known techniques that production compilers don't use are recorded as such, per Dan.
+
+| | Model | Strongest baseline | Result |
+|---|---|---|---|
+| K1 | data only as a hash-consed grammar; programs are monoid folds | dedup chunk store with per-chunk DFA summaries | 6.3× ops at 64 MiB × 10^4 versions; chunks win on real lvm.c history; a tree manifest *is* the grammar (≈1×). Gap grows √n/log n (100× at ~32 GiB). Dead; known (Merkle/rope). |
+| K2 | executing builds the program (HashLife memo as compiled artifact) | building from scratch | Rule 110: frozen memo leaves 82% new entries for unseen inputs; 42% even from 1000 training patches (3.2M entries). Input-specific. Dead. |
+| K3 | residency as meaning: L2 arena, recompute instead of spill, seeded leaves | blocked four-step butterfly (one 64 MiB spill) | 75 MB vs noise-floor 15 MB (4.9×) at 28× recompute, 47× instructions. Known Savage pebbling tradeoff; 100× unmeasurable on this VM. |
+| K4 | run-once code: data baked into throwaway machine code in a small ring | 8-lane table DFA, 1.62 cycles/B | 2.35× slower, but within 3× ("viable"). Execution ≈1.15× the table; generation ≈2 cycles/B is the gap, bounded by code-write bandwidth (~15 code B per input B). |
+| K5 | huge random objects as seeded binomial split trees | materialization, impossible at 2^40 | Range count ~2·log₂N (68 visits at 2^40). Exact joins Θ(N) (0.0917 visits/row); fundamental for independent generators. |
+| K6 | run-once code for op streams executed once | best of computed-goto, predicated and hybrid interpreters | Synthetic random opcodes 3.9×; natural stream (Lua PCs executed once, 86 real modules) **1.02×**; predictable control 0.29×. Break-even 0.066 mispredicts/op, 2× at 0.29. |
+
+**Principles found**
+1. **Three sources.** Every route to a ≥100× DRAM cut found reduces to: data never needed (a generator produces it), reuse across versions or queries, or a removable pass. No model added a fourth source.
+2. **D vs S.** A code generator sees the data it reads (D), never the run-time state (S). Run-once code removes work only when decisions depending on D alone are expensive for a data-generic loop. Immediates never save bytes for once-used data.
+3. **Generated objects answer only what their generator generates top-down.** Counts are O(log N); sums and joins of independent objects need every leaf.
+4. **Run-once code must be straight-line.** Calls from fresh code to handlers miss the BTB (~0.67 re-steers/op, ~20 cycles each).
+5. **Measurement on this VM:** `ls_any_fills_from_sys.dram_io_all` sees ~1/40 of streaming reads; add `l2_pf_miss_l2_l3.all`. The 6th perf event reads 0. Sibling-vCPU noise sets a ~4–15 MB DRAM floor per Gcycle. Compare cycles, not wall time.
+
 ## 2026-11-01: Phase 2 begins; cycle 7 results (E15, E16)
 
 **E15, output churn of E13 units (ceiling).** `experiments/e15-output-churn/`
