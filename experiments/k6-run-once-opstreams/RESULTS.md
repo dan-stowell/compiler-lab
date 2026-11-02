@@ -153,3 +153,11 @@ the best interpreter only when dispatch mispredicts at ≥0.3 per op, the genera
 - In the synthetic stream, AND, MIN and SLT tend to collapse register values. At Q=0, 8 of 16
   final values are distinct (`check.txt`), which may make DIV cheaper than it is on random data.
   This affects every implementation equally.
+
+## Independent verification (2026-11-02)
+
+Confirmed.
+- **Rerun:** synthetic 3.94×, natural 1.02×, control 0.29×; crossover 0.066 / 0.294 misses/op. All 12 correctness checks pass.
+- **Inlining:** removing every handler call on the natural stream would give at most ~1.2×. Generation alone costs 6.82 cycles/op, so even zero-cost execution caps it at 1.66×. **2× is unreachable on this stream with this generator.**
+- **Warm variant:** still parity. Over 31 reps: cgoto median 11.29, jit 10.91.
+- The BTB explanation for the control is a strong correlation (0.670 re-steers/op), not tested directly.
