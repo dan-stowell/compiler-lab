@@ -1,0 +1,618 @@
+syn A load1=1.40 mode=cgoto Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=407037484 instructions:u=251655888 branch-misses:u=15723629 ic_cache_fill_l2:u=4098 ic_cache_fill_sys:u=2111 
+syn A load1=1.40 mode=pred Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=482327020 instructions:u=1124073845 branch-misses:u=270 ic_cache_fill_l2:u=1554 ic_cache_fill_sys:u=1566 
+syn A load1=1.40 mode=hybrid Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=347422125 instructions:u=939562623 branch-misses:u=3366865 ic_cache_fill_l2:u=1256 ic_cache_fill_sys:u=901 
+syn A load1=1.40 mode=jit Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=194024960 | cycles:u=98306209 instructions:u=287302678 branch-misses:u=56931 ic_cache_fill_l2:u=3051535 ic_cache_fill_sys:u=1306 
+syn A load1=1.40 mode=gen Q=0 nops=16777216 chunk=500 hash=f44d8dd89b4e9b18 gen_bytes=194024960 | cycles:u=55770867 instructions:u=218942945 branch-misses:u=33664 ic_cache_fill_l2:u=163 ic_cache_fill_sys:u=580 
+syn A load1=1.40 mode=cgoto Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=373522813 instructions:u=247467869 branch-misses:u=14258626 ic_cache_fill_l2:u=2351 ic_cache_fill_sys:u=968 
+syn A load1=1.40 mode=pred Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=396138232 instructions:u=1124073800 branch-misses:u=196 ic_cache_fill_l2:u=910 ic_cache_fill_sys:u=537 
+syn A load1=1.40 mode=hybrid Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=339729306 instructions:u=960451381 branch-misses:u=2517649 ic_cache_fill_l2:u=1564 ic_cache_fill_sys:u=804 
+syn A load1=1.40 mode=jit Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=183294872 | cycles:u=108930563 instructions:u=282853764 branch-misses:u=53870 ic_cache_fill_l2:u=2883952 ic_cache_fill_sys:u=1358 
+syn A load1=1.40 mode=gen Q=250 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=183294872 | cycles:u=56125305 instructions:u=218942944 branch-misses:u=33616 ic_cache_fill_l2:u=111 ic_cache_fill_sys:u=437 
+syn A load1=1.40 mode=cgoto Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=296981028 instructions:u=243275629 branch-misses:u=10724412 ic_cache_fill_l2:u=2030 ic_cache_fill_sys:u=909 
+syn A load1=1.40 mode=pred Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=395325262 instructions:u=1124073762 branch-misses:u=163 ic_cache_fill_l2:u=739 ic_cache_fill_sys:u=401 
+syn A load1=1.40 mode=hybrid Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=331664803 instructions:u=981442183 branch-misses:u=1654174 ic_cache_fill_l2:u=853 ic_cache_fill_sys:u=501 
+syn A load1=1.40 mode=jit Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=172553122 | cycles:u=85274061 instructions:u=278399811 branch-misses:u=56630 ic_cache_fill_l2:u=2716227 ic_cache_fill_sys:u=757 
+syn A load1=1.40 mode=gen Q=500 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=172553122 | cycles:u=46757332 instructions:u=218942946 branch-misses:u=33731 ic_cache_fill_l2:u=152 ic_cache_fill_sys:u=580 
+syn A load1=1.40 mode=cgoto Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=216447146 instructions:u=239919870 branch-misses:u=7065399 ic_cache_fill_l2:u=1167 ic_cache_fill_sys:u=1216 
+syn A load1=1.40 mode=pred Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=395016415 instructions:u=1124073766 branch-misses:u=176 ic_cache_fill_l2:u=793 ic_cache_fill_sys:u=496 
+syn A load1=1.40 mode=hybrid Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=326118011 instructions:u=998225501 branch-misses:u=974651 ic_cache_fill_l2:u=809 ic_cache_fill_sys:u=469 
+syn A load1=1.40 mode=jit Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=163947490 | cycles:u=92222629 instructions:u=274831703 branch-misses:u=50595 ic_cache_fill_l2:u=2583370 ic_cache_fill_sys:u=1366 
+syn A load1=1.40 mode=gen Q=700 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=163947490 | cycles:u=46758583 instructions:u=218942943 branch-misses:u=33657 ic_cache_fill_l2:u=125 ic_cache_fill_sys:u=595 
+syn A load1=1.40 mode=cgoto Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=168044228 instructions:u=238240511 branch-misses:u=4902120 ic_cache_fill_l2:u=1051 ic_cache_fill_sys:u=1211 
+syn A load1=1.40 mode=pred Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=394591429 instructions:u=1124073781 branch-misses:u=221 ic_cache_fill_l2:u=978 ic_cache_fill_sys:u=750 
+syn A load1=1.40 mode=hybrid Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=323896141 instructions:u=1006618881 branch-misses:u=645761 ic_cache_fill_l2:u=1080 ic_cache_fill_sys:u=639 
+syn A load1=1.40 mode=jit Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=159642583 | cycles:u=86171177 instructions:u=273046919 branch-misses:u=56180 ic_cache_fill_l2:u=2711414 ic_cache_fill_sys:u=1907 
+syn A load1=1.40 mode=gen Q=800 nops=16777216 chunk=500 hash=790c54d3fe23805f gen_bytes=159642583 | cycles:u=46167441 instructions:u=218942940 branch-misses:u=33618 ic_cache_fill_l2:u=120 ic_cache_fill_sys:u=507 
+syn A load1=1.40 mode=cgoto Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=115531063 instructions:u=236561061 branch-misses:u=2514807 ic_cache_fill_l2:u=676 ic_cache_fill_sys:u=1636 
+syn A load1=1.40 mode=pred Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=394446511 instructions:u=1124073784 branch-misses:u=213 ic_cache_fill_l2:u=978 ic_cache_fill_sys:u=817 
+syn A load1=1.40 mode=hybrid Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=322074812 instructions:u=1015016160 branch-misses:u=323414 ic_cache_fill_l2:u=1643 ic_cache_fill_sys:u=918 
+syn A load1=1.40 mode=jit Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=155332873 | cycles:u=83828703 instructions:u=271260375 branch-misses:u=54690 ic_cache_fill_l2:u=2449180 ic_cache_fill_sys:u=1058 
+syn A load1=1.40 mode=gen Q=900 nops=16777216 chunk=500 hash=1e17d2709cc19b17 gen_bytes=155332873 | cycles:u=45998053 instructions:u=218942967 branch-misses:u=33901 ic_cache_fill_l2:u=268 ic_cache_fill_sys:u=663 
+syn A load1=1.40 mode=cgoto Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=82231439 instructions:u=235720481 branch-misses:u=1009572 ic_cache_fill_l2:u=695 ic_cache_fill_sys:u=1322 
+syn A load1=1.40 mode=pred Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=394299137 instructions:u=1124073817 branch-misses:u=266 ic_cache_fill_l2:u=1058 ic_cache_fill_sys:u=998 
+syn A load1=1.40 mode=hybrid Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=320569313 instructions:u=1019202534 branch-misses:u=163190 ic_cache_fill_l2:u=1268 ic_cache_fill_sys:u=791 
+syn A load1=1.60 mode=jit Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=153178396 | cycles:u=84450555 instructions:u=270367392 branch-misses:u=57553 ic_cache_fill_l2:u=2419647 ic_cache_fill_sys:u=1724 
+syn A load1=1.60 mode=gen Q=950 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=153178396 | cycles:u=46249435 instructions:u=218942948 branch-misses:u=33797 ic_cache_fill_l2:u=150 ic_cache_fill_sys:u=550 
+syn A load1=1.60 mode=cgoto Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=67663331 instructions:u=235217859 branch-misses:u=348437 ic_cache_fill_l2:u=608 ic_cache_fill_sys:u=1291 
+syn A load1=1.60 mode=pred Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=393665246 instructions:u=1124073774 branch-misses:u=188 ic_cache_fill_l2:u=808 ic_cache_fill_sys:u=643 
+syn A load1=1.60 mode=hybrid Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=319987063 instructions:u=1021719642 branch-misses:u=66003 ic_cache_fill_l2:u=1356 ic_cache_fill_sys:u=681 
+syn A load1=1.60 mode=jit Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=151889776 | cycles:u=89671938 instructions:u=269833123 branch-misses:u=55440 ic_cache_fill_l2:u=2394557 ic_cache_fill_sys:u=2440 
+syn A load1=1.60 mode=gen Q=980 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=151889776 | cycles:u=53209905 instructions:u=218942931 branch-misses:u=33821 ic_cache_fill_l2:u=158 ic_cache_fill_sys:u=664 
+syn A load1=1.60 mode=cgoto Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=60319077 instructions:u=234881166 branch-misses:u=52 ic_cache_fill_l2:u=199 ic_cache_fill_sys:u=305 
+syn A load1=1.60 mode=pred Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=395379003 instructions:u=1124073799 branch-misses:u=275 ic_cache_fill_l2:u=1498 ic_cache_fill_sys:u=899 
+syn A load1=1.60 mode=hybrid Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=320098736 instructions:u=1023410493 branch-misses:u=233 ic_cache_fill_l2:u=1087 ic_cache_fill_sys:u=774 
+syn A load1=1.60 mode=jit Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=151028499 | cycles:u=110532983 instructions:u=269475907 branch-misses:u=57512 ic_cache_fill_l2:u=2386556 ic_cache_fill_sys:u=820 
+syn A load1=1.60 mode=gen Q=1000 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=151028499 | cycles:u=51604633 instructions:u=218942926 branch-misses:u=33626 ic_cache_fill_l2:u=92 ic_cache_fill_sys:u=467 
+lua A load1=1.60 mode=cgoto prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=655210 instructions:u=2102030 branch-misses:u=6244 ic_cache_fill_l2:u=55 ic_cache_fill_sys:u=175 
+lua A load1=1.60 mode=hybrid prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=739257 instructions:u=3164635 branch-misses:u=5600 ic_cache_fill_l2:u=66 ic_cache_fill_sys:u=279 
+lua A load1=1.60 mode=jit prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=1258403 instructions:u=3555727 branch-misses:u=1767 ic_cache_fill_l2:u=19857 ic_cache_fill_sys:u=202 
+lua A load1=1.60 mode=gen prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=595884 instructions:u=2957598 branch-misses:u=209 ic_cache_fill_l2:u=41 ic_cache_fill_sys:u=124 
+lua A load1=1.60 mode=cgoto prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=44370920 instructions:u=155915633 branch-misses:u=37837 ic_cache_fill_l2:u=611 ic_cache_fill_sys:u=3743 
+lua A load1=1.60 mode=hybrid prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=53886942 instructions:u=224066999 branch-misses:u=22010 ic_cache_fill_l2:u=501 ic_cache_fill_sys:u=3864 
+lua A load1=1.60 mode=jit prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=147712952 instructions:u=295591394 branch-misses:u=34230 ic_cache_fill_l2:u=1352903 ic_cache_fill_sys:u=4360 
+lua A load1=1.60 mode=gen prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=51854959 instructions:u=203138384 branch-misses:u=12021 ic_cache_fill_l2:u=241 ic_cache_fill_sys:u=1582 
+syn B load1=1.60 mode=cgoto Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=405314930 bp_de_redirect:u=214 
+syn B load1=1.60 mode=pred Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=397141007 bp_de_redirect:u=82 
+syn B load1=1.60 mode=hybrid Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=348141982 bp_de_redirect:u=485 
+syn B load1=1.60 mode=jit Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=194024960 | cycles:u=106130151 bp_de_redirect:u=54196 
+syn B load1=1.60 mode=gen Q=0 nops=16777216 chunk=500 hash=f44d8dd89b4e9b18 gen_bytes=194024960 | cycles:u=48502405 bp_de_redirect:u=34 
+syn B load1=1.60 mode=cgoto Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=383578386 bp_de_redirect:u=97 
+syn B load1=1.60 mode=pred Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=396190041 bp_de_redirect:u=55 
+syn B load1=1.60 mode=hybrid Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=339606757 bp_de_redirect:u=139 
+syn B load1=1.60 mode=jit Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=183294872 | cycles:u=87334501 bp_de_redirect:u=53814 
+syn B load1=1.60 mode=gen Q=250 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=183294872 | cycles:u=47796815 bp_de_redirect:u=22 
+syn B load1=1.60 mode=cgoto Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=311325140 bp_de_redirect:u=124 
+syn B load1=1.60 mode=pred Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=395361954 bp_de_redirect:u=49 
+syn B load1=1.60 mode=hybrid Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=332019958 bp_de_redirect:u=239 
+syn B load1=1.60 mode=jit Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=172553122 | cycles:u=94125305 bp_de_redirect:u=53393 
+syn B load1=1.60 mode=gen Q=500 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=172553122 | cycles:u=48127732 bp_de_redirect:u=28 
+syn B load1=1.60 mode=cgoto Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=218335385 bp_de_redirect:u=65 
+syn B load1=1.60 mode=pred Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=394996937 bp_de_redirect:u=58 
+syn B load1=1.60 mode=hybrid Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=326450504 bp_de_redirect:u=137 
+syn B load1=1.64 mode=jit Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=163947490 | cycles:u=84592451 bp_de_redirect:u=52631 
+syn B load1=1.64 mode=gen Q=700 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=163947490 | cycles:u=48043126 bp_de_redirect:u=57 
+syn B load1=1.64 mode=cgoto Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=169082888 bp_de_redirect:u=55 
+syn B load1=1.64 mode=pred Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=394943610 bp_de_redirect:u=39 
+syn B load1=1.64 mode=hybrid Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=324969240 bp_de_redirect:u=423 
+syn B load1=1.64 mode=jit Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=159642583 | cycles:u=86415247 bp_de_redirect:u=51828 
+syn B load1=1.64 mode=gen Q=800 nops=16777216 chunk=500 hash=790c54d3fe23805f gen_bytes=159642583 | cycles:u=46680458 bp_de_redirect:u=29 
+syn B load1=1.64 mode=cgoto Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=116156414 bp_de_redirect:u=59 
+syn B load1=1.64 mode=pred Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=394712016 bp_de_redirect:u=73 
+syn B load1=1.64 mode=hybrid Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=321999051 bp_de_redirect:u=221 
+syn B load1=1.64 mode=jit Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=155332873 | cycles:u=89041256 bp_de_redirect:u=50693 
+syn B load1=1.64 mode=gen Q=900 nops=16777216 chunk=500 hash=1e17d2709cc19b17 gen_bytes=155332873 | cycles:u=46014250 bp_de_redirect:u=31 
+syn B load1=1.64 mode=cgoto Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=82414997 bp_de_redirect:u=66 
+syn B load1=1.64 mode=pred Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=394225604 bp_de_redirect:u=59 
+syn B load1=1.64 mode=hybrid Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=320446908 bp_de_redirect:u=98 
+syn B load1=1.64 mode=jit Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=153178396 | cycles:u=108830333 bp_de_redirect:u=49342 
+syn B load1=1.64 mode=gen Q=950 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=153178396 | cycles:u=45438521 bp_de_redirect:u=29 
+syn B load1=1.64 mode=cgoto Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=67536356 bp_de_redirect:u=36 
+syn B load1=1.64 mode=pred Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=394299777 bp_de_redirect:u=44 
+syn B load1=1.64 mode=hybrid Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=320188139 bp_de_redirect:u=181 
+syn B load1=1.64 mode=jit Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=151889776 | cycles:u=87766641 bp_de_redirect:u=46585 
+syn B load1=1.64 mode=gen Q=980 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=151889776 | cycles:u=45577811 bp_de_redirect:u=22 
+syn B load1=1.64 mode=cgoto Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=60133248 bp_de_redirect:u=26 
+syn B load1=1.64 mode=pred Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=394453404 bp_de_redirect:u=81 
+syn B load1=1.64 mode=hybrid Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=319514236 bp_de_redirect:u=39 
+syn B load1=1.64 mode=jit Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=151028499 | cycles:u=88198132 bp_de_redirect:u=35 
+syn B load1=1.64 mode=gen Q=1000 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=151028499 | cycles:u=46117378 bp_de_redirect:u=25 
+lua B load1=1.64 mode=cgoto prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=658016 bp_de_redirect:u=60 
+lua B load1=1.64 mode=hybrid prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=735681 bp_de_redirect:u=62 
+lua B load1=1.64 mode=jit prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=1260000 bp_de_redirect:u=23001 
+lua B load1=1.64 mode=gen prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=585426 bp_de_redirect:u=11 
+lua B load1=1.64 mode=cgoto prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=43748505 bp_de_redirect:u=235 
+lua B load1=1.64 mode=hybrid prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=53377431 bp_de_redirect:u=251 
+lua B load1=1.64 mode=jit prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=147645209 bp_de_redirect:u=3981446 
+lua B load1=1.64 mode=gen prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=53920510 bp_de_redirect:u=10 
+syn A load1=1.64 mode=cgoto Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=405377901 instructions:u=251655844 branch-misses:u=15724557 ic_cache_fill_l2:u=2451 ic_cache_fill_sys:u=1032 
+syn A load1=1.64 mode=pred Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=396302970 instructions:u=1124073795 branch-misses:u=242 ic_cache_fill_l2:u=1056 ic_cache_fill_sys:u=909 
+syn A load1=1.64 mode=hybrid Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=346864419 instructions:u=939562598 branch-misses:u=3365602 ic_cache_fill_l2:u=991 ic_cache_fill_sys:u=621 
+syn A load1=1.64 mode=jit Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=194024960 | cycles:u=127031306 instructions:u=287302688 branch-misses:u=55804 ic_cache_fill_l2:u=3052591 ic_cache_fill_sys:u=744 
+syn A load1=1.64 mode=gen Q=0 nops=16777216 chunk=500 hash=f44d8dd89b4e9b18 gen_bytes=194024960 | cycles:u=55486066 instructions:u=218942927 branch-misses:u=33631 ic_cache_fill_l2:u=72 ic_cache_fill_sys:u=485 
+syn A load1=1.64 mode=cgoto Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=378728792 instructions:u=247467869 branch-misses:u=14497363 ic_cache_fill_l2:u=2337 ic_cache_fill_sys:u=932 
+syn A load1=1.67 mode=pred Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=396795046 instructions:u=1124073809 branch-misses:u=227 ic_cache_fill_l2:u=1120 ic_cache_fill_sys:u=734 
+syn A load1=1.67 mode=hybrid Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=352169976 instructions:u=960451359 branch-misses:u=2522852 ic_cache_fill_l2:u=1088 ic_cache_fill_sys:u=737 
+syn A load1=1.67 mode=jit Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=183294872 | cycles:u=88316509 instructions:u=282853763 branch-misses:u=58360 ic_cache_fill_l2:u=2885943 ic_cache_fill_sys:u=1375 
+syn A load1=1.67 mode=gen Q=250 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=183294872 | cycles:u=56249679 instructions:u=218942971 branch-misses:u=33853 ic_cache_fill_l2:u=236 ic_cache_fill_sys:u=568 
+syn A load1=1.67 mode=cgoto Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=300313227 instructions:u=243275650 branch-misses:u=10861479 ic_cache_fill_l2:u=2274 ic_cache_fill_sys:u=1735 
+syn A load1=1.67 mode=pred Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=395687997 instructions:u=1124073792 branch-misses:u=251 ic_cache_fill_l2:u=1262 ic_cache_fill_sys:u=892 
+syn A load1=1.67 mode=hybrid Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=332025276 instructions:u=981442223 branch-misses:u=1655931 ic_cache_fill_l2:u=1179 ic_cache_fill_sys:u=744 
+syn A load1=1.67 mode=jit Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=172553122 | cycles:u=86319380 instructions:u=278399830 branch-misses:u=56456 ic_cache_fill_l2:u=2718452 ic_cache_fill_sys:u=1819 
+syn A load1=1.67 mode=gen Q=500 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=172553122 | cycles:u=47003937 instructions:u=218942941 branch-misses:u=33683 ic_cache_fill_l2:u=72 ic_cache_fill_sys:u=530 
+syn A load1=1.67 mode=cgoto Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=230824868 instructions:u=239919926 branch-misses:u=7387999 ic_cache_fill_l2:u=1939 ic_cache_fill_sys:u=1597 
+syn A load1=1.67 mode=pred Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=394617878 instructions:u=1124073755 branch-misses:u=152 ic_cache_fill_l2:u=732 ic_cache_fill_sys:u=384 
+syn A load1=1.67 mode=hybrid Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=326355594 instructions:u=998225522 branch-misses:u=975201 ic_cache_fill_l2:u=1058 ic_cache_fill_sys:u=669 
+syn A load1=1.67 mode=jit Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=163947490 | cycles:u=84946097 instructions:u=274831692 branch-misses:u=51410 ic_cache_fill_l2:u=2583174 ic_cache_fill_sys:u=1740 
+syn A load1=1.67 mode=gen Q=700 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=163947490 | cycles:u=54690052 instructions:u=218942951 branch-misses:u=33835 ic_cache_fill_l2:u=231 ic_cache_fill_sys:u=595 
+syn A load1=1.67 mode=cgoto Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=173842667 instructions:u=238240528 branch-misses:u=4888552 ic_cache_fill_l2:u=1331 ic_cache_fill_sys:u=1675 
+syn A load1=1.67 mode=pred Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=435189311 instructions:u=1124073833 branch-misses:u=292 ic_cache_fill_l2:u=1576 ic_cache_fill_sys:u=1167 
+syn A load1=1.67 mode=hybrid Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=324643075 instructions:u=1006618898 branch-misses:u=645901 ic_cache_fill_l2:u=1645 ic_cache_fill_sys:u=853 
+syn A load1=1.67 mode=jit Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=159642583 | cycles:u=86228847 instructions:u=273046897 branch-misses:u=54787 ic_cache_fill_l2:u=2515393 ic_cache_fill_sys:u=1375 
+syn A load1=1.67 mode=gen Q=800 nops=16777216 chunk=500 hash=790c54d3fe23805f gen_bytes=159642583 | cycles:u=46097171 instructions:u=218942924 branch-misses:u=33638 ic_cache_fill_l2:u=107 ic_cache_fill_sys:u=472 
+syn A load1=1.67 mode=cgoto Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=115880756 instructions:u=236561079 branch-misses:u=2518489 ic_cache_fill_l2:u=984 ic_cache_fill_sys:u=1469 
+syn A load1=1.67 mode=pred Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=395103373 instructions:u=1124073778 branch-misses:u=183 ic_cache_fill_l2:u=966 ic_cache_fill_sys:u=535 
+syn A load1=1.67 mode=hybrid Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=322937710 instructions:u=1015016140 branch-misses:u=322597 ic_cache_fill_l2:u=1406 ic_cache_fill_sys:u=858 
+syn A load1=1.67 mode=jit Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=155332873 | cycles:u=83985996 instructions:u=271260393 branch-misses:u=56644 ic_cache_fill_l2:u=2450040 ic_cache_fill_sys:u=1701 
+syn A load1=1.67 mode=gen Q=900 nops=16777216 chunk=500 hash=1e17d2709cc19b17 gen_bytes=155332873 | cycles:u=45681881 instructions:u=218942939 branch-misses:u=33624 ic_cache_fill_l2:u=131 ic_cache_fill_sys:u=485 
+syn A load1=1.67 mode=cgoto Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=113775460 instructions:u=235720494 branch-misses:u=1043366 ic_cache_fill_l2:u=575 ic_cache_fill_sys:u=2595 
+syn A load1=1.67 mode=pred Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=393666935 instructions:u=1124073752 branch-misses:u=166 ic_cache_fill_l2:u=705 ic_cache_fill_sys:u=435 
+syn A load1=1.67 mode=hybrid Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=320192181 instructions:u=1019202499 branch-misses:u=162502 ic_cache_fill_l2:u=870 ic_cache_fill_sys:u=428 
+syn A load1=1.67 mode=jit Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=153178396 | cycles:u=90480088 instructions:u=270367384 branch-misses:u=57642 ic_cache_fill_l2:u=2418618 ic_cache_fill_sys:u=1867 
+syn A load1=1.67 mode=gen Q=950 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=153178396 | cycles:u=46813323 instructions:u=218942923 branch-misses:u=33630 ic_cache_fill_l2:u=65 ic_cache_fill_sys:u=519 
+syn A load1=1.67 mode=cgoto Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=67752950 instructions:u=235217869 branch-misses:u=348344 ic_cache_fill_l2:u=513 ic_cache_fill_sys:u=1510 
+syn A load1=1.67 mode=pred Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=393730443 instructions:u=1124073767 branch-misses:u=176 ic_cache_fill_l2:u=818 ic_cache_fill_sys:u=615 
+syn A load1=1.67 mode=hybrid Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=319654515 instructions:u=1021719624 branch-misses:u=65354 ic_cache_fill_l2:u=1049 ic_cache_fill_sys:u=600 
+syn A load1=1.67 mode=jit Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=151889776 | cycles:u=90151932 instructions:u=269833113 branch-misses:u=56285 ic_cache_fill_l2:u=2395851 ic_cache_fill_sys:u=2719 
+syn A load1=1.67 mode=gen Q=980 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=151889776 | cycles:u=45023598 instructions:u=218942938 branch-misses:u=33622 ic_cache_fill_l2:u=113 ic_cache_fill_sys:u=540 
+syn A load1=1.67 mode=cgoto Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=59941174 instructions:u=234881145 branch-misses:u=48 ic_cache_fill_l2:u=89 ic_cache_fill_sys:u=275 
+syn A load1=1.69 mode=pred Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=452909088 instructions:u=1124073842 branch-misses:u=287 ic_cache_fill_l2:u=5135 ic_cache_fill_sys:u=859 
+syn A load1=1.69 mode=hybrid Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=319137878 instructions:u=1023410476 branch-misses:u=128 ic_cache_fill_l2:u=583 ic_cache_fill_sys:u=322 
+syn A load1=1.69 mode=jit Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=151028499 | cycles:u=91680779 instructions:u=269475902 branch-misses:u=50436 ic_cache_fill_l2:u=2390360 ic_cache_fill_sys:u=443 
+syn A load1=1.69 mode=gen Q=1000 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=151028499 | cycles:u=45851786 instructions:u=218942940 branch-misses:u=33621 ic_cache_fill_l2:u=87 ic_cache_fill_sys:u=515 
+lua A load1=1.69 mode=cgoto prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=653527 instructions:u=2102031 branch-misses:u=6203 ic_cache_fill_l2:u=85 ic_cache_fill_sys:u=225 
+lua A load1=1.69 mode=hybrid prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=735584 instructions:u=3164635 branch-misses:u=5688 ic_cache_fill_l2:u=47 ic_cache_fill_sys:u=210 
+lua A load1=1.69 mode=jit prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=1286667 instructions:u=3555728 branch-misses:u=1813 ic_cache_fill_l2:u=19875 ic_cache_fill_sys:u=275 
+lua A load1=1.69 mode=gen prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=626982 instructions:u=2957598 branch-misses:u=207 ic_cache_fill_l2:u=67 ic_cache_fill_sys:u=112 
+lua A load1=1.69 mode=cgoto prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=44588729 instructions:u=155915617 branch-misses:u=37955 ic_cache_fill_l2:u=438 ic_cache_fill_sys:u=4284 
+lua A load1=1.69 mode=hybrid prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=53115510 instructions:u=224067000 branch-misses:u=22183 ic_cache_fill_l2:u=348 ic_cache_fill_sys:u=4488 
+lua A load1=1.69 mode=jit prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=149845231 instructions:u=295591410 branch-misses:u=30684 ic_cache_fill_l2:u=1351340 ic_cache_fill_sys:u=4345 
+lua A load1=1.69 mode=gen prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=54233001 instructions:u=203138385 branch-misses:u=11978 ic_cache_fill_l2:u=175 ic_cache_fill_sys:u=1569 
+syn B load1=1.69 mode=cgoto Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=429141255 bp_de_redirect:u=107 
+syn B load1=1.69 mode=pred Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=396579949 bp_de_redirect:u=47 
+syn B load1=1.69 mode=hybrid Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=347264476 bp_de_redirect:u=106 
+syn B load1=1.69 mode=jit Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=194024960 | cycles:u=91437129 bp_de_redirect:u=54041 
+syn B load1=1.69 mode=gen Q=0 nops=16777216 chunk=500 hash=f44d8dd89b4e9b18 gen_bytes=194024960 | cycles:u=46936770 bp_de_redirect:u=19 
+syn B load1=1.69 mode=cgoto Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=385942701 bp_de_redirect:u=153 
+syn B load1=1.69 mode=pred Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=485349926 bp_de_redirect:u=66 
+syn B load1=1.69 mode=hybrid Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=367209759 bp_de_redirect:u=267 
+syn B load1=1.69 mode=jit Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=183294872 | cycles:u=96645813 bp_de_redirect:u=53845 
+syn B load1=1.69 mode=gen Q=250 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=183294872 | cycles:u=46753623 bp_de_redirect:u=18 
+syn B load1=1.69 mode=cgoto Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=306861655 bp_de_redirect:u=65 
+syn B load1=1.69 mode=pred Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=395364644 bp_de_redirect:u=34 
+syn B load1=1.69 mode=hybrid Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=331837086 bp_de_redirect:u=91 
+syn B load1=1.69 mode=jit Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=172553122 | cycles:u=86019750 bp_de_redirect:u=53360 
+syn B load1=1.69 mode=gen Q=500 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=172553122 | cycles:u=47326305 bp_de_redirect:u=16 
+syn B load1=1.69 mode=cgoto Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=218046215 bp_de_redirect:u=54 
+syn B load1=1.69 mode=pred Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=395205364 bp_de_redirect:u=60 
+syn B load1=1.69 mode=hybrid Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=326576943 bp_de_redirect:u=126 
+syn B load1=1.69 mode=jit Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=163947490 | cycles:u=84837952 bp_de_redirect:u=52579 
+syn B load1=1.69 mode=gen Q=700 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=163947490 | cycles:u=46927706 bp_de_redirect:u=23 
+syn B load1=1.69 mode=cgoto Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=168900593 bp_de_redirect:u=45 
+syn B load1=1.69 mode=pred Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=394654049 bp_de_redirect:u=35 
+syn B load1=1.69 mode=hybrid Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=323479371 bp_de_redirect:u=48 
+syn B load1=1.69 mode=jit Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=159642583 | cycles:u=85075872 bp_de_redirect:u=51813 
+syn B load1=1.69 mode=gen Q=800 nops=16777216 chunk=500 hash=790c54d3fe23805f gen_bytes=159642583 | cycles:u=46235255 bp_de_redirect:u=18 
+syn B load1=1.69 mode=cgoto Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=115371673 bp_de_redirect:u=43 
+syn B load1=1.69 mode=pred Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=393888381 bp_de_redirect:u=30 
+syn B load1=1.72 mode=hybrid Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=321305721 bp_de_redirect:u=64 
+syn B load1=1.72 mode=jit Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=155332873 | cycles:u=125955121 bp_de_redirect:u=50476 
+syn B load1=1.72 mode=gen Q=900 nops=16777216 chunk=500 hash=1e17d2709cc19b17 gen_bytes=155332873 | cycles:u=48698100 bp_de_redirect:u=26 
+syn B load1=1.72 mode=cgoto Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=82179065 bp_de_redirect:u=34 
+syn B load1=1.72 mode=pred Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=396300254 bp_de_redirect:u=70 
+syn B load1=1.72 mode=hybrid Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=321483138 bp_de_redirect:u=214 
+syn B load1=1.72 mode=jit Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=153178396 | cycles:u=84536710 bp_de_redirect:u=49463 
+syn B load1=1.72 mode=gen Q=950 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=153178396 | cycles:u=46025042 bp_de_redirect:u=23 
+syn B load1=1.72 mode=cgoto Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=67663069 bp_de_redirect:u=32 
+syn B load1=1.72 mode=pred Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=395523004 bp_de_redirect:u=64 
+syn B load1=1.72 mode=hybrid Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=320716775 bp_de_redirect:u=130 
+syn B load1=1.72 mode=jit Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=151889776 | cycles:u=83670411 bp_de_redirect:u=46564 
+syn B load1=1.72 mode=gen Q=980 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=151889776 | cycles:u=52903473 bp_de_redirect:u=26 
+syn B load1=1.72 mode=cgoto Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=60152113 bp_de_redirect:u=39 
+syn B load1=1.72 mode=pred Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=393943866 bp_de_redirect:u=31 
+syn B load1=1.72 mode=hybrid Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=319572800 bp_de_redirect:u=49 
+syn B load1=1.72 mode=jit Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=151028499 | cycles:u=85404252 bp_de_redirect:u=64 
+syn B load1=1.72 mode=gen Q=1000 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=151028499 | cycles:u=51854512 bp_de_redirect:u=23 
+lua B load1=1.72 mode=cgoto prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=662879 bp_de_redirect:u=59 
+lua B load1=1.72 mode=hybrid prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=744157 bp_de_redirect:u=62 
+lua B load1=1.72 mode=jit prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=1272079 bp_de_redirect:u=22999 
+lua B load1=1.72 mode=gen prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=581901 bp_de_redirect:u=9 
+lua B load1=1.72 mode=cgoto prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=43959499 bp_de_redirect:u=144 
+lua B load1=1.72 mode=hybrid prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=53178706 bp_de_redirect:u=159 
+lua B load1=1.72 mode=jit prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=149838087 bp_de_redirect:u=3987902 
+lua B load1=1.72 mode=gen prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=53769777 bp_de_redirect:u=16 
+syn A load1=1.72 mode=cgoto Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=406418364 instructions:u=251655860 branch-misses:u=15723423 ic_cache_fill_l2:u=2738 ic_cache_fill_sys:u=1005 
+syn A load1=1.72 mode=pred Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=396847710 instructions:u=1124073779 branch-misses:u=226 ic_cache_fill_l2:u=1202 ic_cache_fill_sys:u=779 
+syn A load1=1.72 mode=hybrid Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=377353320 instructions:u=939562632 branch-misses:u=3373788 ic_cache_fill_l2:u=4074 ic_cache_fill_sys:u=667 
+syn A load1=1.72 mode=jit Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=194024960 | cycles:u=88585588 instructions:u=287302675 branch-misses:u=55785 ic_cache_fill_l2:u=3051410 ic_cache_fill_sys:u=1218 
+syn A load1=1.72 mode=gen Q=0 nops=16777216 chunk=500 hash=f44d8dd89b4e9b18 gen_bytes=194024960 | cycles:u=47693141 instructions:u=218942946 branch-misses:u=33644 ic_cache_fill_l2:u=150 ic_cache_fill_sys:u=452 
+syn A load1=1.72 mode=cgoto Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=378440748 instructions:u=247467871 branch-misses:u=14485454 ic_cache_fill_l2:u=2411 ic_cache_fill_sys:u=1262 
+syn A load1=1.72 mode=pred Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=396276766 instructions:u=1124073810 branch-misses:u=254 ic_cache_fill_l2:u=1184 ic_cache_fill_sys:u=832 
+syn A load1=1.72 mode=hybrid Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=339951955 instructions:u=960451388 branch-misses:u=2522487 ic_cache_fill_l2:u=1646 ic_cache_fill_sys:u=749 
+syn A load1=1.72 mode=jit Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=183294872 | cycles:u=90055182 instructions:u=282853746 branch-misses:u=55624 ic_cache_fill_l2:u=2883572 ic_cache_fill_sys:u=1404 
+syn A load1=1.72 mode=gen Q=250 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=183294872 | cycles:u=47350427 instructions:u=218942946 branch-misses:u=33800 ic_cache_fill_l2:u=154 ic_cache_fill_sys:u=552 
+syn A load1=1.72 mode=cgoto Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=309236501 instructions:u=243275673 branch-misses:u=11254053 ic_cache_fill_l2:u=2850 ic_cache_fill_sys:u=1530 
+syn A load1=1.72 mode=pred Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=397143696 instructions:u=1124073823 branch-misses:u=270 ic_cache_fill_l2:u=1571 ic_cache_fill_sys:u=832 
+syn A load1=1.72 mode=hybrid Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=332517684 instructions:u=981442216 branch-misses:u=1656464 ic_cache_fill_l2:u=1372 ic_cache_fill_sys:u=649 
+syn A load1=1.72 mode=jit Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=172553122 | cycles:u=95843670 instructions:u=278399822 branch-misses:u=51796 ic_cache_fill_l2:u=2717087 ic_cache_fill_sys:u=1157 
+syn A load1=1.74 mode=gen Q=500 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=172553122 | cycles:u=47755837 instructions:u=218942945 branch-misses:u=33687 ic_cache_fill_l2:u=160 ic_cache_fill_sys:u=445 
+syn A load1=1.74 mode=cgoto Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=218865272 instructions:u=239919914 branch-misses:u=7160016 ic_cache_fill_l2:u=1915 ic_cache_fill_sys:u=1488 
+syn A load1=1.74 mode=pred Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=422067427 instructions:u=1124073880 branch-misses:u=318 ic_cache_fill_l2:u=2289 ic_cache_fill_sys:u=623 
+syn A load1=1.74 mode=hybrid Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=325967862 instructions:u=998225506 branch-misses:u=975048 ic_cache_fill_l2:u=822 ic_cache_fill_sys:u=566 
+syn A load1=1.74 mode=jit Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=163947490 | cycles:u=85079021 instructions:u=274831700 branch-misses:u=53957 ic_cache_fill_l2:u=2583312 ic_cache_fill_sys:u=1360 
+syn A load1=1.74 mode=gen Q=700 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=163947490 | cycles:u=45973473 instructions:u=218942939 branch-misses:u=33660 ic_cache_fill_l2:u=146 ic_cache_fill_sys:u=565 
+syn A load1=1.74 mode=cgoto Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=171412044 instructions:u=238240532 branch-misses:u=5005737 ic_cache_fill_l2:u=1945 ic_cache_fill_sys:u=1620 
+syn A load1=1.74 mode=pred Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=395855929 instructions:u=1124074014 branch-misses:u=260 ic_cache_fill_l2:u=1379 ic_cache_fill_sys:u=679 
+syn A load1=1.74 mode=hybrid Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=324679168 instructions:u=1006618963 branch-misses:u=644825 ic_cache_fill_l2:u=1785 ic_cache_fill_sys:u=764 
+syn A load1=1.74 mode=jit Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=159642583 | cycles:u=86133304 instructions:u=273046900 branch-misses:u=58233 ic_cache_fill_l2:u=2515424 ic_cache_fill_sys:u=1242 
+syn A load1=1.74 mode=gen Q=800 nops=16777216 chunk=500 hash=790c54d3fe23805f gen_bytes=159642583 | cycles:u=46025848 instructions:u=218942952 branch-misses:u=33795 ic_cache_fill_l2:u=224 ic_cache_fill_sys:u=539 
+syn A load1=1.74 mode=cgoto Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=115607974 instructions:u=236561084 branch-misses:u=2516178 ic_cache_fill_l2:u=1167 ic_cache_fill_sys:u=1214 
+syn A load1=1.74 mode=pred Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=422344556 instructions:u=1124073817 branch-misses:u=250 ic_cache_fill_l2:u=2803 ic_cache_fill_sys:u=623 
+syn A load1=1.74 mode=hybrid Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=322113873 instructions:u=1015016139 branch-misses:u=322133 ic_cache_fill_l2:u=1420 ic_cache_fill_sys:u=676 
+syn A load1=1.74 mode=jit Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=155332873 | cycles:u=87731880 instructions:u=271260377 branch-misses:u=55373 ic_cache_fill_l2:u=2449196 ic_cache_fill_sys:u=1435 
+syn A load1=1.74 mode=gen Q=900 nops=16777216 chunk=500 hash=1e17d2709cc19b17 gen_bytes=155332873 | cycles:u=51558182 instructions:u=218942944 branch-misses:u=33644 ic_cache_fill_l2:u=146 ic_cache_fill_sys:u=468 
+syn A load1=1.74 mode=cgoto Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=82268741 instructions:u=235720485 branch-misses:u=1010791 ic_cache_fill_l2:u=776 ic_cache_fill_sys:u=1225 
+syn A load1=1.74 mode=pred Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=472276654 instructions:u=1124073819 branch-misses:u=246 ic_cache_fill_l2:u=1203 ic_cache_fill_sys:u=676 
+syn A load1=1.74 mode=hybrid Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=320266899 instructions:u=1019202497 branch-misses:u=162670 ic_cache_fill_l2:u=858 ic_cache_fill_sys:u=497 
+syn A load1=1.74 mode=jit Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=153178396 | cycles:u=84132470 instructions:u=270367366 branch-misses:u=54131 ic_cache_fill_l2:u=2419022 ic_cache_fill_sys:u=1738 
+syn A load1=1.74 mode=gen Q=950 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=153178396 | cycles:u=45901852 instructions:u=218942941 branch-misses:u=33684 ic_cache_fill_l2:u=86 ic_cache_fill_sys:u=522 
+syn A load1=1.74 mode=cgoto Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=67789898 instructions:u=235217865 branch-misses:u=346121 ic_cache_fill_l2:u=477 ic_cache_fill_sys:u=1278 
+syn A load1=1.74 mode=pred Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=395403410 instructions:u=1124073792 branch-misses:u=246 ic_cache_fill_l2:u=1337 ic_cache_fill_sys:u=793 
+syn A load1=1.74 mode=hybrid Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=320068142 instructions:u=1021719647 branch-misses:u=66011 ic_cache_fill_l2:u=1293 ic_cache_fill_sys:u=622 
+syn A load1=1.74 mode=jit Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=151889776 | cycles:u=90044015 instructions:u=269833136 branch-misses:u=53617 ic_cache_fill_l2:u=2395735 ic_cache_fill_sys:u=2267 
+syn A load1=1.74 mode=gen Q=980 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=151889776 | cycles:u=45629981 instructions:u=218942941 branch-misses:u=33675 ic_cache_fill_l2:u=111 ic_cache_fill_sys:u=489 
+syn A load1=1.74 mode=cgoto Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=60202617 instructions:u=234881154 branch-misses:u=64 ic_cache_fill_l2:u=189 ic_cache_fill_sys:u=419 
+syn A load1=1.74 mode=pred Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=394180117 instructions:u=1124073786 branch-misses:u=213 ic_cache_fill_l2:u=977 ic_cache_fill_sys:u=672 
+syn A load1=1.74 mode=hybrid Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=324711626 instructions:u=1023410476 branch-misses:u=177 ic_cache_fill_l2:u=792 ic_cache_fill_sys:u=470 
+syn A load1=1.74 mode=jit Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=151028499 | cycles:u=83149092 instructions:u=269475900 branch-misses:u=55090 ic_cache_fill_l2:u=2390027 ic_cache_fill_sys:u=489 
+syn A load1=1.74 mode=gen Q=1000 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=151028499 | cycles:u=45707906 instructions:u=218942964 branch-misses:u=33692 ic_cache_fill_l2:u=235 ic_cache_fill_sys:u=437 
+lua A load1=1.74 mode=cgoto prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=671216 instructions:u=2102030 branch-misses:u=6137 ic_cache_fill_l2:u=84 ic_cache_fill_sys:u=185 
+lua A load1=1.74 mode=hybrid prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=751767 instructions:u=3164634 branch-misses:u=5646 ic_cache_fill_l2:u=54 ic_cache_fill_sys:u=236 
+lua A load1=1.74 mode=jit prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=1302692 instructions:u=3555727 branch-misses:u=1764 ic_cache_fill_l2:u=19884 ic_cache_fill_sys:u=216 
+lua A load1=1.74 mode=gen prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=613295 instructions:u=2957598 branch-misses:u=206 ic_cache_fill_l2:u=43 ic_cache_fill_sys:u=111 
+lua A load1=1.74 mode=cgoto prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=44861468 instructions:u=155915626 branch-misses:u=39143 ic_cache_fill_l2:u=318 ic_cache_fill_sys:u=3671 
+lua A load1=1.74 mode=hybrid prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=53175899 instructions:u=224066997 branch-misses:u=22922 ic_cache_fill_l2:u=275 ic_cache_fill_sys:u=4209 
+lua A load1=1.74 mode=jit prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=148583784 instructions:u=295591388 branch-misses:u=28397 ic_cache_fill_l2:u=1351197 ic_cache_fill_sys:u=4129 
+lua A load1=1.74 mode=gen prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=53116982 instructions:u=203138382 branch-misses:u=11995 ic_cache_fill_l2:u=137 ic_cache_fill_sys:u=1232 
+syn B load1=1.74 mode=cgoto Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=405802338 bp_de_redirect:u=129 
+syn B load1=1.76 mode=pred Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=398089439 bp_de_redirect:u=65 
+syn B load1=1.76 mode=hybrid Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=347833692 bp_de_redirect:u=192 
+syn B load1=1.76 mode=jit Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=194024960 | cycles:u=88786890 bp_de_redirect:u=54028 
+syn B load1=1.76 mode=gen Q=0 nops=16777216 chunk=500 hash=f44d8dd89b4e9b18 gen_bytes=194024960 | cycles:u=46935329 bp_de_redirect:u=25 
+syn B load1=1.76 mode=cgoto Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=381385846 bp_de_redirect:u=56 
+syn B load1=1.76 mode=pred Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=396073138 bp_de_redirect:u=38 
+syn B load1=1.76 mode=hybrid Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=340611428 bp_de_redirect:u=110 
+syn B load1=1.76 mode=jit Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=183294872 | cycles:u=87094800 bp_de_redirect:u=53841 
+syn B load1=1.76 mode=gen Q=250 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=183294872 | cycles:u=51733567 bp_de_redirect:u=30 
+syn B load1=1.76 mode=cgoto Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=320352339 bp_de_redirect:u=87 
+syn B load1=1.76 mode=pred Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=395219791 bp_de_redirect:u=34 
+syn B load1=1.76 mode=hybrid Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=331893852 bp_de_redirect:u=59 
+syn B load1=1.76 mode=jit Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=172553122 | cycles:u=85262725 bp_de_redirect:u=53485 
+syn B load1=1.76 mode=gen Q=500 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=172553122 | cycles:u=55572982 bp_de_redirect:u=25 
+syn B load1=1.76 mode=cgoto Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=222674909 bp_de_redirect:u=45 
+syn B load1=1.76 mode=pred Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=394825146 bp_de_redirect:u=45 
+syn B load1=1.76 mode=hybrid Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=326595336 bp_de_redirect:u=157 
+syn B load1=1.76 mode=jit Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=163947490 | cycles:u=84844338 bp_de_redirect:u=52613 
+syn B load1=1.76 mode=gen Q=700 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=163947490 | cycles:u=46290352 bp_de_redirect:u=21 
+syn B load1=1.76 mode=cgoto Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=168046770 bp_de_redirect:u=45 
+syn B load1=1.76 mode=pred Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=394668110 bp_de_redirect:u=47 
+syn B load1=1.76 mode=hybrid Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=323704086 bp_de_redirect:u=66 
+syn B load1=1.76 mode=jit Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=159642583 | cycles:u=85757181 bp_de_redirect:u=51821 
+syn B load1=1.76 mode=gen Q=800 nops=16777216 chunk=500 hash=790c54d3fe23805f gen_bytes=159642583 | cycles:u=53522669 bp_de_redirect:u=19 
+syn B load1=1.76 mode=cgoto Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=115563082 bp_de_redirect:u=28 
+syn B load1=1.76 mode=pred Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=394268934 bp_de_redirect:u=68 
+syn B load1=1.76 mode=hybrid Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=321982606 bp_de_redirect:u=299 
+syn B load1=1.76 mode=jit Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=155332873 | cycles:u=96358491 bp_de_redirect:u=50747 
+syn B load1=1.76 mode=gen Q=900 nops=16777216 chunk=500 hash=1e17d2709cc19b17 gen_bytes=155332873 | cycles:u=52715896 bp_de_redirect:u=38 
+syn B load1=1.76 mode=cgoto Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=82284477 bp_de_redirect:u=47 
+syn B load1=1.76 mode=pred Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=394650101 bp_de_redirect:u=92 
+syn B load1=1.76 mode=hybrid Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=320952415 bp_de_redirect:u=300 
+syn B load1=1.76 mode=jit Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=153178396 | cycles:u=84178613 bp_de_redirect:u=49436 
+syn B load1=1.76 mode=gen Q=950 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=153178396 | cycles:u=46261004 bp_de_redirect:u=24 
+syn B load1=1.76 mode=cgoto Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=67797856 bp_de_redirect:u=29 
+syn B load1=1.76 mode=pred Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=394402571 bp_de_redirect:u=45 
+syn B load1=1.78 mode=hybrid Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=338626896 bp_de_redirect:u=288 
+syn B load1=1.78 mode=jit Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=151889776 | cycles:u=85208105 bp_de_redirect:u=46583 
+syn B load1=1.78 mode=gen Q=980 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=151889776 | cycles:u=52124551 bp_de_redirect:u=37 
+syn B load1=1.78 mode=cgoto Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=60244364 bp_de_redirect:u=35 
+syn B load1=1.78 mode=pred Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=402570807 bp_de_redirect:u=74 
+syn B load1=1.78 mode=hybrid Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=320286145 bp_de_redirect:u=79 
+syn B load1=1.78 mode=jit Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=151028499 | cycles:u=84747611 bp_de_redirect:u=97 
+syn B load1=1.78 mode=gen Q=1000 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=151028499 | cycles:u=52198622 bp_de_redirect:u=26 
+lua B load1=1.78 mode=cgoto prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=673977 bp_de_redirect:u=62 
+lua B load1=1.78 mode=hybrid prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=748430 bp_de_redirect:u=61 
+lua B load1=1.78 mode=jit prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=1400110 bp_de_redirect:u=23023 
+lua B load1=1.78 mode=gen prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=685783 bp_de_redirect:u=10 
+lua B load1=1.78 mode=cgoto prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=45338397 bp_de_redirect:u=275 
+lua B load1=1.78 mode=hybrid prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=52902793 bp_de_redirect:u=265 
+lua B load1=1.78 mode=jit prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=149779527 bp_de_redirect:u=3990195 
+lua B load1=1.78 mode=gen prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=54006743 bp_de_redirect:u=19 
+syn A load1=1.78 mode=cgoto Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=421247728 instructions:u=251655834 branch-misses:u=15711617 ic_cache_fill_l2:u=2600 ic_cache_fill_sys:u=926 
+syn A load1=1.78 mode=pred Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=396547556 instructions:u=1124074170 branch-misses:u=188 ic_cache_fill_l2:u=876 ic_cache_fill_sys:u=606 
+syn A load1=1.78 mode=hybrid Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=347136358 instructions:u=939562644 branch-misses:u=3365722 ic_cache_fill_l2:u=1097 ic_cache_fill_sys:u=899 
+syn A load1=1.78 mode=jit Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=194024960 | cycles:u=89301039 instructions:u=287302680 branch-misses:u=56797 ic_cache_fill_l2:u=3051420 ic_cache_fill_sys:u=1187 
+syn A load1=1.78 mode=gen Q=0 nops=16777216 chunk=500 hash=f44d8dd89b4e9b18 gen_bytes=194024960 | cycles:u=55945186 instructions:u=218942949 branch-misses:u=33694 ic_cache_fill_l2:u=128 ic_cache_fill_sys:u=437 
+syn A load1=1.78 mode=cgoto Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=379343886 instructions:u=247467893 branch-misses:u=14499323 ic_cache_fill_l2:u=3116 ic_cache_fill_sys:u=1672 
+syn A load1=1.78 mode=pred Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=396721001 instructions:u=1124073807 branch-misses:u=246 ic_cache_fill_l2:u=1298 ic_cache_fill_sys:u=798 
+syn A load1=1.78 mode=hybrid Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=414872124 instructions:u=960451412 branch-misses:u=2514766 ic_cache_fill_l2:u=1650 ic_cache_fill_sys:u=663 
+syn A load1=1.78 mode=jit Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=183294872 | cycles:u=88583023 instructions:u=282853771 branch-misses:u=57915 ic_cache_fill_l2:u=2886470 ic_cache_fill_sys:u=1349 
+syn A load1=1.78 mode=gen Q=250 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=183294872 | cycles:u=46956713 instructions:u=218942940 branch-misses:u=33636 ic_cache_fill_l2:u=112 ic_cache_fill_sys:u=434 
+syn A load1=1.78 mode=cgoto Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=320044520 instructions:u=243275645 branch-misses:u=11626562 ic_cache_fill_l2:u=1973 ic_cache_fill_sys:u=1248 
+syn A load1=1.78 mode=pred Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=490848432 instructions:u=1124073850 branch-misses:u=295 ic_cache_fill_l2:u=1623 ic_cache_fill_sys:u=815 
+syn A load1=1.78 mode=hybrid Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=332338097 instructions:u=981442251 branch-misses:u=1657031 ic_cache_fill_l2:u=1529 ic_cache_fill_sys:u=969 
+syn A load1=1.78 mode=jit Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=172553122 | cycles:u=86777719 instructions:u=278399812 branch-misses:u=58993 ic_cache_fill_l2:u=2716308 ic_cache_fill_sys:u=1202 
+syn A load1=1.78 mode=gen Q=500 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=172553122 | cycles:u=57341611 instructions:u=218942945 branch-misses:u=33636 ic_cache_fill_l2:u=86 ic_cache_fill_sys:u=481 
+syn A load1=1.78 mode=cgoto Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=213980573 instructions:u=239919904 branch-misses:u=6954399 ic_cache_fill_l2:u=1466 ic_cache_fill_sys:u=1948 
+syn A load1=1.78 mode=pred Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=395426655 instructions:u=1124073785 branch-misses:u=206 ic_cache_fill_l2:u=909 ic_cache_fill_sys:u=837 
+syn A load1=1.78 mode=hybrid Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=327246924 instructions:u=998225550 branch-misses:u=976013 ic_cache_fill_l2:u=1496 ic_cache_fill_sys:u=1019 
+syn A load1=1.78 mode=jit Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=163947490 | cycles:u=85464519 instructions:u=274831682 branch-misses:u=54328 ic_cache_fill_l2:u=2583438 ic_cache_fill_sys:u=1526 
+syn A load1=1.78 mode=gen Q=700 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=163947490 | cycles:u=48491654 instructions:u=218942947 branch-misses:u=33679 ic_cache_fill_l2:u=86 ic_cache_fill_sys:u=522 
+syn A load1=1.78 mode=cgoto Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=170486199 instructions:u=238240535 branch-misses:u=4969641 ic_cache_fill_l2:u=1120 ic_cache_fill_sys:u=1399 
+syn A load1=1.78 mode=pred Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=404506529 instructions:u=1124073792 branch-misses:u=187 ic_cache_fill_l2:u=1366 ic_cache_fill_sys:u=632 
+syn A load1=1.80 mode=hybrid Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=323820736 instructions:u=1006618875 branch-misses:u=644162 ic_cache_fill_l2:u=1112 ic_cache_fill_sys:u=673 
+syn A load1=1.80 mode=jit Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=159642583 | cycles:u=86247281 instructions:u=273046892 branch-misses:u=59311 ic_cache_fill_l2:u=2516080 ic_cache_fill_sys:u=1409 
+syn A load1=1.80 mode=gen Q=800 nops=16777216 chunk=500 hash=790c54d3fe23805f gen_bytes=159642583 | cycles:u=55573670 instructions:u=218942945 branch-misses:u=33719 ic_cache_fill_l2:u=171 ic_cache_fill_sys:u=622 
+syn A load1=1.80 mode=cgoto Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=115379216 instructions:u=236561069 branch-misses:u=2513075 ic_cache_fill_l2:u=722 ic_cache_fill_sys:u=1624 
+syn A load1=1.80 mode=pred Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=397889468 instructions:u=1124073796 branch-misses:u=234 ic_cache_fill_l2:u=1389 ic_cache_fill_sys:u=829 
+syn A load1=1.80 mode=hybrid Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=323211653 instructions:u=1015016121 branch-misses:u=321803 ic_cache_fill_l2:u=1367 ic_cache_fill_sys:u=643 
+syn A load1=1.80 mode=jit Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=155332873 | cycles:u=92193940 instructions:u=271260391 branch-misses:u=56624 ic_cache_fill_l2:u=2449041 ic_cache_fill_sys:u=1271 
+syn A load1=1.80 mode=gen Q=900 nops=16777216 chunk=500 hash=1e17d2709cc19b17 gen_bytes=155332873 | cycles:u=46876457 instructions:u=218942954 branch-misses:u=33878 ic_cache_fill_l2:u=250 ic_cache_fill_sys:u=640 
+syn A load1=1.80 mode=cgoto Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=82252848 instructions:u=235720488 branch-misses:u=1006887 ic_cache_fill_l2:u=566 ic_cache_fill_sys:u=1350 
+syn A load1=1.80 mode=pred Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=395044016 instructions:u=1124073767 branch-misses:u=177 ic_cache_fill_l2:u=1110 ic_cache_fill_sys:u=614 
+syn A load1=1.80 mode=hybrid Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=320369601 instructions:u=1019202531 branch-misses:u=162993 ic_cache_fill_l2:u=1190 ic_cache_fill_sys:u=490 
+syn A load1=1.80 mode=jit Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=153178396 | cycles:u=84143304 instructions:u=270367377 branch-misses:u=54288 ic_cache_fill_l2:u=2418834 ic_cache_fill_sys:u=1511 
+syn A load1=1.80 mode=gen Q=950 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=153178396 | cycles:u=45717226 instructions:u=218942939 branch-misses:u=33633 ic_cache_fill_l2:u=121 ic_cache_fill_sys:u=521 
+syn A load1=1.80 mode=cgoto Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=96221104 instructions:u=235217873 branch-misses:u=350166 ic_cache_fill_l2:u=709 ic_cache_fill_sys:u=1150 
+syn A load1=1.80 mode=pred Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=393908677 instructions:u=1124073766 branch-misses:u=169 ic_cache_fill_l2:u=731 ic_cache_fill_sys:u=463 
+syn A load1=1.80 mode=hybrid Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=319661543 instructions:u=1021719620 branch-misses:u=65158 ic_cache_fill_l2:u=805 ic_cache_fill_sys:u=350 
+syn A load1=1.80 mode=jit Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=151889776 | cycles:u=83703442 instructions:u=269833113 branch-misses:u=57717 ic_cache_fill_l2:u=2394230 ic_cache_fill_sys:u=2783 
+syn A load1=1.80 mode=gen Q=980 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=151889776 | cycles:u=46339638 instructions:u=218942944 branch-misses:u=33640 ic_cache_fill_l2:u=154 ic_cache_fill_sys:u=465 
+syn A load1=1.80 mode=cgoto Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=60025340 instructions:u=234881166 branch-misses:u=57 ic_cache_fill_l2:u=176 ic_cache_fill_sys:u=376 
+syn A load1=1.80 mode=pred Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=397029808 instructions:u=1124073821 branch-misses:u=319 ic_cache_fill_l2:u=1999 ic_cache_fill_sys:u=1135 
+syn A load1=1.80 mode=hybrid Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=319947602 instructions:u=1023410500 branch-misses:u=237 ic_cache_fill_l2:u=1026 ic_cache_fill_sys:u=625 
+syn A load1=1.80 mode=jit Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=151028499 | cycles:u=85582038 instructions:u=269475907 branch-misses:u=57255 ic_cache_fill_l2:u=2386184 ic_cache_fill_sys:u=662 
+syn A load1=1.80 mode=gen Q=1000 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=151028499 | cycles:u=45769387 instructions:u=218942941 branch-misses:u=33674 ic_cache_fill_l2:u=109 ic_cache_fill_sys:u=494 
+lua A load1=1.80 mode=cgoto prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=688217 instructions:u=2102031 branch-misses:u=6343 ic_cache_fill_l2:u=105 ic_cache_fill_sys:u=234 
+lua A load1=1.80 mode=hybrid prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=747623 instructions:u=3164634 branch-misses:u=5633 ic_cache_fill_l2:u=29 ic_cache_fill_sys:u=227 
+lua A load1=1.80 mode=jit prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=1295949 instructions:u=3555726 branch-misses:u=1782 ic_cache_fill_l2:u=19814 ic_cache_fill_sys:u=244 
+lua A load1=1.80 mode=gen prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=585487 instructions:u=2957599 branch-misses:u=211 ic_cache_fill_l2:u=73 ic_cache_fill_sys:u=97 
+lua A load1=1.80 mode=cgoto prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=44427376 instructions:u=155915627 branch-misses:u=37631 ic_cache_fill_l2:u=254 ic_cache_fill_sys:u=3316 
+lua A load1=1.80 mode=hybrid prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=53335905 instructions:u=224067003 branch-misses:u=22192 ic_cache_fill_l2:u=343 ic_cache_fill_sys:u=3943 
+lua A load1=1.80 mode=jit prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=149644604 instructions:u=295591402 branch-misses:u=36158 ic_cache_fill_l2:u=1352534 ic_cache_fill_sys:u=4235 
+lua A load1=1.80 mode=gen prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=54154515 instructions:u=203138389 branch-misses:u=12036 ic_cache_fill_l2:u=252 ic_cache_fill_sys:u=1310 
+syn B load1=1.80 mode=cgoto Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=406459809 bp_de_redirect:u=374 
+syn B load1=1.80 mode=pred Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=396592369 bp_de_redirect:u=46 
+syn B load1=1.80 mode=hybrid Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=347338199 bp_de_redirect:u=194 
+syn B load1=1.80 mode=jit Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=194024960 | cycles:u=89378637 bp_de_redirect:u=54045 
+syn B load1=1.80 mode=gen Q=0 nops=16777216 chunk=500 hash=f44d8dd89b4e9b18 gen_bytes=194024960 | cycles:u=47892788 bp_de_redirect:u=31 
+syn B load1=1.80 mode=cgoto Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=379192956 bp_de_redirect:u=90 
+syn B load1=1.80 mode=pred Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=396606667 bp_de_redirect:u=54 
+syn B load1=1.80 mode=hybrid Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=339274920 bp_de_redirect:u=53 
+syn B load1=1.80 mode=jit Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=183294872 | cycles:u=87642505 bp_de_redirect:u=53850 
+syn B load1=1.80 mode=gen Q=250 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=183294872 | cycles:u=47854080 bp_de_redirect:u=22 
+syn B load1=1.81 mode=cgoto Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=301315116 bp_de_redirect:u=88 
+syn B load1=1.81 mode=pred Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=457921466 bp_de_redirect:u=52 
+syn B load1=1.81 mode=hybrid Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=332439761 bp_de_redirect:u=247 
+syn B load1=1.81 mode=jit Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=172553122 | cycles:u=88339011 bp_de_redirect:u=53351 
+syn B load1=1.81 mode=gen Q=500 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=172553122 | cycles:u=46936477 bp_de_redirect:u=21 
+syn B load1=1.81 mode=cgoto Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=219374224 bp_de_redirect:u=72 
+syn B load1=1.81 mode=pred Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=439479276 bp_de_redirect:u=52 
+syn B load1=1.81 mode=hybrid Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=366963357 bp_de_redirect:u=256 
+syn B load1=1.81 mode=jit Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=163947490 | cycles:u=86663517 bp_de_redirect:u=52581 
+syn B load1=1.81 mode=gen Q=700 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=163947490 | cycles:u=47094158 bp_de_redirect:u=21 
+syn B load1=1.81 mode=cgoto Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=168144423 bp_de_redirect:u=53 
+syn B load1=1.81 mode=pred Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=394101372 bp_de_redirect:u=34 
+syn B load1=1.81 mode=hybrid Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=324014398 bp_de_redirect:u=47 
+syn B load1=1.81 mode=jit Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=159642583 | cycles:u=92212482 bp_de_redirect:u=51825 
+syn B load1=1.81 mode=gen Q=800 nops=16777216 chunk=500 hash=790c54d3fe23805f gen_bytes=159642583 | cycles:u=45856592 bp_de_redirect:u=20 
+syn B load1=1.81 mode=cgoto Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=115278873 bp_de_redirect:u=28 
+syn B load1=1.81 mode=pred Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=394174788 bp_de_redirect:u=34 
+syn B load1=1.81 mode=hybrid Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=321679771 bp_de_redirect:u=65 
+syn B load1=1.81 mode=jit Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=155332873 | cycles:u=86052096 bp_de_redirect:u=50700 
+syn B load1=1.81 mode=gen Q=900 nops=16777216 chunk=500 hash=1e17d2709cc19b17 gen_bytes=155332873 | cycles:u=47580597 bp_de_redirect:u=28 
+syn B load1=1.81 mode=cgoto Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=82103517 bp_de_redirect:u=30 
+syn B load1=1.81 mode=pred Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=395334829 bp_de_redirect:u=40 
+syn B load1=1.81 mode=hybrid Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=320629309 bp_de_redirect:u=66 
+syn B load1=1.81 mode=jit Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=153178396 | cycles:u=85275065 bp_de_redirect:u=49534 
+syn B load1=1.81 mode=gen Q=950 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=153178396 | cycles:u=45909258 bp_de_redirect:u=15 
+syn B load1=1.81 mode=cgoto Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=68898368 bp_de_redirect:u=117 
+syn B load1=1.81 mode=pred Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=401360421 bp_de_redirect:u=68 
+syn B load1=1.81 mode=hybrid Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=320532007 bp_de_redirect:u=120 
+syn B load1=1.81 mode=jit Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=151889776 | cycles:u=88277323 bp_de_redirect:u=46556 
+syn B load1=1.81 mode=gen Q=980 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=151889776 | cycles:u=45982045 bp_de_redirect:u=19 
+syn B load1=1.81 mode=cgoto Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=59839947 bp_de_redirect:u=26 
+syn B load1=1.81 mode=pred Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=397321629 bp_de_redirect:u=64 
+syn B load1=1.81 mode=hybrid Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=319881351 bp_de_redirect:u=32 
+syn B load1=1.81 mode=jit Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=151028499 | cycles:u=94999244 bp_de_redirect:u=80 
+syn B load1=1.81 mode=gen Q=1000 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=151028499 | cycles:u=46380256 bp_de_redirect:u=33 
+lua B load1=1.81 mode=cgoto prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=672396 bp_de_redirect:u=71 
+lua B load1=1.81 mode=hybrid prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=777774 bp_de_redirect:u=66 
+lua B load1=1.81 mode=jit prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=1380505 bp_de_redirect:u=22973 
+lua B load1=1.81 mode=gen prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=733856 bp_de_redirect:u=10 
+lua B load1=1.81 mode=cgoto prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=44822469 bp_de_redirect:u=204 
+lua B load1=1.81 mode=hybrid prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=52789010 bp_de_redirect:u=163 
+lua B load1=1.83 mode=jit prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=148915655 bp_de_redirect:u=4006120 
+lua B load1=1.83 mode=gen prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=55736534 bp_de_redirect:u=28 
+syn A load1=1.83 mode=cgoto Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=406017427 instructions:u=251656521 branch-misses:u=15723838 ic_cache_fill_l2:u=2595 ic_cache_fill_sys:u=988 
+syn A load1=1.83 mode=pred Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=397187026 instructions:u=1124074680 branch-misses:u=195 ic_cache_fill_l2:u=922 ic_cache_fill_sys:u=580 
+syn A load1=1.83 mode=hybrid Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=347135216 instructions:u=939562594 branch-misses:u=3365838 ic_cache_fill_l2:u=946 ic_cache_fill_sys:u=625 
+syn A load1=1.83 mode=jit Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=194024960 | cycles:u=91753545 instructions:u=287302680 branch-misses:u=55588 ic_cache_fill_l2:u=3052002 ic_cache_fill_sys:u=1133 
+syn A load1=1.83 mode=gen Q=0 nops=16777216 chunk=500 hash=f44d8dd89b4e9b18 gen_bytes=194024960 | cycles:u=46922502 instructions:u=218942945 branch-misses:u=33650 ic_cache_fill_l2:u=133 ic_cache_fill_sys:u=505 
+syn A load1=1.83 mode=cgoto Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=388134455 instructions:u=247468431 branch-misses:u=14809475 ic_cache_fill_l2:u=4273 ic_cache_fill_sys:u=1733 
+syn A load1=1.83 mode=pred Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=456582016 instructions:u=1124074552 branch-misses:u=231 ic_cache_fill_l2:u=1053 ic_cache_fill_sys:u=537 
+syn A load1=1.83 mode=hybrid Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=341694434 instructions:u=960451973 branch-misses:u=2520683 ic_cache_fill_l2:u=1734 ic_cache_fill_sys:u=852 
+syn A load1=1.83 mode=jit Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=183294872 | cycles:u=103769665 instructions:u=282853915 branch-misses:u=57259 ic_cache_fill_l2:u=2891096 ic_cache_fill_sys:u=1130 
+syn A load1=1.83 mode=gen Q=250 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=183294872 | cycles:u=47313376 instructions:u=218942953 branch-misses:u=33858 ic_cache_fill_l2:u=188 ic_cache_fill_sys:u=643 
+syn A load1=1.83 mode=cgoto Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=317650587 instructions:u=243276838 branch-misses:u=10853474 ic_cache_fill_l2:u=2518 ic_cache_fill_sys:u=1413 
+syn A load1=1.83 mode=pred Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=395649954 instructions:u=1124074779 branch-misses:u=175 ic_cache_fill_l2:u=830 ic_cache_fill_sys:u=561 
+syn A load1=1.83 mode=hybrid Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=332068681 instructions:u=981442254 branch-misses:u=1656337 ic_cache_fill_l2:u=1103 ic_cache_fill_sys:u=666 
+syn A load1=1.83 mode=jit Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=172553122 | cycles:u=85960293 instructions:u=278399829 branch-misses:u=54139 ic_cache_fill_l2:u=2716405 ic_cache_fill_sys:u=1028 
+syn A load1=1.83 mode=gen Q=500 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=172553122 | cycles:u=47586785 instructions:u=218942944 branch-misses:u=33644 ic_cache_fill_l2:u=91 ic_cache_fill_sys:u=418 
+syn A load1=1.83 mode=cgoto Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=217146472 instructions:u=239919944 branch-misses:u=7079416 ic_cache_fill_l2:u=1596 ic_cache_fill_sys:u=1368 
+syn A load1=1.83 mode=pred Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=395169539 instructions:u=1124073769 branch-misses:u=179 ic_cache_fill_l2:u=940 ic_cache_fill_sys:u=554 
+syn A load1=1.83 mode=hybrid Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=326381825 instructions:u=998225601 branch-misses:u=975123 ic_cache_fill_l2:u=905 ic_cache_fill_sys:u=529 
+syn A load1=1.83 mode=jit Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=163947490 | cycles:u=92214063 instructions:u=274831701 branch-misses:u=50803 ic_cache_fill_l2:u=2583622 ic_cache_fill_sys:u=1301 
+syn A load1=1.83 mode=gen Q=700 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=163947490 | cycles:u=46348263 instructions:u=218942940 branch-misses:u=33611 ic_cache_fill_l2:u=105 ic_cache_fill_sys:u=515 
+syn A load1=1.83 mode=cgoto Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=168373149 instructions:u=238240508 branch-misses:u=4897689 ic_cache_fill_l2:u=1254 ic_cache_fill_sys:u=1476 
+syn A load1=1.83 mode=pred Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=425081391 instructions:u=1124074158 branch-misses:u=189 ic_cache_fill_l2:u=827 ic_cache_fill_sys:u=583 
+syn A load1=1.83 mode=hybrid Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=323861034 instructions:u=1006618889 branch-misses:u=644447 ic_cache_fill_l2:u=1221 ic_cache_fill_sys:u=742 
+syn A load1=1.83 mode=jit Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=159642583 | cycles:u=112121283 instructions:u=273046906 branch-misses:u=55728 ic_cache_fill_l2:u=2515589 ic_cache_fill_sys:u=412 
+syn A load1=1.83 mode=gen Q=800 nops=16777216 chunk=500 hash=790c54d3fe23805f gen_bytes=159642583 | cycles:u=70409357 instructions:u=218942947 branch-misses:u=33700 ic_cache_fill_l2:u=107 ic_cache_fill_sys:u=389 
+syn A load1=1.83 mode=cgoto Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=151412025 instructions:u=236561072 branch-misses:u=2655205 ic_cache_fill_l2:u=724 ic_cache_fill_sys:u=1396 
+syn A load1=1.83 mode=pred Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=395597565 instructions:u=1124073824 branch-misses:u=257 ic_cache_fill_l2:u=1383 ic_cache_fill_sys:u=809 
+syn A load1=1.83 mode=hybrid Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=321842546 instructions:u=1015016125 branch-misses:u=322300 ic_cache_fill_l2:u=1283 ic_cache_fill_sys:u=715 
+syn A load1=1.83 mode=jit Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=155332873 | cycles:u=92002248 instructions:u=271260397 branch-misses:u=55318 ic_cache_fill_l2:u=2449631 ic_cache_fill_sys:u=1169 
+syn A load1=1.83 mode=gen Q=900 nops=16777216 chunk=500 hash=1e17d2709cc19b17 gen_bytes=155332873 | cycles:u=54302205 instructions:u=218943140 branch-misses:u=34102 ic_cache_fill_l2:u=811 ic_cache_fill_sys:u=537 
+syn A load1=1.83 mode=cgoto Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=88783251 instructions:u=235720617 branch-misses:u=1028129 ic_cache_fill_l2:u=3145 ic_cache_fill_sys:u=1659 
+syn A load1=1.84 mode=pred Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=396887873 instructions:u=1124073856 branch-misses:u=330 ic_cache_fill_l2:u=1455 ic_cache_fill_sys:u=1252 
+syn A load1=1.84 mode=hybrid Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=320741918 instructions:u=1019202533 branch-misses:u=163221 ic_cache_fill_l2:u=1222 ic_cache_fill_sys:u=853 
+syn A load1=1.84 mode=jit Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=153178396 | cycles:u=85254840 instructions:u=270367378 branch-misses:u=57399 ic_cache_fill_l2:u=2418811 ic_cache_fill_sys:u=1422 
+syn A load1=1.84 mode=gen Q=950 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=153178396 | cycles:u=48929340 instructions:u=218942945 branch-misses:u=33731 ic_cache_fill_l2:u=239 ic_cache_fill_sys:u=605 
+syn A load1=1.84 mode=cgoto Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=67724670 instructions:u=235217868 branch-misses:u=347876 ic_cache_fill_l2:u=457 ic_cache_fill_sys:u=1348 
+syn A load1=1.84 mode=pred Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=530703510 instructions:u=1124073813 branch-misses:u=213 ic_cache_fill_l2:u=1018 ic_cache_fill_sys:u=864 
+syn A load1=1.84 mode=hybrid Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=319906364 instructions:u=1021719647 branch-misses:u=66179 ic_cache_fill_l2:u=1237 ic_cache_fill_sys:u=644 
+syn A load1=1.84 mode=jit Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=151889776 | cycles:u=95415646 instructions:u=269833120 branch-misses:u=50582 ic_cache_fill_l2:u=2392310 ic_cache_fill_sys:u=2154 
+syn A load1=1.84 mode=gen Q=980 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=151889776 | cycles:u=51895009 instructions:u=218942944 branch-misses:u=33704 ic_cache_fill_l2:u=113 ic_cache_fill_sys:u=467 
+syn A load1=1.84 mode=cgoto Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=79658739 instructions:u=234881153 branch-misses:u=51 ic_cache_fill_l2:u=44 ic_cache_fill_sys:u=234 
+syn A load1=1.84 mode=pred Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=463155205 instructions:u=1124073804 branch-misses:u=230 ic_cache_fill_l2:u=1097 ic_cache_fill_sys:u=817 
+syn A load1=1.84 mode=hybrid Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=327640450 instructions:u=1023410518 branch-misses:u=281 ic_cache_fill_l2:u=1427 ic_cache_fill_sys:u=842 
+syn A load1=1.84 mode=jit Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=151028499 | cycles:u=96466920 instructions:u=269475964 branch-misses:u=53533 ic_cache_fill_l2:u=2388373 ic_cache_fill_sys:u=714 
+syn A load1=1.84 mode=gen Q=1000 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=151028499 | cycles:u=70236240 instructions:u=218942948 branch-misses:u=33698 ic_cache_fill_l2:u=106 ic_cache_fill_sys:u=456 
+lua A load1=1.84 mode=cgoto prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=637940 instructions:u=2102035 branch-misses:u=6298 ic_cache_fill_l2:u=135 ic_cache_fill_sys:u=381 
+lua A load1=1.84 mode=hybrid prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=762178 instructions:u=3164637 branch-misses:u=5746 ic_cache_fill_l2:u=86 ic_cache_fill_sys:u=309 
+lua A load1=1.84 mode=jit prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=2102515 instructions:u=3555727 branch-misses:u=1823 ic_cache_fill_l2:u=19848 ic_cache_fill_sys:u=187 
+lua A load1=1.84 mode=gen prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=1026308 instructions:u=2957599 branch-misses:u=197 ic_cache_fill_l2:u=35 ic_cache_fill_sys:u=97 
+lua A load1=1.84 mode=cgoto prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=47136591 instructions:u=155915840 branch-misses:u=41752 ic_cache_fill_l2:u=5226 ic_cache_fill_sys:u=3151 
+lua A load1=1.84 mode=hybrid prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=53917214 instructions:u=224067014 branch-misses:u=22517 ic_cache_fill_l2:u=781 ic_cache_fill_sys:u=4288 
+lua A load1=1.84 mode=jit prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=148910805 instructions:u=295591383 branch-misses:u=33549 ic_cache_fill_l2:u=1351888 ic_cache_fill_sys:u=3945 
+lua A load1=1.84 mode=gen prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=54107688 instructions:u=203138387 branch-misses:u=11999 ic_cache_fill_l2:u=192 ic_cache_fill_sys:u=1359 
+syn B load1=1.84 mode=cgoto Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=405818084 bp_de_redirect:u=101 
+syn B load1=1.84 mode=pred Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=405225500 bp_de_redirect:u=60 
+syn B load1=1.84 mode=hybrid Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=0 | cycles:u=347686531 bp_de_redirect:u=403 
+syn B load1=1.84 mode=jit Q=0 nops=16777216 chunk=500 hash=548eaae7df3f3850 gen_bytes=194024960 | cycles:u=90296071 bp_de_redirect:u=54023 
+syn B load1=1.84 mode=gen Q=0 nops=16777216 chunk=500 hash=f44d8dd89b4e9b18 gen_bytes=194024960 | cycles:u=47033239 bp_de_redirect:u=38 
+syn B load1=1.84 mode=cgoto Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=379592627 bp_de_redirect:u=200 
+syn B load1=1.84 mode=pred Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=396778932 bp_de_redirect:u=80 
+syn B load1=1.84 mode=hybrid Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=0 | cycles:u=340138525 bp_de_redirect:u=384 
+syn B load1=1.84 mode=jit Q=250 nops=16777216 chunk=500 hash=4b93962bb4a7fd57 gen_bytes=183294872 | cycles:u=88150156 bp_de_redirect:u=53830 
+syn B load1=1.84 mode=gen Q=250 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=183294872 | cycles:u=47419461 bp_de_redirect:u=27 
+syn B load1=1.84 mode=cgoto Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=300150923 bp_de_redirect:u=121 
+syn B load1=1.84 mode=pred Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=437219564 bp_de_redirect:u=30 
+syn B load1=1.84 mode=hybrid Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=0 | cycles:u=333230587 bp_de_redirect:u=364 
+syn B load1=1.84 mode=jit Q=500 nops=16777216 chunk=500 hash=70a092ef1349d831 gen_bytes=172553122 | cycles:u=100272329 bp_de_redirect:u=53471 
+syn B load1=1.84 mode=gen Q=500 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=172553122 | cycles:u=46615616 bp_de_redirect:u=24 
+syn B load1=1.94 mode=cgoto Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=215328288 bp_de_redirect:u=76 
+syn B load1=1.94 mode=pred Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=395722456 bp_de_redirect:u=101 
+syn B load1=1.94 mode=hybrid Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=0 | cycles:u=326880798 bp_de_redirect:u=315 
+syn B load1=1.94 mode=jit Q=700 nops=16777216 chunk=500 hash=249bec6ea2b598b9 gen_bytes=163947490 | cycles:u=87981319 bp_de_redirect:u=52595 
+syn B load1=1.94 mode=gen Q=700 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=163947490 | cycles:u=58404905 bp_de_redirect:u=30 
+syn B load1=1.94 mode=cgoto Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=176688544 bp_de_redirect:u=54 
+syn B load1=1.94 mode=pred Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=394303940 bp_de_redirect:u=18 
+syn B load1=1.94 mode=hybrid Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=0 | cycles:u=324888343 bp_de_redirect:u=90 
+syn B load1=1.94 mode=jit Q=800 nops=16777216 chunk=500 hash=3b3b72fdb4708c83 gen_bytes=159642583 | cycles:u=86323845 bp_de_redirect:u=51803 
+syn B load1=1.94 mode=gen Q=800 nops=16777216 chunk=500 hash=790c54d3fe23805f gen_bytes=159642583 | cycles:u=59546833 bp_de_redirect:u=52 
+syn B load1=1.94 mode=cgoto Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=117719653 bp_de_redirect:u=81 
+syn B load1=1.94 mode=pred Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=410425150 bp_de_redirect:u=92 
+syn B load1=1.94 mode=hybrid Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=0 | cycles:u=322023109 bp_de_redirect:u=227 
+syn B load1=1.94 mode=jit Q=900 nops=16777216 chunk=500 hash=d5deaadddfd4cf92 gen_bytes=155332873 | cycles:u=111553862 bp_de_redirect:u=50643 
+syn B load1=1.94 mode=gen Q=900 nops=16777216 chunk=500 hash=1e17d2709cc19b17 gen_bytes=155332873 | cycles:u=46137074 bp_de_redirect:u=17 
+syn B load1=1.94 mode=cgoto Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=82218546 bp_de_redirect:u=39 
+syn B load1=1.94 mode=pred Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=394364776 bp_de_redirect:u=66 
+syn B load1=1.94 mode=hybrid Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=0 | cycles:u=321173914 bp_de_redirect:u=341 
+syn B load1=1.94 mode=jit Q=950 nops=16777216 chunk=500 hash=fbdcf8f7fe649342 gen_bytes=153178396 | cycles:u=87239538 bp_de_redirect:u=49507 
+syn B load1=1.94 mode=gen Q=950 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=153178396 | cycles:u=52512477 bp_de_redirect:u=27 
+syn B load1=1.94 mode=cgoto Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=67812594 bp_de_redirect:u=44 
+syn B load1=1.94 mode=pred Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=394332786 bp_de_redirect:u=65 
+syn B load1=1.94 mode=hybrid Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=0 | cycles:u=320725718 bp_de_redirect:u=283 
+syn B load1=1.94 mode=jit Q=980 nops=16777216 chunk=500 hash=05dfe0ea3df10291 gen_bytes=151889776 | cycles:u=90405591 bp_de_redirect:u=46546 
+syn B load1=1.94 mode=gen Q=980 nops=16777216 chunk=500 hash=1297693ce855ce55 gen_bytes=151889776 | cycles:u=45826082 bp_de_redirect:u=34 
+syn B load1=1.94 mode=cgoto Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=60154834 bp_de_redirect:u=28 
+syn B load1=1.94 mode=pred Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=456993345 bp_de_redirect:u=86 
+syn B load1=1.94 mode=hybrid Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=0 | cycles:u=345871472 bp_de_redirect:u=57 
+syn B load1=1.94 mode=jit Q=1000 nops=16777216 chunk=500 hash=a31e272015f12c43 gen_bytes=151028499 | cycles:u=90296368 bp_de_redirect:u=103 
+syn B load1=1.94 mode=gen Q=1000 nops=16777216 chunk=500 hash=9124edb57fb65b2b gen_bytes=151028499 | cycles:u=45922730 bp_de_redirect:u=20 
+lua B load1=1.94 mode=cgoto prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=653811 bp_de_redirect:u=58 
+lua B load1=1.94 mode=hybrid prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=0 state=OK | cycles:u=752558 bp_de_redirect:u=71 
+lua B load1=1.94 mode=jit prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=1277574 bp_de_redirect:u=22978 
+lua B load1=1.94 mode=gen prog=data/natural-full.k6p recs=86685 chunk=500 gen_bytes=1252854 state=OK | cycles:u=617560 bp_de_redirect:u=17 
+lua B load1=1.94 mode=cgoto prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=58640788 bp_de_redirect:u=293 
+lua B load1=1.94 mode=hybrid prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=0 state=OK | cycles:u=94640696 bp_de_redirect:u=117 
+lua B load1=1.94 mode=jit prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=150070892 bp_de_redirect:u=3989605 
+lua B load1=1.94 mode=gen prog=data/bench-full.k6p recs=5954336 chunk=500 gen_bytes=85912025 state=OK | cycles:u=52133605 bp_de_redirect:u=16 
+lua A load1=1.94 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=191845 instructions:u=293235 branch-misses:u=4609 ic_cache_fill_l2:u=80 ic_cache_fill_sys:u=95 
+lua A load1=1.94 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=214913 instructions:u=556160 branch-misses:u=4060 ic_cache_fill_l2:u=175 ic_cache_fill_sys:u=109 
+lua A load1=1.94 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=197562 instructions:u=611153 branch-misses:u=634 ic_cache_fill_l2:u=2897 ic_cache_fill_sys:u=95 
+lua A load1=1.94 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=116863 instructions:u=557452 branch-misses:u=58 ic_cache_fill_l2:u=108 ic_cache_fill_sys:u=31 
+lua B load1=1.94 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=185877 bp_de_redirect:u=39 
+lua B load1=1.94 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=206805 bp_de_redirect:u=47 
+lua B load1=1.94 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=194679 bp_de_redirect:u=1361 
+lua B load1=1.94 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=126177 bp_de_redirect:u=16 
+lua A load1=1.94 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=188514 instructions:u=293235 branch-misses:u=4672 ic_cache_fill_l2:u=49 ic_cache_fill_sys:u=157 
+lua A load1=1.94 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=206202 instructions:u=556159 branch-misses:u=4107 ic_cache_fill_l2:u=28 ic_cache_fill_sys:u=190 
+lua A load1=1.94 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=189809 instructions:u=611153 branch-misses:u=639 ic_cache_fill_l2:u=2852 ic_cache_fill_sys:u=210 
+lua A load1=1.94 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=121770 instructions:u=557452 branch-misses:u=63 ic_cache_fill_l2:u=81 ic_cache_fill_sys:u=30 
+lua B load1=1.94 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=205826 bp_de_redirect:u=56 
+lua B load1=1.94 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=206164 bp_de_redirect:u=55 
+lua B load1=1.94 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=181155 bp_de_redirect:u=1366 
+lua B load1=1.94 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=148824 bp_de_redirect:u=18 
+lua A load1=1.94 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=190147 instructions:u=293235 branch-misses:u=4701 ic_cache_fill_l2:u=90 ic_cache_fill_sys:u=105 
+lua A load1=1.94 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=200713 instructions:u=556159 branch-misses:u=4108 ic_cache_fill_l2:u=101 ic_cache_fill_sys:u=93 
+lua A load1=1.94 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=180333 instructions:u=611153 branch-misses:u=640 ic_cache_fill_l2:u=2900 ic_cache_fill_sys:u=75 
+lua A load1=1.94 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=120435 instructions:u=557452 branch-misses:u=53 ic_cache_fill_l2:u=100 ic_cache_fill_sys:u=20 
+lua B load1=1.94 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=194922 bp_de_redirect:u=40 
+lua B load1=1.94 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=207344 bp_de_redirect:u=50 
+lua B load1=2.02 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=175430 bp_de_redirect:u=1366 
+lua B load1=2.02 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=108590 bp_de_redirect:u=11 
+lua A load1=2.02 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=187973 instructions:u=293236 branch-misses:u=4670 ic_cache_fill_l2:u=122 ic_cache_fill_sys:u=113 
+lua A load1=2.02 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=201352 instructions:u=556159 branch-misses:u=4096 ic_cache_fill_l2:u=75 ic_cache_fill_sys:u=150 
+lua A load1=2.02 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=189352 instructions:u=611153 branch-misses:u=637 ic_cache_fill_l2:u=2886 ic_cache_fill_sys:u=169 
+lua A load1=2.02 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=113426 instructions:u=557452 branch-misses:u=62 ic_cache_fill_l2:u=62 ic_cache_fill_sys:u=67 
+lua B load1=2.02 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=551757 bp_de_redirect:u=45 
+lua B load1=2.02 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=313495 bp_de_redirect:u=42 
+lua B load1=2.02 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=275141 bp_de_redirect:u=1335 
+lua B load1=2.02 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=200026 bp_de_redirect:u=14 
+lua A load1=2.02 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=219390 instructions:u=293235 branch-misses:u=4566 ic_cache_fill_l2:u=43 ic_cache_fill_sys:u=79 
+lua A load1=2.02 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=312450 instructions:u=556160 branch-misses:u=4045 ic_cache_fill_l2:u=80 ic_cache_fill_sys:u=87 
+lua A load1=2.02 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=273772 instructions:u=611153 branch-misses:u=634 ic_cache_fill_l2:u=2806 ic_cache_fill_sys:u=70 
+lua A load1=2.02 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=200478 instructions:u=557452 branch-misses:u=64 ic_cache_fill_l2:u=68 ic_cache_fill_sys:u=22 
+lua B load1=2.02 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=219515 bp_de_redirect:u=37 
+lua B load1=2.02 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=312293 bp_de_redirect:u=42 
+lua B load1=2.02 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=198193 bp_de_redirect:u=1361 
+lua B load1=2.02 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=109891 bp_de_redirect:u=10 
+lua A load1=2.02 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=184722 instructions:u=293235 branch-misses:u=4576 ic_cache_fill_l2:u=69 ic_cache_fill_sys:u=225 
+lua A load1=2.02 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=200598 instructions:u=556160 branch-misses:u=4057 ic_cache_fill_l2:u=105 ic_cache_fill_sys:u=132 
+lua A load1=2.02 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=177709 instructions:u=611153 branch-misses:u=636 ic_cache_fill_l2:u=2825 ic_cache_fill_sys:u=122 
+lua A load1=2.02 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=111744 instructions:u=557452 branch-misses:u=67 ic_cache_fill_l2:u=77 ic_cache_fill_sys:u=49 
+lua B load1=2.02 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=186223 bp_de_redirect:u=45 
+lua B load1=2.02 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=201411 bp_de_redirect:u=50 
+lua B load1=2.02 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=174400 bp_de_redirect:u=1375 
+lua B load1=2.02 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=108782 bp_de_redirect:u=8 
+lua A load1=2.02 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=184302 instructions:u=293235 branch-misses:u=4654 ic_cache_fill_l2:u=56 ic_cache_fill_sys:u=87 
+lua A load1=2.02 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=203049 instructions:u=556160 branch-misses:u=4118 ic_cache_fill_l2:u=101 ic_cache_fill_sys:u=104 
+lua A load1=2.02 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=175825 instructions:u=611154 branch-misses:u=635 ic_cache_fill_l2:u=2933 ic_cache_fill_sys:u=75 
+lua A load1=2.02 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=111330 instructions:u=557452 branch-misses:u=55 ic_cache_fill_l2:u=79 ic_cache_fill_sys:u=31 
+lua B load1=2.02 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=182949 bp_de_redirect:u=44 
+lua B load1=2.02 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=202121 bp_de_redirect:u=49 
+lua B load1=2.02 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=181507 bp_de_redirect:u=1363 
+lua B load1=2.02 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=112332 bp_de_redirect:u=9 
+lua A load1=2.02 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=183347 instructions:u=293236 branch-misses:u=4598 ic_cache_fill_l2:u=114 ic_cache_fill_sys:u=95 
+lua A load1=2.02 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=201428 instructions:u=556159 branch-misses:u=4123 ic_cache_fill_l2:u=128 ic_cache_fill_sys:u=102 
+lua A load1=2.02 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=176402 instructions:u=611153 branch-misses:u=639 ic_cache_fill_l2:u=2858 ic_cache_fill_sys:u=95 
+lua A load1=2.02 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=113797 instructions:u=557452 branch-misses:u=65 ic_cache_fill_l2:u=51 ic_cache_fill_sys:u=114 
+lua B load1=2.02 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=184434 bp_de_redirect:u=56 
+lua B load1=2.02 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=202201 bp_de_redirect:u=48 
+lua B load1=2.02 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=177505 bp_de_redirect:u=1362 
+lua B load1=2.02 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=109168 bp_de_redirect:u=11 
+lua A load1=2.02 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=185971 instructions:u=293235 branch-misses:u=4729 ic_cache_fill_l2:u=59 ic_cache_fill_sys:u=79 
+lua A load1=2.02 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=201222 instructions:u=556159 branch-misses:u=4092 ic_cache_fill_l2:u=91 ic_cache_fill_sys:u=108 
+lua A load1=2.02 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=182749 instructions:u=611153 branch-misses:u=639 ic_cache_fill_l2:u=2878 ic_cache_fill_sys:u=101 
+lua A load1=2.02 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=110708 instructions:u=557452 branch-misses:u=58 ic_cache_fill_l2:u=64 ic_cache_fill_sys:u=68 
+lua B load1=2.02 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=185654 bp_de_redirect:u=47 
+lua B load1=2.02 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=200462 bp_de_redirect:u=48 
+lua B load1=2.02 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=179004 bp_de_redirect:u=1357 
+lua B load1=2.02 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=146680 bp_de_redirect:u=9 
+lua A load1=2.02 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=183768 instructions:u=293235 branch-misses:u=4600 ic_cache_fill_l2:u=89 ic_cache_fill_sys:u=97 
+lua A load1=2.02 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=205790 instructions:u=556159 branch-misses:u=4106 ic_cache_fill_l2:u=129 ic_cache_fill_sys:u=88 
+lua A load1=2.02 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=182165 instructions:u=611153 branch-misses:u=637 ic_cache_fill_l2:u=2861 ic_cache_fill_sys:u=133 
+lua A load1=2.02 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=112455 instructions:u=557452 branch-misses:u=65 ic_cache_fill_l2:u=101 ic_cache_fill_sys:u=40 
+lua B load1=2.02 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=182807 bp_de_redirect:u=40 
+lua B load1=2.02 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=201277 bp_de_redirect:u=55 
+lua B load1=2.02 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=176117 bp_de_redirect:u=1369 
+lua B load1=2.02 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=118983 bp_de_redirect:u=10 
+lua A load1=2.02 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=185261 instructions:u=293235 branch-misses:u=4703 ic_cache_fill_l2:u=71 ic_cache_fill_sys:u=94 
+lua A load1=2.02 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=202161 instructions:u=556159 branch-misses:u=4138 ic_cache_fill_l2:u=80 ic_cache_fill_sys:u=158 
+lua A load1=2.02 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=186931 instructions:u=611153 branch-misses:u=649 ic_cache_fill_l2:u=2851 ic_cache_fill_sys:u=198 
+lua A load1=2.02 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=112129 instructions:u=557452 branch-misses:u=48 ic_cache_fill_l2:u=53 ic_cache_fill_sys:u=73 
+lua B load1=2.02 mode=cgoto prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=188592 bp_de_redirect:u=41 
+lua B load1=2.02 mode=hybrid prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=0 state=OK | cycles:u=200245 bp_de_redirect:u=48 
+lua B load1=2.02 mode=jit prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=184210 bp_de_redirect:u=1338 
+lua B load1=2.02 mode=gen prog=data/natural-once.k6p recs=16333 chunk=500 gen_bytes=171381 state=OK | cycles:u=110378 bp_de_redirect:u=10 
