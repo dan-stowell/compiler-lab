@@ -55,3 +55,29 @@ Designs from the ideator (codex's alternatives are recorded in `phase3-designs-c
 
 ## Success criterion
 At least one chain with ≥100× less measured DRAM than the strongest baseline, end to end, in regime (a), and ideally (b). For each model, the precise operation that forces materialization, with a measured confirmation.
+
+
+## Revision after review (adversary and codex, 2026-11-02)
+
+Both reviews converge:
+1. **Regime (a) restates phase 2's source 1.** A baseline handed the same seed or factors and fused with the generator also moves ~0 DRAM.
+2. **Regime (b) caps Q2 and Q3 at ≤2×.** The strongest baselines need 1–2 passes (XᵀX plus a sketch; histogram plus multiselect), and discovery costs ≥1 pass.
+3. **Given equal structural information, a structure-aware conventional system matches each model wherever operations distribute.** Cover-aware bitset/factorized joins, factor-aware BLAS, and pieces plus selection all qualify.
+4. Q1 as specified was degenerate: overlaps of ~128 make every pair non-empty.
+5. Q3's chain collapsed: a non-negative product makes the running total monotone.
+
+Revised design, the same for each model:
+- **Three implementations:**
+  - (i) a conventional engine fed the same base data, which expands and materializes intermediates as such engines do: DuckDB, or a fused C pipeline;
+  - (ii) the strongest *structure-aware* conventional baseline, given the same compact input;
+  - (iii) the model.
+  - Report DRAM (measured reads, computed writes) for all three over the whole chain. Ratio = baseline ÷ max(model, floor × Gcycles).
+- **Representation-size trajectory:** after each operation of the chain and each adversarial operation, record the size of the compact state (rectangles / rank / pieces / overlap cells). The answer to the critical question is the first operation where it grows to Θ(output) or Θ(N), with the ideator's distributivity criterion as the prediction to test.
+- **Adversarial tests:**
+  - 1 (incompressible input) and 3 (enumeration) are stated as one line of size arithmetic each;
+  - 2, 4 and 5 are run as size counts;
+  - DRAM is measured only for the headline chain and the operation that forces expansion.
+- **Q1:** side sizes cut so expected overlaps are ≲1. Bag/set semantics fixed (a disjoint cover or an explicit multiset). Baseline (ii) is row-deduplicated adjacency (WebGraph-style) with Boolean bitset products. Baseline (i) is DuckDB only where it can finish; otherwise report its tuple counts.
+- **Q2:** baseline (ii) is factor-aware linear algebra. Baseline (i) is a 1-pass XᵀX plus range sketch over materialized X. The point is the op where factor algebra breaks (ReLU, independent permutation join); measure the cost of that op.
+- **Q3:** signed product. Quantiles by exact selection (DuckDB `quantile_disc`, plus a C 2-pass histogram/multiselect), not a full sort. Baseline (ii) is pieces-aware selection. Exact algorithm and arithmetic assumptions are stated.
+- **Measurement hygiene:** all perf DRAM runs take a shared lock (`flock /tmp/claude-1000/-home-exedev/8dacbf12-f718-44f5-a239-aefe4726da86/scratchpad/perf.lock`), pinned to core 2. Report the noise-floor control alongside.
