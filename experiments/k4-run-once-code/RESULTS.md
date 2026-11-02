@@ -110,3 +110,14 @@ Reference: `table` 5.06 cyc/B; `tableB` 1.61 cyc/B.
 - `run.sh`: the full reproduction.
 - `summarize.py`: medians, agreement, derived metrics and the rule line.
 - `results/`: the outputs listed above.
+
+## Independent verification (2026-11-02)
+
+**First verifier:** reproduced the single-chain numbers and showed the table baseline was weak. An 8-lane table (tableB) runs at 1.62 cycles/B.
+
+**Second verifier, after the update:** confirmed.
+- jitL: 3.78–3.84 cycles/B, i.e. 2.35–2.38× tableB. Generation alone is 1.96–1.98 cycles/B. Outputs match.
+- A disassembled chunk shows 8 interleaved chains (544 steps × 8 lanes), branch-free. Each chunk executes exactly once.
+- **Generation floor:** about 4 instructions and ~15 code bytes written per input byte. A store-only test writing 15 B/B takes 0.94 cycles/B. Getting below 0.5 would need under ~8 code bytes per input byte.
+
+**Verdict:** run-once data-fused code is viable (within 3×) but bounded by code-write bandwidth. For a DFA it removes no work.
